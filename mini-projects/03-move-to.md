@@ -1,5 +1,3 @@
-UV LARM 1 - mini-projet
-
 #Déplacer un robot mobile
 
 L'objectif de ce TP est de réaliser un noeud ROS qui prend en paramètre une position à atteindre et qui contrôle les vitesses du robot pour lui permettre d'atteindre cette position cible.
