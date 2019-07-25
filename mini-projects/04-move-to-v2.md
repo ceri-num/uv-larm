@@ -1,10 +1,12 @@
-# Déplacer un robot mobile
+# 04 - git Déplacer un robot mobile V2
 
 L'objectif de ce TP est de réaliser un noeud ROS qui prend en paramètre une position à atteindre et qui contrôle les vitesses du robot pour lui permettre d'atteindre cette position cible.
 
 Notion :
-  * Creer des noeuds paramétrable.
+  * Creer une architecture de plusieurs noeuds
+  * rendre les noeuds paramétrable.
   * Gérer correctement les transformations.
+  * (Voire mertre en lace des services..?)
 
 ## Bouger une base mobile
 

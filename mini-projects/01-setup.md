@@ -1,4 +1,4 @@
-# ROS setup
+# 01 - ROS setup
 
 The goal of this exercise is to set up a computer and a software environment to control robots and to develop robotics programs.
 We choose to work with ROS (the most used open robotic middleware) on a Linux-Ubuntu computer (which are the best supported configuration).
