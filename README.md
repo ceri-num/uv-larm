@@ -24,6 +24,16 @@ This support is stored on [github](https://github.com) shared thanks to [gitbook
 
 
 
+- Historique
+- Les problématiques
+  * (Simu vs robot réel)
+- Dans le cadre du module
+  * le projet compet
+  * les mini-projets
+
+
+  
+
 ## Go further:
 
 Most of the content and supports for learning robotics architecture are already shared on the internet.

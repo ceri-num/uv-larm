@@ -1,20 +1,29 @@
 # Summary
 
-## Courses Part
+## Courses
 
-* [Courses](courses-parts/README.md)
-  * [Introduction](courses-parts/01-Introduction.md)
-  * [MiddleWare](courses-parts/02-MiddleWare-ROS.md)
-  * [Communication inter Process](courses-parts/03-Com-inter-proc.md)
-  * [Mapping](courses-parts/04-Cartographie.md)
-  * [Time and Transformation](courses-parts/05-Time-Transform.md)
-  * [Vision](courses-parts/06-Intro-to-vision.md)
+* [Courses](courses-parts/intro.md)
+  * [Why MiddleWare ?](courses-parts/middleWare-ROS.md)
+  * [Moving robot](courses-parts/move.md)                          <!--Guillaume-->
+  * [Communication Inter-Process](courses-parts/com-inter-proc.md)
+  * [Transformation](courses-parts/transformation.md)
+  * [Mapping and Localization](courses-parts/mapping.md)
+  * [Vision](courses-parts/Intro-to-vision.md)
 
-* [Mini-Project](mini-projects/README.md)
-  * [Setup](mini-projects/01-setup.md)
-  * [Move-to](mini-projects/02-move-to.md)
-  * [Move-to](mini-projects/04-move-to-v2.md)
+* [Tutorials](tutorials/intro.md)
+  * [Setup](tutorials/setup.md)             <!--Guillaume-->
+  * [Move-to](tutorials/move-to.md)         <!--Guillaume-->
+  * [Simulate](tutorials/simulate.md)
+  * [Move-to V2](tutorials/move-to-v2.md)   <!--Guillaume-->
+  * [Mapping](tutorials/mapping.md)
+  * [Vision](tutorials/vision.md)
 
-## Challendge
+## Challendge (1st session)
 
-* [Challendge](challendge)
+  * [Challendge](challendge/intro.md)
+    * [Consigne](tutorials/consigne.md)             
+    * [Evaluation](tutorials/evaluation.md)
+
+## Projects (2d session)
+
+<!--Sur la base des sujets PDRs-->
