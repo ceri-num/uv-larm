@@ -20,7 +20,7 @@
 
 ## Challenge
 
-  * [Challendge](challendge/intro.md)
+  * [Challenge](challenge/intro.md)
     * [Consigne](tutorials/consigne.md)             
     * [Evaluation](tutorials/evaluation.md)
 
