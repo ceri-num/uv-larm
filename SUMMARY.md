@@ -15,7 +15,7 @@
   * [Setup](tutorials/setup.md)             <!--Guillaume-->
   * [Move-to](tutorials/move-to.md)         <!--Guillaume-->
   * [Move-to V2](tutorials/move-to-v2.md)   <!--Guillaume-->
-  * [Mapping](tutorials/mapping.md)			  <!--Luc-->
+  * [SLAM](tutorials/SLAM.md)					  <!--Luc-->
   * [Navigation](tutorials/navigation.md)	  <!--Luc-->
   * [Vision](tutorials/vision.md)
 
