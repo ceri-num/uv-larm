@@ -5,7 +5,7 @@ One solution consists in doing *Simultaneous Localization and Mapping* (a.k.a. S
 
 There are many different flavors of SLAM especially regarding the map format. The dominating 2D map format is the occupancy grid, also called grid map. A grid map is a matrix whose cells represents a defined region of the real world; this is the *resolution* of the grid map (typically a square of 5cm). A cell holds the estimated probability that the space it represents is traversable (free space) or not (obstacle). The simplest format is the 3-state occupancy grid in which a cell has 3 different possible values: 0 (free space), 0.5 (unknown) and 1 (obstacle).
 
-![Overview of a SLAM algorithms that produces a 3-state occupancy grid map and the robot pose (i.e. the robot position and its orientation)](../files/SLAM/SLAMGridMaps.jpg)
+![Overview of a SLAM algorithm that produces a 3-state occupancy grid map and the robot pose (i.e. the robot position and its orientation)](../files/SLAM/SLAMGridMaps.jpg =600x)
 
 <!-- {% hint style="info" %}
 Deeper explanation can be found in
@@ -26,7 +26,7 @@ Deeper explanation can be found in
 
 # ROS Prerequisites
 
-- ROS correctly installed (cf. [Setup](tutorials/setup.md))
+- ROS correctly installed (cf. [Setup](setup.md))
 - A *catkin workspace* directory (usually `~/catkin_ws`) in which you will create your catkin packages or install third party ones
 
 # 2d Simulation with Stage 
@@ -70,22 +70,44 @@ You can explore the files installed by these two packages:
 	```
 
 <!-- 
-rostopic list	
 rqt_image
 rviz
-move robot around
-.world format
 -->
+You can use various ROS tools to analyse what is involved in this simulation.
+
+	```shell
+	# show the ROS graph (nodes + topics)
+	$ rqt_graph
+
+	# list the ROS topics and available data
+	$ rostopic list
+
+	# read the willow-erratic.world file
+	$ gedit $(rospack find stage_ros)/world/willow-erratic.world
+	
+	# launch a pre-configured rviz
+	$ rviz -d $(rospack find stage_ros)/rviz/stage.rviz
+	```
+
+[rviz](http://wiki.ros.org/rviz) is a very useful and versatile tool to visualize data that goes through topics. 
+
+![rviz dispaying laser scans data published into `/base_scan` topic by stage)](rviz_laserscan.png =600x)
+
+##Controlling the Simulated Robot
+
+
+<!-- move robot around -->
+
 
 ##Advanced Stage 
 
-[Documentation](https://player-stage-manual.readthedocs.io/en/stable/WORLDFILES/)
-
-You can customize your simulation by changing the `.world` and for example:
+You can customize your simulation by writing your own `.world` file and for example:
 - change the map
 - change the robot model (sensors, body shape, ...)
 - add multiple robots into the scene
 - ...
+
+You can find `world` file examples into the `stage_ros` and `stage` catkin packages as well as read the [documentation](https://player-stage-manual.readthedocs.io/en/stable/WORLDFILES/).
 
 #Create and Version control your first catkin package
 
