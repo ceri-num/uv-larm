@@ -93,7 +93,7 @@ You can use various ROS tools to analyse what is involved in this simulation.
 
 [rviz](http://wiki.ros.org/rviz) is a very useful and versatile tool to visualize data that goes through topics. 
 
-![rviz dispaying laser scans data published into `/base_scan` topic by stage)](../files/SLAM/rviz_laserscan.png)
+![rviz dispaying laser scans data published into the /base_scan topic by stage)](../files/SLAM/rviz_laserscan.png)
 
 ##Controlling the Simulated Robot
 
