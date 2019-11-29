@@ -65,14 +65,16 @@ You can explore the files installed by these two packages:
 	```shell
 	$ roscore
 	...
-	# another shell
+	# Launch stage in another shell
 	$ rosrun stage_ros stageros $(rospack find stage_ros)/world/willow-erratic.world
 	```
 
-<!-- 
-rqt_image
-rviz
--->
+![stage simulation with one robot (blue square) equipped with a laser scanner](../files/SLAM/stage.png)
+
+By pressing `r`, the stage simulation is rendered in 3d:
+ 
+![3d-view on the same stage simulation](../files/SLAM/stage-3d.png)
+
 You can use various ROS tools to analyse what is involved in this simulation.
 
 	```shell
@@ -98,6 +100,10 @@ You can use various ROS tools to analyse what is involved in this simulation.
 
 <!-- move robot around -->
 
+<!-- 
+rqt_image
+rviz
+-->
 
 ##Advanced Stage 
 
