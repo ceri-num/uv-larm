@@ -117,37 +117,50 @@ You can find `world` file examples into the `stage_ros` and `stage` catkin packa
 
 #Create and Version control your first catkin package
 
-1. Create a catkin package `larm1_mapping`
 
-	```shell
-	$ cd ~/catkin_ws
-	$ create_catkin_package larm1_mapping
-	catkin_make
-	```
+1. Connect to your account on [gvipers](https://gvipers.imt-lille-douai.fr/) (IMT Lille Douai gitlab)
 
-2. Ensure you have an account on [gvipers](https://gvipers.imt-lille-douai.fr/) (IMT Lille Douai gitlab)
+2. Create a repository named `larm1_slam` 
 
-3. Create a repository named `larm1_mapping` 
-
-4. rename ~/catkin_ws/src/larm1_mapping into ~/catkin_ws/src/larm1_mapping.old
-
-4. Clone your git repository into `~/catkin_ws/src` 
+3. Clone your git repository into `~/catkin_ws/src` 
 
 	```shell
 	$ cd ~/catkin_ws/src
-	$ git clone https://gvipers.imt-lille-douai.fr/XXXX/larm1_mapping
-	```
+	$ git clone https://gvipers.imt-lille-douai.fr/XXXX/larm1_slam
+	``` 
+4. Create two files in this catkin package:
 
-5. Move files and commit 
+	```shell
+	# empty CMakeLists.txt
+	$ touch CMakeLists.txt
+	
+	# mandatory metadata of this catkin package
+	$ cat > package.xml <<END
+		<package>
+		  <name>larm1_slam</name>
+		  <version>0.0.1</version>
+		  <description>
+		      SLAM experiements
+		  </description>
+		  <maintainer email="luc@luc.sw">Luc</maintainer>
+		  <license>BSD</license>
+		</package>
+		END
+	```
+	
+	Note that the `catkin_create_pkg` command tool can generate these two files, however it then requires to move file around to version them on git.
+
+5. Commit / push 
 	
 	```shell
-	$ mv ~/catkin_ws/src/larm1_mapping.old/* ~/catkin_ws/src/larm1_mapping/
-	$ rm -fr ~/catkin_ws/src/larm1_mapping.old
-	$ cd ~/catkin_ws/src/larm1_mapping
-	$ git add -A
-	$ git commit -m "my mapping package"
+	$ cd ~/catkin_ws/src/larm1_slam
+	$ git status # to view modified files
+	$ git add -A # to add all file into the staging area
+	$ git commit -m "my slam package"
 	$ git push
 	```
+
+	You can check on the web interface of your git repository to see these files.
 
 <!-- The floorplan map is given (*dia.pgm*). -->
 <!-- The directory `~/catkin_ws/src/larm1_mapping` should contains: -->
