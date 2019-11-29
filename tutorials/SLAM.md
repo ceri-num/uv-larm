@@ -5,7 +5,7 @@ One solution consists in doing *Simultaneous Localization and Mapping* (a.k.a. S
 
 There are many different flavors of SLAM especially regarding the map format. The dominating 2D map format is the occupancy grid, also called grid map. A grid map is a matrix whose cells represents a defined region of the real world; this is the *resolution* of the grid map (typically a square of 5cm). A cell holds the estimated probability that the space it represents is traversable (free space) or not (obstacle). The simplest format is the 3-state occupancy grid in which a cell has 3 different possible values: 0 (free space), 0.5 (unknown) and 1 (obstacle).
 
-![Overview of a SLAM algorithm that produces a 3-state occupancy grid map and the robot pose (i.e. the robot position and its orientation)](../files/SLAM/SLAMGridMaps.jpg =600x)
+![Overview of a SLAM algorithm that produces a 3-state occupancy grid map and the robot pose (i.e. the robot position and its orientation)](../files/SLAM/SLAMGridMaps.jpg | width=600)
 
 <!-- {% hint style="info" %}
 Deeper explanation can be found in
@@ -91,7 +91,7 @@ You can use various ROS tools to analyse what is involved in this simulation.
 
 [rviz](http://wiki.ros.org/rviz) is a very useful and versatile tool to visualize data that goes through topics. 
 
-![rviz dispaying laser scans data published into `/base_scan` topic by stage)](rviz_laserscan.png =600x)
+![rviz dispaying laser scans data published into `/base_scan` topic by stage)](../files/SLAM/rviz_laserscan.png | width=600)
 
 ##Controlling the Simulated Robot
 
@@ -159,8 +159,6 @@ Everything should be launched with one *launch file* and committed in **your** g
 
 it should open stage, rviz
 
-
-## Rviz
 
 
 # Gazebo Simulator
