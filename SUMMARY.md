@@ -1,23 +1,22 @@
 # Outline
 
-## Lectures
+## Tutorials
 
-* [Lectures](courses-parts/intro.md)
+<!-- * [Lectures](courses-parts/intro.md)
   * [Why MiddleWare ?](courses-parts/middleWare-ROS.md)
-  * [Moving robot](courses-parts/move.md)                          <!--Guillaume-->
+  * [Moving robot](courses-parts/move.md)                         
   * [Communication Inter-Process](courses-parts/com-inter-proc.md)
   * [Transformation](courses-parts/transformation.md)
   * [Localization and Mapping](courses-parts/mapping.md)
   * [Autonomous Navigation](courses-parts/navigation.md)
-  * [Vision](courses-parts/Intro-to-vision.md)
+  * [Vision](courses-parts/Intro-to-vision.md) -->
 
-* [Tutorials](tutorials/intro.md)
-  * [Setup](tutorials/setup.md)             <!--Guillaume-->
-  * [Move-to](tutorials/move-to.md)         <!--Guillaume-->
-  * [Move-to V2](tutorials/move-to-v2.md)   <!--Guillaume-->
-  * [SLAM](tutorials/SLAM.md)					  <!--Luc-->
-  * [Navigation](tutorials/navigation.md)	  <!--Luc-->
-  * [Vision](tutorials/vision.md)
+* [Setup](tutorials/setup.md)             <!--Guillaume-->
+* [Move-to](tutorials/move-to.md)         <!--Guillaume-->
+* [Move-to V2](tutorials/move-to-v2.md)   <!--Guillaume-->
+* [SLAM](tutorials/SLAM.md)					<!--Luc-->
+* [Navigation](tutorials/navigation.md)	<!--Luc-->
+* [Vision](tutorials/vision.md)
 
 ## Challenge
 
