@@ -1,4 +1,4 @@
-# Control and monitor robot movement.
+# Control and monitor robot movement
 
 
 ## Actuators
@@ -10,6 +10,6 @@
 ## Movement planning
 
 
-## Proprioseptive Sensors
+## Proprioceptive sensors
 
- Odometrie.
+ Odometrie

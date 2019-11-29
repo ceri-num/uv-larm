@@ -1,8 +1,6 @@
-# MiddleWare - ROS
+# ROS: Robot Operating System
 
-Tours d'orizon
-
-- Besoin
+- Middleware
 - Fonctionnalité
-- Commande Principals
+- Commandes Principales
 - Outils (RViz...)
