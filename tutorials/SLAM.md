@@ -131,7 +131,7 @@ You can find `world` file examples into the `stage_ros` and `stage` catkin packa
 4. Create two files in this catkin package:
 
 	```shell
-	# empty CMakeLists.txt
+	# create an empty CMakeLists.txt
 	$ touch CMakeLists.txt
 	
 	# mandatory metadata of this catkin package
@@ -148,19 +148,22 @@ You can find `world` file examples into the `stage_ros` and `stage` catkin packa
 		END
 	```
 	
-	Note that the `catkin_create_pkg` command tool can generate these two files, however it then requires to move file around to version them on git.
+	Note that the `catkin_create_pkg` command tool can generate these two files, however it then requires to move files around to version them on git.
 
 5. Commit / push 
 	
 	```shell
 	$ cd ~/catkin_ws/src/larm1_slam
 	$ git status # to view modified files
-	$ git add -A # to add all file into the staging area
+	$ git add -A # to add all files into the staging area
 	$ git commit -m "my slam package"
 	$ git push
 	```
 
 	You can check on the web interface of your git repository to see these files.
+	
+	There tons of ressources on the Web to learn more about git. 
+	You can find your own or have a look at this one: [learngitbranching](https://learngitbranching.js.org/).
 
 <!-- The floorplan map is given (*dia.pgm*). -->
 <!-- The directory `~/catkin_ws/src/larm1_mapping` should contains: -->
@@ -197,6 +200,18 @@ http://car.imt-lille-douai.fr/polyslam/
 both in simul and real world
 
 <!-- Map accurracy and comparison -->
+
+
+
+# [Bonus] Map building using RTAB-Map
+
+You can also build 3d maps using an RGB-D camera such as the Realsense.
+For this, you need to use another SLAM algorithm such as [RTAB-Map](http://wiki.ros.org/rtabmap_ros) with a [Realsense D435i](https://github.com/IntelRealSense/realsense-ros/wiki/SLAM-with-D435i).
+
+As before, create different launch files:
+- `realsenseTobag.launch` to save realsense data into a rosbag.
+- `createMapfromRealsenseData.launch` to create and save the map using RTAB-Map from the bagfile
+- `realsenseNavigation.launch` to load the saved map, localize and autonomously navigate on it
 
 # Bibliography 
 
