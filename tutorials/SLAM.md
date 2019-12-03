@@ -97,13 +97,28 @@ You can use various ROS tools to analyse what is involved in this simulation.
 
 ##Controlling the Simulated Robot
 
+Install needed packets if needed:
 
-<!-- move robot around -->
+	```shell
+	$ sudo apt install ros-melodic-teleop-twist-keyboard
+	```
 
-<!-- 
-rqt_image
-rviz
--->
+Launch a simple node to control a robot using keyboard:
+
+	```shell
+	$ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+	```
+![teleop to control the robot into stage](../files/SLAM/teleop.png)
+
+Use `rqt_graph` to see the graph of ROS nodes and the topics they use to communicate.
+
+![rqt_graph shows ROS nodes and topics](../files/SLAM/rqt_graph.png)
+
+Using `rostopic echo`, you see the data exchanged.
+
+![Echo data published into the /cmdvel topic](../files/SLAM/cmdvel_echo.png)
+
+Try to issue a command (`rostopic pub`) that mimic `teleop_twist_keyboard` by publishing data directly into the topic `/cmd_vel`.
 
 ##Advanced Stage 
 
@@ -160,9 +175,9 @@ You can find `world` file examples into the `stage_ros` and `stage` catkin packa
 	$ git push
 	```
 
-	You can check on the web interface of your git repository to see these files.
+	You can now check on the web interface of your git repository to see these committed files.
 	
-	There tons of ressources on the Web to learn more about git. 
+	There are tons of ressources on the Web to learn more about git. 
 	You can find your own or have a look at this one: [learngitbranching](https://learngitbranching.js.org/).
 
 <!-- The floorplan map is given (*dia.pgm*). -->
@@ -174,18 +189,24 @@ You can find `world` file examples into the `stage_ros` and `stage` catkin packa
 The objective is to implement a full-fledge simulation using stage with one robot equipped with 2d laser ranger.
 Everything should be launched with one *launch file* and committed in **your** git repository.
 
-
 	```shell
 	roslaunch larm1_mapping robot_stage.world
 	```
 
-it should open stage, rviz
+`rviz` might be launched also using an optionnal argument to the launch file.
+ 
+	```shell
+	roslaunch larm1_mapping robot_stage.world rviz:=true
+	```
 
-
+The [launch file documentation](http://wiki.ros.org/roslaunch).
 
 # Gazebo Simulator
 
+[Gazebo](http://gazebosim.org/) simulator makes it possible to rapidly test algorithms, design robots, perform regression testing, and train AI system using realistic scenarios. Gazebo is integrated with ROS (cf. [Gezebo ROS](http://wiki.ros.org/gazebo_ros_pkgs)) and supports various robots out of the box.
+For example, you can follow [this tutorial](http://docs.fetchrobotics.com/gazebo.html) to simulate the *freight robot* (available at IMT Lille Douai). 
 
+![Example of Gazebo simulation with a fetch robot](../files/SLAM/gazebo.png)
 
 # Save and Replay Topic Data using `rosbag`
 
