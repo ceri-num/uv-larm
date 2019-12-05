@@ -118,7 +118,7 @@ Using `rostopic echo`, you see the data exchanged.
 
 ![Echo data published into the /cmdvel topic](../files/SLAM/cmdvel_echo.png)
 
-Try to issue a command (`rostopic pub`) that mimic `teleop_twist_keyboard` by publishing data directly into the topic `/cmd_vel`.
+Try to issue a command (`rostopic pub`) that mimic `teleop_twist_keyboard` by publishing data directly into the topic `/cmd_vel`, it should make the robot move into stage.
 
 ##Advanced Stage 
 
@@ -186,27 +186,29 @@ You can find `world` file examples into the `stage_ros` and `stage` catkin packa
 
 #**Your** first launch file
 
-The objective is to implement a full-fledge simulation using stage with one robot equipped with 2d laser ranger.
-Everything should be launched with one *launch file* and committed in **your** git repository.
+Into your `larm1_slam` catkin package, create a *launch file* named `robot_stage.world` that launches a full-fledge simulation using stage with one robot equipped with 2d laser ranger.
+The [launch file documentation](http://wiki.ros.org/roslaunch).
+Once this file finished, you should be able to launch everything with this single command line:
 
 	```shell
-	roslaunch larm1_mapping robot_stage.world
+	roslaunch larm1_slam robot_stage.world
 	```
 
 `rviz` might be launched also using an optionnal argument to the launch file.
  
 	```shell
-	roslaunch larm1_mapping robot_stage.world rviz:=true
+	roslaunch larm1_slam robot_stage.world rviz:=true
 	```
-
-The [launch file documentation](http://wiki.ros.org/roslaunch).
-
+	
 # Gazebo Simulator
 
 [Gazebo](http://gazebosim.org/) simulator makes it possible to rapidly test algorithms, design robots, perform regression testing, and train AI system using realistic scenarios. Gazebo is integrated with ROS (cf. [Gezebo ROS](http://wiki.ros.org/gazebo_ros_pkgs)) and supports various robots out of the box.
 For example, you can follow [this tutorial](http://docs.fetchrobotics.com/gazebo.html) to simulate the *freight robot* (available at IMT Lille Douai). 
 
 ![Example of Gazebo simulation with a fetch robot](../files/SLAM/gazebo.png)
+
+For your information, Gazebo is heavily used by the DARPA challenges (cf. [Wikipedia](https://en.wikipedia.org/wiki/Gazebo_simulator)).
+You can see videos online ([example](https://www.youtube.com/watch?v=v6-heLIg85o)) and even load the maps and robot model that are available.
 
 # Save and Replay Topic Data using `rosbag`
 
@@ -216,13 +218,19 @@ Data sets
 http://car.imt-lille-douai.fr/polyslam/
 
 
+# Controlling a turtlebot
+
+
+
+
 # Map building using GMapping
 
-both in simul and real world
+- in simulation
+- online on a real robot
+- with a bagfile
 
 <!-- Map accurracy and comparison -->
-
-
+<!-- cite -->
 
 # [Bonus] Map building using RTAB-Map
 
