@@ -120,6 +120,8 @@ Using `rostopic echo`, you see the data exchanged.
 
 Try to issue a command (`rostopic pub`) that mimic `teleop_twist_keyboard` by publishing data directly into the topic `/cmd_vel`, it should make the robot move into stage.
 
+Find how to control a robot with a joypad (xbox, ps3/4 controllers).
+
 ##Advanced Stage 
 
 You can customize your simulation by writing your own `.world` file and for example:
@@ -191,13 +193,13 @@ The [launch file documentation](http://wiki.ros.org/roslaunch).
 Once this file finished, you should be able to launch everything with this single command line:
 
 	```shell
-	roslaunch larm1_slam robot_stage.world
+	roslaunch larm1_slam robot_stage.launch
 	```
 
 `rviz` might be launched also using an optionnal argument to the launch file.
  
 	```shell
-	roslaunch larm1_slam robot_stage.world rviz:=true
+	roslaunch larm1_slam robot_stage.launch rviz:=true
 	```
 	
 # Gazebo Simulator
