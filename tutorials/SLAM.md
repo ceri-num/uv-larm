@@ -205,34 +205,62 @@ Once this file finished, you should be able to launch everything with this singl
 # Gazebo Simulator
 
 [Gazebo](http://gazebosim.org/) simulator makes it possible to rapidly test algorithms, design robots, perform regression testing, and train AI system using realistic scenarios. Gazebo is integrated with ROS (cf. [Gezebo ROS](http://wiki.ros.org/gazebo_ros_pkgs)) and supports various robots out of the box.
-For example, you can follow [this tutorial](http://docs.fetchrobotics.com/gazebo.html) to simulate the *freight robot* (available at IMT Lille Douai). 
+
+Gazebo is heavily used by the DARPA challenges (cf. [Wikipedia](https://en.wikipedia.org/wiki/Gazebo_simulator)).
+You can see videos online ([example](https://www.youtube.com/watch?v=v6-heLIg85o)) and even load the maps and robot model that are available.
+
+Follow [this tutorial](http://docs.fetchrobotics.com/gazebo.html) to simulate the *freight robot* (available at IMT Lille Douai). 
 
 ![Example of Gazebo simulation with a fetch robot](../files/SLAM/gazebo.png)
 
-For your information, Gazebo is heavily used by the DARPA challenges (cf. [Wikipedia](https://en.wikipedia.org/wiki/Gazebo_simulator)).
-You can see videos online ([example](https://www.youtube.com/watch?v=v6-heLIg85o)) and even load the maps and robot model that are available.
+	```shell
+	$ roslaunch fetch_gazebo playground.launch robot:=freight
+	
+	$ roslaunch teleop_twist_joy teleop.launch joy_config:=xbox
+	```
 
-# Save and Replay Topic Data using `rosbag`
+Write and commit a new launch file into your `larm1_slam` package that launch everything:
 
-
-Data sets
-
-http://car.imt-lille-douai.fr/polyslam/
-
-
-# Controlling a turtlebot
-
-
-
+	```shell
+	roslaunch larm1_slam freight_gazebo.launch rviz:=true xbox:=true
+	```
 
 # Map building using GMapping
 
-- in simulation
-- online on a real robot
-- with a bagfile
+There are a lot of different SLAM algorithms and some implementations are open source and available on [openslam](https://openslam-org.github.io/).
 
-<!-- Map accurracy and comparison -->
-<!-- cite -->
+We will use here the [GMapping](http://wiki.ros.org/gmapping) ROS implementation.
+
+@@TODO
+
+
+
+# Save and Replay Topic Data using `rosbag`
+
+Using the `rosbag` command line, you can record into a *bag* file some topics data. 
+It is possible to record all topics or only some of them.
+Afterwards, you can play a bag file.
+ 
+[Bag files](http://wiki.ros.org/Bags) and the [rosbag command](http://wiki.ros.org/rosbag/Tutorials/Recording%20and%20playing%20back%20data) are really interesing to test algorithms on real data sets that have been recorded in specific location and specific sensors.  
+
+GMapping on rosbag
+http://wiki.ros.org/slam_gmapping/Tutorials/MappingFromLoggedData
+
+
+Data sets
+http://radish.sourceforge.net/
+https://vision.in.tum.de/data/datasets/rgbd-dataset/download
+http://www.ipb.uni-bonn.de/datasets/
+http://car.imt-lille-douai.fr/polyslam/
+
+
+Comparing resulting maps and localization:
+- cite Sang's paper
+- Python package for the evaluation of odometry and SLAM
+https://michaelgrupp.github.io/evo/
+
+
+
 
 # [Bonus] Map building using RTAB-Map
 
