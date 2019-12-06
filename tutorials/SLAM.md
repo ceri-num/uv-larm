@@ -201,7 +201,14 @@ Once this file finished, you should be able to launch everything with this singl
 	```shell
 	roslaunch larm1_slam robot_stage.launch rviz:=true
 	```
-	
+
+When a launch file uses a simulator instead of a real robot, it is mandatory that ensure that ROS uses the simulator clock instead of the real clock of your machine (cf. [ROS clock documentation](http://wiki.ros.org/Clock)).
+To achieve this, add this line into your launch file:
+
+	```xml
+	 <param name="/use_sim_time" value="true">
+	```
+
 # Gazebo Simulator
 
 [Gazebo](http://gazebosim.org/) simulator makes it possible to rapidly test algorithms, design robots, perform regression testing, and train AI system using realistic scenarios. Gazebo is integrated with ROS (cf. [Gezebo ROS](http://wiki.ros.org/gazebo_ros_pkgs)) and supports various robots out of the box.
@@ -219,48 +226,106 @@ Follow [this tutorial](http://docs.fetchrobotics.com/gazebo.html) to simulate th
 	$ roslaunch teleop_twist_joy teleop.launch joy_config:=xbox
 	```
 
-Write and commit a new launch file into your `larm1_slam` package that launch everything:
+At IMT Lille Douai, we also have turtlebot robots that you can simulate in gazebo:
+
+
+	```shell
+	roslaunch turtlebot_gazebo turtlebot_world.launch
+	```
+
+Write and commit a new launch file into your `larm1_slam` package that launches everything:
 
 	```shell
 	roslaunch larm1_slam freight_gazebo.launch rviz:=true xbox:=true
 	```
 
+<!-- gazebo models
+	cd ~/.gazebo/
+	rm -fr models
+	wget https://bitbucket.org/osrf/gazebo_models/get/e6d645674e8a.zip
+	unzip osrf*.zip 
+	rm *.zip
+	mv osrf* models
+	-->
+	
 # Map building using GMapping
 
 There are a lot of different SLAM algorithms and some implementations are open source and available on [openslam](https://openslam-org.github.io/).
 
 We will use here the [GMapping](http://wiki.ros.org/gmapping) ROS implementation.
 
-@@TODO
+	```shell
+	$ sudo apt install ros-melodic-openslam-gmapping ros-melodic-slam-gmapping
+	```
+
+To test it in simulation with stage, write a new launch file:
 
 
+	```shell
+	$ roslaunch larm1_slam robot_stage_gmapping.launch rviz:=true
+	```
+
+This launch file should launch:
+
+- stage
+- rviz
+- teleop keyboard or joy
+- gmapping
+
+Now, if you teleoperate the robot in the simulated environment, you should see the result of GMapping (both the map and robot pose) updated in `rviz`.
+
+![rviz showing laser scans and the resulting map and robot pose of GMapping](../files/SLAM/gmapping_stage_rviz.png)
+
+There are a lot of things to take care to make `GMapping` work.
+Try to think of the following questions:
+- How GMapping get laser scans data?
+- How GMapping correct robot position according to scan matching?
+
+To solve problems, you must use ROS tools and analyse the result of `rqt_graph` as well as the [tf tree](http://wiki.ros.org/tf) (transformation frames) for example. 
+Transformation frames (tf) is an important concept in ROS so read the tf documentation carrefully.
+The correct ROS and tf graphs are shown below.
+ 
+![GMapping demo rqt_graph](../files/SLAM/gmapping_stage_rqt_graph.png)
+
+	```shell
+	# command to export the tf tree
+	$ rosrun tf view_frames
+	...
+	$ evince frames.pdf
+	```
+
+![tf tree](../files/SLAM/gmapping_stage_tf.png)
+
+<!-- http://moorerobots.com/blog/post/3 -->
 
 # Save and Replay Topic Data using `rosbag`
 
-Using the `rosbag` command line, you can record into a *bag* file some topics data. 
-It is possible to record all topics or only some of them.
-Afterwards, you can play a bag file.
- 
-[Bag files](http://wiki.ros.org/Bags) and the [rosbag command](http://wiki.ros.org/rosbag/Tutorials/Recording%20and%20playing%20back%20data) are really interesing to test algorithms on real data sets that have been recorded in specific location and specific sensors.  
+Working in simulation is nice but we can do better and work directly on real data using the `rosbag` command tool.
+With the [rosbag command](http://wiki.ros.org/rosbag/Tutorials/Recording%20and%20playing%20back%20data), you can record some topics (all data that goes through) into a [bag file](http://wiki.ros.org/Bags) and play them later on. 
+Bag files are really useful to test algorithms on real data sets that have been recorded in specific location and specific sensors.  
+Moreover, there are a lot of public datasets available:
 
-GMapping on rosbag
-http://wiki.ros.org/slam_gmapping/Tutorials/MappingFromLoggedData
+- (http://radish.sourceforge.net/)
+- (https://vision.in.tum.de/data/datasets/rgbd-dataset/download)
+- (http://www.ipb.uni-bonn.de/datasets/)
+- (http://car.imt-lille-douai.fr/polyslam/)
 
+Follow the [GMapping tutorial using a rosbag](http://wiki.ros.org/slam_gmapping/Tutorials/MappingFromLoggedData).
+Write and commit your own launch file named `gmapping_rosbag.launch` into the `larm1_slam` catkin package that launches a GMapping on a specific bagfile. This launch file should open an Rviz to see the map construction.
 
-Data sets
-http://radish.sourceforge.net/
-https://vision.in.tum.de/data/datasets/rgbd-dataset/download
-http://www.ipb.uni-bonn.de/datasets/
-http://car.imt-lille-douai.fr/polyslam/
+When the rosbag has finished to play, you can save the GMapping resulting map using the followin command:
 
+	```shell
+	# save the GMapping map into a file
+	$ rosrun map_server map_saver -f myMap
+	```
+	
+You will get a file named `myMap.pgm` that is an image format representing the 3-state occupancy grid.
 
-Comparing resulting maps and localization:
+<!-- Comparing resulting maps and localization:
 - cite Sang's paper
 - Python package for the evaluation of odometry and SLAM
-https://michaelgrupp.github.io/evo/
-
-
-
+https://michaelgrupp.github.io/evo/ -->
 
 # [Bonus] Map building using RTAB-Map
 
