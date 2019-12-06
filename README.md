@@ -15,8 +15,7 @@ This lectures is composed of multiple guided tutorials (non-exhaustive list):
 
 * Setting up your own ROS environment
 * Moving a robot
-* Simulatenous Localization and Mapping (SLAM)
-* Autonomous Navigation 
+* Simulatenous Localization and Mapping (SLAM) and Autonomous Navigation
 * Robotics Vision 
 
 ## Challenge

@@ -305,13 +305,13 @@ With the [rosbag command](http://wiki.ros.org/rosbag/Tutorials/Recording%20and%2
 Bag files are really useful to test algorithms on real data sets that have been recorded in specific location and specific sensors.  
 Moreover, there are a lot of public datasets available:
 
-- (http://radish.sourceforge.net/)
-- (https://vision.in.tum.de/data/datasets/rgbd-dataset/download)
-- (http://www.ipb.uni-bonn.de/datasets/)
-- (http://car.imt-lille-douai.fr/polyslam/)
+- http://radish.sourceforge.net/
+- https://vision.in.tum.de/data/datasets/rgbd-dataset/download
+- http://www.ipb.uni-bonn.de/datasets/
+- http://car.imt-lille-douai.fr/polyslam/
 
 Follow the [GMapping tutorial using a rosbag](http://wiki.ros.org/slam_gmapping/Tutorials/MappingFromLoggedData).
-Write and commit your own launch file named `gmapping_rosbag.launch` into the `larm1_slam` catkin package that launches a GMapping on a specific bagfile. This launch file should open an Rviz to see the map construction.
+Write and commit your own launch file named `gmapping_rosbag.launch` into the `larm1_slam` catkin package that launches a GMapping on a specific bagfile (I suggest the [DIA 1st floor](http://car.imt-lille-douai.fr/johann/turtlebot_dia.bag.gz)). This launch file should open an Rviz to see the map construction.
 
 When the rosbag has finished to play, you can save the GMapping resulting map using the followin command:
 
@@ -327,6 +327,19 @@ You will get a file named `myMap.pgm` that is an image format representing the 3
 - Python package for the evaluation of odometry and SLAM
 https://michaelgrupp.github.io/evo/ -->
 
+# Autonomous Navigation
+
+Using the saved map, it is now possible to achieve autonomous navigation i.e. the robot can compute a global trajectory to a target point and then autonomously navigate to through this trajectory while avoiding obstacles locally. 
+
+Write a new launch file named `navigation.launch` that achieve this.
+Goals can be sent trhough rviz by clicking on a specific location on the loaded map.
+
+Documentation and packages:
+- http://wiki.ros.org/navigation/Tutorials
+- http://wiki.ros.org/map_server
+- http://wiki.ros.org/amcl
+- http://wiki.ros.org/move_base
+
 # [Bonus] Map building using RTAB-Map
 
 You can also build 3d maps using an RGB-D camera such as the Realsense.
@@ -337,6 +350,3 @@ As before, create different launch files:
 - `createMapfromRealsenseData.launch` to create and save the map using RTAB-Map from the bagfile
 - `realsenseNavigation.launch` to load the saved map, localize and autonomously navigate on it
 
-# Bibliography 
-
-[1] Phd Johann
