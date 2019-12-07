@@ -9,24 +9,23 @@ This support is stored on [github](https://github.com) shared thanks to [gitbook
   - On gitbook: <https://ceri-num.gitbook.io/uv-larm/>
   - On GitHub: <https://github.com/ceri-num/uv-larm>
 
-##Tutorials
+## Tutorials
 
-This lectures is composed of multiple guided tutorials (non-exhaustive list): 
+This lectures is composed of multiple guided tutorials (non-exhaustive list):
 
 * Setting up your own ROS environment
 * Moving a robot
 * Simulatenous Localization and Mapping (SLAM)
-* Autonomous Navigation 
-* Robotics Vision 
+* Autonomous Navigation
+* Robotics Vision
 
 ## Challenge
 
-- Historique
-- Les problématiques
-  * (Simu vs robot réel)
-- Dans le cadre du module
-  * le projet compet
-  * les mini-projets
+The evaluation mainly realizes on an application through a specific challenge:
+
+- Control an **AGV**
+- Mapping and Localization
+- Research and recognition of an object
 
 ## Going further
 

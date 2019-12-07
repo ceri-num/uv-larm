@@ -22,8 +22,9 @@ It is not recommended to use Ubuntu+ROS in a virtual machine (the performances w
   - Install ubuntu 18.04 LTS (Long Term Supported version) from live USB-Key
   - use all the hard disk
   - Configure "bot" username and "bot" password.
-  - configure network ("robot des mines")
+  - configure network ("robots des mines") and specific ip 10.1.16.xx
   - login and upgrade your installation
+
 ```bash
 sudo apt update
 sudo apt upgrade
