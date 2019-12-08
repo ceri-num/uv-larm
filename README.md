@@ -11,7 +11,7 @@ This support is stored on [github](https://github.com) shared thanks to [gitbook
 
 ## Courses
 
-- introduction - [pdf version](https://github.com/ceri-num/uv-larm/courses-parts/intro.pdf)
+- introduction - [pdf version](https://github.com/ceri-num/uv-larm/blob/master/courses-parts/intro.pdf)
 
 ## Tutorials
 
