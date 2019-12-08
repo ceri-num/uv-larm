@@ -11,7 +11,7 @@ Guillaume Lozenguez
 
 ## What is a Robot ?
 
-### On wikipedia:
+### On Wikipedia:
 
 **en**
 
@@ -19,21 +19,21 @@ Guillaume Lozenguez
 
 **fr**
 
-"Un robot est un dispositif mécatronique (alliant mécanique, électronique et informatique) conçu pour accomplir automatiquement des tâches imitant ou reproduisant, dans un domaine précis, des actions humaines."
+"Un robot est un dispositif mécatronique (alliant mécanique, électronique et informatique) conçue pour accomplir automatiquement des tâches imitant ou reproduisant, dans un domaine précis, des actions humaines."
 
 ## What is a Robot ?
 
 ### From my point of view
 
-"A **robot** is a **mechatronics** machine capable of autonomously acting in a real environment"
+"A **robot** is a **mechatronics** machine capable of autonomously acting in a real environment."
 
-- percives with *sensors*
-- models its environnement and adapt its behavior
+- perceives with *sensors*
+- models its environment and adapt its behavior
 - acts with *actuators*
 
 generally involves Artificail-Intelligence:
 
-- capable to mimic natural (human, annimal, insect,...) intelligence
+- capable to mimic natural (human, animal, insect,...) intelligence
 
 ## Some examples
 
@@ -57,14 +57,14 @@ Micro: a large variety of components.
 
 - Resistance
 - Weight
-- Deformation
-- Vibration absortion
+- Distortion
+- Vibration absorption
 - Machining, Assembly
 
 </div>
 <div class="one2">
 
-### for Different robots:
+### for different robots:
 
 - Fast
 - Precise
@@ -75,16 +75,16 @@ Micro: a large variety of components.
 
 </div>
 
-*From a electronic point of view*
+*From an electronic point of view*
 
-Focus on sensor, motor, energy system and hardware.
+Focus on sensors, motor, energy systems and hardware.
 
 
 ## From a automation point of view
 
 ### Focus on:
 
-- Phisics science
+- Physics science
 - Signal processing
 - Control system
 
@@ -99,12 +99,12 @@ Focus on sensor, motor, energy system and hardware.
 ### Focus on:
 
 - Algorythms
-- Knoledge reprensentation
+- Knoledge representation
 - Artificial intelligence
 - Software architecture
 
-Robot are complex and singular systems <br />
-which require modular computer program.
+Robots are complex and singular systems <br />
+which require modular computer programs.
 
 ## Schedule
 
@@ -129,9 +129,9 @@ which require modular computer program.
 **Mostly about:** autonomous navigation.
 
 - Communicate with robot components
-- Controle robot movements (nonholonomic robot)
-- Percive the local environnement (laser, vision)
-- SLAM (Simultaneous Localisation and Mapping)
+- Control robot movements (nonholonomic robot)
+- Perception of the local environment (laser, vision)
+- SLAM (Simultaneous Localization and Mapping)
 - Path finding and navigation.
 
 ## UV-LARM - Schedule
@@ -142,7 +142,13 @@ which require modular computer program.
 
 *3d week:* Chalenge as your projet.
 
-*4th week:* Evaluation trough the code you provide.
+*4th week:* Evaluation through the code you provide.
+
+Always *9* to *12* and *14* to *18*.
+
+In *Develter* or *3130*.
+
+With or without a teacher.
 
 ## Why ROS:
 
@@ -150,26 +156,26 @@ which require modular computer program.
 
 - The number one Robotic Middle used in academic
 - Open and oriented toward its *many contributors*
-- Supported by most of the professionnals
+- Supported by most of the professionals
 
-It permits to think robot program in a modular way as independant program *nodes* working together by communicating trough *topics*.
+It permits thinking robot programs in a modular way as independent program's *nodes* working together by communicating through *topics*.
 
-It comes with usefull functionnality like *frame* management and *transform*
+It comes with useful functionality like *frame* management and *transform*
 
 ## Why Ubuntu Linux:
 
-**Because:**
+**Because**
 
 - We love *GNU*
-- ROS nativelly support Ubuntu
+- ROS natively support Ubuntu
 - Linux is open and well documented
 
 ## Today:
 
-### [wiki ROS](http://wiki.ros.org/) Beginner tutorials:
+### [wiki ROS](http://wiki.ros.org/) Beginner tutorials:
 
 - Create a ROS project (catkin)
-- Implement communicating nodes (publisher and subscriber)
+- Implement communicating nodes (publisher and subscribers)
 
 ### But first : Installation and configuration of Ubuntu:
 
@@ -182,7 +188,7 @@ It comes with usefull functionnality like *frame* management and *transform*
 - **ls**: list directories elements
 - **cd**: change the directory
 - **rm**: permanently remove a file
-- **man**: open the manuel on a command
+- **man**: open the manual on a command
 - **sudo**: act as the super-user
 - **find**, **egrep**, **cat**, **top**, **ps**, **apropos**...
 
