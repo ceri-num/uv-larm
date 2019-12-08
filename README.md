@@ -9,6 +9,10 @@ This support is stored on [github](https://github.com) shared thanks to [gitbook
   - On gitbook: <https://ceri-num.gitbook.io/uv-larm/>
   - On GitHub: <https://github.com/ceri-num/uv-larm>
 
+## Courses
+
+- introduction - [pdf version](https://github.com/ceri-num/uv-larm/courses-parts/intro.pdf)
+
 ## Tutorials
 
 This lectures is composed of multiple guided tutorials (non-exhaustive list):
