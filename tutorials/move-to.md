@@ -1,4 +1,28 @@
-# 02 - Déplacer un robot mobile V2
+# 02 - Move a robot
+
+This tutorial aims to take control over turtlebut2 kobuki platform helped by laserange to nagivate in a cluterred environement.
+
+## Installation:
+
+Targeted robot is a TurttleBot2 (Kobuki version)
+
+First you have to install turtlebut2 packages that allow you to interact with the robot throught ROS topics.
+
+Instructions for ROS melodic version are availlable on github: [github.com/gaunthan/Turtlebot2-On-Melodic](https://github.com/gaunthan/Turtlebot2-On-Melodic)
+
+
+
+```bash
+sudo apt
+```
+
+Then, the connextion to the robot is performed trought USB cable.
+
+```bash
+dialout
+```
+
+#### Draft:
 
 L'objectif de ce TP est de réaliser un noeud ROS qui prend en paramètre une position à atteindre et qui contrôle les vitesses du robot pour lui permettre d'atteindre cette position cible.
 

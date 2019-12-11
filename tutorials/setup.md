@@ -22,8 +22,9 @@ It is not recommended to use Ubuntu+ROS in a virtual machine (the performances w
   - Install ubuntu 18.04 LTS (Long Term Supported version) from live USB-Key
   - use all the hard disk
   - Configure "bot" username and "bot" password.
-  - configure network ("robot des mines")
+  - configure network ("robots des mines") and specific ip 10.1.16.xx
   - login and upgrade your installation
+
 ```bash
 sudo apt update
 sudo apt upgrade
@@ -45,17 +46,15 @@ To notice that ROS support two systems to manage a ROS project. It is recommende
 
 ## Configure your development environment
 
-ROSprovide tools to compile and include a project in the ROS ecosystem. The most recent (**Catkin**) is based on **CMake**.
+ROS provides tools to compile and include a project in the ROS ecosystem.
+The most recent (**Catkin**) is based on **CMake**.
 However it is not a complete IDE and you will require your favorite tools:
   - editor (geany, atom, visual studio code,...)
   - versioning (git,...)
   - multi-terminal (terminator,...)
-  - system (ssh, curl,... )
+  - system tools (ssh, curl,... )
 
 ### To-Do
-  - Install and configure your favorite Dev. tools for Python and C++
-  - Play tutorials:
-    * [Installing and Configuring Your ROS Environment](http://wiki.ros.org/ROS/Tutorials/InstallingandConfiguringROSEnvironment)
-    * [Navigating the ROS Filesystem](http://wiki.ros.org/ROS/Tutorials/NavigatingTheFilesystem)
-  - Install and configure your favorite project management tool.
-  - Configure a shared and versioned workspace for your team.
+  - Install and configure your favorite Dev. tools for *Python* and *C++*
+  - Play tutorials from **7** to **20**
+      * <http://wiki.ros.org/ROS/Tutorials>
