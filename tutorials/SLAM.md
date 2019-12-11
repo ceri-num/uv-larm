@@ -319,7 +319,7 @@ When the rosbag has finished to play, you can save the GMapping resulting map us
 	# save the GMapping map into a file
 	$ rosrun map_server map_saver -f myMap
 	```
-	
+
 You will get a file named `myMap.pgm` that is an image format representing the 3-state occupancy grid.
 
 <!-- Comparing resulting maps and localization:

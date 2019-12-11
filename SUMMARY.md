@@ -13,8 +13,8 @@
 
 * [Setup](tutorials/setup.md)             <!--Guillaume-->
 * [Move-to](tutorials/move-to.md)         <!--Guillaume-->
-* [Move-to V2](tutorials/move-to-v2.md)   <!--Guillaume-->
 * [SLAM](tutorials/SLAM.md)					<!--Luc-->
+* [Move-to V2](tutorials/move-to-v2.md)   <!--Guillaume-->
 * [Navigation](tutorials/navigation.md)	<!--Luc-->
 * [Vision](tutorials/vision.md)
 
