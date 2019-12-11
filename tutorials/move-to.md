@@ -16,6 +16,14 @@ sudo apt install ros-melodic-joy
 
 Instructions for ROS melodic version are available on github: [github.com/gaunthan/Turtlebot2-On-Melodic](https://github.com/gaunthan/Turtlebot2-On-Melodic)
 
+From your catkin worksapce:
+
+```bash
+catkin_make
+curl -sLf https://raw.githubusercontent.com/gaunthan/Turtlebot2-On-Melodic/master/install_basic.sh | bash
+catkin_make
+```
+
 ## Move the turtlebot:
 
 You can connect and switch the robots on.
