@@ -302,7 +302,7 @@ The correct ROS and tf graphs are shown below.
 
 Working in simulation is nice but we can do better and work directly on real data using the `rosbag` command tool.
 With the [rosbag command](http://wiki.ros.org/rosbag/Tutorials/Recording%20and%20playing%20back%20data), you can record some topics (all data that goes through) into a [bag file](http://wiki.ros.org/Bags) and play them later on. 
-Bag files are really useful to test algorithms on real data sets that have been recorded in specific location and specific sensors.  
+Bag files are really useful to test algorithms on real data sets that have been recorded in a specific location and with  specific sensors.
 Moreover, there are a lot of public datasets available:
 
 - http://radish.sourceforge.net/
@@ -310,10 +310,10 @@ Moreover, there are a lot of public datasets available:
 - http://www.ipb.uni-bonn.de/datasets/
 - http://car.imt-lille-douai.fr/polyslam/
 
-Follow the [GMapping tutorial using a rosbag](http://wiki.ros.org/slam_gmapping/Tutorials/MappingFromLoggedData).
-Write and commit your own launch file named `gmapping_rosbag.launch` into the `larm1_slam` catkin package that launches a GMapping on a specific bagfile (I suggest the [DIA 1st floor](http://car.imt-lille-douai.fr/johann/turtlebot_dia.bag.gz)). This launch file should open an Rviz to see the map construction.
+First, follow the [GMapping tutorial using a rosbag](http://wiki.ros.org/slam_gmapping/Tutorials/MappingFromLoggedData).
+Then, write and commit your own launch file named `gmapping_rosbag.launch` into the `larm1_slam` catkin package that launches a GMapping on a specific bagfile (I suggest the [DIA 1st floor](http://car.imt-lille-douai.fr/johann/turtlebot_dia.bag.gz)). This launch file should open an Rviz to see the map construction.
 
-When the rosbag has finished to play, you can save the GMapping resulting map using the followin command:
+When the rosbag has finished to play, you can save the GMapping resulting map using the following command:
 
 	```shell
 	# save the GMapping map into a file
@@ -339,6 +339,14 @@ Documentation and packages:
 - http://wiki.ros.org/map_server
 - http://wiki.ros.org/amcl
 - http://wiki.ros.org/move_base
+
+# Final real exercice
+
+As a final exercice, you should:
+
+1. Use a real turtlebot with a laser
+2. Create a map of a maze in the robotics room (1st floor)
+3. Make the robot autonomously navigate into the maze using goals sent via `rviz`
 
 # [Bonus] Map building using RTAB-Map
 
