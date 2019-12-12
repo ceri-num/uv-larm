@@ -31,7 +31,7 @@ You can connect and switch the robots on.
 
 Listing the topics and a generating the graph of *ROS* nodes provide an idea of robot processes.
 Then, by publishing velocity msg on on the appropriated command topic (*input/navi*).
-The mesage structure is a [geometri_msgs](https://wiki.ros.org/geometry_msgs) [twist](http://docs.ros.org/api/geometry_msgs/html/msg/Twist.html)
+The mesage structure is a [geometri_msgs](https://wiki.ros.org/geometry_msgs) - [twist](http://docs.ros.org/api/geometry_msgs/html/msg/Twist.html)
 
 ### To do:
 
