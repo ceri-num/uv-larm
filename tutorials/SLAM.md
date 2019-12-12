@@ -348,7 +348,11 @@ As a final exercice, you should:
 2. Create a map of a maze in the robotics room (1st floor)
 3. Make the robot autonomously navigate into the maze using goals sent via `rviz`
 
-# [Bonus] Map building using RTAB-Map
+# Bonus
+
+This section is a bonus to discover to discover other tools and techniques.
+
+## Visual Map building using RTAB-Map 
 
 You can also build 3d maps using an RGB-D camera such as the Realsense.
 For this, you need to use another SLAM algorithm such as [RTAB-Map](http://wiki.ros.org/rtabmap_ros) with a [Realsense D435i](https://github.com/IntelRealSense/realsense-ros/wiki/SLAM-with-D435i).
@@ -357,4 +361,12 @@ As before, create different launch files:
 - `realsenseTobag.launch` to save realsense data into a rosbag.
 - `createMapfromRealsenseData.launch` to create and save the map using RTAB-Map from the bagfile
 - `realsenseNavigation.launch` to load the saved map, localize and autonomously navigate on it
+
+## Autonomous Vehicules
+
+- 3d simulator dedicated to autonomous vehicules: https://www.lgsvlsimulator.com/
+- https://www.autoware.org/
+- Example of simulation with ROS and rosbags : https://gitlab.com/autowarefoundation/autoware.ai/autoware/wikis/ROSBAG-Demo
+
+
 
