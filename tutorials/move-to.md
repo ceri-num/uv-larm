@@ -16,18 +16,28 @@ sudo apt install ros-melodic-joy
 
 Instructions for ROS melodic version are available on github: [github.com/gaunthan/Turtlebot2-On-Melodic](https://github.com/gaunthan/Turtlebot2-On-Melodic)
 
+From your catkin worksapce:
+
+```bash
+catkin_make
+curl -sLf https://raw.githubusercontent.com/gaunthan/Turtlebot2-On-Melodic/master/install_basic.sh | bash
+catkin_make
+```
+
 ## Move the turtlebot:
 
 You can connect and switch the robots on.
 *minimal.launch* in *turtlebot_bringup* packages permits starting minimal *ROS* nodes to communicate with the robot.
 
 Listing the topics and a generating the graph of *ROS* nodes provide an idea of robot processes.
+Then, by publishing velocity msg on on the appropriated command topic (*input/navi*).
+The mesage structure is a [geometri_msgs](https://wiki.ros.org/geometry_msgs) - [twist](http://docs.ros.org/api/geometry_msgs/html/msg/Twist.html)
 
 ### To do:
 
 - Identify *cmd_vel_mux*. This node prioritizes commands provides by different systems through different topics ([wiki.ros.org/cmd_vel_mux](https://wiki.ros.org/cmd_vel_mux))
 - Try to teleoperate the robot
-- Create your own turtlebot package with a new node "dance" that move the robot with a sequence of predetermined movements on the appropriated command topic.
+- Create your own turtlebot package with a new node "dance" that move the robot with a sequence of predetermined movements.
 
 ## First estimation of robot position
 
