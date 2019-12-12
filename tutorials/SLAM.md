@@ -113,7 +113,7 @@ https://michaelgrupp.github.io/evo/ -->
 
 # Bonus
 
-This section is a bonus to discover to discover other tools and techniques.
+This section is a bonus to discover other tools and techniques.
 
 ## Visual Map building using RTAB-Map 
 

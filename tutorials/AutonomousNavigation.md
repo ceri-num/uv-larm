@@ -2,10 +2,12 @@
 
 Using the saved map, it is now possible to achieve autonomous navigation i.e. the robot can compute a global trajectory to a target point and then autonomously navigate to through this trajectory while avoiding obstacles locally. 
 
+{% hint style="success" %}
 Write a new launch file named `navigation.launch` that achieve this.
 Goals can be sent trhough rviz by clicking on a specific location on the loaded map.
+{% endhint %}
 
-Documentation and packages:
+Documentation and packages to help you:
 - http://wiki.ros.org/navigation/Tutorials
 - http://wiki.ros.org/map_server
 - http://wiki.ros.org/amcl
