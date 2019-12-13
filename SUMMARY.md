@@ -21,7 +21,7 @@
 
 ## Challenge
 
-* [Challenge Project](challenge/intro.md)
+* [Challenge Kick-off](challenge/intro.md)
 * [Objectives and rules](tutorials/consigne.md)
 * [Evaluation](tutorials/evaluation.md)
 
