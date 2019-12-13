@@ -164,7 +164,7 @@ Launch this node (adapt it if necessary) to make moving the simulated robot in s
 
 #**Your** first launch file
 
-Into your `larm1_slam` catkin package, create a *launch file* named `robot_stage.world` that launches a full-fledge simulation using stage with one robot equipped with 2d laser ranger.
+Into your `larm1_slam` catkin package, create a *launch file* named `robot_stage.launch` that launches a full-fledge simulation using stage with one robot equipped with 2d laser ranger.
 The [launch file documentation](http://wiki.ros.org/roslaunch).
 Once this file finished, you should be able to launch everything with this single command line:
 
