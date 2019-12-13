@@ -1,4 +1,4 @@
-# Challenge
+# Challenge Kick-Off
 
 The challenge aims to put learners in the development of a micro robotic project.
 In the end, both the execution of the proposed solution and the source code with documentation would be evaluated.
@@ -13,7 +13,7 @@ The main objectives of the project consist of:
 
 <https://www.myminifactory.com/object/3d-print-fallout-nuka-cola-15616>
 
-- ![](https://cdn.myminifactory.com/assets/object-assets/579fca2a374fc/images/720X720-7a4418213f3ce580bb21f641c36650bd5eb8cdb3.jpg)
+![](https://cdn.myminifactory.com/assets/object-assets/579fca2a374fc/images/720X720-7a4418213f3ce580bb21f641c36650bd5eb8cdb3.jpg)
 
 ## Agile software development
 
@@ -49,9 +49,9 @@ This board is composed by **6** areas:
 
 A team is composed of:
 
-- The developers (2 or 3)
-- The external observers (teachers)
-- The colleges (they help because they aim you succeed (but not as the winner), and they have their own project to work on)
+- **The developers** (2 or 3)
+- **The external observers** (teachers)
+- **The colleges** <br /> (they help because they aim you succeed (but not as the winner), and they have their own project to work on)
 
 ### Project decomposition
 
