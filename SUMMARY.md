@@ -19,8 +19,8 @@
 
 ## Challenge
 
-  * [Challenge](challenge/intro.md)
-    * [Consigne](tutorials/consigne.md)             
-    * [Evaluation](tutorials/evaluation.md)
+* [Challenge Project](challenge/intro.md)
+* [Objectives and rules](tutorials/consigne.md)
+* [Evaluation](tutorials/evaluation.md)
 
 <!--Sur la base des sujets PDRs-->
