@@ -13,6 +13,8 @@ The main objectives of the project consist of:
 
 <https://www.myminifactory.com/object/3d-print-fallout-nuka-cola-15616>
 
+- ![](https://cdn.myminifactory.com/assets/object-assets/579fca2a374fc/images/720X720-7a4418213f3ce580bb21f641c36650bd5eb8cdb3.jpg)
+
 ## Agile software development
 
 Agile software development aims to break with traditional project management by preferring:
