@@ -15,7 +15,7 @@ sudo python3 get-pip.py
 Lorsque pip est installé alors il vous faudra installer les modules suivants :
 
 ```
-sudo pip3 install --proxy=http://10.100.1.4:8080 numpy, tensorflow, opencv-python, opencv-contrib-python, sklearn, scipy
+sudo pip3 install --proxy=http://10.100.1.4:8080 numpy, tensorflow, opencv-python==3.4.2.16, opencv-contrib-python==3.4.2.16, sklearn, scipy, matplotlib, psutil
 ```
 
 Petit rappel - l'utilisation de ces modules dans vos scripts est réalisé par exempe ainsi :
