@@ -30,6 +30,68 @@ from scipy.cluster.vq import *
 from sklearn.preprocessing import StandardScaler
 from sklearn import preprocessing
 ```
+## segmentation des images par la méthodes des k-moyennes (kmeans)
+
+Kmeans est un algorithme de clustering, dont l'objectif est de partitionner n points de données en k grappes. Chacun des n points de données sera assigné à un cluster avec la moyenne la plus proche. La moyenne de chaque groupe s'appelle «centroïde» ou «centre». Globalement, l'application de k-means donne k grappes distinctes des n points de données d'origine. Les points de données à l'intérieur d'un cluster particulier sont considérés comme «plus similaires» les uns aux autres que les points de données appartenant à d'autres groupes. Cet algorithme peut être appliquer sur des points d’origine géométrique, colorimétriques et autres. 
+
+Nous allons appliquer cette méthode afin d'assurer une segmentation couleur d'une image i.e. cela revient à trouver les couleur domainantes dans l'image.
+```
+from sklearn.cluster import KMeans
+import matplotlib.pyplot as plt
+import cv2
+import numpy as np
+
+#Ensuite charger une image et la convertir de BGR à RGB si nécessaire et l’afficher :
+image = cv2.imread('lena.jpg')
+image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+plt.figure()
+plt.axis("off")
+plt.imshow(image)
+```
+Afin de traiter l’image en tant que point de données, il faut la convertir d’une forme matricielle à une forme vectorielle (liste de couleur rgb) avant d'appliquer la fonction de clustering :
+```
+n_clusters=5
+image = image.reshape((image.shape[0] * image.shape[1], 3))
+clt = KMeans(n_clusters = n_clusters )
+clt.fit(image)
+```
+Pour afficher les couleurs les plus dominantes dans l'image, il faut définir deux fonctions : centroid_histogram() pour récupérer le nombre de clusters différents et créer un histogramme basé sur le nombre de pixels affectés à chaque cluster ; et plot_colors() pour initialiser le graphique à barres représentant la fréquence relative de chacune des couleurs
+```
+def centroid_histogram(clt):
+    numLabels = np.arange(0, len(np.unique(clt.labels_)) + 1)
+    (hist, _) = np.histogram(clt.labels_, bins=numLabels)
+
+    # normalize the histogram, such that it sums to one
+    hist = hist.astype("float")
+    hist /= hist.sum()
+
+    return hist
+
+def plot_colors(hist, centroids):
+    bar = np.zeros((50, 300, 3), dtype="uint8")
+    startX = 0
+
+    # loop over the percentage of each cluster and the color of
+    # each cluster
+    for (percent, color) in zip(hist, centroids):
+        # plot the relative percentage of each cluster
+        endX = startX + (percent * 300)
+        cv2.rectangle(bar, (int(startX), 0), (int(endX), 50),
+                      color.astype("uint8").tolist(), -1)
+        startX = endX
+
+    return bar
+```
+Il suffit maintenant de construire un histogramme de clusters puis créer une figure représentant le nombre de pixels étiquetés pour chaque couleur.
+```
+hist = centroid_histogram(clt)
+bar = plot_colors(hist, clt.cluster_centers_)
+plt.figure()
+plt.axis("off")
+plt.imshow(bar)
+plt.show()
+```
+
 ## Classification d'images par la mathode des K plus proches voisins (k-NN ou KNN)
 
 Cet exercice permettra d'apprendre un modèle à partir des images de la bases CIFAR-10 téléchargeable ici:
@@ -108,6 +170,7 @@ def pred_label_fn(i, original):
 
 nbrs = KNeighborsClassifier(n_neighbors=3, algorithm='brute').fit(img_data, img_label_orig)
 
+# test sur les 10 premières images
 data_point_no = 10
 sample_test_data = test_data[:data_point_no, :]
 
@@ -116,3 +179,4 @@ YPred = nbrs.predict(sample_test_data)
 for i in range(0, len(YPred)):
     show_img(sample_test_data, test_label, meta, i, label_fn=pred_label_fn)
 ```
+
