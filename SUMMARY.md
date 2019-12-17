@@ -25,4 +25,8 @@
 * [Objectives and rules](tutorials/consigne.md)
 * [Evaluation](tutorials/evaluation.md)
 
+## Tools
+
+* [FAQ](faq.md)
+
 <!--Sur la base des sujets PDRs-->
