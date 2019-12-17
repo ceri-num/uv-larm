@@ -1,6 +1,6 @@
-# Frequent Asqued Question...
+# Frequent Asked Question...
 
-## They is no wifi on XP13 ???
+## There is no Wifi on my dell-xps13 ???
 
 1. Connect with cable
 2. Get the appropriate drivers: [killer driver](https://support.killernetworking.com/knowledge-base/killer-ax1650-in-debian-ubuntu-16-04/)
