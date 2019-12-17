@@ -38,6 +38,9 @@ Décompresser les fichier dans un dossier que vous utiliserez dans le script sui
 Ici, le dossier est ./data
 
 ```
+import numpy as np
+import cv2
+
 basedir_data = "./data/"
 rel_path = basedir_data + "cifar-10-batches-py/"
 
@@ -82,5 +85,34 @@ print(sample_img_data)
 print('shape', sample_img_data.shape)
 print('shape', sample_img_data[1,:].shape)
 ````
-Attention, les composantes RGB des images sont rangées en un vecteur d'1 dimension.
+Attention, les composantes RGB des images sont arrangées sous la forme d'une vecteur à 1 dimension.
 Pour afficher chaque image, il faut donc remettre sous la forme d'une image 2D RGB.
+Pour cela, nous opérons de la manière suivante en considérant que les images sont de résolution 32x32
+
+```
+one_img=sample_img_data[0,:]
+r = one_img[:1024].reshape(32, 32)
+g = one_img[1024:2048].reshape(32, 32)
+b = one_img[2048:].reshape(32, 32)
+rgb = np.dstack([r, g, b])
+cv2.imshow('Image CIFAR',rgb)
+cv2.waitKey(0)
+cv2.destroyAllWindows()
+```
+Désormais, nous allons appliquer l'algorithmes des k-NN sur toutes les images de la base de training img_data et leurs labels img_label_orig
+```
+from sklearn.neighbors import KNeighborsClassifier 
+
+def pred_label_fn(i, original):
+    return original + '::' + meta[YPred[i]].decode('utf-8')
+
+nbrs = KNeighborsClassifier(n_neighbors=3, algorithm='brute').fit(img_data, img_label_orig)
+
+data_point_no = 10
+sample_test_data = test_data[:data_point_no, :]
+
+YPred = nbrs.predict(sample_test_data)
+
+for i in range(0, len(YPred)):
+    show_img(sample_test_data, test_label, meta, i, label_fn=pred_label_fn)
+```
