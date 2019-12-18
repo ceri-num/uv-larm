@@ -199,3 +199,6 @@ for x, y, w, h in object:
 ```
 
 Ecrire un script permettant de mettre en musique cette classe et cette méthode sur la vidéo cars.mp4 fournies.
+
+Pour terminer vous validerez votre script en utilisant les modèles relatifs au corps humains.
+
