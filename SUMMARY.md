@@ -14,9 +14,9 @@
 * [Setup](tutorials/setup.md)             <!--Guillaume-->
 * [Move-to](tutorials/move-to.md)         <!--Guillaume-->
 * [Simulation](tutorials/Simulation.md)					<!--Luc-->
+* [Move with transformation](tutorials/ahndle-tf.md)   <!--Guillaume-->
 * [SLAM](tutorials/SLAM.md)					<!--Luc-->
 * [Autonomous Navigation](tutorials/AutonomousNavigation.md)					<!--Luc-->
-* [Move-to V2](tutorials/move-to-v2.md)   <!--Guillaume-->
 * [Vision](tutorials/vision.md)
 
 ## Challenge
