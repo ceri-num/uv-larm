@@ -31,7 +31,7 @@ from sklearn.preprocessing import StandardScaler
 from sklearn import preprocessing
 ```
 
-## Segmentaiton d'images couleur par seuillage des composantes
+## Segmentation d'images couleur par seuillage des composantes
 
 Généralement il est très intéressante de changer d'espace colorimétrique afin de mieux cibler l'espace dans lequel l'objet d'intérêt est discriminable : ```image=cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)```
 Après avoir produite le mask avec ```mask=cv2.inRange(image, lo, hi)``` il est parfois pertinant de débruiter l'image résultats en lissant ou par quelques opérations motrphologiques. Cela permet de fermer et remplir les formes :
