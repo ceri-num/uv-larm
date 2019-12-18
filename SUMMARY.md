@@ -13,11 +13,11 @@
 
 * [Setup](tutorials/setup.md)             <!--Guillaume-->
 * [Move-to](tutorials/move-to.md)         <!--Guillaume-->
-* [Simulation](tutorials/Simulation.md)					<!--Luc-->
+* [Simulation](tutorials/Simulation.md)		<!--Luc-->
+* [Vision](tutorials/vision.md)           <!--Seb-->
 * [Move with transformation](tutorials/kandle-tf.md)   <!--Guillaume-->
 * [SLAM](tutorials/SLAM.md)					<!--Luc-->
 * [Autonomous Navigation](tutorials/AutonomousNavigation.md)					<!--Luc-->
-* [Vision](tutorials/vision.md)
 
 ## Challenge
 
