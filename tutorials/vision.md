@@ -30,7 +30,33 @@ from scipy.cluster.vq import *
 from sklearn.preprocessing import StandardScaler
 from sklearn import preprocessing
 ```
-## segmentation des images par la méthodes des k-moyennes (kmeans)
+
+## Segmentaiton d'images couleur par seuillage des composantes
+
+Généralement il est très intéressante de changer d'espace colorimétrique afin de mieux cibler l'espace dans lequel l'objet d'intérêt est discriminable : ```image=cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)```
+Après avoir produite le mask avec ```mask=cv2.inRange(image, lo, hi)``` il est parfois pertinant de débruiter l'image résultats en lissant ou par quelques opérations motrphologiques. Cela permet de fermer et remplir les formes :
+```
+image=cv2.blur(image, (7, 7))
+mask=cv2.erode(mask, None, iterations=4)
+mask=cv2.dilate(mask, None, iterations=4)
+```
+Détecter les éléments connexes dans le mask puis extraire les informations relatives à chaque forme extraite pounr leur visualisation :
+```
+elements=cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[-2]
+if len(elements) > 0:
+    c=max(elements, key=cv2.contourArea)
+    ((x, y), rayon)=cv2.minEnclosingCircle(c)
+    if rayon>30:
+        cv2.circle(image2, (int(x), int(y)), int(rayon), color_infos, 2)
+        cv2.circle(frame, (int(x), int(y)), 5, color_infos, 10)
+        cv2.line(frame, (int(x), int(y)), (int(x)+150, int(y)), color_infos, 2)
+        cv2.putText(frame, "Objet !!!", (int(x)+10, int(y) -10), cv2.FONT_HERSHEY_DUPLEX, 1, color_infos, 1, cv2.LINE_AA)
+ ```
+ 
+ Reste ensuite à visualiser les images.
+ 
+        
+## Segmentation des images par la méthodes des k-moyennes (kmeans)
 
 Kmeans est un algorithme de clustering, dont l'objectif est de partitionner n points de données en k grappes. Chacun des n points de données sera assigné à un cluster avec la moyenne la plus proche. La moyenne de chaque groupe s'appelle «centroïde» ou «centre». Globalement, l'application de k-means donne k grappes distinctes des n points de données d'origine. Les points de données à l'intérieur d'un cluster particulier sont considérés comme «plus similaires» les uns aux autres que les points de données appartenant à d'autres groupes. Cet algorithme peut être appliquer sur des points d’origine géométrique, colorimétriques et autres. 
 
