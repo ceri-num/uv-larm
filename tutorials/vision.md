@@ -32,7 +32,7 @@ from sklearn import preprocessing
 ```
 ## Gestion de la souris
 
-Voici quelques lignes de codes pour extraire une région d'intérêt à la souris.
+Voici quelques lignes de codes pour extraire une région d'intérêt à la souris. Grâce à ces quelques lignes il vous sera possible de calculer la valeur moyenne et la variance de chaque composante de l'image, utile pour procéder ensuite à une étape de segmentation.
 
 ```
 import cv2
@@ -56,14 +56,20 @@ if __name__ == '__main__' :
     cv2.waitKey(0)
 ```
 
-Voici quelques lignes de codes pour gérer des actions sur la souris.
+Voici quelques lignes de codes pour gérer des actions sur la souris. Elles gères les événements souris tels que le mouvement de la souris (), le double click milieu (EVENT_MBUTTONDBLCLK), le click droit (EVENT_RBUTTONDOWN) et le click gauche (EVENT_LBUTTONDOWN).
 
 ```
 import cv2
 import numpy as np
 
 def souris(event, x, y, flags, param):
-    global lo, hi, color
+    global lo, hi, color, hsv_px
+    
+    if event == cv2.EVENT_MOUSEMOVE:
+        # Conversion des trois couleurs RGB sous la souris en HSV
+        px = frame[y,x]
+        px_array = np.uint8([[px]])
+        hsv_px = cv2.cvtColor(px_array,cv2.COLOR_BGR2HSV)
     
     if event==cv2.EVENT_MBUTTONDBLCLK:
         color=image[y, x][0]
@@ -89,6 +95,7 @@ color_info=(0, 0, 255)
 cap=cv2.VideoCapture(0)
 cv2.namedWindow('Camera')
 cv2.setMouseCallback('Camera', souris)
+hsv_px = [0,0,0]
 
 while True:
     ret, frame=cap.read()
@@ -98,15 +105,22 @@ while True:
     mask=cv2.dilate(mask, None, iterations=1)
     image2=cv2.bitwise_and(frame, frame, mask= mask)
     cv2.putText(frame, "Couleur: {:d}".format(color), (10, 30), cv2.FONT_HERSHEY_DUPLEX, 1, color_info, 1, cv2.LINE_AA)
+    
+    # Affichage des composantes HSV sous la souris sur l'image
+    pixel_hsv = " ".join(str(values) for values in hsv_px)
+    font = cv2.FONT_HERSHEY_SIMPLEX
+    cv2.putText(frame, "px HSV: "+pixel_hsv, (10, 260),
+               font, 1, (255, 255, 255), 1, cv2.LINE_AA)
+               
     cv2.imshow('Camera', frame)
     cv2.imshow('image2', image2)
     cv2.imshow('Mask', mask)
+    
     if cv2.waitKey(1)&0xFF==ord('q'):
         break
 cap.release()
 cv2.destroyAllWindows()
 ```
-
 
 ## Segmentation d'images couleur par seuillage des composantes
 
