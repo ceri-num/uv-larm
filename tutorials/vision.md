@@ -30,6 +30,83 @@ from scipy.cluster.vq import *
 from sklearn.preprocessing import StandardScaler
 from sklearn import preprocessing
 ```
+## Gestion de la souris
+
+Voici quelques lignes de codes pour extraire une région d'intérêt à la souris.
+
+```
+import cv2
+import numpy as np
+ 
+if __name__ == '__main__' :
+ 
+    cap=cv2.VideoCapture(0)
+
+    # capture an image
+    ret, frame=cap.read()
+     
+    # Select ROI
+    r = cv2.selectROI(frame)
+     
+    # Crop image
+    imCrop = frame[int(r[1]):int(r[1]+r[3]), int(r[0]):int(r[0]+r[2])]
+ 
+    # Display cropped image
+    cv2.imshow("Image", imCrop)
+    cv2.waitKey(0)
+```
+
+Voici quelques lignes de codes pour gérer des actions sur la souris.
+
+```
+import cv2
+import numpy as np
+
+def souris(event, x, y, flags, param):
+    global lo, hi, color
+    
+    if event==cv2.EVENT_MBUTTONDBLCLK:
+        color=image[y, x][0]
+
+    if event==cv2.EVENT_LBUTTONDOWN:
+        if color>5:
+            color-=1
+
+    if event==cv2.EVENT_RBUTTONDOWN:
+        if color<250:
+            color+=1
+            
+    lo[0]=color-5
+    hi[0]=color+5
+
+color=100
+
+lo=np.array([color-5, 100, 50])
+hi=np.array([color+5, 255,255])
+
+color_info=(0, 0, 255)
+
+cap=cv2.VideoCapture(0)
+cv2.namedWindow('Camera')
+cv2.setMouseCallback('Camera', souris)
+
+while True:
+    ret, frame=cap.read()
+    image=cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
+    mask=cv2.inRange(image, lo, hi)
+    mask=cv2.erode(mask, None, iterations=1)
+    mask=cv2.dilate(mask, None, iterations=1)
+    image2=cv2.bitwise_and(frame, frame, mask= mask)
+    cv2.putText(frame, "Couleur: {:d}".format(color), (10, 30), cv2.FONT_HERSHEY_DUPLEX, 1, color_info, 1, cv2.LINE_AA)
+    cv2.imshow('Camera', frame)
+    cv2.imshow('image2', image2)
+    cv2.imshow('Mask', mask)
+    if cv2.waitKey(1)&0xFF==ord('q'):
+        break
+cap.release()
+cv2.destroyAllWindows()
+```
+
 
 ## Segmentation d'images couleur par seuillage des composantes
 
