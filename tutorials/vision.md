@@ -227,11 +227,17 @@ for x, y, w, h in object:
 Ecrire un script permettant de mettre en musique cette classe et cette méthode sur la vidéo cars.mp4 fournies.
 Vous validerez votre script en utilisant les modèles relatifs au corps humains et en utilisant le flux d'une caméra.
 
-Pour terminer, cette méthode pourrait être très intéressantre pour détecter des objets lors du "challenge". Pour cela, je vous invite à lire et utiliser ce qui est proposé sur les 3 liens suivants :
+### Model training
+
+Cette méthode pourrait être très intéressante pour détecter des objets lors du "challenge". Pour cela, je vous invite à lire et utiliser ce qui est proposé sur les 2 liens suivants. Ces liens décrivent comment il est possible d'apprendre un modèle spécifique à un objet donné.
 
 http://coding-robin.de/2013/07/22/train-your-own-opencv-haar-classifier.html
 
 https://github.com/mrnugget/opencv-haar-classifier-training
+
+### Model training for an other feature
+
+Vous trouverez dans le lien suivant, l'apprentissage d'un modèle sur la base d'un autre type de caractéreristique : les Local Binary Pattern (LBP).
 
 https://medium.com/@rithikachowta/object-detection-lbp-cascade-classifier-generation-a1d1a1c2d0b
 
