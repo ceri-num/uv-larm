@@ -1,6 +1,6 @@
 # Autonomous Navigation
 
-Using the saved map, it is now possible to achieve autonomous navigation i.e. the robot can compute a global trajectory to a target point and then autonomously navigate to through this trajectory while avoiding obstacles locally. 
+Using the saved map (e.g. `dia.yaml` and `dia.pgm`), it is now possible to achieve autonomous navigation i.e. the robot can compute a global trajectory to a target point and then autonomously navigate to through this trajectory while avoiding obstacles locally. 
 
 {% hint style="success" %}
 Write a new launch file named `navigation.launch` that achieve this.
@@ -21,7 +21,7 @@ This launch file should launch the following nodes:
 	  ...
 	  
 	  <!-- Run the map server -->
-	  <node name="map_server" pkg="map_server" type="map_server" args="dia.yaml" />
+	  <node name="map_server" pkg="map_server" type="map_server" args="$(find larm1_slam)/maps/dia.yaml" />
 	  
 	  <!-- Localization using AMCL -->
 	  ...

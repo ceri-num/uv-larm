@@ -109,10 +109,10 @@ You will get two files named `dia.pgm` and `dia.yaml`.
 The first one is an image format representing the 3-state occupancy grid.
 The second one is a text format that contains metadata of the generated map: resolution, ...
 
-# GMApping on turtlebot
+# GMapping on turtlebot
 
 On real turtlebot you can use the `urg_node` to get the laser data in the topic `/scan`.
-Note that you also need to specify a static transformation frame to connect the `laser` frame in your tf tree. It is also important to tweak GMApping parameters to obtain more acurate maps. Basically, your launch file should contain:
+Note that you also need to specify a static transformation frame to connect the `laser` frame in your tf tree. It is also important to tweak GMapping parameters to obtain more acurate maps. Basically, your launch file should contain:
  
 	```xml	
   <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser"
