@@ -74,6 +74,7 @@ The correct ROS and tf graphs are shown below.
 
 <!-- http://moorerobots.com/blog/post/3 -->
 
+
 # Save and Replay Topic Data using `rosbag`
 
 Working in simulation is nice but we can do better and work directly on real data using the `rosbag` command tool.
@@ -105,6 +106,24 @@ When the rosbag has finished to play, you can save the GMapping resulting map us
 	```
 
 You will get a file named `dia.pgm` that is an image format representing the 3-state occupancy grid.
+
+# GMApping on turtlebot
+
+On real turtlebot you can use the `urg_node` to get the laser data in the topic `/scan`.
+Note that you also need to specify a static transformation frame to connect the `laser` frame in your tf tree. It is also important to tweak GMApping parameters to obtain more acurate maps. Basically, your launch file should contain:
+ 
+	```xml	
+  <node pkg="tf" type="static_transform_publisher" name="base_link_to_laser"
+  args="5.0 0.0 0.2 0.0 0.0 0.0 base_link laser 80" />
+
+  <!-- launch laser driver -->
+  <node pkg="urg_node" type="urg_node" name="urg_node" />
+
+  <!-- launch gmapping -->
+  <node pkg="gmapping" type="slam_gmapping" name="gmapping_node" >
+    <param name="maxUrange" value="4.0"/> <!-- limit laser range to 4 meters -->
+  </node>
+	```
 
 <!-- Comparing resulting maps and localization:
 - cite Sang's paper

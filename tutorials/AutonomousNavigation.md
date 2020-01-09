@@ -4,11 +4,10 @@ Using the saved map, it is now possible to achieve autonomous navigation i.e. th
 
 {% hint style="success" %}
 Write a new launch file named `navigation.launch` that achieve this.
-Goals can be sent trhough rviz by clicking on a specific location on the loaded map.
+Goals can be sent through rviz by clicking on a specific location on the loaded map.
 {% endhint %}
 
 Documentation and packages to help you:
-- http://wiki.ros.org/navigation/Tutorials
 - http://wiki.ros.org/map_server
 - http://wiki.ros.org/amcl
 - http://wiki.ros.org/move_base
