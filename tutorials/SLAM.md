@@ -105,7 +105,9 @@ When the rosbag has finished to play, you can save the GMapping resulting map us
 	$ rosrun map_server map_saver -f dia
 	```
 
-You will get a file named `dia.pgm` that is an image format representing the 3-state occupancy grid.
+You will get two files named `dia.pgm` and `dia.yaml`. 
+The first one is an image format representing the 3-state occupancy grid.
+The second one is a text format that contains metadata of the generated map: resolution, ...
 
 # GMApping on turtlebot
 
