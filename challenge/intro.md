@@ -7,8 +7,8 @@ The main objectives of the project consist of:
 
 - Control a robot in a cluttered environment
 - Map a static environment
-- Detect all the **NukaColas**
-- Estimate the position of the **NuKaColas** in the map
+- Detect all the **Nuka-Cola**
+- Estimate the position of the **Nuka-Cola** in the map
 - Optimaze the exploration strategy
 
 <https://www.myminifactory.com/object/3d-print-fallout-nuka-cola-15616>

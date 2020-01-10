@@ -38,7 +38,7 @@
 
 **Setup**: The robot starts in a known arena. 
 
-**Objective**: The robot should move in the arena autonomously or not and detect nuka cola bottles. 
+**Objective**: The robot should move in the arena autonomously or not and detect Nuka-Cola bottles. 
 Each time a bottle is detected, the position of the bottle in the map should be published in a specific ROS topic named `/bottle` with the data type `visualization_msgs/marker`. `rviz` should display this `/bottle` topic.
 
 # Challenge 8: Detect bottles in an unknown environment
