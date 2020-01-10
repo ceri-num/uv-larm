@@ -22,7 +22,7 @@
 ## Challenge
 
 * [Challenge Kick-off](challenge/intro.md)
-* [Objectives and rules](tutorials/consigne.md)
+<!-- * [Objectives and rules](tutorials/consigne.md) -->
 * [Evaluation](tutorials/evaluation.md)
 
 ## Tools
