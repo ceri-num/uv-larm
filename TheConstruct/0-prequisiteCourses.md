@@ -3,7 +3,7 @@
 Before taking LARM's main robotics and vision courses you need to be confortable with Linux, Object-Oriented Programming (OOP), and the Python programming language. If you are unfamiliar with one of those, you should take the following online courses.
 
 ## Linux for Robotics
-- Duration : 8 hours 
+- Duration : 6 hours 
 - Goal : Learn the Linux fundamentals you'll need for robotics development
 - URL : https://app.theconstructsim.com/#/Course/40
 - Selected Sections
