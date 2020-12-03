@@ -17,7 +17,7 @@ Before taking LARM's main robotics and vision courses you need to be confortable
 - Goal : Master the basics of Python 3 for robot programming
 - URL : https://app.theconstructsim.com/#/Course/38
 - Selected Sections
-  1.  Introduction
+  1. Introduction
   2. Python Essentials
   3. Conditional Statements & Loops
   4. Functions
