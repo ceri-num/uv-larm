@@ -28,6 +28,7 @@ Before taking LARM's main robotics and vision courses you need to be confortable
 - Duration : 8 hours 
 - Goal : Master the basics of Python 3 for robot programming
 - URL : https://app.theconstructsim.com/#/Course/38
+<<<<<<< HEAD
 
 ### What You will learn
 - How to store data into Variables
@@ -42,3 +43,11 @@ Before taking LARM's main robotics and vision courses you need to be confortable
 3. Conditional Statements & Loops
 4. Functions
 5. Python Classes & OOP
+=======
+- Selected Sections
+  1. Introduction
+  2. Python Essentials
+  3. Conditional Statements & Loops
+  4. Functions
+  5. Python Classes & OOP
+>>>>>>> da5ba3983d48987a1e6ec8310f100f153cad08e9

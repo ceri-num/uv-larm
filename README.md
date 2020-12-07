@@ -15,6 +15,10 @@ This support is stored on [github](https://github.com) shared thanks to [gitbook
 
 ## Tutorials
 
+Due to pandemic extraordinary situation this courses is largely based over [TheConstruct](https://www.theconstructsim.com/) solution.
+TheConstruct provides courses materials and more importantly virtualised ROS machine allowing you to develop robotics software based on Gazebo simulation.
+
+<!--
 This lectures is composed of multiple guided tutorials (non-exhaustive list):
 
 * Setting up your own ROS environment
@@ -22,6 +26,7 @@ This lectures is composed of multiple guided tutorials (non-exhaustive list):
 * Simulatenous Localization and Mapping (SLAM)
 * Autonomous Navigation
 * Robotics Vision
+-->
 
 ## Challenge
 
