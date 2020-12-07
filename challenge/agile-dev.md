@@ -2,8 +2,9 @@
 
 The clear objective for a team of developers intents more efficient software development.
 The efficiency is relative to the quality of the developed software, its documentation, its code and the time needed to achieve all of that.
-The developper observed in its natural environment dives deeply in its source code untill the verry end of a dead line.  
-It is then too late to stick together the amoug of developped functionnality in an ergonomic way, too generate documentation and state that the direction of the project do not match the initial expectations. 
+
+The developer observed in its natural environment dives deeply in its source code until the very end of a dead line.
+It is then too late to stick together the among of developed functionality in an ergonomic way, to generate documentation and to state that the direction of the project does not match the initial expectations. 
 
 ### Iterative development
 

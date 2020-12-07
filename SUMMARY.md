@@ -9,6 +9,7 @@ vertion: tcs (TheConstructSim)
 * [Prerequisite Notions](TheConstruct/0-prequisiteCourses.md)
 * [ROS Basics](TheConstruct/1-rosBasics.md)
 * [Navigation](TheConstruct/2-navigation.md)
+* [TMP](TheConstruct/3-simulation.md)
 
 ## Challenge
 
