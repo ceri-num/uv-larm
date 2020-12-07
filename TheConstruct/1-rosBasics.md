@@ -1,5 +1,6 @@
 ## ROS Basics
 
+ROS (Robot Operating System) is an API to design modular software architecture dedicated to control robots.
 You will learn the basic concepts of ROS and how to create ROS nodes with Python.
 The course cover topic publishers and subscribers, service clients & services, as well as action clients and servers. ROS commandline tools are introduced along related concepts.
 
@@ -26,3 +27,10 @@ The course cover topic publishers and subscribers, service clients & services, a
 8. Understanding ROS Actions - Clients
 9. Understanding ROS Actions - Servers & Messages
 10. **How to Debug ROS Programs** <span style="color:red;">important!</span>
+
+## Put it into practice
+
+TheConstruct allows you to create your own project workspaces.
+From the root web page [app.theconstructsim.com](https://app.theconstructsim.com/#/Home), you can go to 'My Rosjects' on the left column and then create a blank Rosject for instance (ROS Kinetic - no template).
+
+In this workspace, you can follow the beginner Level in the [ROS tutorials](https://wiki.ros.org/ROS/Tutorials) starting by 1. Creating a ROS Package (using catkin) and then by going into a notion, you didn't understand yet (ROS Node or Publisher and Subscriber, for instance).
