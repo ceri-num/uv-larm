@@ -13,6 +13,7 @@ vertion: tcs (TheConstructSim)
 ## Challenge
 
 * [Kick-off](challenge/intro-tcs.md)
+* [Shared WorkSpace](challenge/git-rds.md)
 * [Robot: Turtlebot2](challenge/turtlebot2.md)
 * [Agile development](challenge/agile-dev.md)
 
