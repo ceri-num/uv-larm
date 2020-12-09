@@ -24,7 +24,7 @@ Then select the turtlebot robot in an empty world.
 
 Finally, you will be capable of spawning some obstacles to avoid.
 
-![](resources/rds-turtlebot2.png)
+![](resources/rds-gazebo2.svg)
 
 ## Avoid obstacles
 
