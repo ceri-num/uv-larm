@@ -10,6 +10,7 @@ vertion: tcs (TheConstructSim)
 * [ROS Basics](TheConstruct/1-rosBasics.md)
 * [Navigation](TheConstruct/2-navigation.md)
 * [Computer Vision](TheConstruct/3-computervision.md)
+* [Computer Vision HO](TheConstruct/3-computervision.md)
 
 ## Challenge
 
