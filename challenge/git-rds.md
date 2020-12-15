@@ -30,10 +30,11 @@ Then only one member of the team has to perform the next instructions.
 It will be now possible to clone this *repo* on a fresh TheConstruct project.
 
 1. Open a fresh ROSject on Kinetic with no template.
-2. Clone the distant *repo* on a dedicated directory (`project_ws` for instance).
+1. Remove the current *catkin_ws* directory (`rm -fr catkin_ws`) 
+2. Clone the distant *repo* on as your *catkin_ws* directory.
 
 ```bash
-git clone MyHTTPsURL project_ws
+git clone MyHTTPsURL catkin_ws
 ```
 
 3. Play with your teammate to merge modification in the `README.md` file.
@@ -43,7 +44,7 @@ By editing this file, you create **localy** a new version.
 Try `git status` to visualize the modification.
 Then you can save this new version with `git commit -am 'new README'`.
 The option **a** and **m** are respectively for **all modification** and 
-**message**.
+**message** followed by a message labeling the commit.
 
 Git will ask you for your identity. 
 You have to fill the appropriate command before to run again the `git commit` command.
@@ -54,6 +55,8 @@ First, you have to `git pull` in order to get any new version on the server.
 Second (if there is no merge conflict ;) ), you can `git push`.
 
 Finally, you can find on the internet, plenty of tutorial like [this one](https://opensource.com/article/20/4/git-merge-conflict) to deal with merging conflicts.
+However, the better way to avoid conflict is to work in separate files or separate areas in files at same time step, and to commit/pull/push frequently.
+
 
 ## Initialize a proper catkin project
 
@@ -68,7 +71,7 @@ catkin_make
 git status
 ```
 
-There is no need to version the construction files so we ask git to ignore it with a `.gitignore` file.
+There is no need at all to version the construction files so we ask git to ignore it with a `.gitignore` file.
 
 ```bash
 echo "
@@ -79,7 +82,7 @@ devel/
 git status
 ```
 
-In contrary, it is necessary ask git to track `.gitignore` and the current file in `src` (and to share this initialization)
+In contrary, it is necessary to request git for tracking `.gitignore` and the current file in `src` (and to share this initialization)
 
 ```bash
 git add .gitignore src
