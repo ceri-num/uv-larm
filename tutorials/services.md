@@ -18,10 +18,7 @@ Let’s start with a simple ROS architecture based on **2** nodes:
 - MyTicTac: sending a succession of messages at a fixed frequency.
 - MyEcho: printing the messages.
 
-```mermaid
-graph LR;
-    TicTac--\tic-->Echo;
-```
+![TicTac architecture](resources/tictac.svg)
 
 --- 
 
