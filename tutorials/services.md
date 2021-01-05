@@ -45,12 +45,8 @@ msgs= ['tic', 'tac']
 # Program loop:
 i= 0
 while not rospy.is_shutdown():
-    # publishing
     pub.publish(msgs[i])
-    rospy.loginfo(msgs[i])
-    # increment
     i= (i+1)%len(msgs)
-    # Wait
     rate.sleep()
 ```
 
@@ -58,9 +54,7 @@ while not rospy.is_shutdown():
 
 ### Echo Subscriber
 
-This node simply print in information ROS output the content of messages in the ROS topic *'tic'*
-
-**echo.py**: 
+This node simply print in information ROS output the content of messages in the ROS topic *'tic'* - **echo.py**: 
 
 ```python
 #!/bin/python3
@@ -100,12 +94,13 @@ Try a RQT graph to valid it (`rosrun rqt_graph rqt_graph`).
 
 --- 
 
-
 ## Add Service functionality
 
 As we say, services have been developed to allow one shoot actions on the control of the robot.
 In the philosophies topics represent open and persistent broadcast communication channels while services connect nodes for a punctual messages interaction.
 It’s mainly useful to supervise a running software architecture without to stop and relaunch nodes with new configuration.
+
+--- 
 
 For instance, we want a service that changes the TicTac rate frequency.
 
@@ -129,12 +124,16 @@ Float64 Rate
 Int64 Ok
 ```
 
+--- 
+
 On the package configuration `package.xml` file, uncomment:
 
 ```
 <build_depend>message_generation</build_depend>
 <exec_depend>message_runtime</exec_depend>
 ```
+
+--- 
 
 On the package configuration `CMakeList.txt` file,
 add: 
@@ -157,6 +156,8 @@ add_service_files(
 )
 ```
 
+--- 
+
 and:
 
 ```
@@ -167,6 +168,8 @@ generate_messages(
 ```
 
 and: `CATKIN_DEPENDS message_runtime` in `catkin_package(... ...)`
+
+--- 
 
 Then, don't ask why and rebuild your package (`catkin_make clean && catkin_make`).
 
@@ -233,7 +236,6 @@ i= 0
 while not rospy.is_shutdown():
     # publishing
     pub.publish(msgs[i])
-    rospy.loginfo(msgs[i])
     # increment
     i= (i+1)%len(msgs)
     # Wait
