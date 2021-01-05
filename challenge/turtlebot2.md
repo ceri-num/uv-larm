@@ -35,3 +35,5 @@ A quick look at the available ROS topics permit to identifiate entrances for con
 ```bash
 rostopic list
 ```
+
+The goal position (in `odom` frame) is transmeted to the robot by using Rviz.
