@@ -260,7 +260,7 @@ rosservice call /rate 2.0
 More documentation on the [ROS tutorial](https://wiki.ros.org/ROS/Installation):
 
 - You can for instance call a service automatically from another node [see Client Node](https://wiki.ros.org/rospy_tutorials/Tutorials/WritingServiceClient)
-- Move from Services API to Action API if it is required that your robot adapts it behavior to fullfy your request (i.e. the Services responces is met to be instantaneous).
+- Move from Services API to [Action API](https://wiki.ros.org/actionlib_tutorials/Tutorials) if it is required that your robot adapts it behavior to fullfy your request (i.e. the Services responces is met to be instantaneous).
 
 ### Exercices
 
