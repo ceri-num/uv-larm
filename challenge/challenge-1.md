@@ -4,7 +4,7 @@ The goal of the challenge is to demonstrate the capability the robot has to move
 
 ## Preparation 
 
-Install the [LARM simulation workspace]() in place of `simulation_ws`.
+Install the [LARM simulation workspace](https://github.com/ceri-num/LARM-RDS-Simulation-WS) in place of `simulation_ws`.
 
 ## Expected
 
