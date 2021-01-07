@@ -1,4 +1,4 @@
-# Navigation in Small Environment
+# Autonomous Exploration
 
 The goal of the challenge is to demonstrate the capability the robot has to move in a cluttered environment.
 

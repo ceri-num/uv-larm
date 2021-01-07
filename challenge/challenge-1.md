@@ -1,4 +1,4 @@
-# Navigation in Small Environment
+# Navigation in a Small Environment
 
 The goal of the challenge is to demonstrate the capability the robot has to move in a cluttered environment.
 

@@ -1,4 +1,4 @@
-# Mapping an Medium Environment
+# Mapping a Medium Environment
 
 The goal of the challenge is to demonstrate the capability the robot has to map an environment and to retrieve spécific objects on it.
 
