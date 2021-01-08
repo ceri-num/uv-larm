@@ -20,6 +20,16 @@ Let’s start with a simple ROS architecture based on **2** nodes:
 
 ![TicTac architecture](resources/tictac.svg)
 
+For that create a new package `larm_tictac`.
+
+```bash
+cd src
+catkin_create_pkg larm_tictac
+cd ..
+catkin_make
+source devel/setup.zsh
+```
+
 --- 
 
 ### TicTac Publisher
@@ -113,12 +123,12 @@ We can see that this service didn't exist yet. `rosservice list` will list only 
 
 cf: [ROS Tutorial: msg and srv creation](https://wiki.ros.org/ROS/Tutorials/CreatingMsgAndSrv)
 
-On a new `srv/Rate.srv` file :
+On a new file `srv/Rate.srv` :
 
 ```
-Float64 Rate
+float64 Value
 ---
-Int64 Ok
+int64 Ok
 ```
 
 --- 
@@ -137,9 +147,6 @@ add:
 
 ```
 find_package(catkin REQUIRED COMPONENTS
-   roscpp
-   rospy
-   std_msgs
    message_generation
 )
 ```
@@ -158,19 +165,22 @@ add_service_files(
 and:
 
 ```
-generate_messages(
-  DEPENDENCIES
-  std_msgs  # Or other packages containing msgs
-)
+generate_messages()
 ```
 
-and: `CATKIN_DEPENDS message_runtime` in `catkin_package(... ...)`
+and:
+
+```
+catkin_package(
+    CATKIN_DEPENDS message_runtime
+)
+```
 
 --- 
 
 Then, don't ask why and rebuild your package (`catkin_make clean && catkin_make`).
 
---- 
+---
 
 ### Grand a node with a new service
 
@@ -179,7 +189,7 @@ On `tictac.py` we add service definition.
 First you need to import services messages definition.
 
 ```python 
-from your_package import srv
+from larm_tictac import srv
 ```
 
 --- 
