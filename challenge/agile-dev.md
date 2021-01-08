@@ -2,8 +2,9 @@
 
 The clear objective for a team of developers intents more efficient software development.
 The efficiency is relative to the quality of the developed software, its documentation, its code and the time needed to achieve all of that.
-The developper observed in its natural environment dives deeply in its source code untill the verry end of a dead line.  
-It is then too late to stick together the amoug of developped functionnality in an ergonomic way, too generate documentation and state that the direction of the project do not match the initial expectations. 
+
+The developer observed in its natural environment dives deeply in its source code until the very end of a dead line.
+It is then too late to stick together the among of developed functionality in an ergonomic way, to generate documentation and to state that the direction of the project does not match the initial expectations. 
 
 ### Iterative development
 
@@ -51,3 +52,15 @@ Select in the *to-do - 1st it* area of your *team board* all the components you 
 Let the other component for the second iteration.
 To notice that, the component to develop during the second iteration would be refined at the end of the first iteration.
 
+## Go go go...
+
+A component development is generally composed by **5** tasks to perform in a specific order:
+
+- Defining and implementing the test procedures that would validate the efficiency of the component.
+It is a good practice (named [test-driven development)[https://fr.wikipedia.org/wiki/Test_driven_development]) to set up the test before to start any development.
+- Developing the component in a way the component passes all the tests.
+- Testing the overall solution. Redo the test of all the already released components to validate that the development of the new component has not broken anything.
+- Updating the documentation.
+- Releasing the actual version (if all tests are green). In our case, it consists of merging the *dev* branch into the *master* branch, in order to always keep a working version on the *master* branch.
+
+So, you just have to select a first component to develop, put it in the *doing* areas of your *team board*, and let go...
