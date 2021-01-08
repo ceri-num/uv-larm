@@ -14,7 +14,7 @@ We aim to move the robot until it reaches a target position.
 The topic *odom* provide a first estimation of the robot movements by observing wheels' movements.
 By cumulating *odom* information, it is possible to maintain an estimation of the pose (position, orientation) of the robot on its environment.
 
-Lucky for us, turtlebot already provides such pose estimation by maintaining transformation data that permit connecting *\odom* frame (matching the start pose of the robot in the environment) with *\base_footprint* frame (matching the actual pose of the robot).
+Lucky for us, turtlebot already provides such pose estimation by maintaining transformation data that permit connecting */odom* frame (matching the start pose of the robot in the environment) with */base_footprint* frame (matching the actual pose of the robot).
 
 ### To do:
 
@@ -56,7 +56,7 @@ Nothing appends but your test is ready.
 
 ## Record a goal position
 
-The idea is to record a received goal in *\odom* frame which is static in the environment (ie. the goal will not move with the robot).
+The idea is to record a received goal in */odom* frame which is static in the environment (ie. the goal will not move with the robot).
 However, the goal could be communicated in a different frame (relatively to the robot for instance)
 
 In python code, you first have to initialize a *tf.TransformListener*, then, you would be capable of transforming any pose in any frame toward any other frames which are connected through transformation.
@@ -67,7 +67,7 @@ In python code, you first have to initialize a *tf.TransformListener*, then, you
 
 - Check for frames' connectivity with [rqt_tf_tree](https://wiki.ros.org/rqt_tf_tree)
 
-- After receiving the goal, transform it toward *\odom* frame to record it with static coordinates, then print it.
+- After receiving the goal, transform it toward */odom* frame to record it with static coordinates, then print it.
 
 After *init_node*:
 
@@ -79,7 +79,7 @@ _trans = tf.TransformListener()
 In the subscriber *init_node*:
 
 ```python
-recorded_goal= _trans.transformPose("\odom", goal)
+recorded_goal= _trans.transformPose("/odom", goal)
 ```
 
 - Play with *rviz* to validate the transformation is correct.
