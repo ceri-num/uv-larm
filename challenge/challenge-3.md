@@ -2,7 +2,7 @@
 
 The goal of the challenge is to demonstrate the capability the robot has to move in a cluttered environment.
 
-## Preparation 
+## Preparation
 
 Install the [LARM simulation workspace]() in place of `simulation_ws`.
 
@@ -12,7 +12,7 @@ A launch file `exploration.launch` in the student package in `catkin_ws/src/stud
 
 * The robot moves autonomously in the environement.
 * The robot build a map while navigating.
-* The robot communicate in a topic `\bottle` the position of bottles, each time the robot recognizes the appropriate object.
+* The robot communicate in a topic `/bottle` the position of bottles, each time the robot recognizes the appropriate object.
 
 The initial position of the robots can be random in the environment.
 
