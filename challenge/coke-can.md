@@ -60,4 +60,4 @@ You can also include the spawner in a launch file cf. (`spawn_bottle.launch` in 
 
 ## Configuration and Fakes
 
-Ideally, the cans hare detected in different poses, whatever the background and with partial obstructions. In contrary, the system has to avoid false positive (wallpaper publicity, other objects...)
+Ideally, the cans are detected in different poses, whatever the background and with partial obstructions. In contrary, the system has to avoid false positive (wallpaper publicity, other objects...)
