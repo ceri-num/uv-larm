@@ -16,7 +16,6 @@ version: tcs (TheConstructSim)
 
 * [Kick-off](challenge/intro-tcs.md)
 * [Shared WorkSpace](challenge/git-rds.md)
-* [Robot: Turtlebot2](challenge/turtlebot2.md)
 * [treasure: Coke can](challenge/coke-can.md)
 * [Challenge 1](challenge/challenge-1.md)
 * [Challenge 2](challenge/challenge-2.md)
@@ -27,6 +26,7 @@ version: tcs (TheConstructSim)
 * [Evaluation](challenge/evaluation.md)
 -->
 
-## Tools
+## Appendix
 
-* [FAQ](faq.md)
+* [FAQ](appendix/faq.md)
+* [Robot: Turtlebot2](appendix/turtlebot2.md)
