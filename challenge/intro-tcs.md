@@ -4,16 +4,16 @@ version: tcs (TheConstructSim)
 # Challenge Kick-Off
 
 
-The challenge aims to put learners in the development of a micro robotic project.
-In the end, both the execution of the proposed solution and the source code with documentation would be evaluated.
+The challenge aims at making learners develop a micro robotic project.
+In the end, both the execution of the proposed solution and the source code with documentation will be evaluated.
 
 The main objectives of the project consist of:
 
 - Control a robot in a cluttered environment
 - Map a static environment
 - Detect all the **Nuka-Cola**
-- Estimate the position of the **Nuka-Cola** in the map
-- Optimaze the exploration strategy
+- Estimate the position of all the **Nuka-Cola** in the map
+- Optimize the exploration strategy
 
 <https://www.myminifactory.com/object/3d-print-fallout-nuka-cola-15616>
 
@@ -22,7 +22,7 @@ The main objectives of the project consist of:
 
 ## Agile software development
 
-Agile software development aims to break with traditional project management by preferring:
+Agile software development aims at breaking with traditional project management by preferring:
 
 - **Individuals and Interactions** over processes and tools
 - **Working Software** over comprehensive documentation
@@ -36,8 +36,8 @@ More on [WikiPedia](https://en.wikipedia.org/wiki/Agile_software_development).
 
 ## Create a group
 
-As a first move you have to constitute a group of 2 or 3 developers.
+As a first move, you have to constitute a group of 2 or 3 developers.
 
 - Log on the proposed (virtual tutorial room on discord)[https://discord.gg/MWvznHgWnf]
-- Squat one of the Group-XX areas with your teammate(s).
+- Select one of the Group-XX areas with your teammate(s).
 - Use this area to share your information about your work (and potentially your screen, in the visual channel).
