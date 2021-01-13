@@ -16,7 +16,7 @@ A launch file `mapping.launch` in the student package in `catkin_ws/src/students
 
 ## Demonstration protocol
 
-1. Launch the simulation configuration: `roslaunch larm large_world.launch`
+1. Launch the simulation configuration: `roslaunch larm challenge-2.launch`
 2. Launch the control architecture: `roslaunch studient_pkg mapping.launch`
 3. Visualize the map and the pose position in the `/bottle` topic on rviz
 4. The robot can be controlled manually.
