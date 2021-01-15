@@ -8,7 +8,7 @@ Install the [LARM simulation workspace]() in place of `simulation_ws`.
 
 ## Expected
 
-A launch file `exploration.launch` in the student package in `catkin_ws/src/students_package` that configure the robot control architecture in a way that:
+A launch file `exploration.launch` in the student package in `catkin_ws/src/student_package` that configure the robot control architecture in a way that:
 
 * The robot moves autonomously in the environement.
 * The robot build a map while navigating.
@@ -19,7 +19,7 @@ The initial position of the robots can be random in the environment.
 ## Demonstration protocol
 
 1. Launch the simulation configuration: `roslaunch larm challenge-3.launch`
-2. Launch the control architecture: `roslaunch studient_pkg exploration.launch`
+2. Launch the control architecture: `roslaunch student_pkg exploration.launch`
 3. Launch rviz
 
 ## In the video
