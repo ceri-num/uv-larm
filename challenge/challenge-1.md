@@ -8,7 +8,7 @@ Install the [LARM simulation workspace](https://github.com/ceri-num/LARM-RDS-Sim
 
 ## Expected
 
-A launch file `navigation.launch` in the student package in `catkin_ws/src/students_package` that configure the robot control architecture in a way that:
+A launch file `navigation.launch` in the student package in `catkin_ws/src/student_package` that configure the robot control architecture in a way that:
 
 * The robot wait target position to reach in a `/goal` topic.
 * The robot moves toward the last provided position and stop when reached.
