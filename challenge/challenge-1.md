@@ -21,7 +21,7 @@ A launch file `navigation.launch` in the student package in `catkin_ws/src/stude
 2. Launch rviz
 3. Provide a succession of goal destinations in `/goal` topic throught rviz as pose messages. The poses are provided in `odom` frame, successively after the robot stop to the previous goal location.
 
-The enviroenement configuration can be random, but the destination goal are provided manually.
+The environnement configuration can be random, but the destination goal are provided manually.
 
 ## In the video
 
