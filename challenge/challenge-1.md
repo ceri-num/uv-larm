@@ -17,7 +17,7 @@ A launch file `navigation.launch` in the student package in `catkin_ws/src/stude
 ## Demonstration protocol
 
 1. Launch the simulation configuration: `roslaunch larm challenge-1.launch`
-2. Launch the control architecture: `roslaunch studient_pkg navigation.launch`
+2. Launch the control architecture: `roslaunch student_pkg navigation.launch`
 2. Launch rviz
 3. Provide a succession of goal destinations in `/goal` topic throught rviz as pose messages. The poses are provided in `odom` frame, successively after the robot stop to the previous goal location.
 
