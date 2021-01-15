@@ -18,7 +18,7 @@ The initial position of the robots can be random in the environment.
 
 ## Demonstration protocol
 
-1. Launch the simulation configuration: `roslaunch larm small_world.launch`
+1. Launch the simulation configuration: `roslaunch larm challenge-3.launch`
 2. Launch the control architecture: `roslaunch studient_pkg exploration.launch`
 3. Launch rviz
 
