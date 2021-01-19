@@ -13,8 +13,8 @@ Those solutions are also well supported in [ROS](https://wiki.ros.org/urg_node).
 
 ## On TheConstruct RDS
 
-TheConstruct RDS provides built in the gazebo simulation with turtlebot2 robots (on Kinetic).
-You can start the simulation from your fresh gited ROSject (Kinetic - No template) through the simulation button.
+TheConstruct RDS provides built in the gazebo simulation with turtlebot2 robots (on Melodic).
+You can start the simulation from your fresh gited ROSject (Melodic - No template) through the simulation button.
 
 ![](resources/rds-gazebo.svg)
 

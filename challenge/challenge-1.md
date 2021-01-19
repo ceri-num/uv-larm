@@ -8,7 +8,7 @@ Install the [LARM simulation workspace](https://github.com/ceri-num/LARM-RDS-Sim
 
 ## Expected
 
-A launch file `navigation.launch` in the student package in `catkin_ws/src/students_package` that configure the robot control architecture in a way that:
+A launch file `navigation.launch` in the student package in `catkin_ws/src/student_package` that configure the robot control architecture in a way that:
 
 * The robot wait target position to reach in a `/goal` topic.
 * The robot moves toward the last provided position and stop when reached.
@@ -17,11 +17,11 @@ A launch file `navigation.launch` in the student package in `catkin_ws/src/stude
 ## Demonstration protocol
 
 1. Launch the simulation configuration: `roslaunch larm challenge-1.launch`
-2. Launch the control architecture: `roslaunch studient_pkg navigation.launch`
+2. Launch the control architecture: `roslaunch student_pkg navigation.launch`
 2. Launch rviz
 3. Provide a succession of goal destinations in `/goal` topic throught rviz as pose messages. The poses are provided in `odom` frame, successively after the robot stop to the previous goal location.
 
-The enviroenement configuration can be random, but the destination goal are provided manually.
+The environnement configuration can be random, but the destination goal are provided manually.
 
 ## In the video
 
