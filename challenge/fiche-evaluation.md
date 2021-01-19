@@ -26,7 +26,7 @@ Chaque question est évaluée sur une échelle de -1 à 4:
 - **0**  : Pas d'éléments, ou les éléments présents sont proche de rien (simple initialisation par exemple de ressources/fichiers pour l'instant vide).
 - **1** : Ni fait Ni à faire, il y a des éléments qui vont dans le bon sens, mais trop peut ou erroné.
 - **2** : Incomplet, les éléments répondent aux attendes dans l'ensemble, mais avec des lacunes sur certains points.
-- **3** : Ok, les éléments répondent aux attentes.
+- **3** : Ok, les éléments répondent aux attentes. 
 - **4** : Impecable, les éléments répondent aux attentes et vont au-delà du strict nécessaire.
 
 En résumé : 
@@ -35,6 +35,7 @@ En résumé :
 --------------|----------------|-------|-----------|------|----------
 Pire que rien | Pas d'éléments | Ni-ni | Incomplet |  Ok  | Impeccable
 
+Notez que seules les notes **-1**, **0** et **3** ne requiére pas obligatoirement de commentaires.
 
 ## Installation
 
@@ -172,7 +173,8 @@ Attention, on évalue uniquement la branche principale, et le commit sus-mention
 
 ## Avis global sur la solution
 
-Évaluation : **X** ( on devrait être ici **2-incomplet** )
+Évaluation : **X** ( on devrait être ici sur **2-incomplet** )
 Commentaire : (fait état des challenges qui peuvent être conservés validé et de ceux encore à faire et surtout fait la différence entre une solution ou ce qui est fait est propre et une solution ou tout ou partie de ce qui est fait est à revoir. Idéalement donc, seuls quelques points évalués **1** ou **2** l'ont été, car le travail est inachevé, autrement on rencontre essentiellement des **0** (point non encore adressé) **3** ou **4**.)
 Avis : (est-ce qu'il vous semble compliqué pour le groupe évalué de finir le travail d'ici à vendredi ?)
 Avis miroir :  (est-ce qu'il vous semble compliqué pour vous (le groupe évaluateur) de finir le travail d'ici à vendredi ?)
+
