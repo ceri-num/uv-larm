@@ -29,7 +29,7 @@ Then only one member of the team has to perform the next instructions.
 
 It will be now possible to clone this *repo* on a fresh TheConstruct project.
 
-1. Open a fresh ROSject on Kinetic with no template.
+1. Open a fresh ROSject on *Melodic* with no template.
 1. Remove the current *catkin_ws* directory (`rm -fr catkin_ws`) 
 2. Clone the distant *repo* on as your *catkin_ws* directory.
 
