@@ -4,7 +4,7 @@ The goal of this exercise is to set up a computer and a software environment to 
 We choose to work with ROS (the most used open middleware for robotics) on a Linux-Ubuntu computer (which are the best supported configuration).
 
 The required configuration at the end is based on:
-  - Ubuntu 20.04
+  - Ubuntu 20.04 (Or the geek and gamer vertion [POP!_os](https://pop.system76.com/))
   - ROS Neotic
   - Your favorite development environment for Python and C++.
 

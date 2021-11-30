@@ -103,7 +103,7 @@ except KeyError:
 
 - Adapt *rviz* configuration and the launch file.
 
-- To notice that a correction is available on the [github of the tutorial](https://github.com/ceri-num/uv-larm/tree/master/tutorials/handle-tf-pkg).
+- To notice that a correction is available on the [github of the tutorial](https://github.com/ceri-num/uv-larm/tree/master/files/handle-tf-pkg).
 
 ## Move Forward:
 
