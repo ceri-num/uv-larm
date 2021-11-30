@@ -24,6 +24,8 @@ version: tcs (TheConstructSim)
 
 ## Challenge
 
+* [Kick-off](challenge/intro.md)
+
 <!--
 * [Kick-off](challenge/intro-tcs.md)
 * [Shared WorkSpace](challenge/git-rds.md)
