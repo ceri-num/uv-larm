@@ -168,7 +168,7 @@ It comes with useful functionality like *frame* management and *transform*
 
 - We love *GNU*
 - ROS natively support Ubuntu
-- Linux is open and well documented
+- _And mainly:_ Linux is efficient, open and well documented
 
 ## Today:
 
