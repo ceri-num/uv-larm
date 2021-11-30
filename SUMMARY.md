@@ -4,6 +4,8 @@ version: tcs (TheConstructSim)
 
 # Outline
 
+* [Introduction](README.md)
+
 ## Notions
 
 * [Operating System](notions/1-oss.md)
