@@ -110,3 +110,5 @@ except KeyError:
 You just have to transform again goal position in local frame and use it to compute appropriate commands.
 
 Do not forget to set all global variables you use as *ROS* parameters (maximum speeds, command topic, ...)
+
+Do it in ROS2: https://robohub.org/exploring-ros2-using-wheeled-robot-3-moving-the-robot/
