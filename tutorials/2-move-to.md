@@ -122,6 +122,5 @@ The game is to integrate incoming information from `\scan` to `move.py` script t
 Without a turtlebot, you can play with reccorded sensor stream (a bagfile).
 
 ```bash
-
 rosbag play scan.bag
 ```

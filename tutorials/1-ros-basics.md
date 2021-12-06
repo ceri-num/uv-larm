@@ -1,4 +1,4 @@
-# 01 - ROS setup
+# Linux and ROS Basics
 
 The goal of this exercise is to set up a computer and a software environment to control robots and to develop robotics programs.
 We choose to work with ROS (the most used open middleware for robotics) on a Linux-Ubuntu computer (which are the best supported configuration).
@@ -8,7 +8,7 @@ The required configuration at the end is based on:
   - ROS Neotic
   - Your favorite development environment for Python and C++.
 
-# Installing Ubuntu
+## Installing Ubuntu
 
 Ubuntu is a fork of the Debian project, a Linux-based desktop operating system.
 
@@ -30,7 +30,7 @@ sudo apt update
 sudo apt upgrade
 ```
 
-# Play with Linux.
+## Play with Linux.
 
 Ubuntu is a distribution Linux (OS + Window Managment + tools) derived from Debian distribution.
 
@@ -42,23 +42,17 @@ In the variety of program, we are mostly interested in the terminal emulator, pe
 
 In a terminal, explore the following command (i.e. what for, how to use it):
 
-- **man**
-- **ls**
-- **cp**
-- **mv**
-- **cat**
-- **rm**
-- **apt**
-- **sudo**
+- **man**, **ls**, **cp**, **mv**, **cat**, **rm**
+- **apt**, **sudo**
 
-# Installing ROS
+## Installing ROS
 
 ROS could be installing directly with `apt` tool while configuring the appropriate repositories.
 
 <http://wiki.ros.org/ROS/Installation>
 
 
-# Play with ROS
+### Play with ROS
 
 ROS documentation is developed by the community on a wiki: http://wiki.ros.org.
 This wiki includes the documentation on core ROS as on a large variety of ROS drivers and modules shared by the community.

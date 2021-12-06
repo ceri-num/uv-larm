@@ -34,7 +34,7 @@ This lecture is composed of multiple guided tutorials (non-exhaustive list):
 
 The evaluation mainly realizes on an application through a specific challenge:
 
-- Control an **AGV**
+- Control an **AGV** (Autonomous Ground Vehicul)
 - Mapping and Localization
 - Research and recognition of an object
 
