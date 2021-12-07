@@ -2,7 +2,7 @@
 marp: true
 theme: imt
 paginate: true
-backgroundImage: url('style/bg-imt.svg')
+backgroundImage: url('../style/bg-imt.svg')
 ---
 
 # My beatiful tittle
@@ -16,7 +16,7 @@ backgroundImage: url('style/bg-imt.svg')
 **Guillaume Lozenguez**
 [@imt-lille-douai.fr](mailto:guillaume.lozenguez@imt-lille-douai.fr)
 
-![bg](style/bg-tittle.svg)
+![bg](../style/bg-tittle.svg)
 
 ---
 
@@ -29,7 +29,7 @@ backgroundImage: url('style/bg-imt.svg')
 3. Compute an optimal policy.
    - ....
 
-![bg](style/bg-toc.svg)
+![bg](../style/bg-toc.svg)
 
 ---
 <!-- --------------------------------------------------------------- -->
@@ -46,7 +46,7 @@ backgroundImage: url('style/bg-imt.svg')
 *T :* S × A × S → [0, 1] : transitions
 *R :* S × A → R : cost/rewards
 
-![bg right 100%](figs/MDP.svg)
+![bg right 100%](../figs/MDP.svg)
 
 **Optimal policy:**
 

@@ -4,7 +4,19 @@ This tutorial aims to take control over turtlebut2 kobuki platform helped by las
 
 ## Installation:
 
-The authors provide ready to use catkin package here: 
+First, on a new machine, you have to create a user for your group.
+
+Log as bot, and in a terminal:
+
+```bash
+sudo adduser grp-`color`
+sudo usermod -a -G sudo grp-`color`
+sudo usermod -a -G dialout grp-`color`
+```
+
+You can now logout and login in your own id. 
+
+Then, the authors provide ready to use catkin package here: 
 
 - On [bitbucket.org/imt-mobisyst](https://bitbucket.org/imt-mobisyst/mb6-tbot)
 
