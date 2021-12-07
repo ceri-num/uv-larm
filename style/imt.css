@@ -80,7 +80,9 @@ em{
 }
 
 img{
-    width: 100%;
+    display: block;
+    margin-left: auto;
+    margin-right: auto; 
 }
 
 pre{
@@ -89,4 +91,32 @@ pre{
 
 td{
     padding: 7px 14px;
+}
+
+.one{
+    display: table-cell;
+    width: 1088px;
+    height: auto;
+    padding-left: 10px;
+}
+
+.one2{
+    display: table-cell;
+    width: 544px;
+    height: auto;
+    padding-left: 10px;
+}
+
+.one3{
+    display: table-cell;
+    width: 363px;
+    height: auto;
+    padding-left: 10px;
+}
+
+.two3{
+    display: table-cell;
+    width: 725px;
+    height: auto;
+    padding-left: 10px;
 }

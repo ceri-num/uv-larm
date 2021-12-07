@@ -5,7 +5,7 @@ A lecture on software and architecture for mobile robots at the [IMT-Nord](http:
 In this course we propose an introduction on how to develop a modular control and supervision software for a mobile platform.
 The notions are illustrated with tutorials based on Linux/[ROS](https://ros.org/) and [Kobuki/Turtlebot2](http://kobuki.yujinrobot.com/) robot.
 
-Introduction - [pdf version](https://raw.githubusercontent.com/ceri-num/uv-larm/master/notions/intro.pdf)
+Introduction - [pdf version](https://raw.githubusercontent.com/ceri-num/uv-larm/master/notions/sld-intro.pdf)
 
 ## This support
 
