@@ -1,0 +1,33 @@
+# System
+*.log
+.vscode
+build
+dpd
+
+# Latex:
+*.aux
+*.bbl
+*.blg
+*.fdb_latexmk
+*.fls
+*.log
+*.out
+*.pdf
+*.synctex.gz
+*.tex~
+
+# python:
+*.pyc
+__pycache__/
+
+# c/c++:
+*.o
+
+# pharo:
+pharo
+pharo-ui
+pharo-vm
+pharo-local
+PharoDebug.log
+*.sources
+*.changes
