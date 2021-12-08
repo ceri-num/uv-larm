@@ -1,6 +1,6 @@
 # 04 - Handle transformation in node (and parameters)
 
-In the last **move-to** tutorial, we focused on controlling the robot to perform a predetermined movement potentially by avoiding the obstacles.
+In the last **move** tutorial, we focused on controlling the robot to perform a movement by avoiding the obstacles.
 The idea of this tutorial is to finalize a *reactive move* node that permits a robot to reach a goal position.
 
 To be efficient, you have to record the goal position in a frame, static in the environment while the command is computed accordingly to the frame attached to the mobile base.

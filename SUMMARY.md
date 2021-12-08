@@ -8,10 +8,9 @@ version: tcs (TheConstructSim)
 
 ## Notions
 
-* [Operating System](notions/1-oss.md)
-* [ROS Basics](notions/2-ros-basics.md)
-* [Basic Mobile-System](notions/3-mobile-system.md)
-* [Infinite Loop](notions/4-infinite-loop.md)
+* [Operating System for Robots](notions/1-oss.md)
+* [Basic Mobile-System](notions/2-mobile-system.md)
+<!--* [Infinite Loop](notions/3-infinite-loop.md) -->
 
 ## Tutorials
 
