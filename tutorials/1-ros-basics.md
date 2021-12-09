@@ -4,7 +4,7 @@ The goal of this exercise is to set up a computer and a software environment to 
 We choose to work with ROS (the most used open middleware for robotics) on a Linux-Ubuntu computer (which are the best supported configuration).
 
 The required configuration at the end is based on:
-  - Ubuntu 20.04 (Or the geek and gamer vertion [POP!_os](https://pop.system76.com/))
+  - Ubuntu 20.04 (Or the geek and gamer version [POP!_os](https://pop.system76.com/))
   - ROS Neotic
   - Your favorite development environment for Python and C++.
 
@@ -54,7 +54,7 @@ ROS could be installing directly with `apt` tool while configuring the appropria
 
 ### Play with ROS
 
-ROS documentation is developed by the community on a wiki: http://wiki.ros.org.
+ROS documentation is developed by the community on a wiki: <http://wiki.ros.org>.
 This wiki includes the documentation on core ROS as on a large variety of ROS drivers and modules shared by the community.
 
 ## First contact
@@ -63,7 +63,7 @@ As a first step, the beginner tutorials permit to visit the main element of ROS.
 To notice that ROS support two systems to manage a ROS project.
 This lecture is focused on `Catkin`, so you can avoid the parts reserved to `rosBuild`.
 
-Execute beginner tutorials from **1** to **6**.
+Execute [beginner tutorials](http://wiki.ros.org/ROS/Tutorials) from **1** to **6**.
 
 ## Develop a first ROS program
 
