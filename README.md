@@ -51,8 +51,8 @@ You also can find an excellent virtual working environment and resources on [The
 
 Slide generation is based on [marp](https://marp.app/) and the associated puggin in [VS Code](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode).
 
-To attach the appropriate style, go in `VS Code` parameters (Bottom left corner) - search for `marp:theme` - select the work space ongle - add elelement `style/imt.css`.
-Then, search `marp:html` and ennable all html elements.
+To attach the appropriate style, go in `VS Code` parameters (Bottom left corner) - search for `marp:theme` - select the workspace tab - add element `style/imt.css`.
+Then, search `marp:html` and enable all html elements.
 
 ## Contact
 
