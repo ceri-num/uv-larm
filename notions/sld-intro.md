@@ -20,7 +20,7 @@ backgroundImage: url('../style/bg-imt.svg')
 ---
 
 1. **What is a Robot ?**
-2. **About the Lecture LARN**
+2. **About the Lecture LARM**
 3. **Today: First contact with Linux and ROS**
 
 ![bg](../style/bg-toc.svg)
@@ -49,10 +49,10 @@ backgroundImage: url('../style/bg-imt.svg')
 "A **robot** is a **mechatronics** machine capable of autonomously acting in a real environment."
 
 - perceives with *sensors*
-- models its environment and adapt its behavior
+- models its environment and adapts its behavior
 - acts with *actuators*
 
-generally involves Artificail-Intelligence:
+generally involves Artificial-Intelligence:
 
 - capable to mimic natural (human, animal, insect,...) intelligence
 
@@ -127,7 +127,7 @@ Focus on sensors, motor, energy systems and hardware.
 ### Focus on:
 
 - Algorythms
-- Knoledge representation
+- Knowledge representation
 - Artificial intelligence
 - Software architecture
 
@@ -164,9 +164,9 @@ which require modular computer programs.
 
 *1st week:* Introduction to notions with tutorials.
 
-*2d week:* Chalenge kickoff and some complementary notions.
+*2d week:* Challenge kickoff and some complementary notions.
 
-*3d week:* Chalenge as your projet.
+*3d week:* Challenge as your projet.
 
 *4th week:* Evaluation through the code you provide.
 
@@ -184,7 +184,7 @@ which require modular computer programs.
 - Open and oriented toward its *many contributors*
 - Supported by most of the professionals
 
-It permits thinking robot programs in a modular way as independent program's *nodes* working together by communicating through *topics*.
+It permits thinking robotic programs in a modular way as independent program's *nodes* working together by communicating through *topics*.
 
 It comes with useful functionality like *frame* management and *transform*
 
