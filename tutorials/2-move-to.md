@@ -1,8 +1,9 @@
 # 02 - Move a robot
 
-This tutorial aims to take control over turtlebut2 kobuki platform helped by laser range to navigate in a cluttered environment.
+This tutorial aims to take control of a __tbot__  robot.
+A tbot is a turtlebot2 (itself based on a kobuki platform) equipped with a laser range to navigate in a cluttered environment.
 
-This tutorial supose that you already process the [Challenge - Kick-Off](../challenge/intro.md).
+This tutorial supose that you already processed the [Challenge - Kick-Off](../challenge/intro.md).
 
 ## Installation:
 
