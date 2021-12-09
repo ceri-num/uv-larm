@@ -6,11 +6,13 @@ version: IMT Nord Europe (Présentiel)
 
 * [Introduction](README.md)
 
+<!--
 ## Notions
 
 * [Operating System for Robots](notions/1-oss.md)
 * [Basic Mobile-System](notions/2-mobile-system.md)
-<!--* [Infinite Loop](notions/3-infinite-loop.md) -->
+* [Infinite Loop](notions/3-infinite-loop.md)
+-->
 
 ## Tutorials
 
@@ -26,10 +28,9 @@ version: IMT Nord Europe (Présentiel)
 ## Challenge
 
 * [Kick-off](challenge/intro.md)
+* [Challenge 1](challenge/challenge-1.md)
 
 <!--
-* [Kick-off](challenge/intro-tcs.md)
-* [Shared WorkSpace](challenge/git-rds.md)
 * [treasure: Coke can](challenge/coke-can.md)
 * [Challenge 1](challenge/challenge-1.md)
 * [Challenge 2](challenge/challenge-2.md)
