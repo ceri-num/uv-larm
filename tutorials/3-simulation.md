@@ -14,34 +14,34 @@ Let's start with a first 2d ROS simulation with the [stage](http://wiki.ros.org/
 
 >Stage provides several sensor and actuator models, including sonar or infrared rangers, scanning laser rangefinder, color-blob tracking, fiducial tracking, bumpers, grippers and mobile robot bases with odometric or global localization. 
 
-##Stage Installation
+## Stage Installation
 
 Check that stage is installed:
 
-	```shell
-	$ dpkg -l | grep stage
-	ii  ros-melodic-stage        4.3.0-0bionic.20191008.154542    amd64    Mobile robot simulator http://rtv.github.com/Stage
-	ii  ros-melodic-stage-ros    1.8.0-0bionic.20191008.204912    amd64    This package provides ROS specific hooks for stage 
-	```
+```console
+$ dpkg -l | grep stage
+ii  ros-noetic-stage                            4.3.0-1focal.20210423.222334               amd64        Mobile robot simulator http://rtv.github.com/Stage
+ii  ros-noetic-stage-ros                        1.8.0-1focal.20210727.075341               amd64        This package provides ROS specific hooks for stage
+```
 
-Install it otherwise:
+Otherwise, istall it:
 	
-	```shell
+	```console
 	$ sudo apt update
 	$ sudo apt install ros-melodic-stage ros-melodic-stage-ros
 	```
 
 You can explore the files installed by these two packages:
 
-	```shell
+	```console
 	$ roscd stage_ros
 	```
 
-##Stage Simulation with one Robot
+## Stage Simulation with one Robot
 
 [Source](http://wiki.ros.org/stage/Tutorials/SimulatingOneRobot)
 
-	```shell
+	```console
 	$ roscore
 	...
 	# Launch stage in another shell
@@ -74,7 +74,7 @@ You can use various ROS tools to analyse what is involved in this simulation.
 
 ![rviz dispaying laser scans data published into the /base_scan topic by stage)](../files/SLAM/rviz_laserscan.png)
 
-##Controlling the Simulated Robot
+## Controlling the Simulated Robot
 
 Install needed packets if needed:
 
@@ -102,7 +102,7 @@ Try to issue a command (`rostopic pub`) that mimic `teleop_twist_keyboard` by pu
 Find how to control a robot with a joypad (xbox, ps3/4 controllers).
 
 
-##Re-Use your `dance` node
+## Re-Use your `dance` node
 
 In the [move-to](move-to.md) tutorial, you wrote a `dance` node in Python that makes the robot move by publishing data into the topic `cmd_vel_mux`.
 
@@ -162,7 +162,7 @@ Launch this node (adapt it if necessary) to make moving the simulated robot in s
 <!-- The directory `~/catkin_ws/src/larm1_mapping` should contains: -->
 <!-- - Create a *launch file* named (`imt.launch`) -->
 
-#**Your** first launch file
+# **Your** first launch file
 
 Into your `larm1_slam` catkin package, create a *launch file* named `robot_stage.launch` that launches a full-fledge simulation using stage with one robot equipped with 2d laser ranger.
 The [launch file documentation](http://wiki.ros.org/roslaunch).
@@ -185,7 +185,7 @@ To achieve this, add this line into your launch file:
 	 <param name="/use_sim_time" value="true">
 	```
 
-##Advanced Stage 
+## Advanced Stage 
 
 You can customize your simulation by writing your own `.world` file and for example:
 - change the map
