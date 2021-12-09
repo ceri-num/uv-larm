@@ -142,6 +142,18 @@ The game is to integrate incoming information from `/scan` to `move.py` script t
 Without a turtlebot, you can play with reccorded sensor stream (a bagfile).
 cf. tutorials: [record bag files](http://wiki.ros.org/ROS/Tutorials/Recording%20and%20playing%20back%20data), [play bag files](http://wiki.ros.org/ROS/Tutorials/reading%20msgs%20from%20a%20bag%20file).
 
+You can get a bag file in `mb6-data` repository:
+
+```bash
+wget https://bitbucket.org/imt-mobisyst/mb6-data/raw/master/tbot_bags/bags/tbot_bag_first_loop.bag -O move.bag
+```
+
+then run it: 
+
+```bash
+rosbag play move.bag
+```
+
 ### From laser scan to point cloud
 
 [laser scan](https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/LaserScan.html) in the sensor messages package, provide both the recorded bean distances and the meta information permiting to convert the distances on points in a regular carthesian frame (i.e. the angle between beams).
@@ -152,16 +164,19 @@ In a python script, the conversion to put in a call-back function attached to `/
 obstacles= []
 angle= data.angle_min
 for aDistance in data.ranges :
-    aPoint= [ 
-        cos(angle) * aDistance, 
-        sin( angle ) * aDistance
-    ]
-    obstacles.push( aPoint )
-    angle+= scan.angle_increment
-print( obstacles )
+    if 0.1 < aDistance and aDistance < 5.0 :
+        aPoint= [ 
+            math.cos(angle) * aDistance, 
+            math.sin( angle ) * aDistance
+        ]
+        obstacles.append( aPoint )
+    angle+= data.angle_increment
+rospy.loginfo( str(
+    [ [ round(p[0], 2), round(p[1], 2) ] for p in  obstacles[0:10] ] 
+) + " ..." )
 ```
 
-Ideally it is possible to publish this result in a pointCloud mesage and to visualize it on rviz...
+Ideally, it is possible to publish this result in a pointCloud mesage and to visualize it on rviz...
 
 
 ### Avoid obstacle

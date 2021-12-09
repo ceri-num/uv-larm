@@ -60,6 +60,17 @@ cd src
 git clone github/repo.git grp-color
 ```
 
+If it is the first clone, initialize a `README.md` at least with a simple tittle (cf. [Markdown syntax](https://fr.wikipedia.org/wiki/Markdown)):
+
+```bash
+echo "# grp-`color` repository for the UV-LARM
+" > README.md
+git add README.md
+git commit -am "Initialize README file"
+git pull
+git push
+```
+
 ### New package:
 
 Then you can go inside your repository and create a new ros package:

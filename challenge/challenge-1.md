@@ -1,18 +1,32 @@
-# Navigation in a Small Environment
+# Random exploration of a Small Environment
 
-The goal of the challenge is to demonstrate the capability the robot has to move in a cluttered environment.
+The goal of the challenge is to demonstrate the capability of a robot to move in a cluttered environment and potentially to visit all a closed area.
 
+<!--
 ## Preparation
 
 Install the [LARM simulation workspace](https://github.com/ceri-num/LARM-RDS-Simulation-WS) in place of `simulation_ws`.
+-->
 
 ## Expected
+
+
+
+
+## Expected
+
 
 A launch file `navigation.launch` in the student package in `catkin_ws/src/student_package` that configure the robot control architecture in a way that:
 
 * The robot wait target position to reach in a `/goal` topic.
 * The robot moves toward the last provided position and stop when reached.
 * The robot movement is smooth and avoid the present obstacles.
+
+
+## Criteria
+
+
+
 
 ## Demonstration protocol
 
@@ -23,8 +37,10 @@ A launch file `navigation.launch` in the student package in `catkin_ws/src/stude
 
 The environnement configuration can be random, but the destination goal are provided manually.
 
+<!---
 ## In the video
 
 1. A presentation of the challenge
 2. A presentation of the launch-file and the proposed architecture
 3. A demonstration
+--->
