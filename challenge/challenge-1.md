@@ -69,10 +69,10 @@ Optional:
 Here the evaluation protocol applied. It is highly recommended to process it yourself before the submission...
 
 1. clone the group’s repository
-1. checkout the appropriate branch `git checkout challendge1`
+1. check out the appropriate branch `git checkout challendge1`
 2. make it `catkin_make` from the catkin directory.
 3. Launch the simulation demonstration: `roslaunch grp-color challendge1_simulation.launch`
-4. Stop everithing.
+4. Stop everything.
 5. Connect the computer to the robot.
 6. Launch the Turtlebot demonstration: `roslaunch grp-color challendge1_turtlebot.launch`
 7. Read the `README.md` file and take a look to the code.
