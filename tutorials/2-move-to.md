@@ -140,7 +140,7 @@ The game is to integrate incoming information from `/scan` to `move.py` script t
 4. Make the robot turning right or left to avoid close obstable on the left  or on the right (positive or negative value on the `Twist angular z` attribut).
 
 Without a turtlebot, you can play with reccorded sensor stream (a bagfile).
-cf. tutorials: [Record Bog files](http://wiki.ros.org/ROS/Tutorials/Recording%20and%20playing%20back%20data) [play bag files](http://wiki.ros.org/ROS/Tutorials/reading%20msgs%20from%20a%20bag%20file).
+cf. tutorials: [record bag files](http://wiki.ros.org/ROS/Tutorials/Recording%20and%20playing%20back%20data), [play bag files](http://wiki.ros.org/ROS/Tutorials/reading%20msgs%20from%20a%20bag%20file).
 
 ### From laser scan to point cloud
 
