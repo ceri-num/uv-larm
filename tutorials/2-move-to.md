@@ -132,24 +132,21 @@ Hokuyo laser range is a sensor compliant with ROS by using the *urg_node* packag
 
 A new topic appears `/scan` streaming the LaserRange data. It is possible to visualize it with *rviz* (fixed frame initially on `map` has to be set on `laser` frame, i.e. at this point it is impossible for the system to know where is the laser in the map).
 
-The game is to integrate incoming information from `\scan` to `move.py` script to avoid obstacles in front of the robot.
+The game is to integrate incoming information from `/scan` to `move.py` script to avoid obstacles in front of the robot.
 
 1. Add dependence to scan messages. 
-2. Subscribe to `\scan` topics and associate a call back function.
-3. Transform the `\scan` distances into obstacle positions
+2. Subscribe to `/scan` topics and associate a call back function.
+3. Transform the `/scan` distances into obstacle positions
 4. Make the robot turning right or left to avoid close obstable on the left  or on the right (positive or negative value on the `Twist angular z` attribut).
 
 Without a turtlebot, you can play with reccorded sensor stream (a bagfile).
-
-```bash
-rosbag play scan.bag
-```
+cf. tutorials: [Record Bog files](http://wiki.ros.org/ROS/Tutorials/Recording%20and%20playing%20back%20data) [play bag files](http://wiki.ros.org/ROS/Tutorials/reading%20msgs%20from%20a%20bag%20file).
 
 ### From laser scan to point cloud
 
-[laser scan](https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/LaserScan.html) in the sensor messages package, provide both the recorded bean distances and the meta information permiting to convert the distances on points in a regular carthesian frame (.i.e the angle between beans).
+[laser scan](https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/LaserScan.html) in the sensor messages package, provide both the recorded bean distances and the meta information permiting to convert the distances on points in a regular carthesian frame (i.e. the angle between beams).
 
-In a python script, the conversion to put in a call-back function attached to `\scan` topic, would look-like this:
+In a python script, the conversion to put in a call-back function attached to `/scan` topic, would look-like this:
 
 ```python
 obstacles= []
