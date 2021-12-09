@@ -24,11 +24,11 @@ ii  ros-noetic-stage                            4.3.0-1focal.20210423.222334    
 ii  ros-noetic-stage-ros                        1.8.0-1focal.20210727.075341               amd64        This package provides ROS specific hooks for stage
 ```
 
-Otherwise, istall it:
+Otherwise, install it:
 
 ```console
 $ sudo apt update
-$ sudo apt install ros-melodic-stage ros-melodic-stage-ros
+$ sudo apt install ros-noetic-stage ros-noetic-stage-ros
 ```
 
 You can explore the files installed by these two packages:
@@ -76,17 +76,24 @@ $ rviz -d $(rospack find stage_ros)/rviz/stage.rviz
 
 ## Controlling the Simulated Robot
 
-Install needed packets if needed:
-
-```console
-$ sudo apt install ros-melodic-teleop-twist-keyboard
-```
-
 Launch a simple node to control a robot using keyboard:
 
 ```console
-$ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+$ roslaunch turtlebot_teleop keyboard_teleop.launch
 ```
+
+Use `rqt_graph` to see the graph of ROS nodes and the topics they use to communicate.
+Why you cannot control the robot?
+
+Create a new catkin package named `my_teleop` using the `catkin_create_pkg` command line tool (cf. [catkin package creation](http://wiki.ros.org/ROS/Tutorials/CreatingPackage)).
+
+```console
+$ cd ~/catkin_ws/src
+$ catkin_create_pkg my_teleop std_msgs rospy
+```
+
+Then, write your __own__ launch file to control the robot by copying and modifying `keyboard_teleop.launch` from the package __turtlebot_teleop__.
+You should have the nodes and topics as depicted below.
 
 ![teleop to control the robot into stage](../files/SLAM/teleop.png)
 
@@ -98,75 +105,36 @@ Using `rostopic echo`, you see the data exchanged.
 
 ![Echo data published into the /cmdvel topic](../files/SLAM/cmdvel_echo.png)
 
-Try to issue a command (`rostopic pub`) that mimic `teleop_twist_keyboard` by publishing data directly into the topic `/cmd_vel`, it should make the robot move into stage.
+Try to issue a command (`rostopic pub`) that mimic keyboard teleoperation by publishing data directly into the topic `/cmd_vel`, it should make the robot move into stage.
 
 Find how to control a robot with a joypad (xbox, ps3/4 controllers).
 
+## A program to control the simulated robot
 
-## Re-Use your `dance` node
+Write a publisher node in Python to make moving the simulated robot in stage by publishing data into the topic `cmd_vel`.
 
-In the [move-to](move-to.md) tutorial, you wrote a `dance` node in Python that makes the robot move by publishing data into the topic `cmd_vel_mux`.
+# Versioning
 
-Launch this node (adapt it if necessary) to make moving the simulated robot in stage
-
-# Create and Version control your first catkin package
-
-
-1. Connect to your account on [gvipers](https://gvipers.imt-lille-douai.fr/) (IMT Lille Douai gitlab)
-
-2. Create a repository named `larm1_slam`
-
-3. Clone your git repository into `~/catkin_ws/src`
+Document your package by adding a Readme inside (mandatory).
+Commit and push your new catkin package into your git repository.
 
 ```console
-$ cd ~/catkin_ws/src
-$ git clone https://gvipers.imt-lille-douai.fr/XXXX/larm1_slam
-```
-
-4. Create two files in this catkin package:
-
-```console
-# create an empty CMakeLists.txt
-$ touch CMakeLists.txt
-
-# mandatory metadata of this catkin package
-$ cat > package.xml <<END
-	<package>
-		<name>larm1_slam</name>
-		<version>0.0.1</version>
-		<description>
-			SLAM experiements
-		</description>
-		<maintainer email="luc@luc.sw">Luc</maintainer>
-		<license>BSD</license>
-	</package>
-	END
-```
-
-	Note that the `catkin_create_pkg` command tool can generate these two files, however it then requires to move files around to version them on git.
-
-5. Commit / push
-
-```console
-$ cd ~/catkin_ws/src/larm1_slam
+$ cd ~/catkin_ws/src/my_teleop
 $ git status # to view modified files
 $ git add -A # to add all files into the staging area
 $ git commit -m "my slam package"
 $ git push
 ```
 
-	You can now check on the web interface of your git repository to see these committed files.
+You can now check on the web interface of your git repository to see these committed files.
 
-	There are tons of ressources on the Web to learn more about git.
-	You can find your own or have a look at this one: [learngitbranching](https://learngitbranching.js.org/).
+There are tons of ressources on the Web to learn more about git.
+You can find your own or have a look at this one: [learngitbranching](https://learngitbranching.js.org/).
 
-<!-- The floorplan map is given (*dia.pgm*). -->
-<!-- The directory `~/catkin_ws/src/larm1_mapping` should contains: -->
-<!-- - Create a *launch file* named (`imt.launch`) -->
 
-# **Your** first launch file
+# **Your** first SLAM launch file
 
-Into your `larm1_slam` catkin package, create a *launch file* named `robot_stage.launch` that launches a full-fledge simulation using stage with one robot equipped with 2d laser ranger.
+Create a `larm1_slam` catkin package, create a *launch file* named `robot_stage.launch` that launches a full-fledge simulation using stage with one robot equipped with a 2d laser ranger.
 The [launch file documentation](http://wiki.ros.org/roslaunch).
 Once this file finished, you should be able to launch everything with this single command line:
 
@@ -180,7 +148,7 @@ roslaunch larm1_slam robot_stage.launch
 roslaunch larm1_slam robot_stage.launch rviz:=true
 ```
 
-When a launch file uses a simulator instead of a real robot, it is mandatory that ensure that ROS uses the simulator clock instead of the real clock of your machine (cf. [ROS clock documentation](http://wiki.ros.org/Clock)).
+When a launch file uses a simulator instead of a real robot, it is mandatory to ensure that ROS uses the simulator clock instead of the real clock of your machine (cf. [ROS clock documentation](http://wiki.ros.org/Clock)).
 To achieve this, add this line into your launch file:
 
 ```xml
