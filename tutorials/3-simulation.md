@@ -5,14 +5,14 @@
 
 # ROS Prerequisites
 
-- ROS correctly installed (cf. [Setup](setup.md))
+- ROS correctly installed (cf. [Setup](1-ros-basics.md))
 - A *catkin workspace* directory (usually `~/catkin_ws`) in which you will create your catkin packages or install third party ones
 
-# 2d Simulation with Stage 
+# 2d Simulation with Stage
 
 Let's start with a first 2d ROS simulation with the [stage](http://wiki.ros.org/stage) simulator.
 
->Stage provides several sensor and actuator models, including sonar or infrared rangers, scanning laser rangefinder, color-blob tracking, fiducial tracking, bumpers, grippers and mobile robot bases with odometric or global localization. 
+>Stage provides several sensor and actuator models, including sonar or infrared rangers, scanning laser rangefinder, color-blob tracking, fiducial tracking, bumpers, grippers and mobile robot bases with odometric or global localization.
 
 ## Stage Installation
 
@@ -25,52 +25,52 @@ ii  ros-noetic-stage-ros                        1.8.0-1focal.20210727.075341    
 ```
 
 Otherwise, istall it:
-	
-	```console
-	$ sudo apt update
-	$ sudo apt install ros-melodic-stage ros-melodic-stage-ros
-	```
+
+```console
+$ sudo apt update
+$ sudo apt install ros-melodic-stage ros-melodic-stage-ros
+```
 
 You can explore the files installed by these two packages:
 
-	```console
-	$ roscd stage_ros
-	```
+```console
+$ roscd stage_ros
+```
 
 ## Stage Simulation with one Robot
 
 [Source](http://wiki.ros.org/stage/Tutorials/SimulatingOneRobot)
 
-	```console
-	$ roscore
-	...
-	# Launch stage in another shell
-	$ rosrun stage_ros stageros $(rospack find stage_ros)/world/willow-erratic.world
-	```
+```console
+$ roscore
+...
+# Launch stage in another shell
+$ rosrun stage_ros stageros $(rospack find stage_ros)/world/willow-erratic.world
+```
 
 ![stage simulation with one robot (blue square) equipped with a laser scanner](../files/SLAM/stage.png)
 
 By pressing `r`, the stage simulation is rendered in 3d:
- 
+
 ![3d-view on the same stage simulation](../files/SLAM/stage-3d.png)
 
 You can use various ROS tools to analyse what is involved in this simulation.
 
-	```shell
-	# show the ROS graph (nodes + topics)
-	$ rqt_graph
+```console
+# show the ROS graph (nodes + topics)
+$ rqt_graph
 
-	# list the ROS topics and available data
-	$ rostopic list
+# list the ROS topics and available data
+$ rostopic list
 
-	# read the willow-erratic.world file
-	$ gedit $(rospack find stage_ros)/world/willow-erratic.world
-	
-	# launch a pre-configured rviz
-	$ rviz -d $(rospack find stage_ros)/rviz/stage.rviz
-	```
+# read the willow-erratic.world file
+$ gedit $(rospack find stage_ros)/world/willow-erratic.world
 
-[rviz](http://wiki.ros.org/rviz) is a very useful and versatile tool to visualize data that goes through topics. 
+# launch a pre-configured rviz
+$ rviz -d $(rospack find stage_ros)/rviz/stage.rviz
+```
+
+[rviz](http://wiki.ros.org/rviz) is a very useful and versatile tool to visualize data that goes through topics.
 
 ![rviz dispaying laser scans data published into the /base_scan topic by stage)](../files/SLAM/rviz_laserscan.png)
 
@@ -78,15 +78,16 @@ You can use various ROS tools to analyse what is involved in this simulation.
 
 Install needed packets if needed:
 
-	```shell
-	$ sudo apt install ros-melodic-teleop-twist-keyboard
-	```
+```console
+$ sudo apt install ros-melodic-teleop-twist-keyboard
+```
 
 Launch a simple node to control a robot using keyboard:
 
-	```shell
-	$ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
-	```
+```console
+$ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+```
+
 ![teleop to control the robot into stage](../files/SLAM/teleop.png)
 
 Use `rqt_graph` to see the graph of ROS nodes and the topics they use to communicate.
@@ -108,54 +109,55 @@ In the [move-to](move-to.md) tutorial, you wrote a `dance` node in Python that m
 
 Launch this node (adapt it if necessary) to make moving the simulated robot in stage
 
-#Create and Version control your first catkin package
+# Create and Version control your first catkin package
 
 
 1. Connect to your account on [gvipers](https://gvipers.imt-lille-douai.fr/) (IMT Lille Douai gitlab)
 
-2. Create a repository named `larm1_slam` 
+2. Create a repository named `larm1_slam`
 
-3. Clone your git repository into `~/catkin_ws/src` 
+3. Clone your git repository into `~/catkin_ws/src`
 
-	```shell
-	$ cd ~/catkin_ws/src
-	$ git clone https://gvipers.imt-lille-douai.fr/XXXX/larm1_slam
-	``` 
+```console
+$ cd ~/catkin_ws/src
+$ git clone https://gvipers.imt-lille-douai.fr/XXXX/larm1_slam
+```
+
 4. Create two files in this catkin package:
 
-	```shell
-	# create an empty CMakeLists.txt
-	$ touch CMakeLists.txt
-	
-	# mandatory metadata of this catkin package
-	$ cat > package.xml <<END
-		<package>
-		  <name>larm1_slam</name>
-		  <version>0.0.1</version>
-		  <description>
-		      SLAM experiements
-		  </description>
-		  <maintainer email="luc@luc.sw">Luc</maintainer>
-		  <license>BSD</license>
-		</package>
-		END
-	```
-	
+```console
+# create an empty CMakeLists.txt
+$ touch CMakeLists.txt
+
+# mandatory metadata of this catkin package
+$ cat > package.xml <<END
+	<package>
+		<name>larm1_slam</name>
+		<version>0.0.1</version>
+		<description>
+			SLAM experiements
+		</description>
+		<maintainer email="luc@luc.sw">Luc</maintainer>
+		<license>BSD</license>
+	</package>
+	END
+```
+
 	Note that the `catkin_create_pkg` command tool can generate these two files, however it then requires to move files around to version them on git.
 
-5. Commit / push 
-	
-	```shell
-	$ cd ~/catkin_ws/src/larm1_slam
-	$ git status # to view modified files
-	$ git add -A # to add all files into the staging area
-	$ git commit -m "my slam package"
-	$ git push
-	```
+5. Commit / push
+
+```console
+$ cd ~/catkin_ws/src/larm1_slam
+$ git status # to view modified files
+$ git add -A # to add all files into the staging area
+$ git commit -m "my slam package"
+$ git push
+```
 
 	You can now check on the web interface of your git repository to see these committed files.
-	
-	There are tons of ressources on the Web to learn more about git. 
+
+	There are tons of ressources on the Web to learn more about git.
 	You can find your own or have a look at this one: [learngitbranching](https://learngitbranching.js.org/).
 
 <!-- The floorplan map is given (*dia.pgm*). -->
@@ -168,24 +170,24 @@ Into your `larm1_slam` catkin package, create a *launch file* named `robot_stage
 The [launch file documentation](http://wiki.ros.org/roslaunch).
 Once this file finished, you should be able to launch everything with this single command line:
 
-	```shell
-	roslaunch larm1_slam robot_stage.launch
-	```
+```console
+roslaunch larm1_slam robot_stage.launch
+```
 
 `rviz` might be launched also using an optionnal argument to the launch file.
- 
-	```shell
-	roslaunch larm1_slam robot_stage.launch rviz:=true
-	```
+
+```console
+roslaunch larm1_slam robot_stage.launch rviz:=true
+```
 
 When a launch file uses a simulator instead of a real robot, it is mandatory that ensure that ROS uses the simulator clock instead of the real clock of your machine (cf. [ROS clock documentation](http://wiki.ros.org/Clock)).
 To achieve this, add this line into your launch file:
 
-	```xml
-	 <param name="/use_sim_time" value="true">
-	```
+```xml
+	<param name="/use_sim_time" value="true">
+```
 
-## Advanced Stage 
+## Advanced Stage
 
 You can customize your simulation by writing your own `.world` file and for example:
 - change the map
@@ -202,34 +204,34 @@ You can find `world` file examples into the `stage_ros` and `stage` catkin packa
 Gazebo is heavily used by the DARPA challenges (cf. [Wikipedia](https://en.wikipedia.org/wiki/Gazebo_simulator)).
 You can see videos online ([example](https://www.youtube.com/watch?v=v6-heLIg85o)) and even load the maps and robot model that are available.
 
-Follow [this tutorial](http://docs.fetchrobotics.com/gazebo.html) to simulate the *freight robot* (available at IMT Lille Douai). 
+Follow [this tutorial](http://docs.fetchrobotics.com/gazebo.html) to simulate the *freight robot* (available at IMT Lille Douai).
 
 ![Example of Gazebo simulation with a fetch robot](../files/SLAM/gazebo.png)
 
-	```shell
-	$ roslaunch fetch_gazebo playground.launch robot:=freight
-	
-	$ roslaunch teleop_twist_joy teleop.launch joy_config:=xbox
-	```
+```console
+$ roslaunch fetch_gazebo playground.launch robot:=freight
+
+$ roslaunch teleop_twist_joy teleop.launch joy_config:=xbox
+```
 
 At IMT Lille Douai, we also have turtlebot robots that you can simulate in gazebo:
 
 
-	```shell
-	roslaunch turtlebot_gazebo turtlebot_world.launch
-	```
+```console
+roslaunch turtlebot_gazebo turtlebot_world.launch
+```
 
 Write and commit a new launch file into your `larm1_slam` package that launches everything:
 
-	```shell
-	roslaunch larm1_slam freight_gazebo.launch rviz:=true xbox:=true
-	```
+```console
+roslaunch larm1_slam freight_gazebo.launch rviz:=true xbox:=true
+```
 
 <!-- gazebo models
 	cd ~/.gazebo/
 	rm -fr models
 	wget https://bitbucket.org/osrf/gazebo_models/get/e6d645674e8a.zip
-	unzip osrf*.zip 
+	unzip osrf*.zip
 	rm *.zip
 	mv osrf* models
 	-->
