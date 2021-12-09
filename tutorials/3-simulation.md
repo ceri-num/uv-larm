@@ -178,22 +178,31 @@ Follow [this tutorial](http://docs.fetchrobotics.com/gazebo.html) to simulate th
 
 ```console
 $ roslaunch fetch_gazebo playground.launch robot:=freight
-
-$ roslaunch teleop_twist_joy teleop.launch joy_config:=xbox
 ```
 
-At IMT Lille Douai, we also have turtlebot robots that you can simulate in gazebo:
+You can launch your teleoperation node to control the freight base.
 
+
+In this lecture, you will use turtlebot2 robots equipped with a laser.
+We call it __tbot__ and you can simulate it in  gazebo:
 
 ```console
-roslaunch turtlebot_gazebo turtlebot_world.launch
+roslaunch tbot_gazebo start_world.launch
+roslaunch tbot_gazebo spawn_tbot.launch
 ```
 
 Write and commit a new launch file into your `larm1_slam` package that launches everything:
 
 ```console
-roslaunch larm1_slam freight_gazebo.launch rviz:=true xbox:=true
+roslaunch larm1_slam tbot_gazebo.launch rviz:=true teleop_keyboard:=true
 ```
+
+## Final Exercice
+
+1. create a bag file that only record `/cmd_vel` while you are teleoperating a robot in a simulated map
+2. then replay this bag file on a fresh simuation
+
+You can now reproduce experimentation in the same conditions.
 
 <!-- gazebo models
 	cd ~/.gazebo/
