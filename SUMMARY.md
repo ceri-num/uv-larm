@@ -1,5 +1,5 @@
 ---
-version: tcs (TheConstructSim)
+version: IMT Nord Europe (Présentiel)
 ---
 
 # Outline
