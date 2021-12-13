@@ -7,6 +7,10 @@
 
 - ROS correctly installed (cf. [Setup](1-ros-basics.md))
 - A *catkin workspace* directory (usually `~/catkin_ws`) in which you will create your catkin packages or install third party ones
+- Shell environment:
+	- `/opt/ros/noetic/setup.bash` sourced
+	- `$HOME/catkin_ws/devel/setup.bash` sourced
+	- environment variables `ROS_HOSTNAME`, `ROS_MASTER_URI`, ... correctly set
 
 # 2d Simulation with Stage
 
@@ -215,7 +219,7 @@ roslaunch larm1_slam tbot_gazebo.launch rviz:=true teleop_keyboard:=true
 1. create a bag file that only record `/cmd_vel` while you are teleoperating a robot in a simulated map
 2. then replay this bag file on a fresh simuation
 
-You can now reproduce experimentation in the same conditions.
+You can now reproduce the *same* experimentation multiple times and possible make some variations.
 
 <!-- gazebo models
 	cd ~/.gazebo/
