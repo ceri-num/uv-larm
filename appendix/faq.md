@@ -12,3 +12,14 @@ sudo apt-get install backport-iwlwifi-dkms
 ```
 
 3. reboot
+
+## Catkin_create_pkg - invalid email ?
+
+you can use the `-m` option to force an author name.
+
+```bash
+catin_create_pkg -m AuthorName package_name [dependencies...]
+```
+
+
+
