@@ -167,7 +167,7 @@ You can find `world` file examples into the `stage_ros` and `stage` catkin packa
 
 # Gazebo Simulator
 
-[Gazebo](http://gazebosim.org/) simulator makes it possible to rapidly test algorithms, design robots, perform regression testing, and train AI system using realistic scenarios. Gazebo is integrated with ROS (cf. [Gezebo ROS](http://wiki.ros.org/gazebo_ros_pkgs)) and supports various robots out of the box.
+[Gazebo](http://gazebosim.org/) simulator makes it possible to rapidly test algorithms, design robots, perform regression testing, and train AI system using realistic scenarios. Gazebo is integrated with ROS (cf. [Gazebo ROS](http://wiki.ros.org/gazebo_ros_pkgs)) and supports various robots out of the box.
 
 Gazebo is heavily used by the DARPA challenges (cf. [Wikipedia](https://en.wikipedia.org/wiki/Gazebo_simulator)).
 You can see videos online ([example](https://www.youtube.com/watch?v=v6-heLIg85o)) and even load the maps and robot model that are available.
@@ -177,6 +177,10 @@ Follow [this tutorial](http://docs.fetchrobotics.com/gazebo.html) to simulate th
 ![Example of Gazebo simulation with a fetch robot](../files/SLAM/gazebo.png)
 
 ```console
+$ cd ~/catkin_ws/src
+$ git clone https://github.com/fetchrobotics/fetch_gazebo.git
+$ cd fetch_gazebo
+$ git checkout gazebo11
 $ roslaunch fetch_gazebo playground.launch robot:=freight
 ```
 
