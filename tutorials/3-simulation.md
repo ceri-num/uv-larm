@@ -181,6 +181,9 @@ $ cd ~/catkin_ws/src
 $ git clone https://github.com/fetchrobotics/fetch_gazebo.git
 $ cd fetch_gazebo
 $ git checkout gazebo11
+$ cd ~/catkin_ws
+$ catkin_make
+$ source devel/setup.bash
 $ roslaunch fetch_gazebo playground.launch robot:=freight
 ```
 
@@ -193,6 +196,12 @@ We call it __tbot__ and you can simulate it in  gazebo:
 ```console
 roslaunch tbot_gazebo start_world.launch
 roslaunch tbot_gazebo spawn_tbot.launch
+```
+
+You can test the full fetch robot:
+
+```
+$ roslaunch fetch_gazebo playground.launch robot:=freight
 ```
 
 Write and commit a new launch file into your `larm1_slam` package that launches everything:
