@@ -26,19 +26,21 @@ Each group commit the minimal required files in a specific `challenge1` git bran
 ### The required files:
 
 * a `README.md` file in markdown syntax introducing the project.
-* The ros package files of a `grp-color` ros package (and only this package)
-* The code (python script or cpp sources) for the relevant nodes to the challenge.
-* The launch file `challendge1_simulation.launch` starting the appropriate nodes demonstrating in the simulation (including the simulation).
-* The launch file `challendge1_turtlebot.launch` starting the appropriate nodes demonstrating with a turtle bot (including robot wake-up).
+* a directory `grp-'color'` matching a ros package (and only this package)
+* Inside the `grp-'color'` package, the code (python scripts or cpp sources) for the relevant nodes to the challenge (only the nodes developped by the students).
+* The launch file `challendge1_simulation.launch` starting the appropriate nodes for demonstrating in the simulation (including the elements to start the simulation).
+* The launch file `challendge1_turtlebot.launch` starting the appropriate nodes for demonstrating with a Turtlebot (including the elements to wake-up the robot).
 
 
 ### Git branching:
 
 - [Official presentation](https://git-scm.com/book/en/v2/Git-Branching-Branches-in-a-Nutshell)
 
-Branching permits to develop different versions of a project. Classically you will have a `dev` branch with unstable code, a `beta` branch to test and fix a solution and a `main` or `master` branch with a stable version of your project. You can use branching to differentiate developers or clients in a project, etc..
+Branching permits to develop different versions of a project. Classically, in industry, you will have atleast a `dev` branch with unstable code, a `beta` branch to test and fix a solution and a `main` or `master` branch with a stable version of your project.
+Additionally, you can use branching to differentiate modules, developers or client expectations in a project, etc..
 
-For our concern here, we only want to state a stable version in the `challendge1` branch. So, when your work is done, create a new branch from your working branch and remove all the inconsistent stuff and the noise.
+For our concern here, we only want to state a stable version in the `challendge1` branch.
+So, when your work is ready to be evaluated, create a new branch from your working branch and remove all the inconsistent stuff and the noise.
 
 ```bash
 git checkout -b challendge1
@@ -47,7 +49,17 @@ git commit -am "clean version"
 git push
 ```
 
-Then `git branch` would list all the branches on our repository and `git checkout branchName` permit to return to your working branch and recover all the stuff you deleted in `challendge1` branch.
+You raise an error, the first time you push a new branch.
+You have to explicitly push in a new branch on the remote repository. 
+(i.e. do exactly what *git* is proposing to you.)
+
+```bash
+git push --set-upstream origin challendge1
+```
+
+Then `git branch` would list all the branches on our repository and `git checkout branchName` permit to move from a branch to another.
+By returning to your working branch `main` or `master`, you recover all the stuff you deleted in `challendge1` branch.
+You can continue to work on your project, potentionnally
 
 
 ## Criteria
@@ -60,22 +72,25 @@ Minimal:
 
 Optional:
 
-4. Information is returned to rviz through ros geometry messages.
+4. Information is returned to rviz (started automaticaly) through ros geometry messages.
 5. The robot movement is fluid (no stop) and fast
-6. The group develops a specific strategy to optimize the exploration time
+6. The behavior is split into several nodes (for example obstacle detection and move).
+7. The group develops a specific strategy to optimize the exploration time (need to be stated in the `README.md` file)
 
 ## Evaluation protocol
 
-Here the evaluation protocol applied. It is highly recommended to process it yourself before the submission...
+Here the evaluation protocol applied.
+It is highly recommended to process it yourself before the submission...
 
 1. clone the group’s repository
 1. check out the appropriate branch `git checkout challendge1`
-2. make it `catkin_make` from the catkin directory.
-3. Launch the simulation demonstration: `roslaunch grp-color challendge1_simulation.launch`
-4. Stop everything.
-5. Connect the computer to the robot.
-6. Launch the Turtlebot demonstration: `roslaunch grp-color challendge1_turtlebot.launch`
-7. Read the `README.md` file and take a look to the code.
+2. Take a look to what is inside the repository and read the `README.md` file (normally it states that the project depends on `mb6-tbot`, make sure that `mb6-tbot` project is already installed aside).
+3. make it: `catkin_make` and `source` from the catkin directory.
+4. Launch the simulation demonstration: `roslaunch grp-color challendge1_simulation.launch` and appreciate the solution.
+5. Stop everything.
+6. Connect the computer to the robot and the hokuyo.
+7. Launch the Turtlebot demonstration: `roslaunch grp-color challendge1_turtlebot.launch`  and appreciate the solution.
+8. Take a look to the code, by starting from the launchfiles.
 
 <!---
 ## In the video
