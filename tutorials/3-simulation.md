@@ -7,6 +7,10 @@
 
 - ROS correctly installed (cf. [Setup](1-ros-basics.md))
 - A *catkin workspace* directory (usually `~/catkin_ws`) in which you will create your catkin packages or install third party ones
+- Shell environment:
+	- `/opt/ros/noetic/setup.bash` sourced
+	- `$HOME/catkin_ws/devel/setup.bash` sourced
+	- environment variables `ROS_HOSTNAME`, `ROS_MASTER_URI`, ... correctly set
 
 # 2d Simulation with Stage
 
@@ -75,6 +79,14 @@ $ rviz -d $(rospack find stage_ros)/rviz/stage.rviz
 ![rviz dispaying laser scans data published into the /base_scan topic by stage)](../files/SLAM/rviz_laserscan.png)
 
 ## Controlling the Simulated Robot
+
+Install `turtlebot` and `tbot` packages  by cloning this git repo in your `catkin_ws/src` folder: 
+
+```
+$ git clone https://bitbucket.org/imt-mobisyst/mb6-tbot.git
+```
+
+then `catkin_make` and `source ~/catkin_ws/devel/setup.bash`
 
 Launch a simple node to control a robot using keyboard:
 
@@ -169,7 +181,7 @@ You can find `world` file examples into the `stage_ros` and `stage` catkin packa
 
 # Gazebo Simulator
 
-[Gazebo](http://gazebosim.org/) simulator makes it possible to rapidly test algorithms, design robots, perform regression testing, and train AI system using realistic scenarios. Gazebo is integrated with ROS (cf. [Gezebo ROS](http://wiki.ros.org/gazebo_ros_pkgs)) and supports various robots out of the box.
+[Gazebo](http://gazebosim.org/) simulator makes it possible to rapidly test algorithms, design robots, perform regression testing, and train AI system using realistic scenarios. Gazebo is integrated with ROS (cf. [Gazebo ROS](http://wiki.ros.org/gazebo_ros_pkgs)) and supports various robots out of the box.
 
 Gazebo is heavily used by the DARPA challenges (cf. [Wikipedia](https://en.wikipedia.org/wiki/Gazebo_simulator)).
 You can see videos online ([example](https://www.youtube.com/watch?v=v6-heLIg85o)) and even load the maps and robot model that are available.
@@ -179,6 +191,13 @@ Follow [this tutorial](http://docs.fetchrobotics.com/gazebo.html) to simulate th
 ![Example of Gazebo simulation with a fetch robot](../files/SLAM/gazebo.png)
 
 ```console
+$ cd ~/catkin_ws/src
+$ git clone https://github.com/fetchrobotics/fetch_gazebo.git
+$ cd fetch_gazebo
+$ git checkout gazebo11
+$ cd ~/catkin_ws
+$ catkin_make
+$ source devel/setup.bash
 $ roslaunch fetch_gazebo playground.launch robot:=freight
 ```
 
@@ -193,6 +212,12 @@ roslaunch tbot_gazebo start_world.launch
 roslaunch tbot_gazebo spawn_tbot.launch
 ```
 
+You can test the full fetch robot:
+
+```
+$ roslaunch fetch_gazebo playground.launch robot:=freight
+```
+
 Write and commit a new launch file into your `larm1_slam` package that launches everything:
 
 ```console
@@ -204,7 +229,7 @@ roslaunch larm1_slam tbot_gazebo.launch rviz:=true teleop_keyboard:=true
 1. create a bag file that only record `/cmd_vel` while you are teleoperating a robot in a simulated map
 2. then replay this bag file on a fresh simuation
 
-You can now reproduce experimentation in the same conditions.
+You can now reproduce the *same* experimentation multiple times and possible make some variations.
 
 <!-- gazebo models
 	cd ~/.gazebo/
