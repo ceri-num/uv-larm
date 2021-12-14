@@ -113,6 +113,8 @@ Find how to control a robot with a joypad (xbox, ps3/4 controllers).
 
 Write a publisher node in Python to make moving the simulated robot in stage by publishing data into the topic `cmd_vel`.
 
+(cf. Tutorial: Move The Robot - with some adaptations...)
+
 # Versioning
 
 Document your package by adding a Readme inside (mandatory).

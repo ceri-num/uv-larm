@@ -132,6 +132,10 @@ Hokuyo laser range is a sensor compliant with ROS by using the *urg_node* packag
 
 A new topic appears `/scan` streaming the LaserRange data. It is possible to visualize it with *rviz* (fixed frame initially on `map` has to be set on `laser` frame, i.e. at this point it is impossible for the system to know where is the laser in the map).
 
+1. Launch `rviz`
+2. Add topic `laserScan`
+3. Change reference frame to `laser`
+
 The game is to integrate incoming information from `/scan` to `move.py` script to avoid obstacles in front of the robot.
 
 1. Add dependence to scan messages. 

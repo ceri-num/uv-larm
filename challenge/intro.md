@@ -26,7 +26,7 @@ As a first move, you have to constitute a group of 2 developers.
 - Log on the proposed virtual tutorial room [on discord](https://discord.gg/dPqtYmvD58)
 - Ask a prof to be tagged as a student.
 - In resources section find the link to the shared `group file`.
-- With my teammate I pick a color and fill the document.
+- With my teammate, I pick a color and fill the document.
 
 ## Generate a working environment
 
