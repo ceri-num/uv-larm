@@ -53,8 +53,8 @@ For this lecture, you will use `github`
 The idea is that your repository matches a meta ROS-package (i.e. a directory composed by other directories each of them matching a ros-package). So create your catkin directory, clone your repository in the src directory and then create as many packages you want.
 
 ```bash
-mkdir catkin-ws
-cd catkin-ws
+mkdir catkin_ws
+cd catkin_ws
 mkdir src
 cd src
 git clone github/repo.git grp-color
@@ -101,14 +101,14 @@ Now you can `commit`, `pull`, `push` as often as possible (and `add` if you are 
 On a fresh machine, you can clone then build your new ros-package:
 
 ```bash
-mkdir catkin-ws
-cd catkin-ws
+mkdir catkin_ws
+cd catkin_ws
 mkdir src
 git clone github/repo.git src/grp-color
 catkin_make
 ```
 
-To notice that `catkin_make` have to be performed from your catkin root directory (`catkin-ws` in this example). 
+To notice that `catkin_make` have to be performed from your catkin root directory (`catkin_ws` in this example). 
 To relax this constraint you can add a simple shell script in your working directory...
 
 ```bash
