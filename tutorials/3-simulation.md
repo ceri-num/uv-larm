@@ -80,6 +80,14 @@ $ rviz -d $(rospack find stage_ros)/rviz/stage.rviz
 
 ## Controlling the Simulated Robot
 
+Install `turtlebot` and `tbot` packages  by cloning this git repo in your `catkin_ws/src` folder: 
+
+```
+$ git clone https://bitbucket.org/imt-mobisyst/mb6-tbot.git
+```
+
+then `catkin_make` and `source ~/catkin_ws/devel/setup.bash`
+
 Launch a simple node to control a robot using keyboard:
 
 ```console
