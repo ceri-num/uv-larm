@@ -31,7 +31,7 @@ Each group commit the minimal required files in a specific `challenge1` git bran
 * The launch file `challendge1_simulation.launch` starting the appropriate nodes for demonstrating in the simulation (including the elements to start the simulation).
 * The launch file `challendge1_turtlebot.launch` starting the appropriate nodes for demonstrating with a Turtlebot (including the elements to wake-up the robot).
 
-In simulation, we will works whith `roslaunch larm challenge-1.launch`.
+In simulation, we will works whith configuration set in `roslaunch larm challenge-1.launch`.
 
 
 ### Git branching:
