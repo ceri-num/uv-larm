@@ -28,8 +28,8 @@ Each group commit the minimal required files in a specific `challenge1` git bran
 * a `README.md` file in markdown syntax introducing the project.
 * a directory `grp-'color'` matching a ros package (and only this package)
 * Inside the `grp-'color'` package, the code (python scripts or cpp sources) for the relevant nodes to the challenge (only the nodes developped by the students).
-* The launch file `challendge1_simulation.launch` starting the appropriate nodes for demonstrating in the simulation (including the elements to start the simulation).
-* The launch file `challendge1_turtlebot.launch` starting the appropriate nodes for demonstrating with a Turtlebot (including the elements to wake-up the robot).
+* The launch file `challenge1_simulation.launch` starting the appropriate nodes for demonstrating in the simulation (including the elements to start the simulation).
+* The launch file `challenge1_turtlebot.launch` starting the appropriate nodes for demonstrating with a Turtlebot (including the elements to wake-up the robot).
 
 In simulation, we will works whith configuration set in `roslaunch larm challenge-1.launch`.
 
@@ -41,11 +41,11 @@ In simulation, we will works whith configuration set in `roslaunch larm challeng
 Branching permits to develop different versions of a project. Classically, in industry, you will have atleast a `dev` branch with unstable code, a `beta` branch to test and fix a solution and a `main` or `master` branch with a stable version of your project.
 Additionally, you can use branching to differentiate modules, developers or client expectations in a project, etc..
 
-For our concern here, we only want to state a stable version in the `challendge1` branch.
+For our concern here, we only want to state a stable version in the `challenge1` branch.
 So, when your work is ready to be evaluated, create a new branch from your working branch and remove all the inconsistent stuff and the noise.
 
 ```bash
-git checkout -b challendge1
+git checkout -b challenge1
 git rm stuff
 git commit -am "clean version"
 git push
@@ -56,11 +56,11 @@ You have to explicitly push in a new branch on the remote repository.
 (i.e. do exactly what *git* is proposing to you.)
 
 ```bash
-git push --set-upstream origin challendge1
+git push --set-upstream origin challenge1
 ```
 
 Then `git branch` would list all the branches on our repository and `git checkout branchName` permit to move from a branch to another.
-By returning to your working branch `main` or `master`, you recover all the stuff you deleted in `challendge1` branch.
+By returning to your working branch `main` or `master`, you recover all the stuff you deleted in `challenge1` branch.
 You can continue to work on your project, potentionnally
 
 
@@ -85,13 +85,13 @@ Here the evaluation protocol applied.
 It is highly recommended to process it yourself before the submission...
 
 1. clone the group’s repository
-1. check out the appropriate branch `git checkout challendge1`
+1. check out the appropriate branch `git checkout challenge1`
 2. Take a look to what is inside the repository and read the `README.md` file (normally it states that the project depends on `mb6-tbot`, make sure that `mb6-tbot` project is already installed aside).
 3. make it: `catkin_make` and `source` from the catkin directory.
-4. Launch the simulation demonstration: `roslaunch grp-color challendge1_simulation.launch` and appreciate the solution.
+4. Launch the simulation demonstration: `roslaunch grp-color challenge1_simulation.launch` and appreciate the solution.
 5. Stop everything.
 6. Connect the computer to the robot and the hokuyo.
-7. Launch the Turtlebot demonstration: `roslaunch grp-color challendge1_turtlebot.launch`  and appreciate the solution.
+7. Launch the Turtlebot demonstration: `roslaunch grp-color challenge1_turtlebot.launch`  and appreciate the solution.
 8. Take a look to the code, by starting from the launchfiles.
 
 <!---
