@@ -23,3 +23,35 @@ sudo apt install \
 ```
 
 Connect the Intel RealSense depth camera and run: `realsense-viewer`.
+
+## Install appropriate ROS packages
+
+Ressources:
+
+* [wiki ros](http://wiki.ros.org/RealSense) - The interesting pkg is the **realsense2_camera**
+* [Installation](https://github.com/IntelRealSense/realsense-ros#installation-instructions)
+
+Installation:
+
+```bash
+sudo apt-get install \
+    ros-noetic-librealsense2 \
+    ros-noetic-realsense2-cameras \
+    ros-noetic-realsense2-description
+```
+
+Then you can launch the camera to publish the data into ROS topics:
+
+```bash
+roslaunch realsense2-cameras rs_camera.launch
+```
+
+And observe the topic and mainly the one publishing the images (`camera/color/image_raw`) with `rostopic list`,  `rostopic info` and  `rostopic hz`.
+
+## ROS Image format.
+
+Image are published as 'sensor_msgs/Image' in `camera/color/image_raw`
+
+* [ROS doc](https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Image.html)
+
+So the pixel value are stored in `img.data` array but several tool to convert ROS image to OpenCV images already exist (for instance [cv_bridge](http://wiki.ros.org/cv_bridge/Tutorials/ConvertingBetweenROSImagesAndOpenCVImagesPython))

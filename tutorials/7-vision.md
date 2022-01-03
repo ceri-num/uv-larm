@@ -1,22 +1,23 @@
 # Introduction to image processing.
 
-Vision provides a rich information about the imediate environement arrond the robot.
-However it requires to process the images to extract pertinent informations...
+Vision provides a rich information about the immediate environment around the robot.
+However it requires to process the images to extract pertinent information...
 
+The goal here is to detect a specific object in the scene. The first proposed approach is to detect the object regarding its main color before to move toward approaches handle textures. 
 
-## Setup the developement environment
+## Setup our programming environment
 
-This tutorial focus on `OpenCV` librairy, addressed in `Python` developement language on a *Linux* machine.
+This tutorial focus on `OpenCV` librairy, addressed in `Python` development language on a *Linux* machine.
 
-First we want to install Python3 and the libraiies:  Numpy, Matplot, Sklearn, Scipy and OpenCV.
+First we want to install Python3 and the libraries:  Numpy, Matplot, Sklearn, Scipy and OpenCV.
 
-The command `whereis` permit to localize a command (like `python3` interpreter). If python3 is correctly installed, its execusion whould not be empty:
+The command `whereis` permit to localize a command (like `python3` interpreter). If python3 is correctly installed, its execution would not be empty:
 
 ```bash
 whereis python3
 ```
 
-Python use it own package manager `pip` to install librairies. So just to be sure you can: 
+Python uses its own package managers `pip` to install libraries. So just to be sure you can: 
 
 ```bash
 sudo apt install python3 pip
@@ -28,7 +29,7 @@ Then we can use pip to install modules:
 pip3 install numpy tensorflow opencv-python==3.4.2.16 opencv-contrib-python==3.4.2.16 sklearn scipy matplotlib psutil
 ```
 
-Now normally you can load the differents modules, for instance:
+Now normally you can load the different modules, for instance:
 
 ```python
 import cv2
