@@ -44,4 +44,5 @@ version: IMT Nord Europe (Présentiel)
 ## Appendix
 
 * [FAQ](appendix/faq.md)
-* [Robot: Turtlebot2](appendix/turtlebot2.md)
+* [Robot: Tbot](appendix/tbot.md)
+<!-- * [Robot: Turtlebot2](appendix/turtlebot2.md) -->

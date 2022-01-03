@@ -115,15 +115,13 @@ On real turtlebot you can use the `urg_node` to get the laser data in the topic 
 Note that you also need to specify a static transformation frame to connect the `laser` frame in your tf tree. It is also important to tweak GMapping parameters to obtain more acurate maps. Basically, your launch file should contain:
 
 ```xml
-<node pkg="tf" type="static_transform_publisher" name="base_link_to_laser"
-args="5.0 0.0 0.2 0.0 0.0 0.0 base_link laser 80" />
-
-<!-- launch laser driver -->
-<node pkg="urg_node" type="urg_node" name="urg_node" />
+<!-- launch tbot driver -->
+<include file="$(find tbot_bringup)/launch/minimal.launch"/>
 
 <!-- launch gmapping -->
 <node pkg="gmapping" type="slam_gmapping" name="gmapping_node" >
-<param name="maxUrange" value="4.0"/> <!-- limit laser range to 4 meters -->
+   <param name="maxUrange" value="4.0"/> <!-- limit laser range to 4 meters -->
+   <!-- ... -->
 </node>
 ```
 
