@@ -23,6 +23,7 @@ version: IMT Nord Europe (Présentiel)
 * [Services](tutorials/5-services.md)
 * [SLAM](tutorials/6-slam.md)
 * [Vision](tutorials/7-vision.md)
+* [Vision with 3D sensor](tutorials/7-vision-3d.md)
 * [Autonomous Navigation](tutorials/8-navigation.md)
 
 ## Challenge
