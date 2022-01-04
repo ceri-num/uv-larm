@@ -73,7 +73,22 @@ import numpy as np
 # connect to a sensor (0: webcam)
 cap=cv2.VideoCapture(0)
 
-# capture an image
+# capture an
+whereis python3
+```
+
+whereis python3
+```
+
+whereis python3
+```
+
+whereis python3
+```
+
+whereis python3
+```
+
 ret, frame=cap.read()
 
 # Select ROI
