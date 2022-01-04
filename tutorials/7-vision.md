@@ -25,8 +25,8 @@ sudo apt install python3 pip
 
 Then we can use pip to install modules:
 
-```
-pip3 install numpy tensorflow opencv-python==3.4.2.16 opencv-contrib-python==3.4.2.16 sklearn scipy matplotlib psutil
+```bash
+pip3 install numpy tensorflow opencv-python opencv-contrib-python sklearn scipy matplotlib psutil
 ```
 
 Now normally you can load the different modules, for instance:
@@ -40,6 +40,25 @@ from scipy.cluster.vq import *
 from sklearn.preprocessing import StandardScaler
 from sklearn import preprocessing
 ```
+
+## Image from simulation 
+
+**Gazebo** is capable of simulating robot vision (classical and 3D sensor).
+
+Launch a simulation :
+
+'''bash
+roslaunch larm chalenge-2.launch
+'''
+
+And observe the topic and mainly the one published the images (`camera/rgb/image_raw`) with `rostopic list`,  `rostopic info` and  `rostopic hz`.
+
+Image are published as 'sensor_msgs/Image' in `camera/rgb/image_raw`
+
+* [ROS doc](https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Image.html)
+
+So the pixel value is stored in `img.data` array but several tool to convert ROS image to OpenCV images already exist (for instance [cv_bridge](http://wiki.ros.org/cv_bridge/Tutorials/ConvertingBetweenROSImagesAndOpenCVImagesPython))
+
 
 ## Gestion de la souris
 
