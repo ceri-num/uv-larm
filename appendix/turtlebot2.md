@@ -2,9 +2,9 @@
 
 The first step in the challenge is to get control over a turtlebot2 robot equipped with a standard plan laser.
 
-## Robot configuration 
+## Robot configuration
 
-Turtlebot is a simple robot very similar than small home-cleaning robot, but with a connection panel allowing hacking its sensors and actuators. 
+Turtlebot is a simple robot very similar than small home-cleaning robot, but with a connection panel allowing hacking its sensors and actuators.
 
 More detail on [the official web site](https://www.turtlebot.com/turtlebot2/).
 

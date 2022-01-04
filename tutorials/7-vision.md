@@ -1,14 +1,20 @@
 # Introduction en traitement et analyse des images pour des applications de robotique
 
 ## Mise en place de l'environnement
-
+ range(0, len(neigh_ind[0])):
+        one_img=img_data[neigh_ind[0][j],:]
+        r =
 Python 3, OpenCV, Linux
 Python librarie: OpenCV, Numpy, Matplot, Sklearn, Scipy
 
 Tous ces outils ne sont pas nécessairement installés sur vos PC. Par conséquent, les actions suivantes sont à réaliser.
 Vous devez être sudo sur vos machines. Si ce n'est pas le cas, il vous faudra créer en environnement virtuel dans lequel vous aurez toute liberté d'installer les librairies Python3 que vous allez utiliser.
-
-Sous python, l'outil pip permet d'installer les librairies. Cet outil devrait avoir été installé préalablement mais rien n'est moins sûr. Si ce n'est pas le cas, il faudra le faire ainsi (avec les droits sudo ... certains peuvent avoir ces droits et d'autres non) :
+ range(0, len(neigh_ind[0])):
+        one_img=img_data[neigh_ind[0][j],:]
+        r =
+Sous python, l'outil pip permet d'installer les librairies. Cet outil devrait range(0, len(neigh_ind[0])):
+        one_img=img_data[neigh_ind[0][j],:]
+        r =  avoir été installé préalablement mais rien n'est moins sûr. Si ce n'est pas le cas, il faudra le faire ainsi (avec les droits sudo ... certains peuvent avoir ces droits et d'autres non) :
 ```
 wget https://bootstrap.pypa.io/get-pip.py
 sudo python3 get-pip.py
@@ -32,25 +38,27 @@ from sklearn import preprocessing
 ```
 ## Gestion de la souris
 
-Voici quelques lignes de codes pour extraire une région d'intérêt à la souris. Grâce à ces quelques lignes il vous sera possible de calculer la valeur moyenne et la variance de chaque composante de l'image, utile pour procéder ensuite à une étape de segmentation.
+Voici quelques lignes de codes pour extraire une région d'intérêt à la souris. Grâce à ces quelques lignes il vous sera possible de calculer la valeur moyenne et la variance de chaque composante de l'ima range(0, len(neigh_ind[0])):
+        one_img=img_data[neigh_ind[0][j],:]
+        r = ge, utile pour procéder ensuite à une étape de segmentation.
 
 ```
 import cv2
 import numpy as np
- 
+
 if __name__ == '__main__' :
- 
+
     cap=cv2.VideoCapture(0)
 
     # capture an image
     ret, frame=cap.read()
-     
+
     # Select ROI
     r = cv2.selectROI(frame)
-     
+
     # Crop image
     imCrop = frame[int(r[1]):int(r[1]+r[3]), int(r[0]):int(r[0]+r[2])]
- 
+
     # Display cropped image
     cv2.imshow("Image", imCrop)
     cv2.waitKey(0)
@@ -64,13 +72,13 @@ import numpy as np
 
 def souris(event, x, y, flags, param):
     global lo, hi, color, hsv_px
-    
+
     if event == cv2.EVENT_MOUSEMOVE:
         # Conversion des trois couleurs RGB sous la souris en HSV
         px = frame[y,x]
         px_array = np.uint8([[px]])
         hsv_px = cv2.cvtColor(px_array,cv2.COLOR_BGR2HSV)
-    
+
     if event==cv2.EVENT_MBUTTONDBLCLK:
         color=image[y, x][0]
 
@@ -81,7 +89,7 @@ def souris(event, x, y, flags, param):
     if event==cv2.EVENT_RBUTTONDOWN:
         if color<250:
             color+=1
-            
+
     lo[0]=color-5
     hi[0]=color+5
 
@@ -105,17 +113,17 @@ while True:
     mask=cv2.dilate(mask, None, iterations=1)
     image2=cv2.bitwise_and(frame, frame, mask= mask)
     cv2.putText(frame, "Couleur: {:d}".format(color), (10, 30), cv2.FONT_HERSHEY_DUPLEX, 1, color_info, 1, cv2.LINE_AA)
-    
+
     # Affichage des composantes HSV sous la souris sur l'image
     pixel_hsv = " ".join(str(values) for values in hsv_px)
     font = cv2.FONT_HERSHEY_SIMPLEX
     cv2.putText(frame, "px HSV: "+pixel_hsv, (10, 260),
                font, 1, (255, 255, 255), 1, cv2.LINE_AA)
-               
+
     cv2.imshow('Camera', frame)
     cv2.imshow('image2', image2)
     cv2.imshow('Mask', mask)
-    
+
     if cv2.waitKey(1)&0xFF==ord('q'):
         break
 cap.release()
@@ -143,13 +151,13 @@ if len(elements) > 0:
         cv2.line(frame, (int(x), int(y)), (int(x)+150, int(y)), color_infos, 2)
         cv2.putText(frame, "Objet !!!", (int(x)+10, int(y) -10), cv2.FONT_HERSHEY_DUPLEX, 1, color_infos, 1, cv2.LINE_AA)
  ```
- 
+
  Reste ensuite à visualiser les images.
- 
-        
+
+
 ## Segmentation des images par la méthodes des k-moyennes (kmeans)
 
-Kmeans est un algorithme de clustering, dont l'objectif est de partitionner n points de données en k grappes. Chacun des n points de données sera assigné à un cluster avec la moyenne la plus proche. La moyenne de chaque groupe s'appelle «centroïde» ou «centre». Globalement, l'application de k-means donne k grappes distinctes des n points de données d'origine. Les points de données à l'intérieur d'un cluster particulier sont considérés comme «plus similaires» les uns aux autres que les points de données appartenant à d'autres groupes. Cet algorithme peut être appliquer sur des points d’origine géométrique, colorimétriques et autres. 
+Kmeans est un algorithme de clustering, dont l'objectif est de partitionner n points de données en k grappes. Chacun des n points de données sera assigné à un cluster avec la moyenne la plus proche. La moyenne de chaque groupe s'appelle «centroïde» ou «centre». Globalement, l'application de k-means donne k grappes distinctes des n points de données d'origine. Les points de données à l'intérieur d'un cluster particulier sont considérés comme «plus similaires» les uns aux autres que les points de données appartenant à d'autres groupes. Cet algorithme peut être appliquer sur des points d’origine géométrique, colorimétriques et autres.
 
 Nous allons appliquer cette méthode afin d'assurer une segmentation couleur d'une image i.e. cela revient à trouver les couleur domainantes dans l'image.
 ```
@@ -256,7 +264,7 @@ test_data = test_X[b'data']
 test_label = test_X[b'labels']
 test_label = np.array(test_label).reshape(-1, 1)
 ```
-Vérifier que tout s'est bien déroulé comme précédement : deux tableaux numpy de respectivement 10000 x 3072 et 10000 x 1 élements. 
+Vérifier que tout s'est bien déroulé comme précédement : deux tableaux numpy de respectivement 10000 x 3072 et 10000 x 1 élements.
 Pour extraire les a10 premières images de img_data et vérifier la taille du contenu de chaque élément, il suffit de faire ainsi :
 ```
 sample_img_data = img_data[0:10, :]
@@ -280,10 +288,10 @@ cv2.destroyAllWindows()
 ```
 Désormais, nous allons appliquer l'algorithmes des k-NN sur toutes les images de la base de training img_data et leurs labels img_label_orig
 ```
-from sklearn.neighbors import KNeighborsClassifier 
+from sklearn.neighbors import KNeighborsClassifier
 
-def pred_label_fn(i, original):
-    return original + '::' + meta[YPred[i]].decode('utf-8')
+#def pred_label_fn(i, original):
+#    return original + '::' + meta[YPred[i]].decode('utf-8')
 
 nbrs = KNeighborsClassifier(n_neighbors=3, algorithm='brute').fit(img_data, img_label_orig)
 
@@ -294,7 +302,23 @@ sample_test_data = test_data[:data_point_no, :]
 YPred = nbrs.predict(sample_test_data)
 
 for i in range(0, len(YPred)):
-    show_img(sample_test_data, test_label, meta, i, label_fn=pred_label_fn)
+    #show_im(sample_test_data, test_label, meta, i, label_fn=pred_label_fn)
+    r = sample_test_data[i][:1024].reshape(32, 32)
+    g = sample_test_data[i][1024:2048].reshape(32, 32)
+    b = sample_test_data[i][2048:].reshape(32, 32)
+    print(YPred[i])
+    cv2.imshow('image test',np.dstack([r, g, b]))
+
+    neigh_dist,neigh_ind = nbrs.kneighbors([sample_test_data[i]])
+    print(neigh_ind)
+    for j in range(0, len(neigh_ind[0])):
+        one_img=img_data[neigh_ind[0][j],:]
+        r = one_img[:1024].reshape(32, 32)
+        g = one_img[1024:2048].reshape(32, 32)
+        b = one_img[2048:].reshape(32, 32)
+        rgb = np.dstack([r, g, b])
+        cv2.imshow('K plus proche image',np.dstack([r, g, b]))
+        cv2.waitKey(0)
 ```
 
 ## Détection d'objets par ondelettes de Haar
@@ -338,20 +362,20 @@ Voici quelques lignes en python pour extraire des région de pixels connexes dan
 De ces régions sont extraites quelques propriétés ``` regionprops()```
 
 ```
-import cv2 
-import numpy as np 
+import cv2
+import numpy as np
 import matplotlib.pyplot as plt
 from skimage.measure import label, regionprops
 import math
 
-image = cv2.imread('./vector-handwritten-numbers-on-white-background-brusk-stroke.jpg') 
-  
+image = cv2.imread('./vector-handwritten-numbers-on-white-background-brusk-stroke.jpg')
+
 # passage en niveau de gris
-gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY) 
-  
+gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
+
 ###### extration des régions avec la lib skimage
 
-# Binarisation de l'image 
+# Binarisation de l'image
 ret, thresh = cv2.threshold(gray, 127, 255, 1)
 cv2.imshow("image seuillée",thresh)
 cv2.waitKey(0)
