@@ -3,7 +3,7 @@
 Using the saved map (e.g. `dia.yaml` and `dia.pgm`), it is now possible to achieve autonomous navigation i.e. the robot can compute a global trajectory to a target point and then autonomously navigate to through this trajectory while avoiding obstacles locally.
 
 {% hint style="success" %}
-Write a new launch file named `navigation.launch` that achieve this.
+Write a new launch file named `navigation.launch` that achieves this.
 Goals can be sent through rviz by clicking on a specific location on the loaded map.
 {% endhint %}
 
