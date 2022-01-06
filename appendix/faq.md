@@ -32,7 +32,7 @@ cd opencv
 git checkout 3.4.17
 mkdir build
 cd build
-cmake -D CMAKE_BUILD_RELEASE ..
+cmake -D'CMAKE_BUILD_TYPE=RELEASE' ..
 make -j8
 
 ls -l bin/opencv_createsamples
