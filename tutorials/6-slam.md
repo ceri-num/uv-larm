@@ -31,7 +31,7 @@ There are a lot of different SLAM algorithms and some implementations are open s
 We will use here the [GMapping](http://wiki.ros.org/gmapping) ROS implementation.
 
 ```console
-$ sudo apt install ros-melodic-openslam-gmapping ros-melodic-slam-gmapping
+$ sudo apt install ros-noetic-openslam-gmapping ros-noetic-slam-gmapping
 ```
 
 To test it in simulation with stage, write a new launch file:

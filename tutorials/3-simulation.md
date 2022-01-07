@@ -80,7 +80,7 @@ $ rviz -d $(rospack find stage_ros)/rviz/stage.rviz
 
 ## Controlling the Simulated Robot
 
-Install `turtlebot` and `tbot` packages  by cloning this git repo in your `catkin_ws/src` folder: 
+Install `turtlebot` and `tbot` packages  by cloning this git repo in your `catkin_ws/src` folder:
 
 ```
 $ git clone https://bitbucket.org/imt-mobisyst/mb6-tbot.git
@@ -166,7 +166,7 @@ When a launch file uses a simulator instead of a real robot, it is mandatory to 
 To achieve this, add this line into your launch file:
 
 ```xml
-	<param name="/use_sim_time" value="true">
+	<param name="/use_sim_time" value="true" />
 ```
 
 ## Advanced Stage
