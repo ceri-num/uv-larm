@@ -1,31 +1,85 @@
-# Mapping a Medium Environment
+# Mapping and Gathering
 
-The goal of the challenge is to demonstrate the capability the robot has to map an environment and to retrieve spécific objects on it.
+The goal of the challenge is to demonstrate the capability the robot has to map an environment and to retrieve specific objects on it.
 
-## Preparation
-
-Install the [LARM simulation workspace]() in place of `simulation_ws`.
 
 ## Expected
 
-A launch file `mapping.launch` in the student package in `catkin_ws/src/student_package` that configure the robot control architecture in a way that:
+Considering that the appropriate data are streamed in ROS topics (odm, scam, camera/image, transformations...) the robot is capable of generating a map of its environment and the position in the map of objects of interest.
 
-* The robot moves toward provided positions all over the environment.
-* The robot build a map while navigating in its environment.
-* The robot communicate in a topic `/bottle` the position of bottles, each time the robot recognizes the appropriate object.
+Technically, the data would be provided by a `rosbag` and the object to recognize and localize are bottles of nuka-cola, in any position possible.
+The data flow is built with a moving robot (teleoperate for instance).
 
-## Demonstration protocol
+The map would be published in a `/map` topic all over the SLAM process and the position of the bottle in `/bottle`.
+The `/bottle` caring visualization_msgs/Marker messages.
+A message is published each time a bottle is detected by the robot.
+The marker takes the form of a green Cube at the position of the bottle in the map frame.
 
-1. Launch the simulation configuration: `roslaunch larm challenge-2.launch`
-2. Launch the control architecture: `roslaunch student_pkg mapping.launch`
-3. Visualize the map and the pose position in the `/bottle` topic on rviz
-4. The robot can be controlled manually.
 
-The map configuration and the robot position would be provided long time before the evaluation.
-Only the bottle poses (with baits) would change randomly at the last minute, but in a radius of 10 meters arround the start possition of the robot.
+* [visualization_msgs package](http://wiki.ros.org/visualization_msgs)
+* [regarding rviz](https://wiki.ros.org/rviz/DisplayTypes/Marker)
 
-## In the video
 
-1. A presentation of the challenge
-2. A presentation of the launch-file and the proposed architecture
-3. A demonstration by controlling the robot directly from the keyboard, or by goal points in rviz.
+## consigns
+
+Each group commit the minimal required files in a specific `challenge2` git branch.
+
+### The required files:
+
+* a `README.md` file in markdown syntax introducing the project.
+* a directory `grp-'color'` matching a ros package **and only this package**
+* Inside the `grp-'color'` package, the code (python scripts or cpp sources) for the relevant nodes to the challenge.
+* The launch file `challenge2.launch` starting the appropriate nodes for demonstrating the capability of the robot to map and to gather bottles when appropriate data are streamed in appropriate topics (`challenge2.launch` does not start the rosbag player).
+
+
+## Criteria
+
+Minimal:
+
+1. The group follows the consigns (i.e. the repository is presented as expected)
+3. The robot build a map in `/map` topic
+3. The robot detect bottle and publish markers `/bottle` topic
+
+Optional:
+
+4. Information is returned to rviz (started automaticaly, with appropriate configuration).
+5. The map is good shapped even in large environement.
+6. The position of bottle in the map is precise.
+7. The position of the bottle is streamed one and only one time in the `/bottle` topic.
+8. All the bottle are detected (wathever the bottle position and the background).
+9. Only the bottle are detected (even if similar object are in the environment).
+10. A service permit to get all bottle positions
+
+
+## Evaluation protocol
+
+Here the evaluation protocol applied.
+It is highly recommended to process it yourself before the submission...
+
+1. clone the group’s repository
+1. check out the appropriate branch `git checkout challenge2`
+2. Take a look to what is inside the repository and read the `README.md` file (normally it states that the project depends on `mb6-tbot`, make sure that `mb6-tbot` project **is not included in the studient project** but already installed aside).
+3. make it: `catkin_make` and `source` from the catkin directory.
+4. Launch the demonstration: `roslaunch grp-color challenge2.launch`, echo the `bottle topic`, start rviz to visualize the map (if it is not automaticaly started)
+5. Appreciate the solution with differents `rosbag`.
+6. Stop everything.
+7. Take a look to the code, by starting from the launchfiles.
+
+
+## Make your own rosbag:
+
+Turn-on the robot in a first terminal:
+
+```
+roslaunch tbot_bringup start_teleop.launch
+```
+
+Start recording the minimal needed topics (Example without 3D data):
+
+```
+rosbag record -O subset /tf /tf_static /odom /scan /camera/color/image_raw /mobile_base/commands/velocity
+```
+
+Return to your first terminal and control the robot with `ijkl` keys.
+
+**To notice that rosbag are heavy files. It is not recommanded to add those file to git versionning.**

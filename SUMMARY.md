@@ -14,29 +14,43 @@ version: IMT Nord Europe (Présentiel)
 * [Infinite Loop](notions/3-infinite-loop.md)
 -->
 
+
 ## Tutorials
 
 * [ROS Project](tutorials/1-ros-basics.md)
 * [Move the Robot](tutorials/2-move-to.md)
 * [Simulation](tutorials/3-simulation.md)
-* [Move-to, Vertion 2](tutorials/4-rosifier.md)
-* [Services](tutorials/5-services.md)
-* [SLAM](tutorials/6-slam.md)
 * [Vision](tutorials/7-vision.md)
 * [Vision with 3D sensor](tutorials/7-vision-3d.md)
+
+
+## Tuto. Level-up
+
+* [SLAM](tutorials/6-slam.md)
+* [Move-to, Vertion 2](tutorials/4-rosifier.md)
 * [Autonomous Navigation](tutorials/8-navigation.md)
+
+
+## Going futher
+
+* [Services](tutorials/5-services.md)
+
+<!-- To do ;)
+* [Ros2](challenge/coke-can.md)
+-->
+
 
 ## Challenge
 
 * [Kick-off](challenge/intro.md)
 * [Challenge 1](challenge/challenge-1.md)
+* [Challenge 2](challenge/challenge-2.md)
 
 <!--
 * [treasure: Coke can](challenge/coke-can.md)
-* [Challenge 1](challenge/challenge-1.md)
-* [Challenge 2](challenge/challenge-2.md)
 * [Challenge 3](challenge/challenge-3.md)
 -->
+
 <!--
 * [Agile development](challenge/agile-dev.md)
 * [Evaluation](challenge/evaluation.md)
@@ -46,4 +60,19 @@ version: IMT Nord Europe (Présentiel)
 
 * [FAQ](appendix/faq.md)
 * [Robot: Tbot](appendix/tbot.md)
-<!-- * [Robot: Turtlebot2](appendix/turtlebot2.md) -->
+<!--
+* [Robot: Turtlebot2](appendix/turtlebot2.md)
+-->
+
+## UV Projet 
+
+<!--
+* [Projet](uv-projet/playground.md)
+* [Projet](uv-projet/simulate-drones.md)
+* [Projet](uv-projet/simulate-boats.md)
+* [Projet](uv-projet/mpc-supervision.md)
+* [Projet](uv-projet/vectorial-slam.md)
+* [Projet](uv-projet/visionBased-slam.md)
+* [Projet](uv-projet/web-interface.md)
+* [Projet](uv-projet/multirobot-coord.md)
+-->

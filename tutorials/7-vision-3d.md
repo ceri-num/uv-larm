@@ -36,17 +36,23 @@ Installation:
 ```bash
 sudo apt-get install \
     ros-noetic-librealsense2 \
-    ros-noetic-realsense2-cameras \
+    ros-noetic-realsense2-camera \
     ros-noetic-realsense2-description
 ```
 
 Then you can launch the camera to publish the data into ROS topics:
 
 ```bash
-roslaunch realsense2-cameras rs_camera.launch
+roslaunch realsense2-camera rs_camera.launch
 ```
 
 And observe the topic and mainly the one publishing the images (`camera/color/image_raw`) with `rostopic list`,  `rostopic info` and  `rostopic hz`.
+
+You can visualise the image with:
+
+```bash
+rosrun image_view image_view image:=camera/color/image_raw
+```
 
 ## ROS Image format.
 
