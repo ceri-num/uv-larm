@@ -23,17 +23,17 @@ version: IMT Nord Europe (Présentiel)
 * [Vision](tutorials/7-vision.md)
 * [Vision with 3D sensor](tutorials/7-vision-3d.md)
 
-
 ## Tuto. Level-up
 
 * [SLAM](tutorials/6-slam.md)
-* [Move-to, Vertion 2](tutorials/4-rosifier.md)
+* [Move to, Vertion 2](tutorials/22-rosifier.md)
 * [Autonomous Navigation](tutorials/8-navigation.md)
-
 
 ## Going futher
 
-* [Services](tutorials/5-services.md)
+* [Services](tutorials/41-services.md)
+* [Object-oriented programming](tutorials/42-oop.md)
+* [Services](tutorials/48-deja-vu.md)
 
 <!-- To do ;)
 * [Ros2](challenge/coke-can.md)
@@ -67,12 +67,13 @@ version: IMT Nord Europe (Présentiel)
 ## UV Projet 
 
 <!--
-* [Projet](uv-projet/playground.md)
-* [Projet](uv-projet/simulate-drones.md)
-* [Projet](uv-projet/simulate-boats.md)
-* [Projet](uv-projet/mpc-supervision.md)
-* [Projet](uv-projet/vectorial-slam.md)
-* [Projet](uv-projet/visionBased-slam.md)
-* [Projet](uv-projet/web-interface.md)
-* [Projet](uv-projet/multirobot-coord.md)
+* [Projet](project/playground.md)
+* [Projet](project/simulate-drones.md)
+* [Projet](project/simulate-boats.md)
+* [Projet](project/mpc-supervision.md)
+* [Projet](project/vectorial-slam.md)
+* [Projet](project/visionBased-slam.md)
+* [Projet](project/web-interface.md)
+* [Projet](project/multirobot-coord.md)
 -->
+
