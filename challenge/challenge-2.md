@@ -65,6 +65,7 @@ It is highly recommended to process it yourself before the submission...
 6. Stop everything.
 7. Take a look to the code, by starting from the launchfiles.
 
+* Example of [rosbag](https://partage.imt.fr/index.php/s/EH8o7dL5Jt7Nc4w) (you can use `unzip` command to... unzip the file before to use it)
 
 ## Make your own rosbag:
 
@@ -82,4 +83,4 @@ rosbag record -O subset /tf /tf_static /odom /scan /camera/color/image_raw /mobi
 
 Return to your first terminal and control the robot with `ijkl` keys.
 
-**To notice that rosbag are heavy files. It is not recommanded to add those file to git versionning.**
+**To notice that rosbag are heavy files. It is not recommended to add those file to git versioning.**
