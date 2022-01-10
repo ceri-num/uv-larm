@@ -14,7 +14,6 @@ version: IMT Nord Europe (Présentiel)
 * [Infinite Loop](notions/3-infinite-loop.md)
 -->
 
-
 ## Tutorials
 
 * [ROS Project](tutorials/1-ros-basics.md)

@@ -65,7 +65,9 @@ It is highly recommended to process it yourself before the submission...
 6. Stop everything.
 7. Take a look to the code, by starting from the launchfiles.
 
+<!--
 * Example of [rosbag](https://partage.imt.fr/index.php/s/EH8o7dL5Jt7Nc4w) (you can use `unzip` command to... unzip the file before to use it)
+-->
 
 ## Make your own rosbag:
 
@@ -78,9 +80,23 @@ roslaunch tbot_bringup start_teleop.launch
 Start recording the minimal needed topics (Example without 3D data):
 
 ```
-rosbag record -O subset /tf /tf_static /odom /scan /camera/color/image_raw /mobile_base/commands/velocity
+rosbag record -o larm /tf /tf_static /odom /scan /camera/color/image_raw /mobile_base/commands/velocity
 ```
 
 Return to your first terminal and control the robot with `ijkl` keys.
 
 **To notice that rosbag are heavy files. It is not recommended to add those file to git versioning.**
+
+To play the *rosbag* and map the environment, we will use the clock of the rosbag. First you have to specify the use of simulated clock on your launch file, then you will play the rosbag with clock option.
+
+In the launchfile:
+
+```xml
+<param name="/use_sim_time" value="true" />
+```
+
+To ply a ROSBag:
+
+```bash
+rosbag play --clock yourRecordedFile.bag
+```

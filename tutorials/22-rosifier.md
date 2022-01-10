@@ -42,7 +42,7 @@ First you have to set up a minimal setup permitting testing that you have a node
 <node pkg="tf" type="static_transform_publisher" name="base_footprint_in_odom"
   args="2.3 4.0 0.01 0.8 0.0 0.0 /odom /base_footprint 80" />
 ```
-- Open *rviz*, get a visualization of the two frames, in `\odom` main frame and save the configuration in your *ROS* package.
+- Open *rviz*, get a visualization of the two frames, in `/odom` main frame and save the configuration in your *ROS* package.
 
 - Update the launch file to automatically launch *rviz* with the appropriate configuration.
 
@@ -70,11 +70,11 @@ In python code, you first have to initialize a *tf.TransformListener*, then, you
 
 - In your *move_to.py* script, create a subscriber callback to a topic *goal*, and print it each time you receive one. Test with rviz that *move-to.py* receive the goal correctly, and in the appropriate frame.
 
-- Check for frames' connectivity with [rqt_tf_tree](https://wiki.ros.org/rqt_tf_tree). `/odom` and `/base_footprint` should be connected.
+- Check for frames' connectivity with **view_frame** from **tf** package. `/odom` and `/base_footprint` should be connected.
 
 ### Transform:
 
-Create a publisher and a second callback function, activated frequently to compute and send the velocity command to the robot. In this callback we are interested in the first steps that would transform the global *goal* position from `\odom` to  `/base_footprint`.
+Create a publisher and a second callback function, activated frequently to compute and send the velocity command to the robot. In this callback we are interested in the first steps that would transform the global *goal* position from `/odom` to  `/base_footprint`.
 
 To do that, first we require to subscribe to `tf` topics, to listen for all the transformations messages and to maintain the computation of the positions and the orientations over all the frames.
 In fact, a ros library `tf` permits to do that for us, while a **TransformListener** is initialized.
