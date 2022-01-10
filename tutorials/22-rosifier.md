@@ -54,6 +54,8 @@ First you have to set up a minimal setup permitting testing that you have a node
 
 - By executing your launch file you want to observe information in the terminal and in *rviz* when you publish a goal position (*2D Nav Goal* button in *rviz* window).
 Nothing appends but your test is ready.
+You can configurate the *2D Nav Goal* in `rviz/panel/tool properties` to publish in `/goal` topic.
+
 
 ## Manipulate the goal position from a frame to another
 
