@@ -38,3 +38,10 @@ make -j8
 ls -l bin/opencv_createsamples
 ```
 
+## How to get an aligned depth image to the color image ?
+
+ you can use the `align_depth:=true` ROS parameter. The aligned image is streamed in a specific topic. (tks Orange group)
+
+```bash
+roslaunch realsense2_camera rs_camera.launch align_depth:=true
+```

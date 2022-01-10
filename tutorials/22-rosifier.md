@@ -1,5 +1,7 @@
 # 04 - Handle transformation in node (and parameters)
 
+<!-- passer à tf2 http://wiki.ros.org/tf2 -->
+
 In the last **move** tutorial, we focused on controlling the robot to perform a movement by avoiding the obstacles.
 The idea of this tutorial is to complete the *reactive move* node in order to permits a robot to reach a goal position.
 
@@ -19,6 +21,8 @@ A specific topic in ROS (**tf**) concentrates the transformation information lin
 
 * [wiki.ros.org/tf](http://wiki.ros.org/tf)
 <!-- * [Tutorials](http://wiki.ros.org/tf/Tutorials) -->
+
+Avec tf2: [tf2 listener](http://wiki.ros.org/tf2/Tutorials/Writing%20a%20tf2%20listener%20%28Python%29)
 
 ### To do:
 

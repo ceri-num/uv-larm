@@ -2,6 +2,7 @@
 
 Vision based 3D sensor provides both an image, and an estimation of the position of each pixel.
 
+
 ## Install RealSense
 
 Install RealSense drivers: ([from instruction here](https://github.com/IntelRealSense/librealsense/blob/master/doc/distribution_linux.md))
@@ -23,6 +24,7 @@ sudo apt install \
 ```
 
 Connect the Intel RealSense depth camera and run: `realsense-viewer`.
+
 
 ## Install appropriate ROS packages
 
@@ -56,8 +58,14 @@ rosrun image_view image_view image:=camera/color/image_raw
 
 ## ROS Image format.
 
-Image are published as 'sensor_msgs/Image' in `camera/color/image_raw`
+Images are published as 'sensor_msgs/Image' in `camera/color/image_raw`
 
 * [ROS doc](https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/Image.html)
 
 So the pixel value are stored in `img.data` array but several tool to convert ROS image to OpenCV images already exist (for instance [cv_bridge](http://wiki.ros.org/cv_bridge/Tutorials/ConvertingBetweenROSImagesAndOpenCVImagesPython))
+
+Finally, to get an aligned depth image to the color image you can use the `align_depth:=true` ROS parameter. The aligned image is streamed in a specific topic.
+
+```bash
+roslaunch realsense2_camera rs_camera.launch align_depth:=true
+```
