@@ -34,16 +34,14 @@ The node initialization (callback connections) would be performed at instance co
 
 ```python
 class MyNode :
-
+    # Constructor:
     def __init__(self):
         self.goal= PoseStamped
         self.obstacles= []
         # Publisher:
         commandPublisher = rospy.Publisher(
             '/cmd_vel_mux/input/navi',
-            Twist, queue_size=10
-        )
-
+            Twist, queue_size=10 )
         # Subscriber:
         rospy.Subscriber( 'scan', LaserScan, self.interpret_scan)
         rospy.Subscriber( 'goal', PoseStamped, self.update_goal)
