@@ -80,7 +80,7 @@ roslaunch tbot_bringup start_teleop.launch
 Start recording the minimal needed topics (Example without 3D data):
 
 ```
-rosbag record -o larm /tf /tf_static /odom /scan /camera/color/image_raw /mobile_base/commands/velocity
+rosbag record -o larm /tf /tf_static /odom /scan /camera/color/image_raw /camera/aligned_depth_to_color/image_raw /mobile_base/commands/velocity
 ```
 
 Return to your first terminal and control the robot with `ijkl` keys.
