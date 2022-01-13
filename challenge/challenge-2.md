@@ -38,18 +38,18 @@ Minimal:
 
 1. The group follows the consigns (i.e. the repository is presented as expected)
 3. The robot build a map in `/map` topic
-3. The robot detect bottle and publish markers `/bottle` topic
+4. The robot detect 1st-version-bottle (orange one) and publish markers `/bottle` topic at the position of the robot.
 
 Optional:
 
 4. Information is returned to rviz (started automaticaly, with appropriate configuration).
 5. The map is good shapped even in large environement.
-6. The position of bottle in the map is precise.
-7. The position of the bottle is streamed one and only one time in the `/bottle` topic.
-8. All the bottle are detected (wathever the bottle position and the background).
-9. Only the bottle are detected (even if similar object are in the environment).
-10. A service permit to get all bottle positions
-
+6. The robot detect 2d-version-bottle (black one)
+7. The position of bottle in the map is precise.
+8. The position of the bottle is streamed one and only one time in the `/bottle` topic.
+9. All the bottle are detected (wathever the bottle position and the background).
+10. Only the bottle are detected (even if similar object are in the environment).
+11. A service permit to get all bottle positions
 
 ## Evaluation protocol
 
@@ -58,16 +58,16 @@ It is highly recommended to process it yourself before the submission...
 
 1. clone the group’s repository
 1. check out the appropriate branch `git checkout challenge2`
-2. Take a look to what is inside the repository and read the `README.md` file (normally it states that the project depends on `mb6-tbot`, make sure that `mb6-tbot` project **is not included in the studient project** but already installed aside).
+2. Take a look to what is inside the repository and read the `README.md` file (normally it states that the project depends on `mb6-tbot`, make sure that `mb6-tbot` project **is not included in the studient project** but already installed aside). `README.md` also mention if the group targeted (and how) some of the optional features.
 3. make it: `catkin_make` and `source` from the catkin directory.
 4. Launch the demonstration: `roslaunch grp-color challenge2.launch`, echo the `bottle topic`, start rviz to visualize the map (if it is not automaticaly started)
 5. Appreciate the solution with differents `rosbag`.
 6. Stop everything.
 7. Take a look to the code, by starting from the launchfiles.
 
-<!--
-* Example of [rosbag](https://partage.imt.fr/index.php/s/EH8o7dL5Jt7Nc4w) (you can use `unzip` command to... unzip the file before to use it)
--->
+
+* Example of [rosbag](https://partage.imt.fr/index.php/s/B479W73SZt5ZLeK) (you can use `unzip` command to... unzip the file before to use it)
+
 
 ## Make your own rosbag:
 
