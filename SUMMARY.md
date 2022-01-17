@@ -45,6 +45,7 @@ version: IMT Nord Europe (Présentiel)
 * [Kick-off](challenge/intro.md)
 * [Challenge 1](challenge/challenge-1.md)
 * [Challenge 2](challenge/challenge-2.md)
+* [Challenge 2](challenge/challenge-3.md)
 
 <!--
 * [treasure: Coke can](challenge/coke-can.md)
