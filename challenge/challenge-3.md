@@ -20,9 +20,9 @@ Each group commit the minimal required files in a specific `challenge3` git bran
 * a `README.md` file in markdown syntax introducing the project.
 * a directory `grp_'color'` matching a ros package **and only this package**
 * Inside the `grp_'color'` package, the code (python scripts or cpp sources) for the relevant nodes to the challenge.
-* The launch file `challenge3_simulation.launch` starting the appropriate nodes for demonstrating the capability of the robot to map an unknown environement autonoumouslly based on `larm_challenge challenge1.launch` (no bottle recognition).
-* The launch file `challenge3_tbot.launch` starting the appropriate nodes for demonstrating the capability of the robot to explore and retreive bottle on an unknown environement (on the top of the `tbot_bringup start.launch` launch file).
-* `challenge3_tbot.launch` also start rviz, and an image viewer to appreciate the map construction and the bottle detection.
+* The launch file `challenge3_simulation.launch` starting the appropriate nodes for demonstrating the capability of the robot to map an unknown environment autonomously based on `larm_challenge challenge1.launch` (no bottle recognition).
+* The launch file `challenge3_tbot.launch` starting the appropriate nodes for demonstrating the capability of the robot to explore and retrieve the bottle on an unknown environment (on the top of the `tbot_bringup start.launch` launch file).
+* the `challenge3_tbot.launch` also starts rviz, and an image viewer to appreciate the map construction and the bottle detection.
 * In the `README.md` file, a reference to a video.
 
 ### In the video
@@ -39,13 +39,13 @@ Minimal:
 1. The group follows the consigns (i.e. the repository is presented as expected)
 2. The robot navigate to goal position provided with `rviz`
 3. The robot build a map in `/map` topic
-4. The robot detect 1st-version-bottle (orange one) and publish markers in `/bottle` topic at the position of de tected bottles.
+4. The robot detects 1st-version-bottle (orange one) and publish markers in `/bottle` topic at the position of detected bottles.
 
 Optional:
 
 5. The robot detect 2d-version-bottle (black one)
-6. There is no need to publish goal positions. The robot is autonomous to acheive it mission.
-7. Any suggestions provided by the group are wellcomen.
+6. There is no need to publish goal positions. The robot is autonomous to achieve its mission.
+7. Any suggestions provided by the group are welcome.
 
 ## Evaluation protocol
 
@@ -56,8 +56,8 @@ It is highly recommended to process it yourself before the submission...
 2. check out the appropriate branch `git checkout challenge3`
 3. `README.md` also mention if the group targeted (and how) some of the optional features.
 4. make it: `catkin_make` and `source` from the catkin directory.
-5. Launch the demonstration: `roslaunch grp-color challenge3_simulation.launch`, provide succesively some goals (if required) and appreciate the resulting map.
-6. Launch the demonstration: `roslaunch grp-color challenge3_tbot.launch`, echo `\bottle` topic provide succesively some goals (if required) and appreciate the resulting map. 
-7. Take a look to the code, by starting from the launchfiles.
+5. Launch the demonstration: `roslaunch grp-color challenge3_simulation.launch`, provide successively some goals (if required) and appreciate the resulting map.
+6. Launch the demonstration: `roslaunch grp-color challenge3_tbot.launch`, echo `\bottle` topic, provide successively some goals (if required) and appreciate the resulting map. 
+7. Take a look to the code, by starting from the launch files.
 
-* Only the `tbot` challenge matching the `challenge3_tbot.launch` launch file would be evaluated at demonstration day.
+* Only the `tbot` challenge matching the `challenge3_tbot.launch` launch file would be evaluated at the demonstration day.
