@@ -31,8 +31,8 @@ version: IMT Nord Europe (Présentiel)
 ## Going futher
 
 * [Services](tutorials/41-services.md)
-* [Object-oriented programming](tutorials/42-oop.md)
-* [Example of Deep Neural Network](tutorials/43-dnn.md)
+* [Object-Oriented Prog.](tutorials/42-oop.md)
+* [Example of Neural Net.](tutorials/43-dnn.md)
 * [Services](tutorials/48-deja-vu.md)
 
 <!-- To do ;)
@@ -45,7 +45,7 @@ version: IMT Nord Europe (Présentiel)
 * [Kick-off](challenge/intro.md)
 * [Challenge 1](challenge/challenge-1.md)
 * [Challenge 2](challenge/challenge-2.md)
-* [Challenge 2](challenge/challenge-3.md)
+* [Challenge 3](challenge/challenge-3.md)
 
 <!--
 * [treasure: Coke can](challenge/coke-can.md)

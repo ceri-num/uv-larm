@@ -2,23 +2,29 @@
 
 ## To-do:
 
-- Reactive Move: Move-2 Sur base de correction.
-- Tuto Realsense: rospy en Python3...
-- Traduire Vision et le jouer
-- Challenge:
-	+ Mettre des critaires
-	+ Deux groupes en parralléle départ à deux zones différente.
-	+ Positionnement de la boutielle ()
-	+ Challenge simulation: Carto
+- Prepare a larger environment
+
+## To-do: 2022-2023
+
+- Tutorials: Beginner 1-6
+- tbot tutorial
+- Status: fakeStatus - statusTerminal
+- Simulation: Supprimer la référence à stage. Générer deux environement plus sympas (riches).
+- Explore (and adopt ?) tf2
+- Revoir le Tuto-Vision: et Haar en particulier
+	+ Updater Harr
+	+ et/ou Jouer l'exemple de classification RealSense2.
+- Simplifier robustifier le challenge2
+- Court-Points-Cours ?
+- Going futher: ORB-SLAM / ROS2
+- Everything in ROS2 ?
+
 
 
 ## To-do: 2022-2023
 
 - Beginner 1-6
 - Status: fakeStatus - statusTerminal.
-- Explore (and adopt ?) tf2
-- Simulation: Supprimer la référence à stage. Générer deux environement plus sympas (riches).
-- Simplifier robustifier le challenge2
 - Court-Points-Cours ?
 - ROS2
 
