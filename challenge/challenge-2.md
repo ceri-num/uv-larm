@@ -5,7 +5,7 @@ The goal of the challenge is to demonstrate the capability the robot has to map 
 
 ## Expected
 
-Considering that the appropriate data are streamed in ROS topics (odm, scam, camera/image, transformations...) the robot is capable of generating a map of its environment and the position in the map of objects of interest.
+Considering that the appropriate data are streamed in ROS topics (odom, scam, camera/image, transformations...) the robot is capable of generating a map of its environment and the position in the map of objects of interest.
 
 Technically, the data would be provided by a `rosbag` and the object to recognize and localize are bottles of nuka-cola, in any position possible.
 The data flow is built with a moving robot (teleoperate for instance).
@@ -27,8 +27,8 @@ Each group commit the minimal required files in a specific `challenge2` git bran
 ### The required files:
 
 * a `README.md` file in markdown syntax introducing the project.
-* a directory `grp-'color'` matching a ros package **and only this package**
-* Inside the `grp-'color'` package, the code (python scripts or cpp sources) for the relevant nodes to the challenge.
+* a directory `grp_'color'` matching a ros package **and only this package**
+* Inside the `grp_'color'` package, the code (python scripts or cpp sources) for the relevant nodes to the challenge.
 * The launch file `challenge2.launch` starting the appropriate nodes for demonstrating the capability of the robot to map and to gather bottles when appropriate data are streamed in appropriate topics (`challenge2.launch` does not start the rosbag player).
 
 

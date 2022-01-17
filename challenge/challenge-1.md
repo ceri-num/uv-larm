@@ -26,8 +26,8 @@ Each group commit the minimal required files in a specific `challenge1` git bran
 ### The required files:
 
 * a `README.md` file in markdown syntax introducing the project.
-* a directory `grp-'color'` matching a ros package (and only this package)
-* Inside the `grp-'color'` package, the code (python scripts or cpp sources) for the relevant nodes to the challenge (only the nodes developped by the students).
+* a directory `grp_'color'` matching a ros package (and only this package)
+* Inside the `grp_'color'` package, the code (python scripts or cpp sources) for the relevant nodes to the challenge (only the nodes developped by the students).
 * The launch file `challenge1_simulation.launch` starting the appropriate nodes for demonstrating in the simulation (including the elements to start the simulation).
 * The launch file `challenge1_turtlebot.launch` starting the appropriate nodes for demonstrating with a Turtlebot (including the elements to wake-up the robot).
 

@@ -53,7 +53,7 @@ And observe the topic and mainly the one publishing the images (`camera/color/im
 You can visualise the image with:
 
 ```bash
-rosrun image_view image_view image:=camera/color/image_raw
+rosrun rqt_image_view rqt_image_view
 ```
 
 ## ROS Image format.
