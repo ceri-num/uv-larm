@@ -32,6 +32,7 @@ version: IMT Nord Europe (Présentiel)
 
 * [Services](tutorials/41-services.md)
 * [Object-oriented programming](tutorials/42-oop.md)
+* [Example of Deep Neural Network](tutorials/43-dnn.md)
 * [Services](tutorials/48-deja-vu.md)
 
 <!-- To do ;)
