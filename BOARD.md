@@ -4,12 +4,13 @@
 
 - Prepare a larger environment
 
+
 ## To-do: 2022-2023
 
 - Tutorials: Beginner 1-6
-- tbot tutorial
-- Status: fakeStatus - statusTerminal
+- tbot tutorial: ()
 - Simulation: Supprimer la référence à stage. Générer deux environement plus sympas (riches).
+- Status Tutorial (based on std_msgs:String)
 - Explore (and adopt ?) tf2
 - Revoir le Tuto-Vision: et Haar en particulier
 	+ Updater Harr
@@ -20,14 +21,6 @@
 - Everything in ROS2 ?
 
 
-
-## To-do: 2022-2023
-
-- Beginner 1-6
-- Status: fakeStatus - statusTerminal.
-- Court-Points-Cours ?
-- ROS2
-
 # Doing:
 
 - Court-Points-Cours
@@ -36,4 +29,10 @@
 
 # Done:
 
+Core module:
+
+Distributed Software
+
+Distributed Control
+Distributed AI
 
