@@ -1,6 +1,28 @@
 # Frequent Asked Question...
 
-## There is no Wifi on my dell-xps13 ???
+## How to install Ubuntu ?
+
+Ubuntu is a fork of the Debian project, a Linux-based desktop operating system.
+
+  - Official website : <https://ubuntu.com/>
+  - French community : <https://www.ubuntu-fr.org/>
+
+Notice that, ubuntu can be installed in double boot mode in parallel to a Microsoft OS on your personal computer.
+It is not recommended to use Ubuntu+ROS in a virtual machine (the performances would be  poor).
+
+### To-do:
+  - Install Ubuntu **20.04 LTS** (Long Term Supported version) from live USB-Key
+  - Ideally, use all the hard disk (you can split the disk in advance for [double-boot install](https://help.ubuntu.com/community/WindowsDualBoot))
+  - Configure "bot" username and "bot" password.
+  - Configure network
+  - Login and upgrade your installation
+
+```bash
+sudo apt update
+sudo apt upgrade
+```
+
+## There is no Wifi on my dell-xps13 ?
 
 1. Connect with cable
 2. Get the appropriate drivers: [killer driver](https://support.killernetworking.com/knowledge-base/killer-ax1650-in-debian-ubuntu-16-04/)

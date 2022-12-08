@@ -14,15 +14,16 @@ version: IMT Nord Europe (Présentiel)
 * [Infinite Loop](notions/3-infinite-loop.md)
 -->
 
-## Tutorials
+## Tuto. 01 Kick-Off
 
+* [Starting with ROS](tutorials/1-ros-basics.md)
 * [ROS Project](tutorials/1-ros-basics.md)
-* [Move the Robot](tutorials/2-move-to.md)
+* [Move the Robot](tutorials/2-move.md)
 * [Simulation](tutorials/3-simulation.md)
 * [Vision](tutorials/7-vision.md)
 * [Vision with 3D sensor](tutorials/7-vision-3d.md)
 
-## Tuto. Level-up
+## Tuto. 02 Level-up
 
 * [SLAM](tutorials/6-slam.md)
 * [Move to, Vertion 2](tutorials/22-rosifier.md)

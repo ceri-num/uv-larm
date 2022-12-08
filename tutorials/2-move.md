@@ -1,9 +1,141 @@
 # 02 - Move a robot
 
 This tutorial aims to take control of a __tbot__  robot.
-A tbot is a turtlebot2 (itself based on a kobuki platform) equipped with a laser range to navigate in a cluttered environment.
+A tbot is a turtlebot2 (itself based on a kobuki platform) equipped with a laser range to navigate in a cluttered environment and a camera to recognize objects.
 
-This tutorial supose that you already processed the [Challenge - Kick-Off](../challenge/intro.md).
+<!-- OU PAS This tutorial supose that you already processed the [Challenge - Kick-Off](../challenge/intro.md).-->
+
+## Connect the tbot:
+
+If it is not yet the case,
+the machine connecting the robot and its sensors have to be conferred accordingly to the [IMT MobiSyst tbot](https://bitbucket.org/imt-mobisyst/mb6-tbot) 
+
+You will have then a ROS WorkSpace including tbot meta-package itself including several ROS packages.
+
+- Verrify it: 
+
+```sh
+cd rosworkspace
+ls src
+ls src/tbot
+```
+
+- Build the packages: 
+
+```
+colcon build
+```
+
+- Update your shell environment variables: 
+
+```sh
+source install/setup.sh
+```
+
+- Connect the tbot base and start the control nodes : 
+
+```sh
+ros2 run tbot_start start # feed the bot password is asked
+```
+
+Into another terminal start a bridge between ros1 and ros2: 
+
+```sh
+source /opt/ros/noetic/setup.sh
+ros2 run ros1_bridge dynamic_bridge
+```
+
+Finally, try to take control in a third terminal:
+
+``sh
+ros2 run teleop_twist_keyboard teleop_twist_keyboard.py cmd_vel:=/mobile_base/commands/velocity
+``
+
+Close everything with `ctrl-c`.
+
+
+
+## Somme explanations:
+
+
+The control of tbot (turtlebot3 kobuki base) is still dependent on old version of ros1 so it is packaged into a docker environment.
+This solution implies: 1) super user access to run docker (potentially a sudo password) and 2) to launch a bridge between ros1 and ros2.
+
+The 'dynamic_bridge' needs some ROS1 variables that why the user has to source `ROS/noetic` in the terminal before to start the bridge.
+At this point, the ROS1 topics are invisible in ROS2. It is a dynamic bridge, It connects things only on demand.
+So by starting the teleop node, you can see the activation of the bridge in its terminal.
+
+It works well if and only if you address the appropriate topic. Here it is exactly `/mobile_base/commands/velocity`.
+If you would like to see all robot topics, you have to switch your terminal in ROS1 and then list the topics with ROS1 command:
+
+```
+source /opt/ros/noetic/setup.sh
+rostopic list
+```
+
+The teleop publishes a [geometry_msgs](https://docs.ros2.org/foxy/api/geometry_msgs/index-msg.html)/[twist](https://docs.ros2.org/foxy/api/geometry_msgs/msg/Twist.html) mesage.
+It is composed of two vectors $(x, y, z)$, one for linear speed $(m/s)$, and the second for angular speed $(rad/s)$. 
+However a [https://en.wikipedia.org/wiki/Nonholonomic_system](nonholonomic) ground robot as the **tbot** would move only on `x` and turn only on `z`. 
+It is not as free as a drone, you can echo the mesages into a 4th terminal.
+
+- Try to control the robot with `ros2 topic pub` command instead of teleop.
+
+
+## move node
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+You can connect and switch the robots on.
+*minimal.launch* in *turtlebot_bringup* packages permits starting minimal *ROS* nodes to communicate with the robot.
+
+In a first terminal: 
+
+```bash
+roslaunch turtlebot_bringup minimal.launch
+```
+
+Without a `turtlebot`, you can play the same exercise with `turtlesim`.
+
+Listing the topics and a generating the graph of *ROS* nodes provide an idea of robot processes.
+
+```bash
+rostopic list
+rqt_graph
+```
+
+
+Try to move the robot in a straight line at a speed of $0.1$ meters per second.  The message requires to be sent several times until the robot reach the appropriate position, for instance, at a rate of 10 messages per second.
+
+So:
+
+```bash
+rostopic pub -r 10 /cmd_vel_mux/input/navi geometry_msgs/Twist  '{linear:  {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}'
+```
+
+`ctr-c` to stop a running program in a terminal.
+
+With turtlesim, the topic must be adapted to something like: `/turtle1/cmd_vel`
+
+
+
+
+
+
+
+
+**OLD VERSION**
+
 
 ## Installation:
 
@@ -25,40 +157,8 @@ Then, the authors provide ready to use catkin package here:
 
 Go there and follow the instructions...
 
-## Connect the turtlebot:
 
-You can connect and switch the robots on.
-*minimal.launch* in *turtlebot_bringup* packages permits starting minimal *ROS* nodes to communicate with the robot.
 
-In a first terminal: 
-
-```bash
-roslaunch turtlebot_bringup minimal.launch
-```
-
-Without a `turtlebot`, you can play the same exercise with `turtlesim`.
-
-Listing the topics and a generating the graph of *ROS* nodes provide an idea of robot processes.
-
-```bash
-rostopic list
-rqt_graph
-```
-
-Then, by publishing velocity msg on the appropriated command topic (*input/navi*).
-The message structure is a [geometry_msgs](https://wiki.ros.org/geometry_msgs) - [twist](http://docs.ros.org/api/geometry_msgs/html/msg/Twist.html)
-
-Try to move the robot in a straight line at a speed of $0.1$ meters per second.  The message requires to be sent several times until the robot reach the appropriate position, for instance, at a rate of 10 messages per second.
-
-So:
-
-```bash
-rostopic pub -r 10 /cmd_vel_mux/input/navi geometry_msgs/Twist  '{linear:  {x: 0.1, y: 0.0, z: 0.0}, angular: {x: 0.0,y: 0.0,z: 0.0}}'
-```
-
-`ctr-c` to stop a running program in a terminal.
-
-With turtlesim, the topic must be adapted to something like: `/turtle1/cmd_vel`
 
 ## Move the turtlebot:
 

@@ -1,6 +1,6 @@
 # LARM - Logiciel et Architecture pour la Robotique Mobile - Software and Architecture for Mobile-Robotics
 
-A lecture on software and architecture for mobile robots at the [IMT-Nord](http://www.imt-nord-europe.fr) engineering school.
+Dear reader, you will find here a lecture on software and architecture for mobile robots at the [IMT-Nord](http://www.imt-nord-europe.fr) engineering school.
 
 In this course we propose an introduction on how to develop a modular control and supervision software for a mobile platform.
 The notions are illustrated with tutorials based on Linux/[ROS](https://ros.org/) and [Kobuki/Turtlebot2](http://kobuki.yujinrobot.com/) robot.

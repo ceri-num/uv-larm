@@ -1,82 +1,56 @@
 # Linux and ROS Basics
 
-The goal of this exercise is to set up a computer and a software environment to control robots and to develop robotics programs.
+The goal of this tutorials is to set up a workspace to control robots and to develop robotics programs.
 We choose to work with ROS (the most used open middleware for robotics) on a Linux-Ubuntu computer (which are the best supported configuration).
 
-The required configuration at the end is based on:
-  - Ubuntu 20.04 (Or the geek and gamer version [POP!_os](https://pop.system76.com/))
-  - ROS Neotic
-  - Your favorite development environment for Python and C++.
+This tutorials supose that you have an Ubuntu-Like 20.04 computer with configured Python and C++ APIs.
+The tutorials relies on [https://docs.ros.org/en/foxy](ROS2 Foxy).
 
-## Installing Ubuntu
-
-Ubuntu is a fork of the Debian project, a Linux-based desktop operating system.
-
-  - Official website : <https://ubuntu.com/>
-  - French community : <https://www.ubuntu-fr.org/>
-
-Notice that, ubuntu can be installed in double boot mode in parallel to a Microsoft OS on your personal computer.
-It is not recommended to use Ubuntu+ROS in a virtual machine (the performances would be  poor).
-
-### To-do:
-  - Install Ubuntu 20.04 LTS (Long Term Supported version) from live USB-Key
-  - Ideally, use all the hard disk (you can split the disk in advance for [double-boot install](https://help.ubuntu.com/community/WindowsDualBoot))
-  - Configure "bot" username and "bot" password.
-  - Configure network
-  - Login and upgrade your installation
-
-```bash
-sudo apt update
-sudo apt upgrade
-```
 
 ## Play with Linux.
 
-Ubuntu is a distribution Linux (OS + Window Managment + tools) derived from Debian distribution.
+Ubuntu is a distribution Linux (Operating System + Window Managment + Tools) derived from Debian distribution.
 
-It is a classical graphical operating system. You can explore the system and launch different program to test-it.
+It is a classical graphical operating system.
+You can explore the system and launch different program to test-it.
 
 In the variety of program, we are mostly interested in the terminal emulator, permitting to manipulate our system directly from command (moving in the directory tree, read and organize files, execute script or programs, administer...).
 
-- **gnome-terminal**: https://help.gnome.org/users/gnome-terminal/stable
+- **gnome-terminal**: [https://help.gnome.org/users/gnome-terminal/stable](On help.gnome.org)
 
-In a terminal, explore the following command (i.e. what for, how to use it):
+Explore the following command (i.e. what for, how to use it). A good way to do this is to first Google the command [https://duckduckgo.com/?q=command+man&t=newext&atb=v351-6&ia=web](example), then play with the command in our terminal.
 
 - **man**, **ls**, **cp**, **mv**, **cat**, **rm**
-- **apt**, **sudo**
+- **source**, **apt**, **sudo**
 
-## Installing ROS
+To notice that `tabulation` permits autocompletion.
 
-ROS could be installing directly with `apt` tool while configuring the appropriate repositories.
-
-<http://wiki.ros.org/ROS/Installation>
+More commands: **egrep**, **find**, **ps**, ... [https://en.wikibooks.org/wiki/Linux_Guide/Linux_commands](Wikipedia is your friend).
 
 
-### Play with ROS
+## Play with ROS
 
-ROS documentation is developed by the community on a wiki: <http://wiki.ros.org>.
-This wiki includes the documentation on core ROS as on a large variety of ROS drivers and modules shared by the community.
+The remander of the tutorial realies directly on ROS documentation [https://docs.ros.org/](docs.ros.org)
+ROS is mainly composed by **Tools** and **Libraries**.
 
-## First contact
+The **Tools** permit to configure and start a control architectecture, to explore this architecture and to visualise Data.
+The **Libraries** offer an API (Application Programming Interface) to developpers who want to propose new program compliant with ROS.
 
-As a first step, the beginner tutorials permit to visit the main element of ROS.
-To notice that ROS support two systems to manage a ROS project.
-This lecture is focused on `Catkin`, so you can avoid the parts reserved to `rosBuild`.
+### Tools
 
-Execute [beginner tutorials](http://wiki.ros.org/ROS/Tutorials) from **1** to **6**.
+Start with [https://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools.html](Beginner CLI-Tools tutorials) to get familliar with ROS tools.
 
-## Develop a first ROS program
+Some responces to the questions you could have: 
 
-ROS provides tools to compile and include a project in the ROS ecosystem.
-The most recent (**Catkin**) is based on **CMake**.
-However it is not a complete IDE and you will require your favorite tools:
+- Yes we are in a classroom so we will work with : `ROS_LOCALHOST_ONLY=1`. You can check your bash configuration by editing the hidden fille at the user home dirctory: `gedit ~/.bashrc &`
+- `bot` user is sudoer, and the password is `bot`.
 
-- editor (geany, atom, visual studio code,...)
-- versioning (git,...)
-- multi-terminal (terminator,...)
-- system tools (ssh, curl,... )
+### Libraries
 
-- Install and configure your favorite Dev. tools for *Python* and *C++*
-  *  `visual studio code` is a gode option: `sudo apt install code`
-- Play tutorials from **7** to **20**
-  * <http://wiki.ros.org/ROS/Tutorials>
+Then follow the [https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries.html](Beginner Client-Libraries tutorials) by focusing on **Python** language.
+
+In a first time we encurage to use **Python** language. The langage is less efficient at execution-time, but more easelly to handle in pedagogical purpose.
+If you have a strong knowledge of **C++** you can use this language.
+Otherwise, you have to always select and process for **Python** commands.
+
+Also, you can work with classical editor (gedit on Ubuntu), but we encurage you to use `code` (VisualStudio Code) as devellopement environment.
