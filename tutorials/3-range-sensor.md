@@ -1,4 +1,26 @@
 
+# Range sensor
+
+*Range sensors* are robot sensor permiting to detect obstacles and determin a distance to it.
+Basic range sensor (infrared, utrasonic, laser) produce a unique mesure considering a given direction at a time.
+By making the sensor rotating, it is possible to get messurements on a plan arraound the sensor. 
+
+Hokuhyo, equiping the **Tbot**, is typically a kind of rotating lidar sensor (**l**aser **i**maging or **li**ght **d**etection **a**nd **r**anging).
+The goal here is to integrate an almost 360 obstacle detection to generate safe robot movement.
+
+More complexe lidar permits 3D messurements (i.e. in several plans at a time).
+
+
+## Get Scan Data
+
+## From Scan to Point-Cloud
+
+## Avoid obstacles
+
+
+
+
+
 
 
 ## OLD VERSION:

@@ -153,7 +153,7 @@ class MoveNode(Node):
 
     def activate(self):
         velo = Twist()
-        velo.linear.x = 0.5 # target a 0.5 meter per second velocity
+        velo.linear.x = 0.2 # target a 0.2 meter per second velocity
         self.velocity_publisher.publish(velo)
 
 def main(args=None):
@@ -178,8 +178,16 @@ If you have troubles in understanding this python code: [classes](https://www.w3
 Then as we said erlier, expected message is a geometry_msgs twist, so composed by two attributes $(\mathit{linear},\ \mathit{angular})$ themselves composed by tree attributes $(x,\ y,\ z)$.
 
 Finally you also have to fill some information into your package configuration.
+Inform ROS that the package depend on `rclpy` (the **R**os **Cl**ient in **Py**thon) and `geometry_msgs`,
+by adding in the `package.xml` file (inside the `<package>` markup):
 
-Ok, you just have to test your node the tbot and the ros1 dynamic bridge activated. To notice that you can also test your code on turtlesim by changing the targeted topic name.
+```xml
+    <depend>rclpy</depend>
+    <depend>geometry_msgs</depend>
+```
+
+Ok, you just have to build and test your node (the tbot and the ros1 dynamic bridge activated).
+To notice that you can also test your code on `turtlesim` by changing the targeted topic name.
 
 
 ## Terminate the exercise
