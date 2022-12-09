@@ -6,7 +6,7 @@ version: IMT Nord Europe (Présentiel)
 
 * [Introduction](README.md)
 
-## Tuto. 01 Kick-Off
+## Tuto. 01 - Kick-Off
 
 * [Starting with ROS](tutorials/1-ros-basics.md)
 * [Move the Robot](tutorials/2-move.md)
@@ -14,7 +14,7 @@ version: IMT Nord Europe (Présentiel)
 * [Simulation](tutorials/4-simulation.md)
 
 
-## Tuto. 03 Level-up
+## Tuto. 02 - Level-up
 
 
 ## Challenge
