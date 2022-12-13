@@ -1,98 +1,152 @@
 
 # Range sensor
 
-*Range sensors* are robot sensor permiting to detect obstacles and determin a distance to it.
-Basic range sensor (infrared, utrasonic, laser) produce a unique mesure considering a given direction at a time.
-By making the sensor rotating, it is possible to get messurements on a plan arraound the sensor. 
+*Range sensors* are robot sensor permitting to detect obstacles and determine a distance to it.
+Basic range sensors (infrared, ultrasonic, laser) produce a unique measure considering a given direction at a time.
+By making the sensor rotating, it is possible to get measurements on a plan around the sensor. 
 
-Hokuhyo, equiping the **Tbot**, is typically a kind of rotating lidar sensor (**l**aser **i**maging or **li**ght **d**etection **a**nd **r**anging).
+Hokuhyo, equipping the **Tbot**, is typically a kind of rotating lidar sensor (**l**aser **i**maging or **li**ght **d**etection **a**nd **r**anging).
 The goal here is to integrate an almost 360 obstacle detection to generate safe robot movement.
 
-More complexe lidar permits 3D messurements (i.e. in several plans at a time).
+More complex lidar permits 3D measurements (i.e. in several plans at a time).
 
 
 ## Get Scan Data
 
-## From Scan to Point-Cloud
+Well, let’s visualize the laser scan in rviz2.
+For that, verify that the user has the right to read data on the device. 
+By connecting the laser sensor, a access file appears in Linux `/dev` directory named `ttyACM0`.
+Verify the owner of the file: 
 
-## Avoid obstacles
-
-
-
-
-
-
-
-## OLD VERSION:
-
-## Avoid obstacles :
-
-We get the basics.
-
-The next move is to detect obstacles with a laser-range and to avoid it.
-
-Hokuyo laser range is a sensor compliant with ROS by using the *urg_node* package. Connect the sensor, run *urg_node* node in *urg_node* ros package. 
-
-A new topic appears `/scan` streaming the LaserRange data. It is possible to visualize it with *rviz* (fixed frame initially on `map` has to be set on `laser` frame, i.e. at this point it is impossible for the system to know where is the laser in the map).
-
-1. Launch `rviz`
-2. Add topic `laserScan`
-3. Change reference frame to `laser`
-
-The game is to integrate incoming information from `/scan` to `move.py` script to avoid obstacles in front of the robot.
-
-1. Add dependence to scan messages. 
-2. Subscribe to `/scan` topics and associate a call back function.
-3. Transform the `/scan` distances into obstacle positions
-4. Make the robot turning right or left to avoid close obstable on the left  or on the right (positive or negative value on the `Twist angular z` attribut).
-
-Without a turtlebot, you can play with reccorded sensor stream (a bagfile).
-cf. tutorials: [record bag files](http://wiki.ros.org/ROS/Tutorials/Recording%20and%20playing%20back%20data), [play bag files](http://wiki.ros.org/ROS/Tutorials/reading%20msgs%20from%20a%20bag%20file).
-
-You can get a bag file in `mb6-data` repository:
-
-```bash
-wget https://bitbucket.org/imt-mobisyst/mb6-data/raw/master/tbot_bags/bags/tbot_bag_first_loop.bag -O move.bag
+```sh
+ls -la /dev
 ```
 
-then run it: 
+Normally `/dev/ttyACM0` is owned by user `root` and group `dialout` with `crw-rw----` right, mining that owner and all members of the group can read (`r`) and write (`w`) and all the other users have no access to the resource.
+Verify that `bot` is a member of the group `dialout`
 
-```bash
-rosbag play move.bag
+```sh
+cat /etc/group
 ```
 
-### From laser scan to point cloud
+Cool. let run a driver to convert device I/O to ros messages:
 
-[laser scan](https://docs.ros.org/en/noetic/api/sensor_msgs/html/msg/LaserScan.html) in the sensor messages package, provide both the recorded bean distances and the meta information permiting to convert the distances on points in a regular carthesian frame (i.e. the angle between beams).
+```sh
+ros2 run urg_node urg_node_driver --ros-args -p serial_port:=/dev/ttyACM0
+```
 
-In a python script, the conversion to put in a call-back function attached to `/scan` topic, would look-like this:
+From that point data are streamed in `\scan` topic. It is possible to check it with `ros2 topic list` and `ros2 topic echo scan`. Now you can visualize it on `rviz2` program. Start `rviz2` in a terminal, _add_ a flux _laserScan_ and configure it in `/scan` topic. Nothing appears and it is normal. Rviz global option is configured on _map_ frame, and nothing permits to set the position of the laser sensor in the map. The laser-scan frame is named _laser_. Change this information into global options and set the laser-scan size to $0,1$ for a better display.
+
+Stop everything.
+
+Perform the same exercise to visualize simulated LaserScan from Gazebo simulator: 
+
+```sh
+source /opt/ros/noetic/setup.bash
+source ~/ros1_ws/devel/setup.bash
+roslaunch larm challenge-1.launch
+```
+
+Attention the laser-scan frame has changed.
+
+
+## A first node logging the scan.
+
+First we will initialize our node `scan_echo` in a python ROS2 packages (the `tuto_move` from the [Move the Robot](tutorials/2-move.md) tutorial for instance).
+
+Edit a new file `tuto_move/tuto_move/scan_echo.py` with a very simple code : 
+
+```python
+def main():
+    print('Move move move !')
+
+if __name__ == '_main__' :
+    main()
+```
+
+Then, you have to inform ROS for the existence of your new node. 
+In your package `setup.py` file, add your node in the `console_scripts` [list](https://www.w3schools.com/python/python_lists.asp) of the `entry_points` [dictionary](https://www.w3schools.com/python/python_dictionaries.asp).
+The new list item would look like `'scan_echo = tuto_move.scan_echo:main'`. 
+
+Test your `scan_echo` node.
+
+Then, the idea is to connect [sensor_msgs LaserScan](https://docs.ros2.org/foxy/api/sensor_msgs/msg/LaserScan.html). That for, add dependency in the package configuration (`package.xml`)and import the msgs class in your python scrip.
+
+Test your `scan_echo` node.
+
+Now it is possible to create a class subscribing to the `scan` topic and to log the result: 
+
+```python
+#!python3
+import rclpy
+from rclpy.node import Node
+from sensor_msgs.msg import LaserScan
+
+class ScanInterpret(Node):
+
+    def __init__(self):
+        super().__init__('scan_interpreter')
+        self.create_subscription( LaserScan, 'scan', self.scan_callback, 10)
+
+    def scan_callback(self, scanMsg):
+        self.get_logger().info( f"scan:\n{scanMsg}" )
+
+def main(args=None):
+    rclpy.init(args=args)
+    scanInterpret = ScanInterpret()
+    rclpy.spin(scanInterpret)
+    scanInterpret.destroy_node()
+    rclpy.shutdown()
+
+if __name__ == '__main__' :
+    main()
+```
+
+Test your `scan_echo` node, with the hokuyo laser and on simulations.
+
+Modify the logger to print only the information into the `header` and the number of ranges.
+
+
+## From LaserScan to PointCloud
+
+**LaserScan** provides both the recorded bean distances (ranges) and the meta information permitting converting the distances on points in a regular Cartesian frame (i.e. the angle between beans).
+
+In a python, the conversion would look like this:
 
 ```python
 obstacles= []
-angle= data.angle_min
-for aDistance in data.ranges :
+angle= scanMsg.angle_min
+for aDistance in scanMsg.ranges :
     if 0.1 < aDistance and aDistance < 5.0 :
         aPoint= [ 
             math.cos(angle) * aDistance, 
             math.sin( angle ) * aDistance
         ]
         obstacles.append( aPoint )
-    angle+= data.angle_increment
-rospy.loginfo( str(
-    [ [ round(p[0], 2), round(p[1], 2) ] for p in  obstacles[0:10] ] 
-) + " ..." )
+    angle+= scanMsg.angle_increment
 ```
 
-Ideally, it is possible to publish this result in a pointCloud mesage and to visualize it on rviz...
+The exercise consists in modifying the scan callback function to generate the point cloud list.
+To log a sample of the point cloud:
+
+```python
+sample= [ [ round(p[0], 2), round(p[1], 2) ] for p in  obstacles[120:130] ]
+logger.info( f" ...{sample}..." )
+```
+
+Finally, it is possible to publish this result in a [pointCloud](https://docs.ros2.org/foxy/api/sensor_msgs/msg/PointCloud.html) message and to visualize it on rviz2 in a superposition of the LaserScan.
 
 
-### Avoid obstacle
+## Infinit Safe Move
 
-If the laser position is coherent on the robot, it is possible to consider that the obstacle point list is provided in the same frame than the robot movement.
+Create a new node `reactive_move` that will command the robot velocities in a way that the robot will avoid the obstacles.
+Develop your solution based on the simulation.
 
-To avoid obstacle:
+1. Determine a rectangle in front of the robot and get the point cloup obstacles in this rectangle.
+2. If an obstacle is present in the right part of the rectangle, turn left.
+3. If an obstacle in present in the left part of the rectangle, turn right.
+4. Otherwise move in straight line.
+5. Calibrate the rectangle configuration and the speeds to get a coherent and safe control.
+6. Add rules to better control the robot in a dead end scenario
 
-1. Determine if obstacle points are in front of th robot and in a given raduis.
-2. Apply a rotation to the robot until the obstacle leave the danger zone.
-
-Astuce: to share variable from a callback funtion to another in python, it is possible to use global variable (i.e. the obstacle list). [Exemple on w3schools](https://www.w3schools.com/python/gloss_python_global_variables.asp).
+Test your solution on a real robot.

@@ -16,7 +16,7 @@ You will have then a ROS WorkSpace including tbot meta-package itself including 
 - Verrify it: 
 
 ```sh
-cd rosworkspace
+cd ros2_ws
 ls src
 ls src/tbot
 ```
@@ -43,6 +43,7 @@ Into another terminal start a bridge between ros1 and ros2:
 
 ```sh
 source /opt/ros/noetic/setup.sh
+source /opt/ros/foxy/setup.sh
 ros2 run ros1_bridge dynamic_bridge
 ```
 
@@ -129,7 +130,7 @@ entry_points={
 Finally you can test your node:
 
 ```sh
-cd ~/rosspace
+cd ~/ros2_ws
 colcon build
 source ./install/setup.sh
 ros2 run tuto_move move_1m
