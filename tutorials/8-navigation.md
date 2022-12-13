@@ -1,7 +1,8 @@
 # Autonomous Navigation
 
 
-[Doc Nav2](https://navigation.ros.org/getting_started/index.html#getting-started)
+[Doc Nav2](https://navigation.ros.org/)
+
 
 Using the saved map (e.g. `dia.yaml` and `dia.pgm`), it is now possible to achieve autonomous navigation i.e. the robot can compute a global trajectory to a target point and then autonomously navigate to through this trajectory while avoiding obstacles locally.
 

@@ -1,62 +1,63 @@
 # Simulation in ROS 
 
-## 2d Simulations in `stage` 
+## Gazebo Simulator
 
-[stage](http://wiki.ros.org/stage) simulator.
+[Gazebo](http://gazebosim.org/) is a 3d simulator.
+It makes it possible to rapidly test algorithms, design robots, perform regression testing, and train AI system using realistic scenarios. Gazebo is integrated with ROS (cf. [Gazebo ROS](http://wiki.ros.org/gazebo_ros_pkgs)) and supports various robots out of the box.
 
->Stage provides several sensor and actuator models, including sonar or infrared rangers, scanning laser rangefinder, color-blob tracking, fiducial tracking, bumpers, grippers and mobile robot bases with odometric or global localization.
+Gazebo is heavily used by the DARPA challenges (cf. [Wikipedia](https://en.wikipedia.org/wiki/Gazebo_simulator)).
+You can see videos online ([example](https://www.youtube.com/watch?v=v6-heLIg85o)) and even load the maps and robot model that are available.
 
-### `stage` Installation
+## Gazebo Installation
 
-Check if `stage` is installed:
-
-```console
-$ dpkg -l | grep stage
-ii  ros-noetic-stage                            4.3.0-1focal.20210423.222334               amd64        Mobile robot simulator http://rtv.github.com/Stage
-ii  ros-noetic-stage-ros                        1.8.0-1focal.20210727.075341               amd64        This package provides ROS specific hooks for stage
-```
-
-Otherwise, install it:
+Vérifiez que Gazebo est installé.
 
 ```console
-$ sudo apt update
-$ sudo apt install ros-noetic-stage ros-noetic-stage-ros
+$ dpkg -l | grep gazebo
+ii  gazebo11                                        11.12.0-1~focal                      amd64        Open Source Robotics Simulator
+ii  gazebo11-common                                 11.12.0-1~focal                      all          Open Source Robotics Simulator - Shared files
+ii  gazebo11-plugin-base                            11.12.0-1~focal                      amd64        Open Source Robotics Simulator - base plug-ins
+ii  libgazebo11:amd64                               11.12.0-1~focal                      amd64        Open Source Robotics Simulator - shared library
+ii  libgazebo11-dev:amd64                           11.12.0-1~focal                      amd64        Open Source Robotics Simulator - Development Files
+ii  ros-foxy-gazebo-dev                             3.5.3-1focal.20220829.174620         amd64        Provides a cmake config for the default version of Gazebo for the ROS distribution.
+ii  ros-foxy-gazebo-msgs                            3.5.3-1focal.20221012.224922         amd64        Message and service data structures for interacting with Gazebo from ROS2.
+ii  ros-foxy-gazebo-plugins                         3.5.3-1focal.20221021.150213         amd64        Robot-independent Gazebo plugins for sensors, motors and dynamic reconfigurable components.
+ii  ros-foxy-gazebo-ros                             3.5.3-1focal.20221013.010602         amd64        Utilities to interface with Gazebo through ROS.
+ii  ros-noetic-gazebo-dev                           2.9.2-1focal.20210423.224909         amd64        Provides a cmake config for the default version of Gazebo for the ROS distribution.
+ii  ros-noetic-gazebo-msgs                          2.9.2-1focal.20221124.042608         amd64        Message and service data structures for interacting with Gazebo from ROS.
+ii  ros-noetic-gazebo-plugins                       2.9.2-1focal.20221124.043536         amd64        Robot-independent Gazebo plugins for sensors, motors and dynamic reconfigurable components.
+ii  ros-noetic-gazebo-ros                           2.9.2-1focal.20221124.042851         amd64        Provides ROS plugins that offer message and service publishers for interfacing with Gazebo through ROS.
+ii  ros-noetic-gazebo-ros-control                   2.9.2-1focal.20221124.043459         amd64        gazebo_ros_control
+ii  ros-noetic-gazebo-ros-pkgs                      2.9.2-1focal.20221124.061712         amd64        Interface for using ROS with the Gazebo simulator.
+ii  ros-noetic-hector-gazebo-plugins                0.5.4-1focal.20221124.043534         amd64        hector_gazebo_plugins provides gazebo plugins from Team Hector.
+ii  ros-noetic-velodyne-gazebo-plugins              1.0.12-2focal.20221124.043606        amd64        Gazebo plugin to provide simulated data from Velodyne laser scanners.
 ```
 
-You can explore the files installed by these two packages:
+Installez éventuellement les paquets manquants avec `sudo apt install <nom_paquet>`
+
+## Testez Gazebo
 
 ```console
-$ roscd stage_ros
+$ rosify2
+(ros2) $ ros2 launch gazebo_ros gazebo.launch.py world:=
 ```
+### Simulating a Robot
 
-### `stage` simulation with one Robot
-
-[Source](http://wiki.ros.org/stage/Tutorials/SimulatingOneRobot)
 
 ```console
-(ros1) $ roscore
-...
-# Launch stage in another shell
-(ros1) $ rosrun stage_ros stageros $(rospack find stage_ros)/world/willow-erratic.world
+(ros2) $ 
 ```
 
-![stage simulation with one robot (blue square) equipped with a laser scanner](../files/SLAM/stage.png)
+![Gazebo simution with a tbot](../files/SLAM/stage.png)
 
-By pressing `r`, the stage simulation is rendered in 3d:
-
-![3d-view on the same stage simulation](../files/SLAM/stage-3d.png)
-
-You can use various ROS tools to analyse what is involved in this simulation.
+Test the main ROS2 tools:
 
 ```console
 # show the ROS graph (nodes + topics)
-(ros1) $ rqt_graph
+(ros2) $ rqt_graph
 
 # list the ROS topics and available data
-(ros1) $ rostopic list
-
-# read the willow-erratic.world file
-(ros1) $ gedit $(rospack find stage_ros)/world/willow-erratic.world
+(ros2) $ ros2 topic list
 ```
 
 >Question: In which topic laser scans are published?
@@ -80,7 +81,7 @@ To visualise the laser scans in `rviz` ensure that `Global Option` / `Fixed fram
 Launch a simple node to control a robot using keyboard:
 
 ```console
-(ros1) $ rosrun teleop_twist_keyboard teleop_twist_keyboard.py
+(ros2) $ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap /cmd_vel:=/demo/cmd_demo
 ```
 
 Use `rqt_graph` to see the graph of ROS nodes and the topics they use to communicate.
@@ -158,59 +159,41 @@ To achieve this, add this line into your launch file:
 	<param name="/use_sim_time" value="true" />
 ```
 
-## Advanced Stage
 
-You can customize your simulation by writing your own `.world` file and for example:
-- change the map
-- change the robot model (sensors, body shape, ...)
-- add multiple robots into the scene
-- ...
+cd ~/ros2_ws/src
+ros2 pkg create my_package --build-type ament_cmake --dependencies rclcpp
+ros2 pkg create larm_corrections --build-type ament_python 
+mkdir -p ~/ros2_ws/src/my_package/launch
+touch ~/ros2_ws/src/my_package/launch/dolly.launch.py
 
-You can find `world` file examples into the `stage_ros` and `stage` catkin packages as well as read the [documentation](https://player-stage-manual.readthedocs.io/en/stable/WORLDFILES/).
+```python
+import os
 
-# Gazebo Simulator
+from ament_index_python.packages import get_package_share_directory
+from launch import LaunchDescription
+from launch.actions import DeclareLaunchArgument
+from launch.actions import IncludeLaunchDescription
+from launch.launch_description_sources import PythonLaunchDescriptionSource
 
-[Gazebo](http://gazebosim.org/) simulator makes it possible to rapidly test algorithms, design robots, perform regression testing, and train AI system using realistic scenarios. Gazebo is integrated with ROS (cf. [Gazebo ROS](http://wiki.ros.org/gazebo_ros_pkgs)) and supports various robots out of the box.
+def generate_launch_description():
 
-Gazebo is heavily used by the DARPA challenges (cf. [Wikipedia](https://en.wikipedia.org/wiki/Gazebo_simulator)).
-You can see videos online ([example](https://www.youtube.com/watch?v=v6-heLIg85o)) and even load the maps and robot model that are available.
+    pkg_gazebo_ros = get_package_share_directory('gazebo_ros')
+    pkg_dolly_gazebo = get_package_share_directory('dolly_gazebo')
 
-Follow [this tutorial](http://docs.fetchrobotics.com/gazebo.html) to simulate the *freight robot* (available at IMT Lille Douai).
+    gazebo = IncludeLaunchDescription(
+        PythonLaunchDescriptionSource(
+            os.path.join(pkg_gazebo_ros, 'launch', 'gazebo.launch.py')
+        )
+    )
 
-![Example of Gazebo simulation with a fetch robot](../files/SLAM/gazebo.png)
-
-```console
-(ros1) $ cd ~/catkin_ws/src
-(ros1) $ git clone https://github.com/fetchrobotics/fetch_gazebo.git
-(ros1) $ cd fetch_gazebo
-(ros1) $ git checkout gazebo11
-(ros1) $ cd ~/catkin_ws
-(ros1) $ catkin_make
-(ros1) $ source devel/setup.bash
-(ros1) $ roslaunch fetch_gazebo playground.launch robot:=freight
-```
-
-You can launch your teleoperation node to control the freight base.
-
-
-In this lecture, you will use turtlebot2 robots equipped with a laser.
-We call it __tbot__ and you can simulate it in  gazebo:
-
-```console
-(ros1) $ roslaunch tbot_gazebo start_world.launch
-(ros1) $ roslaunch tbot_gazebo spawn_tbot.launch
-```
-
-You can test the full fetch robot:
-
-```
-(ros1) $ roslaunch fetch_gazebo playground.launch robot:=freight
-```
-
-Write and commit a new launch file into your `larm1_slam` package that launches everything:
-
-```console
-(ros1) $ roslaunch larm1_slam tbot_gazebo.launch rviz:=true teleop_keyboard:=true
+    return LaunchDescription([
+        DeclareLaunchArgument(
+            'world',
+            default_value=[os.path.join(pkg_dolly_gazebo, 'worlds', 'dolly_empty.world'), ''],
+            description='SDF world file',
+        ),
+        gazebo
+    ])
 ```
 
 ## Final Exercice

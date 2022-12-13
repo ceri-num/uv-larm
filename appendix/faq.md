@@ -67,3 +67,13 @@ ls -l bin/opencv_createsamples
 ```bash
 roslaunch realsense2_camera rs_camera.launch align_depth:=true
 ```
+
+## ROS1 vs ROS2 commands cheatsheet
+
+|ROS1   | ROS2   |
+|---|---|
+| `rostopic list`  | `ros2 topic list`  |
+| `rqt_graph`  | `rqt_graph`  |
+| `rviz`  | `rviz2`  |
+| `rosrun tf view_frames` | `ros2 run tf2_tools view_frames.py` |
+| | `colcon build --packages-select my_package` |
