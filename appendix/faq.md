@@ -77,3 +77,4 @@ roslaunch realsense2_camera rs_camera.launch align_depth:=true
 | `rviz`  | `rviz2`  |
 | `rosrun tf view_frames` | `ros2 run tf2_tools view_frames.py` |
 | | `colcon build --packages-select my_package` |
+| | `colcon build --symlink-install` |
