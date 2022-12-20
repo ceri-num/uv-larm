@@ -1,4 +1,3 @@
-
 # Range sensor
 
 *Range sensors* are robot sensor permitting to detect obstacles and determine a distance to it.
@@ -35,7 +34,15 @@ Cool. let run a driver to convert device I/O to ros messages:
 ros2 run urg_node urg_node_driver --ros-args -p serial_port:=/dev/ttyACM0
 ```
 
-From that point data are streamed in `\scan` topic. It is possible to check it with `ros2 topic list` and `ros2 topic echo scan`. Now you can visualize it on `rviz2` program. Start `rviz2` in a terminal, _add_ a flux _laserScan_ and configure it in `/scan` topic. Nothing appears and it is normal. Rviz global option is configured on _map_ frame, and nothing permits to set the position of the laser sensor in the map. The laser-scan frame is named _laser_. Change this information into global options and set the laser-scan size to $0,1$ for a better display.
+From that point data are streamed in `\scan` topic.
+It is possible to check it with `ros2 topic list` and `ros2 topic echo scan`.
+
+Now you can visualize it on `rviz2` program.
+Start `rviz2` in a terminal, _add_ a flux _laserScan_ and configure it in `/scan` topic.
+Nothing appears and it is normal.
+_Rviz_ global option is configured on _map_ frame, and nothing permits to set the position of the laser sensor in the map.
+The laser-scan frame is named _laser_.
+Change this information into global options and set the laser-scan size to $0,1$ for a better display.
 
 Stop everything.
 
@@ -46,7 +53,8 @@ source /opt/ros/noetic/setup.bash
 source ~/ros1_ws/devel/setup.bash
 roslaunch larm challenge-1.launch
 ```
-
+The simulator work on __ROS1__ and at this point the scan topic is not visible from `ROS2` command. 
+You have to start a dynamic bridge before to listen this topic in Rviz2.
 Attention the laser-scan frame has changed.
 
 
@@ -70,7 +78,8 @@ The new list item would look like `'scan_echo = tuto_move.scan_echo:main'`.
 
 Test your `scan_echo` node.
 
-Then, the idea is to connect [sensor_msgs LaserScan](https://docs.ros2.org/foxy/api/sensor_msgs/msg/LaserScan.html). That for, add dependency in the package configuration (`package.xml`)and import the msgs class in your python scrip.
+The idea is to connect [sensor_msgs LaserScan](https://docs.ros2.org/foxy/api/sensor_msgs/msg/LaserScan.html).
+That for, add dependency in the package configuration (`package.xml`)and import the msgs class in your python scrip.
 
 Test your `scan_echo` node.
 
@@ -102,7 +111,7 @@ if __name__ == '__main__' :
     main()
 ```
 
-Test your `scan_echo` node, with the hokuyo laser and on simulations.
+Test your `scan_echo` node, with the hokuyo laser and on simulation.
 
 Modify the logger to print only the information into the `header` and the number of ranges.
 
@@ -136,7 +145,7 @@ self.get_logger().info( f" obs({len(obstacles)}) ...{sample}..." )
 
 Finally, it is possible to publish this result in a [pointCloud](https://docs.ros2.org/foxy/api/sensor_msgs/msg/PointCloud.html) message and to visualize it on rviz2 in a superposition of the LaserScan.
 
-To notice that _PointCloud_ is based on geometry_msgs.Point32 with float coordinate.
+_PointCloud_ is based on `geometry_msgs.Point32` with float coordinate.
 The creation of _Point32_ will require explicite cast.
 
 ```python
@@ -149,7 +158,7 @@ aPoint.z= (float)(0)
 ## Infinit Safe Move
 
 Create a new node `reactive_move` that will command the robot velocities in a way that the robot will avoid the obstacles.
-Develop your solution based on the simulation (the control topic on the simulation is: `cmd_vel_mux/imput/safety_controller`).
+Develop your solution based on the simulation (the tbot multiplexer sends command both on robot and simulation topic. So use `tbot_pytool multiplexer` and use `multi/cmd_navi` to publish in).
 
 1. Determine a rectangle in front of the robot and get the point cloup obstacles in this rectangle.
 2. If an obstacle is present in the right part of the rectangle, turn left.
