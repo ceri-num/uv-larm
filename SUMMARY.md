@@ -18,9 +18,9 @@ version: IMT Nord Europe (Présentiel)
 
 ## Tuto. 02 - Level-up
 
-* [Transformations](tutorials/2.1-transform.md)
+* [Move Toward](tutorials/2.1-transform.md)
 * [Localisation and Mapping](tutorials/2.2-slam.md)
-
+* [Vision](tutorials/2.3-vision.md)
 
 ## Challenge
 
@@ -32,6 +32,18 @@ version: IMT Nord Europe (Présentiel)
 
 
 
+## UV Projet
+
+<!--
+* [Projet](project/playground.md)
+* [Projet](project/simulate-drones.md)
+* [Projet](project/simulate-boats.md)
+* [Projet](project/mpc-supervision.md)
+* [Projet](project/vectorial-slam.md)
+* [Projet](project/visionBased-slam.md)
+* [Projet](project/web-interface.md)
+* [Projet](project/multirobot-coord.md)
+-->
 
 
 ## Old.Tuto. 01 Kick-Off
@@ -87,16 +99,4 @@ version: IMT Nord Europe (Présentiel)
 -->
 
 
-## UV Projet
-
-<!--
-* [Projet](project/playground.md)
-* [Projet](project/simulate-drones.md)
-* [Projet](project/simulate-boats.md)
-* [Projet](project/mpc-supervision.md)
-* [Projet](project/vectorial-slam.md)
-* [Projet](project/visionBased-slam.md)
-* [Projet](project/web-interface.md)
-* [Projet](project/multirobot-coord.md)
--->
 
