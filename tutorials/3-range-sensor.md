@@ -130,17 +130,26 @@ The exercise consists in modifying the scan callback function to generate the po
 To log a sample of the point cloud:
 
 ```python
-sample= [ [ round(p[0], 2), round(p[1], 2) ] for p in  obstacles[120:130] ]
-logger.info( f" ...{sample}..." )
+sample= [ [ round(p[0], 2), round(p[1], 2) ] for p in  obstacles[10:20] ]
+self.get_logger().info( f" obs({len(obstacles)}) ...{sample}..." )
 ```
 
 Finally, it is possible to publish this result in a [pointCloud](https://docs.ros2.org/foxy/api/sensor_msgs/msg/PointCloud.html) message and to visualize it on rviz2 in a superposition of the LaserScan.
 
+To notice that _PointCloud_ is based on geometry_msgs.Point32 with float coordinate.
+The creation of _Point32_ will require explicite cast.
+
+```python
+aPoint= Point32()
+aPoint.x= (float)(math.cos(angle) * aDistance) 
+aPoint.y= (float)(math.sin( angle ) * aDistance)
+aPoint.z= (float)(0)
+```
 
 ## Infinit Safe Move
 
 Create a new node `reactive_move` that will command the robot velocities in a way that the robot will avoid the obstacles.
-Develop your solution based on the simulation.
+Develop your solution based on the simulation (the control topic on the simulation is: `cmd_vel_mux/imput/safety_controller`).
 
 1. Determine a rectangle in front of the robot and get the point cloup obstacles in this rectangle.
 2. If an obstacle is present in the right part of the rectangle, turn left.
@@ -150,3 +159,6 @@ Develop your solution based on the simulation.
 6. Add rules to better control the robot in a dead end scenario
 
 Test your solution on a real robot.
+
+IMPORTANT - For a better security, implement the control function independently from the scan callback and activate your control at a desired frequency by using a timer.
+Stop the robot if no scan was arrived the last second and test it by disconnecting the laser.
