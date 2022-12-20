@@ -6,18 +6,30 @@ version: IMT Nord Europe (Présentiel)
 
 * [Introduction](README.md)
 
+
 ## Tuto. 01 - Kick-Off
 
-* [Starting with ROS](tutorials/1-ros-basics.md)
-* [Move the Robot](tutorials/2-move.md)
-* [Range sensor](tutorials/3-range-sensor.md)
-* [Simulation](tutorials/4-simulation.md)
+* [Starting with ROS](tutorials/1.1-ros-basics.md)
+* [Move the Robot](tutorials/1.2-move.md)
+* [Simulation](tutorials/1.3-simulation.md)
+* [Range Sensor](tutorials/1.4-range-sensor.md)
+* [Camera Driver](tutorials/1.5-1.5-camera-driver.md)
 
 
 ## Tuto. 02 - Level-up
 
+* [Transformations](tutorials/2.1-transform.md)
+* [Localisation and Mapping](tutorials/2.2-slam.md)
+
 
 ## Challenge
+
+
+## Appendix
+
+* [FAQ](appendix/faq.md)
+* [Robot: Tbot](appendix/tbot.md)
+
 
 
 
@@ -74,13 +86,6 @@ version: IMT Nord Europe (Présentiel)
 * [Evaluation](challenge/evaluation.md)
 -->
 
-## Appendix
-
-* [FAQ](appendix/faq.md)
-* [Robot: Tbot](appendix/tbot.md)
-<!--
-* [Robot: Turtlebot2](appendix/turtlebot2.md)
--->
 
 ## UV Projet
 
