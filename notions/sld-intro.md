@@ -5,6 +5,14 @@ paginate: true
 backgroundImage: url('../style/bg-imt.svg')
 ---
 
+<!--
+Edit with VScode with marp plugging and parameters (workspace): 
+
+- marp theme: style/imt.css 
+- marp enabled HTML 
+
+-->
+
 # UV LARM 
 ### Logiciel et Architecture pour la<br />Robotique Mobile
 ### An introduction
@@ -28,9 +36,11 @@ backgroundImage: url('../style/bg-imt.svg')
 
 ---
 
-1. - **What is a Robot ?**
-2. **About the UV LARM**
-3. **Today: First contact with Linux and ROS**
+1. **What is a Robot ?**
+    - Definition
+    - Modular and Multidisciplinary
+2. About the UV LARM
+3. Today: First contact with Linux and ROS
 
 ![bg](../style/bg-toc.svg)
 
@@ -58,10 +68,10 @@ backgroundImage: url('../style/bg-imt.svg')
 "A **robot** is a **mechatronics** machine capable of autonomously acting in a real environment."
 
 - perceives with *sensors*
-- models its environment and adapts its behavior
+- models its environment and adapts its behavior with *sensors*
 - acts with *actuators*
 
-generally involves Artificial-Intelligence:
+Involves generally Artificial-Intelligence:
 
 - capable to mimic natural (human, animal, insect,...) intelligence
 
@@ -145,9 +155,9 @@ which require modular computer programs.
 
 ---
 
-1. **What is a Robot ?**
-2. - **About the UV-LARM**
-3. **Today: First contact with Linux and ROS**
+1. What is a Robot ?
+2. **About the UV-LARM**
+3. Today: First contact with Linux and ROS
 
 ![bg](../style/bg-toc.svg)
 
@@ -174,7 +184,7 @@ which require modular computer programs.
 **With a central need:** modular software
 
 - An expected complex global behavior 
-- Splited in piece of programs (modules)
+- Split in piece of programs (modules)
 - Communicating together
 - With dedicated tasks (sensor driver, reprensentation, planning, controling...)
 - And a bunch of tools making all working together...
@@ -230,6 +240,24 @@ To share our contribution and use the one from pairs [wiki.ros.org](https://wiki
 
 ---
 
+##  ROS 1 versus ROS 2
+
+### Historical.
+
+- ROS 1 - 1.0  - 22 janvier 2010
+- ROS 2 - Ardent Apalone - 8 December 2017
+- ROS 1 - Noetic Ninjemys - 23 mai 2020 (dernière version de ROS 1) 	
+
+### New ROS version.
+
+- The same philosophy (modular communicative processes - Nodes)
+- ROS 2: decentralized architecture based on DDS (Data Distribution Service norm)
+- No retro-compatibility (as between Python2 and Python3)
+    * But a huge community contribution in ROS 1
+
+---
+
+
 ## Why Ubuntu Linux:
 
 <br />
@@ -239,7 +267,23 @@ To share our contribution and use the one from pairs [wiki.ros.org](https://wiki
 
 - We love *GNU* (and open source in general)
 - ROS supports natively Ubuntu Linux
-- _And mainly:_ Linux is efficient and well documented
+- _And mainly:_ Linux is efficient, secure and well documented
+
+
+---
+
+## The courses:
+
+<br />
+
+Mainly based on tutorials on [ceri-num.gitbook.io](https://ceri-num.gitbook.io/uv-larm)
+
+**Notions**
+
+- Modular Software Architecture
+- Perception and Control (obstacle avoidance)
+- Rich perception: Vision
+- Navigation (mapping, localization, planning)
 
 
 ---
@@ -248,11 +292,10 @@ To share our contribution and use the one from pairs [wiki.ros.org](https://wiki
 
 <br />
 
-**3 Chalenges**
+**Chalenges**
 
-- Navigate in a cluttered environment.
-- Map an unknown  environment and retrieve treasures.
-- Make autonomous exploration.
+- _From_: navigate in a cluttered environment.
+- _To_: autonomous explore an unknown area with objects to retrieve.
 
 <br />
 
@@ -264,21 +307,9 @@ To share our contribution and use the one from pairs [wiki.ros.org](https://wiki
 
 ---
 
-1. **What is a Robot ?**
-2. **About the UV LARN**
-3. - **Today: First contact with Linux and ROS**
+1. What is a Robot ?
+2. About the UV LARN
+3. **Today: First contact with Linux and ROS**
+    - Starting with ROS tutorial: <https://ceri-num.gitbook.io/uv-larm/>
 
 ![bg](../style/bg-toc.svg)
-
----
-
-## Today:
-
-### [Wiki ROS](http://wiki.ros.org/) Beginner tutorials:
-
-- Create a ROS project (catkin)
-- Implement communicating nodes (publisher and subscribers)
-
-### But first : Let play a little with Linux and its Terminal:
-
-- Setup tutorial on gitbook: <https://ceri-num.gitbook.io/uv-larm/>
