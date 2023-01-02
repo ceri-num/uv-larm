@@ -13,7 +13,7 @@ version: IMT Nord Europe (Présentiel)
 * [Move the Robot](tutorials/1.2-move.md)
 * [Simulation](tutorials/1.3-simulation.md)
 * [Range Sensor](tutorials/1.4-range-sensor.md)
-* [Camera Driver](tutorials/1.5-1.5-camera-driver.md)
+* [Camera Driver](tutorials/1.5-camera-driver.md)
 
 
 ## Tuto. 02 - Level-up
