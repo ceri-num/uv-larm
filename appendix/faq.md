@@ -78,3 +78,13 @@ roslaunch realsense2_camera rs_camera.launch align_depth:=true
 | `rosrun tf view_frames` | `ros2 run tf2_tools view_frames.py` |
 | | `colcon build --packages-select my_package` |
 | | `colcon build --symlink-install` |
+
+## `.bashrc` ROS additions
+
+```consoleell
+# ROS
+export ROS_LOCALHOST_ONLY=1
+export PS1="\${ROS_VERSION:+(ros\$ROS_VERSION) }$PS1"
+alias rosify1="source /opt/ros/noetic/setup.bash && source $HOME/ros1_ws/devel/setup.bash"
+alias rosify2="source /opt/ros/foxy/setup.bash && source $HOME/ros2_ws/install/setup.bash"
+```
