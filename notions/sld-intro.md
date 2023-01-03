@@ -189,23 +189,6 @@ which require modular computer programs.
 - With dedicated tasks (sensor driver, reprensentation, planning, controling...)
 - And a bunch of tools making all working together...
 
----
-
-## UV-LARM - Schedule
-
-<br />
-
-*1st week:* Introduction, simulation and movement.
-
-*2d week:* Vision and Mapping.
-
-*3d week:* Challenge as your project.
-
-*4th week:* Evaluation through the code you provide.
-
-- Always from *9:00* to *12:00* and from *14:00* to *17:30*.
-- In *Develter* and *3005*.
-- With or without a teacher.
 
 ---
 
@@ -288,6 +271,25 @@ Mainly based on tutorials on [ceri-num.gitbook.io](https://ceri-num.gitbook.io/u
 
 ---
 
+## UV-LARM - Schedule
+
+<br />
+
+*1st week:* Introduction, simulation and movement.
+
+*2d week:* Vision and Mapping.
+
+*3d week:* Challenge as your project.
+
+*4th week:* Evaluation through the code you provide.
+
+- Always from *9:00* to *12:00* and from *14:00* to *17:30*.
+- In *Develter* and *3005*.
+- With or without a teacher.
+
+
+---
+
 ## Evaluation:
 
 <br />
@@ -303,7 +305,6 @@ Mainly based on tutorials on [ceri-num.gitbook.io](https://ceri-num.gitbook.io/u
 
 - Robot: Turtlebot
 - Simulation: Gazebo
-
 
 ---
 
