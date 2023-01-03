@@ -68,7 +68,7 @@ Edit with VScode with marp plugging and parameters (workspace):
 "A **robot** is a **mechatronics** machine capable of autonomously acting in a real environment."
 
 - perceives with *sensors*
-- models its environment and adapts its behavior with *sensors*
+- models its environment and adapts its behavior with a *computer*
 - acts with *actuators*
 
 Involves generally Artificial-Intelligence:
