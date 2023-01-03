@@ -1,8 +1,8 @@
 # LARM - Logiciel et Architecture pour la Robotique Mobile - Software and Architecture for Mobile-Robotics
 
-Dear reader, you will find here a lecture on software and architecture for mobile robots at the [IMT-Nord](http://www.imt-nord-europe.fr) engineering school.
+Here a lecture on software and architecture for mobile robots at the [IMT-Nord](http://www.imt-nord-europe.fr) engineering school.
 
-In this course we propose an introduction on how to develop a modular control and supervision software for a mobile platform.
+This lecture is an introduction on how to develop a modular control and supervision software for a mobile platform.
 The notions are illustrated with tutorials based on Linux/[ROS](https://ros.org/) and [Kobuki/Turtlebot2](http://kobuki.yujinrobot.com/) robot.
 
 Introduction - [pdf version](https://raw.githubusercontent.com/ceri-num/uv-larm/master/notions/sld-intro.pdf)
@@ -32,9 +32,9 @@ This lecture is composed of multiple guided tutorials (non-exhaustive list):
 
 ## Challenge
 
-The evaluation mainly realizes on an application through a specific challenge:
+The evaluation mainly consists in the realization of an application involving specific challenges:
 
-- Control an **AGV** (Autonomous Ground Vehicul)
+- Autonomous Control of an **AGV** (Automated Guided Vehicle)
 - Mapping and Localization
 - Research and recognition of an object
 
@@ -45,7 +45,6 @@ We try to orient the students through project realizations rather than to provid
 This course relies on the [ROS](http://www.ros.org/) middleware for practical sessions, the ROS wiki tutorials and ros-packages' descriptions: <https://wiki.ros.org/>.
 
 You also can find an excellent virtual working environment and resources on [TheConstruct](https://www.theconstructsim.com/).
-
 
 ## Presentations
 
