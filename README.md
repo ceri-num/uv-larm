@@ -38,6 +38,8 @@ The evaluation mainly consists in the realization of an application involving sp
 - Mapping and Localization
 - Research and recognition of an object
 
+2022-2023 groups: [on partage](https://partage.imt.fr/index.php/s/zkQbXMsrWdp2RQd)
+
 ## Going further
 
 Most of the content and supports for learning robotics architecture are already shared on the internet.
