@@ -58,7 +58,7 @@ Your repository has to match a meta **ROS-package** (i.e. a directory composed b
 The repository would be cloned aside of the larm packages (`pkg-tbot`).
 So clone your repository in the `ros2_ws` workspace and then create as many packages you want.
 
-```bash
+```console
 cd ~/ros2_ws
 git clone github/uvlarm-machinename.git
 ```
@@ -72,9 +72,9 @@ git add README.md
 
 It is possible then to push on the server your first commit.
 One commit refer to one version of your project, you can (must) generate has versions has you want. 
-A commit do not have to serve a fonctionnal version of your works.
+A commit do not have to serve a functional version of your works.
 It could be transitive commit. 
-And most importantly git is capable to re-generate any of your comits, so do not asitate to commit...
+And most importantly git is capable to re-generate any of your commits, so do not hesitate to commit continuously...
 
 ```console
 git commit -am "Initialize README file"
@@ -82,14 +82,14 @@ git pull
 git push
 ```
 
-All the other devellopers can now `pull` the new version.... 
+All the other developers can now `pull` the new version.... 
 
 
 ### New package:
 
 Then you can go inside your repository and create a new ros package:
 
-```bash
+```console
 cd larm-machinename
 ros2 pkg create ...
 ```
@@ -98,7 +98,7 @@ A new directory `my_amasing_pkg` appears:
 
 The `git status` command informs you that this package is not followed by `git`. Let correct that.
 
-```bash
+```console
 git add my_amasing_pkg
 git commit -am "Initializing my_amasing_pkg"
 ```
@@ -113,7 +113,7 @@ Now you can `commit`, `pull`, `push` as often as possible (and `add` if you are 
 
 On a fresh machine, you can clone then build your new ros-package:
 
-```bash
+```console
 mkdir mysuper_ws
 cd mysuper_ws
 mkdir src
@@ -124,16 +124,16 @@ colcon build
 To notice that `claocn build` have to be performed from your workspace directory (`mysuper_ws` in this example, `ros2_ws` to get _tbot_ resources). 
 To relax this constraint you can add a simple shell script in your working directory...
 
-```bash
-cd src/uvlarm-machinename # go to src/grp-color
+```consol
+cd uvlarm-machinename # go to uvlarm-machinename 
 touch build    # create a file named make.sh
 chmod +x build # make the file executable
 ```
 
 edit `build` and add the following code:
 
-```bash
-#!/usr/bin/env sh
+```consol
+#!/usr/bin/env bash
 cd ..
 colcon build
 
