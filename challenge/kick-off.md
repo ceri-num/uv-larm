@@ -31,7 +31,7 @@ Record the created group on a shared document: [2022-2023 groups](https://partag
 
 ## Generate a working environment
 
-We ask each group to use `git` and share their work with professors through (github)[https://github.com/] (because it is the reference) (or (gitlab)[https://gitlab.com] at the student request because it is open).
+We ask each group to use `git` and share their work with professors through [github](https://github.com/) (because it is the reference) (or [gitlab](https://gitlab.com) at the student request because it is open).
 
 Git is a versioning program working in a distributed way.
 "Git is software for tracking changes in any set of files, usually used for coordinating work among programmers collaboratively developing source code during software development." [Wikipedia-2021-12-6](https://en.wikipedia.org/wiki/Git).
