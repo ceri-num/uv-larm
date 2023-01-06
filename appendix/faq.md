@@ -35,6 +35,12 @@ sudo apt-get install backport-iwlwifi-dkms
 
 3. reboot
 
+## Remove password asking for docker commands
+
+```
+sudo echo "\n%sudo   ALL=(ALL) NOPASSWD: /usr/bin/docker\n" >> /etc/sudoers
+```
+
 ## Catkin_create_pkg - invalid email ?
 
 you can use the `-m` option to force an author name.
