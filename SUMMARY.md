@@ -21,7 +21,6 @@ version: IMT Nord Europe (Présentiel)
 * [SLAM](tutorials/2.2-slam.md)
 * [Vision](tutorials/2.3-vision.md)
 
-
 ## Tuto. 03 - Mastering
 
 <!---
@@ -36,8 +35,9 @@ version: IMT Nord Europe (Présentiel)
 
 * [Kick-off](challenge/kick-off.md)
 
-<!---
 * [Challenge 1](challenge/challenge-1.md)
+
+<!---
 * [Challenge 2](challenge/challenge-2.md)
 * [Challenge 3](challenge/challenge-3.md)
 -->
