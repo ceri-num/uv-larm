@@ -333,6 +333,8 @@ r = one_img[:1024].reshape(32, 32)
 g = one_img[1024:2048].reshape(32, 32)
 b = one_img[2048:].reshape(32, 32)
 rgb = np.dstack([r, g, b])
+image = cv2.imread('./vector-handwritten-numbers-on-white-background-brusk-stroke.jpg')
+
 cv2.imshow('Image CIFAR',rgb)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
@@ -374,44 +376,12 @@ for i in range(0, len(YPred)):
         cv2.waitKey(0)
 ```
 
-## Détection d'objets par ondelettes de Haar
-
-La détection d'objets à l'aide de classificateurs en cascade basés sur la décomposition en ondelettes de Haar est une méthode efficace de détection d'objets proposée par Paul Viola et Michael Jones dans leur article, "Rapid Object Detection using a Boosted Cascade of Simple Features" en 2001. Il s'agit d'une approche basée sur l'apprentissage automatique où un la fonction en cascade est formée à partir d'un grand nombre d'images positives et négatives.
-Cette méthode a été initialement mise en au point pour détecter des visages et a été étendu à d'autres objets tels quels les voitures.
-En python, vous pouvez faire appel à cette méthode via `object_cascade=cv2.CascadeClassifier()`. Cette classe est instanciée en lui passant un paramètre qui représente le "modèle" adapté à l'objet à détecter.
-Vous pouvez télécharger les modèles relatifs à des humains ici : https://github.com/opencv/opencv/tree/master/data/haarcascades
-Pour tester le détecteur sur des véhicules, le modèle proposé par Andrews Sobral est téléchrgeable ici : https://github.com/andrewssobral/vehicle_detection_haarcascades/blob/master/cars.xml
-
-Pour appliquer le détecteur à une image il suffit d'appeler la méthode `object=object_cascade.detectMultiScale(gray, scaleFactor=1.10, minNeighbors=3)` en passant en paramètre le nom de la variable image (gray) qu'il faut préalablement transformée en niveau de gris. Il fauat également renseigner le facteur d'échelle (scaleFactor) utilisé pour réduire l'image à chaque étage et le nombre de voisins (minNeighbors) que chaque objet détecté doit avoir pour le valider comme "effectivement" l'objet recherché.
-
-Cette méthode fournit une liste de boites englobantes (x, y, w et h) que vous afficherez sur chaque image couleur traitée afin de visualiser les résultats de la détection.
-
-```python
-for x, y, w, h in object:
-        cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
-```
-
-Ecrire un script permettant de mettre en musique cette classe et cette méthode sur la vidéo cars.mp4 fournies.
-Vous validerez votre script en utilisant les modèles relatifs au corps humains et en utilisant le flux d'une caméra.
-
-### Model training
-
-Cette méthode pourrait être très intéressante pour détecter des objets lors du "challenge". Pour cela, je vous invite à lire et utiliser ce qui est proposé sur les 2 liens suivants. Ces liens décrivent comment il est possible d'apprendre un modèle spécifique à un objet donné.
-
-http://coding-robin.de/2013/07/22/train-your-own-opencv-haar-classifier.html
-
-https://github.com/mrnugget/opencv-haar-classifier-training
-
-### Model training for an other feature
-
-Vous trouverez dans le lien suivant, l'apprentissage d'un modèle sur la base d'un autre type de caractéreristique : les Local Binary Pattern (LBP).
-
-https://medium.com/@rithikachowta/object-detection-lbp-cascade-classifier-generation-a1d1a1c2d0b
 
 ## Extraction de régions dans une image binarisée
 
 Voici quelques lignes en python pour extraire des région de pixels connexes dans une image binarisée ``` label()```.
 De ces régions sont extraites quelques propriétés ``` regionprops()```
+Ce code agit stratégiquement de la même manière que le script de segmentation précédent mais en utilisant la librairie skimage.
 
 ```python
 import cv2
@@ -464,3 +434,38 @@ plt.show()
 
 cv2.waitKey(0)
 ```
+
+## Détection d'objets par ondelettes de Haar
+
+La détection d'objets à l'aide de classificateurs en cascade basés sur la décomposition en ondelettes de Haar est une méthode efficace de détection d'objets proposée par Paul Viola et Michael Jones dans leur article, "Rapid Object Detection using a Boosted Cascade of Simple Features" en 2001. Il s'agit d'une approche basée sur l'apprentissage automatique où un la fonction en cascade est formée à partir d'un grand nombre d'images positives et négatives.
+Cette méthode a été initialement mise en au point pour détecter des visages et a été étendu à d'autres objets tels quels les voitures.
+En python, vous pouvez faire appel à cette méthode via `object_cascade=cv2.CascadeClassifier()`. Cette classe est instanciée en lui passant un paramètre qui représente le "modèle" adapté à l'objet à détecter.
+Vous pouvez télécharger les modèles relatifs à des humains ici : https://github.com/opencv/opencv/tree/master/data/haarcascades
+Pour tester le détecteur sur des véhicules, le modèle proposé par Andrews Sobral est téléchrgeable ici : https://github.com/andrewssobral/vehicle_detection_haarcascades/blob/master/cars.xml
+
+Pour appliquer le détecteur à une image il suffit d'appeler la méthode `object=object_cascade.detectMultiScale(gray, scaleFactor=1.10, minNeighbors=3)` en passant en paramètre le nom de la variable image (gray) qu'il faut préalablement transformée en niveau de gris. Il fauat également renseigner le facteur d'échelle (scaleFactor) utilisé pour réduire l'image à chaque étage et le nombre de voisins (minNeighbors) que chaque objet détecté doit avoir pour le valider comme "effectivement" l'objet recherché.
+
+Cette méthode fournit une liste de boites englobantes (x, y, w et h) que vous afficherez sur chaque image couleur traitée afin de visualiser les résultats de la détection.
+
+```python
+for x, y, w, h in object:
+        cv2.rectangle(frame, (x, y), (x+w, y+h), (255, 0, 0), 2)
+```
+
+Ecrire un script permettant de mettre en musique cette classe et cette méthode sur la vidéo cars.mp4 fournies.
+Vous validerez votre script en utilisant les modèles relatifs au corps humains et en utilisant le flux d'une caméra.
+
+### Model training
+
+Cette méthode pourrait être très intéressante pour détecter des objets lors du "challenge". Pour cela, je vous invite à lire et utiliser ce qui est proposé sur les 2 liens suivants. Ces liens décrivent comment il est possible d'apprendre un modèle spécifique à un objet donné.
+
+http://coding-robin.de/2013/07/22/train-your-own-opencv-haar-classifier.html
+
+https://github.com/mrnugget/opencv-haar-classifier-training
+
+### Model training for an other feature
+
+Vous trouverez dans le lien suivant, l'apprentissage d'un modèle sur la base d'un autre type de caractéreristique : les Local Binary Pattern (LBP).
+
+https://medium.com/@rithikachowta/object-detection-lbp-cascade-classifier-generation-a1d1a1c2d0b
+
