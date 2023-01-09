@@ -30,6 +30,15 @@ This lecture is composed of multiple guided tutorials (non-exhaustive list):
 * Robotics Vision
 -->
 
+## UV-LARM 2022-2023:
+
+Week           | Monday  | Tuesday | Wednesday | Thursday | Friday  |
+---------------|---------|---------|-----------|----------|---------|
+2/01 to 6/01   | No, No   | No,  Yes | Yes, Yes   | Yes, No   | Yes, Yes | 
+9/01 to 13/01  | Yes, Yes | Yes, Yes | Yes, No    | No, No    | Yes, Yes | 
+16/01 to 20/01 | Yes, Yes | Yes, Yes | Yes, No    | No, No    | Yes, Yes | 
+23/01 to 27/01 | Yes, Yes | Yes, No  | Yes, No    | Yes, No   | Yes, Yes | 
+
 ## Challenge
 
 The evaluation mainly consists in the realization of an application involving specific challenges:
