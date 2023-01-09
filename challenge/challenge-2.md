@@ -1,6 +1,6 @@
 # Simultaneous Localization And Mapping
 
-The goal of the challenge is to demonstrate the capability of a robot to localize and detect a specific objects.
+The goal of the challenge is to demonstrate the capability of a robot to localize and detect specific objects.
 
 ## Expected
 
@@ -8,7 +8,7 @@ The robot is positioned somewhere in a closed area (i.e. an area bounded with ob
 
 The robot moves continuously in this area by avoiding the obstacles (i.e. area limits and some obstacles randomly set in the area).
 
-The robot build a map and locailze itself in it. The map is saved at a regular frequency.
+The robot build a map and localize itself in it. The map is saved at a regular frequency.
 
 The robot detect _NukaCola_ bottle in the vision flux. A mesage is sent in a topic to state the detection.
 
@@ -33,13 +33,13 @@ Minimal:
 
 1. The group follows the consigns (i.e. the repository is presented as expected)
 2. The robot behavior is safe (no collision with any obstacles)
-3. rviz2 is started and well configured in a second PC and display the built map.
-4. A `String` mesage is sent in a `detection` topic each time a bottle is front of the robot.
+3. rviz2 is started and well configured in a second PC and displays the built map.
+4. A `String` message is sent in a `detection` topic each time a bottle is front of the robot.
 
 Optional:
 
 5. a new launch file permits to start the robot into a navigation mode (localisation without mapping).
-6. The `challenge2 tbot.launch.py` launch file take potentially an intial map.
+6. The `challenge2 tbot.launch.py` launch file may take an initial map.
 
 ## Evaluation protocol
 
