@@ -92,7 +92,7 @@ cv2.waitKey(0)
 
 ```
 
-Dans cet exemple, il s'agit de produire un masque des pixels dont les composantes HSV sont comprises entre les variables lo et hi. Dans cet exemple, en agissant sur le click gauche ou droit de la souris vous diminuez ou augmentez la teinte h des deux variables lo et hi. Par ailleurs, vous constaterez que lo et hi se différentient non seulement par leur teinte mais également par leur saturation. Vous pourrez tester ce script sur une image de votre visage. 
+Dans cet exemple, il s'agit de produire un masque des pixels dont les composantes HSV sont comprises entre les variables lo et hi. Dans cet exemple, en agissant sur le click gauche ou droit de la souris vous diminuez ou augmentez la teinte h des deux variables lo et hi. Par ailleurs, dans notre exemple,  vous constaterez que lo et hi se différentient non seulement par leur teinte mais également par leur saturation. Vous pourrez tester ce script sur une image de votre visage. 
 Ces quelques lignes de codes illustrent également comment gérer des actions sur la souris. Elles gères les événements souris tels que le mouvement de la souris (cv2.EVENT_MOUSEMOVE), le double click milieu (EVENT_MBUTTONDBLCLK), le click droit (EVENT_RBUTTONDOWN) et le click gauche (EVENT_LBUTTONDOWN). 
 
 ```python
@@ -166,12 +166,17 @@ Généralement il est très intéressante de changer d'espace colorimétrique af
 Après avoir produite le mask avec ```mask=cv2.inRange(image, lo, hi)``` il est parfois pertinant de débruiter l'image résultats en lissant ou par quelques opérations motrphologiques. Cela permet de fermer et remplir les formes :
 
 ```python
+# Flouttage de l'image
 image=cv2.blur(image, (7, 7))
+# Erosion d'un mask
 mask=cv2.erode(mask, None, iterations=4)
+# dilatation d'un mask
 mask=cv2.dilate(mask, None, iterations=4)
 ```
 
-Détecter les éléments connexes dans le mask puis extraire les informations relatives à chaque forme extraite pounr leur visualisation :
+Dans le code de segmentation d'une image couleur fourni précédemment, vous jouerez avec la taille du kernel (3x3 dans notre exemple), vous ajouterez une étape de flouttage de chaque canal en jouant sur la taille du voisinage (7 x 7 dans notre exemple). Pour finir vous jouerez avec les étapes d'érosion et de dilatation en modifiant le nombre de fois où chaque opérateur morphologique est appliqué (4 fois dans notre exemple). 
+
+Détecter les éléments connexes dans le mask puis extraire les informations relatives à chaque forme extraite pour leur visualisation :
 
 ```python
 elements=cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[-2]
