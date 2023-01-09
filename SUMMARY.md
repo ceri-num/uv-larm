@@ -18,8 +18,8 @@ version: IMT Nord Europe (Présentiel)
 
 ## Tuto. 02 - Level-up
 
+* [S.L.A.M](tutorials/2.2-slam.md)
 * [Move Forward](tutorials/2.1-transform.md)
-* [SLAM](tutorials/2.2-slam.md)
 * [Vision](tutorials/2.3-vision.md)
 
 

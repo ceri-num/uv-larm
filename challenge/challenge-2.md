@@ -1,4 +1,4 @@
-# Random exploration of a Small Environment
+# Simultaneous Localization And Mapping
 
 The goal of the challenge is to demonstrate the capability of a robot to localize and detect a specific objects.
 
@@ -22,8 +22,8 @@ Release: **Thursday morning of week-4**
 
 * At the root repository, a `README.md` file in markdown syntax introducing the project.
 * A directory `grp_'machine'` matching the ROS2 package where the elements will be found (`machine` mathes the name of the machine embedded on the robot).
-* Inside the `grp_'machine'` package, a launch file `challenge2_simulation.launch` starting the appropriate nodes for demonstrating in the simulation.
-* Then, a launch file `challenge2_tbot.launch` starting the appropriate nodes for demonstrating with a Turtlebot.
+* Inside the `grp_'machine'` package, a launch file `simulation.launch.py` starting the appropriate nodes for demonstrating in the simulation.
+* Then, a launch file `tbot.launch.py` starting the appropriate nodes for demonstrating with a Turtlebot.
 
 In simulations, we will work with the configuration set in `challenge-1.launch.py`.
 
@@ -39,7 +39,7 @@ Minimal:
 Optional:
 
 5. a new launch file permits to start the robot into a navigation mode (localisation without mapping).
-6. The `challenge2_tbot.launch.py` launch file take potentially an intial map.
+6. The `challenge2 tbot.launch.py` launch file take potentially an intial map.
 
 ## Evaluation protocol
 
