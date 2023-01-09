@@ -74,21 +74,6 @@ import numpy as np
 cap=cv2.VideoCapture(0)
 
 # capture an
-whereis python3
-```
-
-whereis python3
-```
-
-whereis python3
-```
-
-whereis python3
-```
-
-whereis python3
-```
-
 ret, frame=cap.read()
 
 # Select ROI
