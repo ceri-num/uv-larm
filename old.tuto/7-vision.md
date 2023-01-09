@@ -126,12 +126,15 @@ cv2.namedWindow('Camera')
 cv2.setMouseCallback('Camera', souris)
 hsv_px = [0,0,0]
 
+# Creating morphological kernel
+kernel = np.ones((5, 5), np.uint8)
+
 while True:
     ret, frame=cap.read()
     image=cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)
     mask=cv2.inRange(image, lo, hi)
-    mask=cv2.erode(mask, None, iterations=1)
-    mask=cv2.dilate(mask, None, iterations=1)
+    mask=cv2.erode(mask, kernel, iterations=1)
+    mask=cv2.dilate(mask, kernel, iterations=1)
     image2=cv2.bitwise_and(frame, frame, mask= mask)
     cv2.putText(frame, "Couleur: {:d}".format(color), (10, 30), cv2.FONT_HERSHEY_DUPLEX, 1, color_info, 1, cv2.LINE_AA)
 
