@@ -1,5 +1,28 @@
 # Frequent Asked Question...
 
+## ROS2 tbot driver
+
+> How to get rid of ROS1 ;-)
+
+__Install ROS2 tbot driver__:
+
+```
+cd ~/ros2_ws/pkg-tbot
+git pull
+./script/install-kobuki_ros.sh
+
+cd ~/ros2_ws
+colcon build
+```
+
+__Launch ROS2 tbot driver__:
+
+```
+ros2 launch kobuki_node kobuki_node-launch.py
+
+ros2 topic list
+```
+
 ## How to install Ubuntu ?
 
 Ubuntu is a fork of the Debian project, a Linux-based desktop operating system.
