@@ -18,6 +18,8 @@ One first approach can be to develop a *ricochet robot* that changes its directi
 
 Each group commit the minimal required files in a specific `challenge1` ros2 package inside their git repository.
 
+Release: **Monday afternoon of week-3**
+
 ### The required files:
 
 * At the root repository, a `README.md` file in markdown syntax introducing the project.
@@ -39,7 +41,8 @@ Minimal:
 
 Optional:
 
-4. The robot movement is fluid (no stop), fast and the robot unique in every little passage.
+5. An operator can take control at any time.
+6. The robot movement is fluid (no stop), fast and the robot unique in every little passage.
 
 ## Evaluation protocol
 
