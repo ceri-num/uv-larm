@@ -163,7 +163,7 @@ cv2.destroyAllWindows()
 ```
 
 Généralement il est très intéressante de changer d'espace colorimétrique afin de mieux cibler l'espace dans lequel l'objet d'intérêt est discriminable : ```image=cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)```
-Après avoir produite le mask avec ```mask=cv2.inRange(image, lo, hi)``` il est parfois pertinant de débruiter l'image résultats en lissant ou par quelques opérations motrphologiques. Cela permet de fermer et remplir les formes :
+Après avoir produite le mask avec ```mask=cv2.inRange(image, lo, hi)``` il est parfois pertinant de débruiter l'image résultats en la flouttant ou par quelques opérations motrphologiques. Cela permet de fermer et remplir les formes :
 
 ```python
 # Flouttage de l'image
@@ -176,7 +176,8 @@ mask=cv2.dilate(mask, None, iterations=4)
 
 Dans le code de segmentation d'une image couleur fourni précédemment, vous jouerez avec la taille du kernel (3x3 dans notre exemple), vous ajouterez une étape de flouttage de chaque canal en jouant sur la taille du voisinage (7 x 7 dans notre exemple). Pour finir vous jouerez avec les étapes d'érosion et de dilatation en modifiant le nombre de fois où chaque opérateur morphologique est appliqué (4 fois dans notre exemple). 
 
-Détecter les éléments connexes dans le mask puis extraire les informations relatives à chaque forme extraite pour leur visualisation :
+Le code de segmentation d'une image couleur fourni précédemment permet de définir un mask binaire des pixels dont les composantes HSV sont l'intervalle [lo,hi]. Il est alors possile de détecter les éléments connexes dans le mask afin d'en extraire certaines informations telles qu'ici le minEnclosingCircle.  D'autres features peuvent être utiles. Vous les trouverez ici : https://docs.opencv.org/3.4/dd/d49/tutorial_py_contour_features.html
+
 
 ```python
 elements=cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[-2]
