@@ -60,9 +60,9 @@ Image are published as 'sensor_msgs/Image' in `camera/rgb/image_raw`
 So the pixel value is stored in `img.data` array but several tool to convert ROS image to OpenCV images already exist (for instance [cv_bridge](http://wiki.ros.org/cv_bridge/Tutorials/ConvertingBetweenROSImagesAndOpenCVImagesPython))
 
 
-## Gestion de la souris
+## Segmentation d'images couleur par seuillage des composantes et Gestion de la souris
 
-Voici quelques lignes de codes pour extraire une région d'intérêt à la souris. Grâce à ces quelques lignes il vous sera possible de calculer la valeur moyenne et la variance de chaque composante de l'image, utile pour procéder ensuite à une étape de segmentation. Dans cet exemple, nous procédons tout d'abord à l'acquisition d'une image de la webcam du portable. Dans la suite, vous pourrez soit utiliser le flux d'images provenant de votre webcam ou celui provenant de la caméra Realsense (cf. tuto précédent)
+Voici quelques lignes de codes pour extraire une région d'intérêt à la souris. Grâce à ces quelques lignes il vous sera possible de calculer la valeur moyenne et la variance de chaque composante de l'image, utile pour procéder ensuite à une étape de segmentation. Dans cet exemple, nous procédons tout d'abord à l'acquisition d'une image de la webcam du portable. Puis, nous définissons un crop de l'image acquise grâce à la souris. Il vous est alors facile de calculer les métriques statistiques que vous souhaitez sur ce crop. La moyenne et la variance définissent un modèle gaussien sur chaque composante du crop. Dans la suite, vous pourrez soit utiliser le flux d'images provenant de votre webcam ou celui provenant de la caméra Realsense (cf. tuto précédent)
 
 ```python
 import cv2
@@ -80,12 +80,20 @@ r = cv2.selectROI(frame)
 # Crop image
 imCrop = frame[int(r[1]):int(r[1]+r[3]), int(r[0]):int(r[0]+r[2])]
 
+average_h = np.mean(imCrop[:,:,0])
+average_s = np.mean(imCrop[:,:,1])
+average_v = np.mean(imCrop[:,:,2])
+
+print(average_h,average_s,average_v)
+
 # Display cropped image
 cv2.imshow("Image", imCrop)
 cv2.waitKey(0)
+
 ```
 
-Voici quelques lignes de codes pour gérer des actions sur la souris. Elles gères les événements souris tels que le mouvement de la souris (), le double click milieu (EVENT_MBUTTONDBLCLK), le click droit (EVENT_RBUTTONDOWN) et le click gauche (EVENT_LBUTTONDOWN). Dans cet exemple, il s'agit de produire un masque des pixels dont les composantes HSV sont comprises entre les variables lo et hi. Dans cet exemple, en agissant sur le click gauche ou droit de la souris vous diminuez ou augmentez la teinte h des deux variables lo et hi. Par ailleurs, vous constaterez que lo et hi se différentient non seulement par leur teinte mais également par leur saturation. Vous pourrez tester ce script sur une image de votre visage. 
+Dans cet exemple, il s'agit de produire un masque des pixels dont les composantes HSV sont comprises entre les variables lo et hi. Dans cet exemple, en agissant sur le click gauche ou droit de la souris vous diminuez ou augmentez la teinte h des deux variables lo et hi. Par ailleurs, vous constaterez que lo et hi se différentient non seulement par leur teinte mais également par leur saturation. Vous pourrez tester ce script sur une image de votre visage. 
+Ces quelques lignes de codes illustrent également comment gérer des actions sur la souris. Elles gères les événements souris tels que le mouvement de la souris (cv2.EVENT_MOUSEMOVE), le double click milieu (EVENT_MBUTTONDBLCLK), le click droit (EVENT_RBUTTONDOWN) et le click gauche (EVENT_LBUTTONDOWN). 
 
 ```python
 import cv2
@@ -116,8 +124,8 @@ def souris(event, x, y, flags, param):
 
 color=100
 
-lo=np.array([color-10, 100, 50])
-hi=np.array([color+0, 255,255])
+lo=np.array([color-5, 100, 50])
+hi=np.array([color+5, 255,255])
 
 color_info=(0, 0, 255)
 
@@ -127,7 +135,7 @@ cv2.setMouseCallback('Camera', souris)
 hsv_px = [0,0,0]
 
 # Creating morphological kernel
-kernel = np.ones((5, 5), np.uint8)
+kernel = np.ones((3, 3), np.uint8)
 
 while True:
     ret, frame=cap.read()
@@ -153,8 +161,6 @@ while True:
 cap.release()
 cv2.destroyAllWindows()
 ```
-
-## Segmentation d'images couleur par seuillage des composantes
 
 Généralement il est très intéressante de changer d'espace colorimétrique afin de mieux cibler l'espace dans lequel l'objet d'intérêt est discriminable : ```image=cv2.cvtColor(frame, cv2.COLOR_BGR2HSV)```
 Après avoir produite le mask avec ```mask=cv2.inRange(image, lo, hi)``` il est parfois pertinant de débruiter l'image résultats en lissant ou par quelques opérations motrphologiques. Cela permet de fermer et remplir les formes :
