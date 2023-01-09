@@ -15,12 +15,22 @@ version: IMT Nord Europe (Présentiel)
 * [Range Sensor](tutorials/1.4-range-sensor.md)
 * [Camera Driver](tutorials/1.5-camera-driver.md)
 
-
 ## Tuto. 02 - Level-up
 
 * [Move Forward](tutorials/2.1-transform.md)
 * [SLAM](tutorials/2.2-slam.md)
 * [Vision](tutorials/2.3-vision.md)
+
+
+## Tuto. 03 - Mastering
+
+<!---
+* [Services](tuto/41-services.md)
+* [Object-Oriented Prog.](tuto/42-oop.md)
+* [Example of Neural Net.](tuto/43-dnn.md)
+* [Services](tuto/48-deja-vu.md)
+-->
+
 
 ## Challenge
 
@@ -31,7 +41,6 @@ version: IMT Nord Europe (Présentiel)
 * [Challenge 2](challenge/challenge-2.md)
 * [Challenge 3](challenge/challenge-3.md)
 -->
-
 
 ## Appendix
 
