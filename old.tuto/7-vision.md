@@ -62,9 +62,7 @@ So the pixel value is stored in `img.data` array but several tool to convert ROS
 
 ## Gestion de la souris
 
-Voici quelques lignes de codes pour extraire une région d'intérêt à la souris. Grâce à ces quelques lignes il vous sera possible de calculer la valeur moyenne et la variance de chaque composante de l'ima range(0, len(neigh_ind[0])):
-        one_img=img_data[neigh_ind[0][j],:]
-        r = ge, utile pour procéder ensuite à une étape de segmentation.
+Voici quelques lignes de codes pour extraire une région d'intérêt à la souris. Grâce à ces quelques lignes il vous sera possible de calculer la valeur moyenne et la variance de chaque composante de l'image, utile pour procéder ensuite à une étape de segmentation. Dans cet exemple, nous procédons tout d'abord à l'acquisition d'une image de la webcam du portable. Dans la suite, vous pourrez soit utiliser le flux d'images provenant de votre webcam ou celui provenant de la caméra Realsense (cf. tuto précédent)
 
 ```python
 import cv2
@@ -73,7 +71,7 @@ import numpy as np
 # connect to a sensor (0: webcam)
 cap=cv2.VideoCapture(0)
 
-# capture an
+# capture an image
 ret, frame=cap.read()
 
 # Select ROI
