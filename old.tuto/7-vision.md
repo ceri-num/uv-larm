@@ -176,8 +176,8 @@ mask=cv2.dilate(mask, None, iterations=4)
 
 Dans le code de segmentation d'une image couleur fourni précédemment, vous jouerez avec la taille du kernel (3x3 dans notre exemple), vous ajouterez une étape de flouttage de chaque canal en jouant sur la taille du voisinage (7 x 7 dans notre exemple). Pour finir vous jouerez avec les étapes d'érosion et de dilatation en modifiant le nombre de fois où chaque opérateur morphologique est appliqué (4 fois dans notre exemple). 
 
-Le code de segmentation d'une image couleur fourni précédemment permet de définir un mask binaire des pixels dont les composantes HSV sont l'intervalle [lo,hi]. Il est alors possile de détecter les éléments connexes dans le mask afin d'en extraire certaines informations telles qu'ici le minEnclosingCircle.  D'autres features peuvent être utiles. Vous les trouverez ici : https://docs.opencv.org/3.4/dd/d49/tutorial_py_contour_features.html
-
+Le code de segmentation d'une image couleur fourni précédemment permet de définir un mask binaire des pixels dont les composantes HSV sont l'intervalle [lo,hi]. Il est alors possible de détecter les éléments connexes dans le mask afin d'en extraire certaines informations telles qu'ici le minEnclosingCircle. D'autres features peuvent être utiles. Vous les trouverez ici : https://docs.opencv.org/3.4/dd/d49/tutorial_py_contour_features.html
+Sous l'hypothèse qu'un objet d'interêt est représenté par un ensemble de pixels connexes dont la couleur est contenu dans l'intervalle [lo,hi], il est alors possible de définir des contraintes sur un ensemble de features qui permettent de classer les objets ainsi détectés. Vous ajouterez les lignes suivantes dans le code de segmentation précédent.
 
 ```python
 elements=cv2.findContours(mask, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)[-2]
@@ -185,10 +185,10 @@ if len(elements) > 0:
     c=max(elements, key=cv2.contourArea)
     ((x, y), rayon)=cv2.minEnclosingCircle(c)
     if rayon>30:
-        cv2.circle(image2, (int(x), int(y)), int(rayon), color_infos, 2)
-        cv2.circle(frame, (int(x), int(y)), 5, color_infos, 10)
-        cv2.line(frame, (int(x), int(y)), (int(x)+150, int(y)), color_infos, 2)
-        cv2.putText(frame, "Objet !!!", (int(x)+10, int(y) -10), cv2.FONT_HERSHEY_DUPLEX, 1, color_infos, 1, cv2.LINE_AA)
+        cv2.circle(image2, (int(x), int(y)), int(rayon), color_info, 2)
+        cv2.circle(frame, (int(x), int(y)), 5, color_info, 10)
+        cv2.line(frame, (int(x), int(y)), (int(x)+150, int(y)), color_info, 2)
+        cv2.putText(frame, "Objet !!!", (int(x)+10, int(y) -10), cv2.FONT_HERSHEY_DUPLEX, 1, color_info, 1, cv2.LINE_AA)
  ```
 
  Reste ensuite à visualiser les images.
