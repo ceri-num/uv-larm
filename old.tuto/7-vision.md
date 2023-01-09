@@ -85,7 +85,7 @@ cv2.imshow("Image", imCrop)
 cv2.waitKey(0)
 ```
 
-Voici quelques lignes de codes pour gérer des actions sur la souris. Elles gères les événements souris tels que le mouvement de la souris (), le double click milieu (EVENT_MBUTTONDBLCLK), le click droit (EVENT_RBUTTONDOWN) et le click gauche (EVENT_LBUTTONDOWN).
+Voici quelques lignes de codes pour gérer des actions sur la souris. Elles gères les événements souris tels que le mouvement de la souris (), le double click milieu (EVENT_MBUTTONDBLCLK), le click droit (EVENT_RBUTTONDOWN) et le click gauche (EVENT_LBUTTONDOWN). Dans cet exemple, il s'agit de produire un masque des pixels dont les composantes HSV sont comprises entre les variables lo et hi. Dans cet exemple, en agissant sur le click gauche ou droit de la souris vous diminuez ou augmentez la teinte h des deux variables lo et hi. Par ailleurs, vous constaterez que lo et hi se différentient non seulement par leur teinte mais également par leur saturation. Vous pourrez tester ce script sur une image de votre visage. 
 
 ```python
 import cv2
@@ -111,13 +111,13 @@ def souris(event, x, y, flags, param):
         if color<250:
             color+=1
 
-    lo[0]=color-5
-    hi[0]=color+5
+    lo[0]=color-10
+    hi[0]=color+10
 
 color=100
 
-lo=np.array([color-5, 100, 50])
-hi=np.array([color+5, 255,255])
+lo=np.array([color-10, 100, 50])
+hi=np.array([color+0, 255,255])
 
 color_info=(0, 0, 255)
 
