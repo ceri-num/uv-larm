@@ -17,10 +17,9 @@ version: IMT Nord Europe (Présentiel)
 
 ## Tuto. 02 - Level-up
 
-* [S.L.A.M](tutorials/2.2-slam.md)
-* [Move Forward](tutorials/2.1-transform.md)
-* [Vision](tutorials/2.3-vision.md)
-
+* [S.L.A.M](tuto-level-up/slam.md)
+* [Move Forward](tuto-level-up/transform.md)
+* [Vision](tuto-level-up/vision.md)
 
 ## Tuto. 03 - Mastering
 
