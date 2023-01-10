@@ -9,12 +9,11 @@ version: IMT Nord Europe (Présentiel)
 
 ## Tuto. 01 - Kick-Off
 
-* [Starting with ROS](tutorials/1.1-ros-basics.md)
-* [Move the Robot](tutorials/1.2-move.md)
-* [Simulation](tutorials/1.3-simulation.md)
-* [Range Sensor](tutorials/1.4-range-sensor.md)
-* [Camera Driver](tutorials/1.5-camera-driver.md)
-
+* [Starting with ROS](tuto-kick-off/ros-basics.md)
+* [Move the Robot](tuto-kick-off/move.md)
+* [Simulation](tuto-kick-off/simulation.md)
+* [Range Sensor](tuto-kick-off/range-sensor.md)
+* [Camera Driver](tuto-kick-off/camera-driver.md)
 
 ## Tuto. 02 - Level-up
 
@@ -37,11 +36,8 @@ version: IMT Nord Europe (Présentiel)
 
 * [Kick-off](challenge/kick-off.md)
 * [Challenge 1](challenge/challenge-1.md)
-
-<!---
 * [Challenge 2](challenge/challenge-2.md)
 * [Challenge 3](challenge/challenge-3.md)
--->
 
 ## Appendix
 
