@@ -272,7 +272,6 @@ from matplotlib import pyplot as plt
 img_rgb = cv.imread('car.png')
 img_gray = cv.cvtColor(img_rgb, cv.COLOR_BGR2GRAY)
 
-
 # charger le template de l'objet à rechercher
 template = cv.imread('template.png',0)
 
