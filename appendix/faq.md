@@ -35,7 +35,7 @@ ros2 topic list
 Info there: https://github.com/kobuki-base/kobuki_core/commit/2bc11a1bf0ff364b37eb812a404f124dae9c0699
 
 ```
-sudo cp kobuki_core/60-kobuki.rules /lib/udev/rules.d/
+sudo cp /home/bot/ros2_ws/kobuki_core/60-kobuki.rules /lib/udev/rules.d/
 ```
 
 Then unplug / replug the robot.
