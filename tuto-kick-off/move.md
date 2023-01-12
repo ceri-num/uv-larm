@@ -1,9 +1,8 @@
 # 02 - Move a robot
 
 This tutorial aims to take control of a __tbot__  robot.
-A tbot is a turtlebot2 (itself based on a kobuki platform) equipped with a laser range to navigate in a cluttered environment and a camera to recognize objects.
+A tbot is a turtlebot2 robot (itself based on a kobuki platform) equipped with a laser range to navigate in a cluttered environment and a camera to recognize objects.
 
-<!-- This tutorial suppose that you already processed the [Challenge - Kick-Off](../challenge/intro.md). OU PAS -->
 
 ## Connect the tbot:
 
@@ -16,7 +15,8 @@ You will have then a ROS-2 WorkSpace including __tbot__ meta-package (`pkg-tbot`
 
 ```console
 cd ~/ros2_ws
-ls
+ls 
+ls pkg-tbot
 ```
 
 - Build the packages:
