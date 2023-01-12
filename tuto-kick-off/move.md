@@ -31,60 +31,21 @@ colcon build
 source install/setup.sh
 ```
 
-- Connect the tbot base and start the control nodes :
+- Connect the tbot base and launch the control nodes (a ros launch file permits to start a collection of nodes with a desired configuration):
 
 ```console
-ros2 run tbot_start start_base # feed the bot password is asked
+ros2 launch tbot_start base.launch.py
 ```
 
-Into another terminal start a bridge between__ROS1__and ros2:
+Into another, you can explore the existing node (`rqt_graph`) or topics (`ros2 topic list`)
+
+Finally, you can try to take control in a third terminal:
 
 ```console
-ros2 run ros1_bridge dynamic_bridge
-```
-
-Finally, try to take control in a third terminal:
-
-```console
-ros2 run teleop_twist_keyboard teleop_twist_keyboard cmd_vel:=/commands/velocity
+ros2 run teleop_twist_keyboard teleop_twist_keyboard /multi/cmd_teleop
 ```
 
 Close everything with `ctrl-c`.
-
-
-## Some explanations:
-
-The control of __tbot__ (turtlebot3 kobuki base) is still dependent on old version of ROS (__ROS1__) so it is packaged into a docker environment.
-This solution implies: 1) super user access to run docker (potentially a sudo password at `tbot_start start_base` ) and 2) to launch a bridge between__ROS1__and ros2.
-
-<!--[RESOLVED] The 'dynamic_bridge' needs some__ROS1__variables that why the user has to source `ROS/noetic` in the terminal before to start the bridge. -->
-At this point, the__ROS1__topics are invisible in ROS2.
-It is a dynamic bridge, It connects things only on demand.
-So by starting the teleop node, you can see the activation of the bridge in its terminal.
-
-It works well if and only if you address the appropriate topic.
-Here it is exactly `/commands/velocity`.
-
-However, tbot integrate a multiplexer.
-The node listens different topics with different priorities (by default: `cmd-nav` and `cmd-telop`) and filter the appropriate commands and send them into `/cmd_vel`.
-
-```console
-ros2 run tbot_pytools multiplexer
-```
-
-As a first result, the dynamic bridge is now activated and all the commands topic are visible from __ROS2__ (`ros2 topic list`).
-As a second result, the teleop commands has to target the appropriate topics.
-This way, if an operator teleop the robot, the multiplexer will shunt the autonomous navigation and will force the robot to stop if no commands are published from a certain time.
-
-From now, you always operate on the robot with the multiplexer on.
-However, you can use `ros2 launch tbot-start move_launch.py` to start the bridge and the multiplexer (this launch do not include `tbot_start start_base`).
-
-If you would like to see all robot topics, you have to switch your terminal in __ROS1__ and then list the topics with __ROS1__ command:
-
-```console
-source /opt/ros/noetic/setup.sh
-rostopic list
-```
 
 The teleop publishes a [geometry_msgs](https://docs.ros2.org/foxy/api/geometry_msgs/index-msg.html) [twist](https://docs.ros2.org/foxy/api/geometry_msgs/msg/Twist.html) message.
 It is composed of two vectors $(x, y, z)$, one for linear speed $(m/s)$, and the second for angular speed $(rad/s)$.
@@ -92,6 +53,11 @@ However a [nonholonomic](https://en.wikipedia.org/wiki/Nonholonomic_system) grou
 It is not as free as a drone, you can echo the messages into a 4th terminal.
 
 - Try to control the robot with `ros2 topic pub` command publishing in the navigation topic (`/multi/cmd_nav`).
+
+Tbot integrate a [subsumption](https://en.wikipedia.org/wiki/Subsumption_architecture) multiplexer.
+The node listens different topics with different priorities (by default: `/multi/cmd_nav` and `/multi/cmd_telop`) and filter the appropriate commands to send to the robot.
+The topics `cmd_nav` and `cmd_telop` stend for autonomous navigation and operator teleoperate.
+The human operator has a higher priority and make the multiplexer to trash the `cmd_nav` commands.
 
 
 ## move node
