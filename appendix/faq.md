@@ -18,9 +18,31 @@ colcon build
 __Launch ROS2 tbot driver__:
 
 ```
-ros2 launch kobuki_node kobuki_node-launch.py
+# base only
+ros2 launch tobt_start base.launch.py
+
+# base + laser
+ros2 launch tobt_start minimal.launch.py
+
+# base + with laser + camera
+ros2 launch tobt_start full.launch.py
 
 ros2 topic list
+```
+
+## Fix malformed packets
+
+Info there: https://github.com/kobuki-base/kobuki_core/commit/2bc11a1bf0ff364b37eb812a404f124dae9c0699
+
+```
+sudo cp kobuki_core/60-kobuki.rules /lib/udev/rules.d/
+```
+
+Then unplug / replug the robot.
+To ensure it worked, the followwing command should display 1:
+
+```
+cat /sys/bus/usb-serial/devices/ttyUSB0/tty/ttyUSB0/device/latency_timer
 ```
 
 ## How to install Ubuntu ?
@@ -117,3 +139,8 @@ export PS1="\${ROS_VERSION:+(ros\$ROS_VERSION) }$PS1"
 alias rosify1="source /opt/ros/noetic/setup.bash && source $HOME/ros1_ws/devel/setup.bash"
 alias rosify2="source /opt/ros/foxy/setup.bash && source $HOME/ros2_ws/install/setup.bash"
 ```
+
+## Flash kobuki 
+
+https://kobuki.readthedocs.io/en/devel/firmware.html#linux
+
