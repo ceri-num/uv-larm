@@ -46,7 +46,7 @@ ros2 run ros1_bridge dynamic_bridge
 Finally, try to take control in a third terminal:
 
 ```console
-ros2 run teleop_twist_keyboard teleop_twist_keyboard cmd_vel:=/mobile_base/commands/velocity
+ros2 run teleop_twist_keyboard teleop_twist_keyboard cmd_vel:=/commands/velocity
 ```
 
 Close everything with `ctrl-c`.
@@ -63,10 +63,10 @@ It is a dynamic bridge, It connects things only on demand.
 So by starting the teleop node, you can see the activation of the bridge in its terminal.
 
 It works well if and only if you address the appropriate topic.
-Here it is exactly `/mobile_base/commands/velocity`.
+Here it is exactly `/commands/velocity`.
 
 However, tbot integrate a multiplexer.
-The node listens different topics with different priorities (by default: `cmd-nav` and `cmd-telop`) and filter the appropriate commands and send them into `/mobile_base/commands/velocity`.
+The node listens different topics with different priorities (by default: `cmd-nav` and `cmd-telop`) and filter the appropriate commands and send them into `/cmd_vel`.
 
 ```console
 ros2 run tbot_pytools multiplexer
