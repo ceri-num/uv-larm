@@ -19,13 +19,13 @@ __Launch ROS2 tbot driver__:
 
 ```
 # base only
-ros2 launch tobt_start base.launch.py
+ros2 launch tbot_start base.launch.py
 
 # base + laser
-ros2 launch tobt_start minimal.launch.py
+ros2 launch tbot_start minimal.launch.py
 
 # base + with laser + camera
-ros2 launch tobt_start full.launch.py
+ros2 launch tbot_start full.launch.py
 
 ros2 topic list
 ```
