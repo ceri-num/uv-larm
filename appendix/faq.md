@@ -1,5 +1,21 @@
 # Frequent Asked Question...
 
+## Multi-computer configuration
+
+Configure a `ROS_DOMAIN_ID` betwwen 1 and 100 in your bashrc file to limit the topics area,
+and set `ROS_LOCALHOST_ONLY` to zero to permits several computer to share ROS ressources.
+
+```sh
+gedit ~/.bashrc
+```
+
+add at the end of the file (with 42 for instance): 
+
+```sh
+export ROS_LOCALHOST_ONLY= 0
+export ROS_DOMAIN_ID= 42
+```
+
 ## ROS2 tbot driver
 
 > How to get rid of ROS1 ;-)
