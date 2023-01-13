@@ -20,7 +20,7 @@ The robot is defined with different frame: `base_link` at the gravity center of 
 
 ### Understand frame and transformations
 
-By starting any sensor as the laser publishing data it its own frame, it would be impossible for _rviz2_ to display the information into `map` frame.
+By starting any sensor as the laser publishing data it its own frame, it would be impossible for _rviz2_ to display the information into `map` frame (_fixed frame_ into _global option_).
 The `map` and `laser` frames are independent.
 
 Start the laser and rviz2:
@@ -32,7 +32,8 @@ ros2 run urg_node urg_node_driver --ros-args -p serial_port:=/dev/ttyACM0
 rviz2
 ```
 
-Then the package `tf2_tools` provides with a process that generates a graph of the connection between the frames.
+In rviz, connect to scan topic, but nothing appears.
+The package `tf2_tools` provides with a process that generates a graph of the connection between the frames.
 
 ```console
 #third console
@@ -51,7 +52,7 @@ It is possible to generate a static transformation (it supposes that the laser i
 ros2 run tf2_ros static_transform_publisher 0 0 0 0 0 0 1 "map" "laser"
 ```
 
-You can validate with `view_frame` that the 2 frames ares connected.
+You can validate with `view_frame` that the 2 frames ares connected and that laser scan are displayed in _rviz_.
 
 The first 3 numbers fix the translation. It is the potion of the `laser` center into `map`. The next 4 numbers give the rotation.
 In fact, the publisher generates a [TransfromStamped mesage](https://docs.ros.org/en/jade/api/geometry_msgs/html/msg/TransformStamped.html) and the rotation is based on quaternion definition (cf. [wikipedia](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation) for details...)
@@ -61,11 +62,17 @@ For a simple robot, it can be dozens of frames and it grows with robot parts (le
 _ROS_ provide a tool (state publisher) to publish transform regarding how the frames are interconnected.
 The tbot launch file of the `tbot_start` package already starts state publisher based on a description of the tbot (kobuki robot in IMT Nord Europe configuration).
 
-Start a launch file (`bringup` for instance) and generate the frame graph (`view_frame`).
+Spot every thing but _rviz_ and 
+start the tbot launch file: `tbot_start minimal.launch.py`.
+Generate the frame graph (`view_frame`).
+
 In basic configuration, the robot provides a first pose estimation in global `odom` frame (ie. transformation between `odom` and `base_link`).
+So set the fixed frame in rviz on `odom`, the laser scans appear.
+Connect to tf topic and all the frame axis appear too.
 
 - Oficial documentation about tf2: [docs.ros.org](https://docs.ros.org/en/foxy/Tutorials/Intermediate/Tf2/Tf2-Main.html).
 
+Bonus: it is possible to visualize the robot in _rviz2_: add > robot description (select the approprieate topic).
 
 ### Publish a pose in a specific frame.
 
@@ -85,8 +92,8 @@ class LocalGoal(Node):
     def __init__(self):
         super().__init__('goal_keeper')
         # Transform tool:
-        self.tf_buffer = Buffer()
-        self.tf_listener = TransformListener(self.tf_buffer, self)
+        self.tf_buffer = tf2_ros.Buffer()
+        self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
         ...
 ```
 
@@ -137,7 +144,7 @@ Finally, inside our `publish_goal` call back, getting a transform will look like
                         self.local_frame,
                         'odom',
                         currentTime)
-        except TransformException as tex:
+        except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):TransformException as tex:
             self.get_logger().info( f'Could not transform the goal into {self.local_frame}: {tex}')
             return
         ...
@@ -150,16 +157,15 @@ The pose transformation is already defined in a ros method of `tf2_geometry_msgs
     def publish_goal(self):
         ...
         # Compute goal in local coordinates
-        stampedGoal= StampedPose()
-        stampedGoal.pose= self.globalGoal
+        stampedGoal= PoseStamped()
+        stampedGoal.pose= self.global_goal
         stampedGoal.header.frame_id= 'odom'
         stampedGoal.header.stamp= currentTime
-        localGoal = tf2_geometry_msgs.do_transform_pose( stampedGoal, stampedTransform )
+        localGoal = do_transform_pose( stampedGoal, stampedTransform )
         ...
 ```
 
 You have just to only publish the local goal and integrate it in our ros package.
-
 
 ## Permit autonomous navigation 
 
