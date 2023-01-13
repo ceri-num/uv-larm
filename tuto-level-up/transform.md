@@ -151,7 +151,12 @@ Finally, inside our `publish_goal` call back, getting a transform will look like
 ```
 
 The transform is a stamped transform (ie. defined in a given time) defined by `geometry_msgs` package.
-The pose transformation is already defined in a ros method of `tf2_geometry_msgs` package (things are never simple in ros...):
+The pose transformation is already defined in a ros method of `tf2_geometry_msgs` package and it require the installation of `python3-tf2-geometry-msgs`(things are never simple in ros...):
+
+```sh
+sudo apt update
+sudo apt install python3-tf2-geometry-msgs
+```
 
 ```python
     def publish_goal(self):
@@ -161,11 +166,11 @@ The pose transformation is already defined in a ros method of `tf2_geometry_msgs
         stampedGoal.pose= self.global_goal
         stampedGoal.header.frame_id= 'odom'
         stampedGoal.header.stamp= currentTime
-        localGoal = do_transform_pose( stampedGoal, stampedTransform )
+        localGoal = tf2_geometry_msgs.do_transform_pose( stampedGoal, stampedTransform )
         ...
 ```
 
-You have just to only publish the local goal and integrate it in our ros package.
+It remainds to only publish the local goal and integrate it in our ros package.
 
 ## Permit autonomous navigation 
 
