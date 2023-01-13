@@ -16,7 +16,7 @@ One first approach can be to develop a *ricochet robot* that changes its directi
 
 ## consigns
 
-Each group commit the minimal required files in a specific `challenge1` ros2 package inside their git repository.
+Each group commit the minimal required files in a specific `grp_'machine'` ros2 package inside their git repository.
 
 Release: **Monday afternoon of week-3**
 
