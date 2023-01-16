@@ -1,5 +1,21 @@
 # Frequent Asked Question...
 
+## Multi-computer configuration
+
+Configure a `ROS_DOMAIN_ID` betwwen 1 and 100 in your bashrc file to limit the topics area,
+and set `ROS_LOCALHOST_ONLY` to zero to permits several computer to share ROS ressources.
+
+```sh
+gedit ~/.bashrc
+```
+
+add at the end of the file (with 42 for instance): 
+
+```sh
+export ROS_LOCALHOST_ONLY= 0
+export ROS_DOMAIN_ID= 42
+```
+
 ## ROS2 tbot driver
 
 > How to get rid of ROS1 ;-)
@@ -19,13 +35,13 @@ __Launch ROS2 tbot driver__:
 
 ```
 # base only
-ros2 launch tobt_start base.launch.py
+ros2 launch tbot_start base.launch.py
 
 # base + laser
-ros2 launch tobt_start minimal.launch.py
+ros2 launch tbot_start minimal.launch.py
 
 # base + with laser + camera
-ros2 launch tobt_start full.launch.py
+ros2 launch tbot_start full.launch.py
 
 ros2 topic list
 ```
@@ -35,7 +51,7 @@ ros2 topic list
 Info there: https://github.com/kobuki-base/kobuki_core/commit/2bc11a1bf0ff364b37eb812a404f124dae9c0699
 
 ```
-sudo cp /home/bot/ros2_ws/kobuki_core/60-kobuki.rules /lib/udev/rules.d/
+sudo cp /home/bot/ros2_ws/pkg-kobuki/kobuki_core/60-kobuki.rules /lib/udev/rules.d/
 ```
 
 Then unplug / replug the robot.

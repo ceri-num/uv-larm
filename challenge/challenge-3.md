@@ -14,7 +14,7 @@ The robot detects _NukaCola_ bottle in the vision flux. A message is sent in a t
 
 ## consigns
 
-Each group commit the minimal required files in a specific `challenge3` ros2 package inside their git repository.
+Each group commit the minimal required files in a specific `grp_'machine'` ros2 package inside their git repository.
 
 Release: **Thursday morning of week-4**
 

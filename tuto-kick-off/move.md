@@ -42,7 +42,7 @@ Into another, you can explore the existing node (`rqt_graph`) or topics (`ros2 t
 Finally, you can try to take control in a third terminal:
 
 ```console
-ros2 run teleop_twist_keyboard teleop_twist_keyboard /multi/cmd_teleop
+ros2 run teleop_twist_keyboard teleop_twist_keyboard cmd_vel:=/multi/cmd_teleop
 ```
 
 Close everything with `ctrl-c`.
