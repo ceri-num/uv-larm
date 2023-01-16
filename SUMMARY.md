@@ -25,6 +25,7 @@
 * [Recognition with DNN]()
 * [Parameters]()
 * [Services and Action]()
+* [Vizualisation Msgs]()
 * [Test driven Dev]()
 -->
 
@@ -58,20 +59,7 @@
 * [Decision Making](projects/decision.md)
 * [Percive and Model](projects/perception.md)
 
-
-<!--OLD
-* [Projet](project/playground.md)
-* [Project](project/simulate-drones.md)
-* [Projet](project/simulate-boats.md)
-* [Projet](project/mpc-supervision.md)
-* [Projet](project/vectorial-slam.md)
-* [Projet](project/visionBased-slam.md)
-* [Projet](project/web-interface.md)
-* [Projet](project/multirobot-coord.md)
--->
-
-
-<!-- ## Old.Challenge -->
+## Old.Challenge
 
 <!--
 * [treasure: Coke can](challenge/coke-can.md)
