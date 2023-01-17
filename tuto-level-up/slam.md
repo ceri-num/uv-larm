@@ -30,7 +30,7 @@ ros2 launch tbot_sim challenge-1.launch
 ```
 
 ```console
-ros2 launch slam_toolbox online_sync_launch.py
+ros2 launch slam_toolbox online_sync_launch.py use_sim_time:=False
 ```
 
 ```console
@@ -66,6 +66,7 @@ Now, while moving the robot around the simulated environment, you should see the
 ros2 launch nav2_bringup navigation_launch.py
 ```
 
+Be carreful, navigation should publish in the right topic so that the robot receive command velocities.
 Then, send goal points into `/goal_pose` (use rviz2)
 
 # Save the Map
@@ -97,8 +98,10 @@ Stop all nodes.
 
 2. Load nodes to load the map and localize the robot into this loaded map
 
+<!-- ros2 launch nav2_bringup localization_launch.py map:=/home/bot/map.yaml -->
+
 ```
-ros2 launch nav2_bringup localization_launch.py map:=/home/bot/map.yaml
+ros2 launch slam_toolbox localization_launch.py map_file:=/home/bot/map.yaml
 ```
 
 3. Teleop the robot to see that it position is correctly updated
