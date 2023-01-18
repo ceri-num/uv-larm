@@ -11,7 +11,7 @@ gedit ~/.bashrc
 
 add at the end of the file (with 42 for instance): 
 
-```sh
+```console
 export ROS_LOCALHOST_ONLY= 0
 export ROS_DOMAIN_ID= 42
 ```
@@ -148,7 +148,7 @@ roslaunch realsense2_camera rs_camera.launch align_depth:=true
 
 ## `.bashrc` ROS additions
 
-```consoleell
+```console
 # ROS
 export ROS_LOCALHOST_ONLY=1
 export PS1="\${ROS_VERSION:+(ros\$ROS_VERSION) }$PS1"

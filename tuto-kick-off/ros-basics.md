@@ -56,7 +56,7 @@ Otherwise, you have to always select and process for **Python** commands.
 Also, you can work with classical text editor (gedit on Ubuntu), but we encourage you to use `code` (VisualStudio Code) as development environment.
 You can open code by specifiing a workspace from your terminal (and then open as many terminal you need in `code` directly): 
 
-```sh
+```console
 cd
 code ros2_ws
 ```

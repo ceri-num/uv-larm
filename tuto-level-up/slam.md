@@ -62,6 +62,8 @@ Now, while moving the robot around the simulated environment, you should see the
 
 # Autonomous Navigation sending goal points
 
+> Facultative part
+
 ```
 ros2 launch nav2_bringup navigation_launch.py
 ```
@@ -71,8 +73,16 @@ Then, send goal points into `/goal_pose` (use rviz2)
 
 # Save the Map
 
-```
+```console
 ros2 run nav2_map_server map_saver_cli -f ~/map
+```
+
+> Sometimes this command produces a timeout. This is because it listens to the `map` topic no map is received during a certain amount of time and we cannot extend this delay...
+
+Another solution to save the map is to use the following service call:
+
+```console
+ros2 service call /slam_toolbox/save_map slam_toolbox/srv/SaveMap "name: {data: '/home/bot/map2'}"
 ```
 
 <!-- # All in one
@@ -100,7 +110,7 @@ Stop all nodes.
 
 <!-- ros2 launch nav2_bringup localization_launch.py map:=/home/bot/map.yaml -->
 
-```
+```console
 ros2 launch slam_toolbox localization_launch.py map_file:=/home/bot/map.yaml
 ```
 

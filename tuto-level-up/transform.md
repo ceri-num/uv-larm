@@ -153,7 +153,7 @@ Finally, inside our `publish_goal` call back, getting a transform will look like
 The transform is a stamped transform (ie. defined in a given time) defined by `geometry_msgs` package.
 The pose transformation is already defined in a ros method of `tf2_geometry_msgs` package and it require the installation of `python3-tf2-geometry-msgs`(things are never simple in ros...):
 
-```sh
+```console
 sudo apt update
 sudo apt install python3-tf2-geometry-msgs
 ```

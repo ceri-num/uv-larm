@@ -13,7 +13,7 @@ Concretly, we mostly seek for the appropriate [librairies](https://en.wikipedia.
 Idéaly the community already support the desired librairies (like for [libsdl2](https://www.libsdl.org/) for instance, simple C lib "to provide low level access to audio, keyboard, mouse, joystick, and graphics hardware").
 By searching for `libsdl2` with Ubuntu-Aptitude we will find several packages ready to be installed:
 
-```sh
+```console
 apt search libsdl2
 ```
 
