@@ -3,8 +3,8 @@
 The goal of this tutorial is to set up a workspace to control robots and to develop robotics programs.
 We choose to work with ROS (the most used open middleware for robotics) on a Linux-Ubuntu computer (which are the best supported configuration).
 
-This tutorial supposes that you have an Ubuntu-Like 20.04 computers with configured Python and C++ APIs.
-The tutorial relies on [ROS2 Foxy](https://docs.ros.org/en/foxy).
+This tutorial supposes that you have an Ubuntu-Like 22.04 computers with configured Python and C++ APIs.
+The tutorial relies on [ROS2 Inron](https://docs.ros.org/en/iron).
 
 
 ## Play with Linux.
