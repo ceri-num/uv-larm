@@ -78,8 +78,8 @@ code tuto_move.py
 - The script depends from several ROS2 ressources.
 
 ```python
-import rclpy                         # core ROS2 client python librairie
-from rclpy.node import Node          # To manipulate ROS Nodes
+import rclpy                  # core ROS2 client python librairie
+from rclpy.node import Node   # To manipulate ROS Nodes
 
 print("tuto_move :: START...")
 ```
@@ -92,7 +92,7 @@ In a shell:
 python3 tuto_move.py
 ```
 
-- Next move consists in making an infinite loop 
+- Next move consists in making a node and an infinite loop 
 
 In `tuto_move.py` add: 
 
@@ -114,15 +114,14 @@ def main():
 
     print("tuto_move :: STOP.")
 
-# If the file is executed as a script (ie. not imported).
+# activate main() function,
+# if the file is executed as a script (ie. not imported).
 if __name__ == '__main__':
     # call main() function
     main()
 ```
 
 - You can try that a node is created :
-
-In a shell:
 
 ```sh
 # In a 1st shell:
@@ -134,11 +133,10 @@ ros2 node list
 
 ## Move Script
 
-We want that our node publishes velocities at regular rate.
+We want our node to publish velocities continuously.
+To do that we have to import the type of message we have to send, to instantiate a publisher, and to publish messages.
 
-To do that we have to import the type of mesage we wana to send.
-
-You have to add the next pieces of codes at the appropriate location in the `tuto_move.py` scrip:
+You have to add the next pieces of codes at the appropriate location in the `tuto_move.py` script:
 
 ```python
 # Message to publish:
@@ -160,16 +158,12 @@ python3 tuto_move.py
 
 # In a 2d shell:
 ros2 node list
-
-# In a 2d shell:
 ros2 topic list
-
-# In a 2d shell:
 ros2 topic echo /multi/cmd_nav
 ```
 
-Basicly it is 0 speed vectors. 
-To investigate what is a `Twist` you can ask to `ros2 interface` or search at the package location (`/opt/ros/iron/share`).
+Basicly it echoes 0 speed vectors. 
+To investigate what is a `Twist` you can ask to `ros2 interface` or search at the package location (`/opt/ros/iron/share`) (or search the documentations).
 
 ```sh
 ros2 interface list | Twist
@@ -185,7 +179,7 @@ cat /opt/ros/iron/share/geometry_msgs/msg/Vector3.msg
 In case of [nonhonolome mobile](https://en.wikipedia.org/wiki/Nonholonomic_system) ground robot,
 the control uses two speed values, one lienar (x) and one angular (z).
 
-For a circling behavior:
+SO, for a circling behavior:
 
 ```python
 # publish a msg
@@ -195,6 +189,5 @@ velo.angular.z= 0.14 # radian per second
 velocity_publisher.publish(velo)
 ```
 
-Well your robot should move...
-
+At this point, your robot should move...
 To notice that you can also test your code on `turtlesim` by changing the name of the velocity topic.
