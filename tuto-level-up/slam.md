@@ -130,7 +130,7 @@ Moreover, there are a lot of public datasets available:
 - [http://car.imt-lille-douai.fr/polyslam/]
 
 
-Use the [tutorial on rosbag](https://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.html) to learn how to use it.
+Use the [tutorial on rosbag](https://docs.ros.org/en/iron/Tutorials/Beginner-CLI-Tools/Recording-And-Playing-Back-Data/Recording-And-Playing-Back-Data.html) to learn how to use it.
 
 > Work: Launch the challenge 2 simulation, record `/tf` and `/scan` into a rosbag and teleop the robot all around the map. You now have a dataset ready to do offline SLAM.
 

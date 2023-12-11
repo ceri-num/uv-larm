@@ -15,7 +15,7 @@ You will have then a ROS-2 WorkSpace including __tbot__ meta-package (`pkg-tbot`
 
 ```console
 cd ~/ros2_ws
-ls 
+ls
 ls pkg-tbot
 ```
 
@@ -47,7 +47,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard cmd_vel:=/multi/cmd_teleop
 
 Close everything with `ctrl-c`.
 
-The teleop publishes a [geometry_msgs](https://docs.ros2.org/foxy/api/geometry_msgs/index-msg.html) [twist](https://docs.ros2.org/foxy/api/geometry_msgs/msg/Twist.html) message.
+The teleop publishes a [geometry_msgs](https://docs.ros2.org/iron/api/geometry_msgs/index-msg.html) [twist](https://docs.ros2.org/iron/api/geometry_msgs/msg/Twist.html) message.
 It is composed of two vectors $(x, y, z)$, one for linear speed $(m/s)$, and the second for angular speed $(rad/s)$.
 However a [nonholonomic](https://en.wikipedia.org/wiki/Nonholonomic_system) ground robot as the **tbot** would move only on `x` and turn only on `z`.
 It is not as free as a drone, you can echo the messages into a 4th terminal.
@@ -65,7 +65,7 @@ The human operator has a higher priority and make the multiplexer to trash the `
 The idea now is to create a node that will control the robot accordingly to our expectation.
 For that we will create a python ros package and a new node in this package to send velocity in the appropriate topic.
 
-This tutorial is adapted from [official ros2 tutorial](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries.html).
+This tutorial is adapted from [official ros2 tutorial](https://docs.ros.org/en/iron/Tutorials/Beginner-Client-Libraries.html).
 
 First create a new package `tuto_move` in the workspace directory of your workspace (ie. aside of `pkg-tbot`).
 
@@ -90,7 +90,7 @@ if __name__ == '_main__' :
     main()
 ```
 
-For more detail on those manipulation, you can return to the [ros tutorial](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html).
+For more detail on those manipulation, you can return to the [ros tutorial](https://docs.ros.org/en/iron/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html).
 
 If you have troubles in understanding this python code: [functions](https://www.w3schools.com/python/python_functions.asp), [Top-level code environment](https://docs.python.org/3/library/__main__.html).
 
@@ -193,9 +193,9 @@ Do not forget to add the `isMoving` method to `MoveNode`.
 
 ## Going further
 
-The _node/topic_ pattern is dedicated to a continuous process. 
+The _node/topic_ pattern is dedicated to a continuous process.
 ROS propose an action tool to define one shot behavior.
-Use this tool to define the `move_1m` [action](https://docs.ros.org/en/foxy/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.html).
+Use this tool to define the `move_1m` [action](https://docs.ros.org/en/iron/Tutorials/Intermediate/Writing-an-Action-Server-Client/Py.html).
 Use the action parameters to set the distance (1 meter per default).
 
 We want 3 new actions: `turn_left`, `turn_right` and `rear`.

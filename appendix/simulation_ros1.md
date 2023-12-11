@@ -25,10 +25,10 @@ ii  gazebo11-common                                 11.12.0-1~focal             
 ii  gazebo11-plugin-base                            11.12.0-1~focal                      amd64        Open Source Robotics Simulator - base plug-ins
 ii  libgazebo11:amd64                               11.12.0-1~focal                      amd64        Open Source Robotics Simulator - shared library
 ii  libgazebo11-dev:amd64                           11.12.0-1~focal                      amd64        Open Source Robotics Simulator - Development Files
-ii  ros-foxy-gazebo-dev                             3.5.3-1focal.20220829.174620         amd64        Provides a cmake config for the default version of Gazebo for the ROS distribution.
-ii  ros-foxy-gazebo-msgs                            3.5.3-1focal.20221012.224922         amd64        Message and service data structures for interacting with Gazebo from ROS2.
-ii  ros-foxy-gazebo-plugins                         3.5.3-1focal.20221021.150213         amd64        Robot-independent Gazebo plugins for sensors, motors and dynamic reconfigurable components.
-ii  ros-foxy-gazebo-ros                             3.5.3-1focal.20221013.010602         amd64        Utilities to interface with Gazebo through ROS.
+ii  ros-iron-gazebo-dev                             3.5.3-1focal.20220829.174620         amd64        Provides a cmake config for the default version of Gazebo for the ROS distribution.
+ii  ros-iron-gazebo-msgs                            3.5.3-1focal.20221012.224922         amd64        Message and service data structures for interacting with Gazebo from ROS2.
+ii  ros-iron-gazebo-plugins                         3.5.3-1focal.20221021.150213         amd64        Robot-independent Gazebo plugins for sensors, motors and dynamic reconfigurable components.
+ii  ros-iron-gazebo-ros                             3.5.3-1focal.20221013.010602         amd64        Utilities to interface with Gazebo through ROS.
 ```
 
 To notice that you can install missing packages with the command line: `sudo apt install <pakage_name>`.
@@ -109,7 +109,7 @@ Be carreful, ensure that `Global Option` / `Fixed frame` is correctly configured
 
 ![rviz2](../files/SLAM/rviz_laserscan.png)
 
-Use `rqt` to see the graph of ROS nodes and the topics they use to communicate (ref of ROS Qt: [RQt](https://docs.ros.org/en/foxy/Concepts/About-RQt.html)).
+Use `rqt` to see the graph of ROS nodes and the topics they use to communicate (ref of ROS Qt: [RQt](https://docs.ros.org/en/iron/Concepts/About-RQt.html)).
 
 
 ## Controlling the Simulated Robot
@@ -139,7 +139,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard --ros-args --remap /cmd_vel
 
 Create a new package (python or cmake as you want) `tuto_sim` in your _ROS2_ workspace and create a launch file that starts with the apropriate configration: the `dynamic_bridge`, `rviz2`, `multiplexer` and the `teleop`.
 
-All the information you need are in the tutorials on [docs.ros.org](https://docs.ros.org/en/foxy/Tutorials/Intermediate/Launch/Launch-Main.html).
+All the information you need are in the tutorials on [docs.ros.org](https://docs.ros.org/en/iron/Tutorials/Intermediate/Launch/Launch-Main.html).
 
 <!--
 ## A program to control the simulated robot
