@@ -57,7 +57,7 @@ This course relies on the [ROS](http://www.ros.org/) middleware for practical se
 
 You also can find an excellent virtual working environment and resources on [TheConstruct](https://www.theconstructsim.com/).
 
-## Presentations
+<!-- ## Presentations
 
 Slide generation is based on [marp](https://marp.app/) and the associated puggin in [VS Code](https://marketplace.visualstudio.com/items?itemName=marp-team.marp-vscode).
 
@@ -68,6 +68,7 @@ To attach the appropriate style, go in `VS Code` parameters (Bottom left corner)
 - add element `style/imt.css`.
 
 Then, search `marp:html` and enable all html elements.
+-->
 
 ## Contact
 

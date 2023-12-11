@@ -1,110 +1,105 @@
-# 02 - Move a robot
+# 03 - Create a ROS compatible package
 
-This tutorial aims to take control of a __tbot__  robot.
-A tbot is a turtlebot2 robot (based on a kobuki platform)
-equipped with a laser range to navigate in a cluttered environment
-and a camera to recognize objects.
+This Tutorial is based on the official documentations: [docs.ros.org](https://docs.ros.org),
+with somes tuning considering our preferencies...
+Typically we prefer cmake methode, what ever the targeted langauge (_C++_ or _python_).
 
+## Your first package in ROS2
 
-## Connect the tbot:
-
-If it is not yet the case,
-the machine connecting the robot and its sensors have to be configured accordingly to the [IMT MobiSyst tbot](https://bitbucket.org/imt-mobisyst/pkg-tbot)
-
-You will have then a ROS-2 WorkSpace including __tbot__ meta-package (`pkg-tbot`) itself including several ROS packages.
-
-- Verrify it:
-
-```console
-cd ~/mb6_space
-ls 
-ls pkg-tbot
-```
-
-- Build the packages:
-
-```console
-cd pkg-tbot   # enter le project directory
-git pull      # download the last version
-cd ..         # return on your ros workspace (mb6_space)
-colcon build  # build...
-```
-
-- Update your shell environment variables:
-
-```console
-source bin/run-command.bash
-```
-
-- Connect the tbot base and launch the control nodes (a ros launch file permits to start a collection of nodes with a desired configuration):
-
-```console
-ros2 launch tbot_node minimal_launch.yaml
-```
-
-Into another, you can explore the existing node (`rqt_graph`) or topics (`ros2 topic list`)
-
-Finally, you can try to take control in a third terminal:
-
-```console
-ros2 run teleop_twist_keyboard teleop_twist_keyboard cmd_vel:=/multi/cmd_teleop
-```
-
-Close everything with `ctrl-c`.
-
-The teleop publishes a [geometry_msgs](https://index.ros.org/r/common_interfaces/github-ros2-common_interfaces/) `twist` message.
-It is composed of two vectors $(x, y, z)$, one for linear speed $(m/s)$, and the second for angular speed $(rad/s)$.
-However a [nonholonomic](https://en.wikipedia.org/wiki/Nonholonomic_system) ground robot as the **tbot** would move only on `x` and turn only on `z`.
-It is not as free as a drone, you can echo the messages into a 4th terminal.
-
-- Try to control the robot with `ros2 topic pub` command publishing in the navigation topic (`/multi/cmd_nav`).
-
-Tbot integrate a [subsumption](https://en.wikipedia.org/wiki/Subsumption_architecture) multiplexer.
-The node listens different topics with different priorities (by default: `/multi/cmd_nav` and `/multi/cmd_telop`) and filter the appropriate commands to send to the robot.
-The topics `cmd_nav` and `cmd_telop` stend for autonomous navigation and operator teleoperate.
-The human operator has a higher priority and make the multiplexer to trash the `cmd_nav` commands.
-
-## Our first node
-
-The goal is to create a process connecting a topic and publishing velocities as a twist message:
-
-- First we have to create a file for our script.
-
-```
-touch tuto_move.py
-code tuto_move.py
-```
-
-- The script depends from several ROS2 ressources.
-
-```python
-import rclpy                         # core ROS2 client python librairie
-from rclpy.node import Node          # To manipulate ROS Nodes
-
-print("tuto_move :: START...")
-```
-
-- You can try that everything is well imported:
-
-In a shell:
+You can build your first package using the ros tool, with the build-type `ament_cmake`, then compile and install the package.
+Typically a `tuto_kickoff` package:
 
 ```sh
-python3 tuto_move.py
+ros2 pkg create --build-type ament_cmake tuto_kickoff
+colcon build --event-handlers console_direct+ --cmake-args -DCMAKE_VERBOSE_MAKEFILE=ON --packages-select tuto_kickoff
 ```
 
-- Next move consists in making an infinite loop 
+Package creation generate files identifing `tuto_kickoff` directory as a ROS package source.
+The file `package.xml` setup the ROS configuration, the name of the packages and its dependanties in ROS ecosystem. 
+The file `CMakeLists.txt` is required to use [CMake](https://en.wikipedia.org/wiki/CMake) tool, a very famous cross platform tool for automatizing building processes.
+The `colcon build` command produces `build` and `install` directory with tempory file for the build process and the built ressources of your package (yes, none at this point...).
+To informe your terminal that some resources are availlable here, you have to `source` the ROS setup file. 
 
-In `tuto_move.py` add: 
+```sh
+ls
+source ./install/setup.bash
+```
+
+## The package.xml file
+
+As we said, `package.xml` is the entrance point of the package for ROS tools.
+It is a text file in [eXtensible Markup Language](https://fr.wikipedia.org/wiki/Extensible_Markup_Language) format.
+Typically, it regroups all the dependancies, for instance `rclcpp` and `rclpy` the ROS client librairies for Cpp and Python or `std_msgs`.
+[std_msgs](https://index.ros.org/p/std_msgs) and [geometry_msgs](https://index.ros.org/p/geometry_msgs) are a ROS package defning the format of the simple and commun mesages allowing the communication between ROS processes.
+
+In the `package.xml` file :
+
+```xml
+<package format="3">
+  ...
+  <depend>rclcpp</depend>
+  <depend>rclpy</depend>
+  <depend>std_msgs</depend>
+  <depend>geometry_msgs</depend>
+  ...
+</package>
+```
+
+For information about `package.xml` you can referer to the official specifications on [www.ros.org](https://www.ros.org/reps/rep-0149.html).
+
+
+## The CMakeLits.txt 
+
+The `CMakeLits.txt` provide the instruction on how to build librairies and programes.
+Generally the file start with a project name and the importation of dependancies.
+The dependancies must be installed, reachable on the machine and with the appropriate version number.
+Then its define how to buid new resources (typically, librairies and programe/executable).
+And finally the element to install and where.
+
+For instance, all launchfile included in the `launch` driectory can be installed with the cmake command: 
+
+```sh
+# Install launch files.
+install(DIRECTORY
+  launch
+  DESTINATION share/${PROJECT_NAME}/
+)
+```
+
+Most of the primitive (`find_package`, `add_executable`, `install`) and macros (`PROJECT_NAME`, `REQUIRED`, ... ) are CMake primitives and macros.
+The `ament` tools provides some of primitive dedicated to [ROS build automation](https://docs.ros.org/en/foxy/How-To-Guides/Ament-CMake-Documentation.html).
+
+
+## Python scripts with Cmake
+
+Scripts are short executable code file, defining a ROS Node (in our context).
+
+The simplest way to include Python-based ROS node depending on a specific [Python Package](https://docs.python.org/3/glossary.html#term-package) is to use `install` instruction in `CMakeLists.txt`.
+Considering that your work is in a `scripts` directory and knowing that the ROS destination to make the ressource available for `ros2 run` is `lib` (...),
+the install instructions would looklike:
+
+```sh
+# Python scripts
+install( DIRECTORY scripts/myPythonPkg DESTINATION lib/${PROJECT_NAME})
+install( PROGRAMS scripts/myNode DESTINATION lib/${PROJECT_NAME})
+```
+
+Naturally, it suposes that you have a `myPythonPkg` directory with a `__init__.py` file inside
+and a `myNode` script file aside. 
+a minimal `myNode` can look-like : 
 
 ```python
+#!/usr/bin/python3
+import rclpy                 # core ROS2 client python librairie
+from rclpy.node import Node  # To manipulate ROS Nodes
+import myPythonPkg
+
 def main():
     rclpy.init()     # Initialize ROS2 client
-    myNode= Node('move_node') # Create a Node, with a name         
+    myNode= Node('blanc_node') # Create a Node, with a name         
 
     # Start the ros infinit loop with myNode.
-    while True :
-        rclpy.spin( myNode, timeout_sec=0.1 )
-        print("Running...")
+    rclpy.spin( myNode )
 
     # At the end, destroy the node explicitly.
     move.destroy_node()
@@ -120,265 +115,34 @@ if __name__ == '__main__':
     main()
 ```
 
-- You can try that a node is created :
+## Run your node:
 
-In a shell:
-
-```sh
-# In a 1st shell:
-python3 tuto_move.py
-
-# In a 2d shell:
-ros2 node list
-```
-
-## Move Script
-
-We want that our node publishes velocities at regular rate.
-
-To do that we have to import the type of mesage we wana to send.
-
-You have to add the next pieces of codes at the appropriate location in the `tuto_move.py` scrip:
-
-```python
-# Message to publish:
-from geometry_msgs.msg import Twist
-
-# Initialize a publisher:
-velocity_publisher = node.create_publisher(Twist, '/multi/cmd_nav', 10)
-
-# publish a msg
-velo = Twist()
-velocity_publisher.publish(velo)
-```
-
-- To verify that everythong goes right:
+Build your packages, from your workspace directory, and update your shell environement with `source`.
 
 ```sh
-# In a 1st shell:
-python3 tuto_move.py
-
-# In a 2d shell:
-ros2 node list
-
-# In a 2d shell:
-ros2 topic list
-
-# In a 2d shell:
-ros2 topic echo /multi/cmd_nav
-```
-
-Basicly it is 0 speed vectors. 
-To investigate what is a `Twist` you can ask to `ros2 interface` or search at the package location (`/opt/ros/iron/share`).
-
-```sh
-ros2 interface list | Twist
-ros2 interface show geometry_msgs/msg/Twist
-```
-
-```sh
-ls /opt/ros/iron/share
-cat /opt/ros/iron/share/geometry_msgs/msg/Twist.msg
-cat /opt/ros/iron/share/geometry_msgs/msg/Vector3.msg
-```
-
-In case of [nonhonolome mobile](https://en.wikipedia.org/wiki/Nonholonomic_system) ground robot,
-the control uses two speed values, one lienar (x) and one angular (z).
-
-For a circling behavior:
-
-```python
-# publish a msg
-velo = Twist()
-velo.linear.x= 0.2   # meter per second
-velo.angular.z= 0.14 # radian per second
-velocity_publisher.publish(velo)
-```
-
-Well your robot should move...
-
-To notice that you can also test your code on `turtlesim` by changing the name of the velocity topic.
-
-
-
-
-
-
-## Move node in a tutos pkg
-
-The idea now is to create a node that will control the robot accordingly to our expectation.
-For that we will create a python ros package and a new node in this package to send velocity in the appropriate topic.
-
-This tutorial is adapted from [official ros2 tutorial](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries.html).
-
-First create a new package `tuto_move` in the workspace directory of your workspace (ie. in `mb6-space`, aside of `pkg-tbot`).
-
-```console
-cd ros2_ws
-ros2 pkg create --build-type ament_python tuto_move
-```
-
-Inside your new package create a node `move_1m` at the appropriate location that will integrate the code for moving the tbot 1 meter forward.
-
-```console
-touch tuto_move/tuto_move/move_1m.py
-```
-
-Edit this new file with a very simple code in order to test the packages:
-
-```python
-def main():
-    print('Move move move !')
-
-if __name__ == '_main__' :
-    main()
-```
-
-For more detail on those manipulation, you can return to the [ros tutorial](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries/Writing-A-Simple-Py-Publisher-And-Subscriber.html).
-
-If you have troubles in understanding this python code: [functions](https://www.w3schools.com/python/python_functions.asp), [Top-level code environment](https://docs.python.org/3/library/__main__.html).
-
-Then, you have to inform ROS for the existence of your new node.
-In your package `setup.py` file, add your node in the `console_scripts` [list](https://www.w3schools.com/python/python_lists.asp) of the `entry_points` [dictionnary](https://www.w3schools.com/python/python_dictionaries.asp).
-The new list item would look like `'move_1m = tuto_move.move_1m:main'`.
-
-Actually, you have only one entry point:
-
-```python
-entry_points={
-    'console_scripts': [
-        'move_1m = tuto_move.move_1m:main'
-    ]
-}
-```
-
-Finally, you can test your node:
-
-
-
-
-
-
-
-
-
-
-## 
-
-class MoveNode(Node):
-
-    def __init__(self):
-        super().__init__('move')
-        self.velocity_publisher = self.create_publisher(Twist, '/multi/cmd_nav', 10)
-        self.timer = self.create_timer(0.1, self.activate) # 0.1 seconds to target a frequency of 10 hertz
-
-    def activate(self):
-        velo = Twist()
-        velo.linear.x = 0.2 # target a 0.2 meter per second velocity
-        self.velocity_publisher.publish(velo)
-
-def main(args=None):
-    rclpy.init(args=args)
-    move = MoveNode()
-
-    # Start the ros infinit loop with the move node.
-    rclpy.spin(move)
-
-    # At the end, destroy the node explicitly.
-    move.destroy_node()
-
-    # and shut the light down.
-    rclpy.shutdown()
-
-if __name__ == '__main__':
-    main()
-```
-
-If you have troubles in understanding this python code: [classes](https://www.w3schools.com/python/python_classes.asp).
-
-Then as we said earlier, expected message is a geometry_msgs twist, so composed by two attributes $(\mathit{linear},\ \mathit{angular})$ themselves composed by tree attributes $(x,\ y,\ z)$. But only `linear.x` and `angular.z` would have an effect.
-
-Finally, you also have to fill some information into your package configuration.
-Inform ROS that the package depends on `rclpy` (the **R**os **Cl**ient in **Py**thon) and `geometry_msgs`,
-by adding in the `package.xml` file (inside the `<package>` markup):
-
-```xml
-    <depend>rclpy</depend>
-    <depend>geometry_msgs</depend>
-```
-
-Ok, you just have to build and test your node (the tbot and the__ROS1__dynamic bridge activated).
-To notice that you can also test your code on `turtlesim` by changing the targeted topic name.
-
-
-
-
-
-
-
-```console
-cd ..
 colcon build
-source ./install/setup.sh
-ros2 run tuto_move move_1m
+source install/setup.bash
 ```
 
-## The code
+Normally, at this point a new package `tuto_kickoff` with `myNode` is reachable by `ros2`. 
 
-Next The goal is to create a process connecting a topic and publishing velocity as a twist message:
-
-```python
-import rclpy
-from rclpy.node import Node
-from geometry_msgs.msg import Twist
-
-class MoveNode(Node):
-
-    def __init__(self):
-        super().__init__('move')
-        self.velocity_publisher = self.create_publisher(Twist, '/multi/cmd_nav', 10)
-        self.timer = self.create_timer(0.1, self.activate) # 0.1 seconds to target a frequency of 10 hertz
-
-    def activate(self):
-        velo = Twist()
-        velo.linear.x = 0.2 # target a 0.2 meter per second velocity
-        self.velocity_publisher.publish(velo)
-
-def main(args=None):
-    rclpy.init(args=args)
-    move = MoveNode()
-
-    # Start the ros infinit loop with the move node.
-    rclpy.spin(move)
-
-    # At the end, destroy the node explicitly.
-    move.destroy_node()
-
-    # and shut the light down.
-    rclpy.shutdown()
-
-if __name__ == '__main__':
-    main()
+```sh
+ros2 run tuto_kickoff myNode
 ```
 
-<!-- If you have troubles in understanding this python code: [classes](https://www.w3schools.com/python/python_classes.asp). -->
-
-Then as we said earlier, expected message is a geometry_msgs twist, so composed by two attributes $(\mathit{linear},\ \mathit{angular})$ themselves composed by tree attributes $(x,\ y,\ z)$. But only `linear.x` and `angular.z` would have an effect.
-
-Finally, you also have to fill some information into your package configuration.
-Inform ROS that the package depends on `rclpy` (the **R**os **Cl**ient in **Py**thon) and `geometry_msgs`,
-by adding in the `package.xml` file (inside the `<package>` markup):
-
-```xml
-    <depend>rclpy</depend>
-    <depend>geometry_msgs</depend>
-```
-
-Ok, you just have to build and test your node (the tbot and the__ROS1__dynamic bridge activated).
-To notice that you can also test your code on `turtlesim` by changing the targeted topic name.
+The executed `myNode` script is the one in `install/tuto_kickoff/lib`.
+Any modification in your script files would requires a new `colcon build` for propagation in ros ecosystem.
 
 
+## Exercice:
+
+Add the node developped into the tutorial "_move the robot_" into your package `tuto_kickoff` as a `move_tbot` node.
+
+
+<!--
 ## Terminate the exercise
+
+- create a node `move_1m` at the appropriate location that will integrate the code for moving the tbot 1 meter forward.
 
 We want the `move_1m` to move the robot for one meter then stop automatically.
 To do that your node requires a new timer at the approximate time required to perform the movement with a new callback function to stop the robot.
@@ -405,3 +169,4 @@ Use this tool to define the `move_1m` [action](https://docs.ros.org/en/foxy/Tuto
 Use the action parameters to set the distance (1 meter per default).
 
 We want 3 new actions: `turn_left`, `turn_right` and `rear`.
+-->

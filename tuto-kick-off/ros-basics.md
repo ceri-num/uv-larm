@@ -49,7 +49,7 @@ Some responses to the questions you could have :
 
 Then follow the [Beginner Client-Libraries tutorials](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries.html) by focusing on **Python** language.
 
-In a first time, we encourage using **Python** language. The language is less efficient at execution time, but more easily to handle and to debug in pedagogical purpose.
+In a first time, we encourage using **Python** language. The language is less efficient at execution time, but more easily to handle and to debug for fast developments.
 If you have a strong knowledge of **C++** you can use this language.
 Otherwise, you have to always select and process for **Python** commands.
 

@@ -7,6 +7,7 @@
 
 * [Starting with ROS](tuto-kick-off/ros-basics.md)
 * [Move the Robot](tuto-kick-off/move.md)
+* [ROS Package](tuto-kick-off/package.md)
 * [Simulation](tuto-kick-off/simulation.md)
 * [Range Sensor](tuto-kick-off/range-sensor.md)
 * [Camera Driver](tuto-kick-off/camera-driver.md)
