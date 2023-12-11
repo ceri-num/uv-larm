@@ -56,13 +56,13 @@ You can validate with `view_frame` that the 2 frames ares connected and that las
 
 The first 3 numbers fix the translation. It is the potion of the `laser` center into `map`. The next 4 numbers give the rotation.
 In fact, the publisher generates a [TransfromStamped mesage](https://docs.ros.org/en/jade/api/geometry_msgs/html/msg/TransformStamped.html) and the rotation is based on quaternion definition (cf. [wikipedia](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation) for details...)
-Display the frames in _rviz2_ (add > axes > set reference frame) and play with different configurations (kill and restart the `static_transform_publisher`). 
+Display the frames in _rviz2_ (add > axes > set reference frame) and play with different configurations (kill and restart the `static_transform_publisher`).
 
 For a simple robot, it can be dozens of frames and it grows with robot parts (legs, arms).
 _ROS_ provide a tool (state publisher) to publish transform regarding how the frames are interconnected.
 The tbot launch file of the `tbot_start` package already starts state publisher based on a description of the tbot (kobuki robot in IMT Nord Europe configuration).
 
-Spot every thing but _rviz_ and 
+Spot every thing but _rviz_ and
 start the tbot launch file: `tbot_start minimal.launch.py`.
 Generate the frame graph (`view_frame`).
 
@@ -70,7 +70,7 @@ In basic configuration, the robot provides a first pose estimation in global `od
 So set the fixed frame in rviz on `odom`, the laser scans appear.
 Connect to tf topic and all the frame axis appear too.
 
-- Oficial documentation about tf2: [docs.ros.org](https://docs.ros.org/en/foxy/Tutorials/Intermediate/Tf2/Tf2-Main.html).
+- Oficial documentation about tf2: [docs.ros.org](https://docs.ros.org/en/iron/Tutorials/Intermediate/Tf2/Tf2-Main.html).
 
 Bonus: it is possible to visualize the robot in _rviz2_: add > robot description (select the approprieate topic).
 
@@ -79,7 +79,7 @@ Bonus: it is possible to visualize the robot in _rviz2_: add > robot description
 Naturally, _ROS_ also provide C++ and Python library to manipulate transformation and permits developers to get pose coordinate from a frame to another.
 
 The idea is to a declare a tf2 listener, an object that will subscribe to transform topics and maintain transformation data.
-Then it is possible to recompute pose coordinates in any connected frames.  
+Then it is possible to recompute pose coordinates in any connected frames.
 
 More on : [wiki.ros.org](http://wiki.ros.org/tf2/Tutorials/Writing%20a%20tf2%20listener%20%28Python%29).
 
@@ -133,7 +133,7 @@ The lookup is not guaranteed to achieve.
 It can fail in case of a gap in the transforms or obsolete transforms.
 In case of fail, an exception is thrown accordingly the python exception manager (more on [w3schools](https://www.w3schools.com/python/python_try_except.asp)).
 
-Finally, inside our `publish_goal` call back, getting a transform will look like: 
+Finally, inside our `publish_goal` call back, getting a transform will look like:
 
 ```python
     def publish_goal(self):
@@ -172,7 +172,7 @@ sudo apt install python3-tf2-geometry-msgs
 
 It remainds to only publish the local goal and integrate it in our ros package.
 
-## Permit autonomous navigation 
+## Permit autonomous navigation
 
 The goal poses itself is not interesting.
 The objective now is to include this code into the reactive move node in order to permits the robot to reach a decided destination, by avoiding obstacles.

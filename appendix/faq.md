@@ -9,7 +9,7 @@ and set `ROS_LOCALHOST_ONLY` to zero to permits several computer to share ROS re
 gedit ~/.bashrc
 ```
 
-add at the end of the file (with 42 for instance): 
+add at the end of the file (with 42 for instance):
 
 ```console
 export ROS_LOCALHOST_ONLY= 0
@@ -153,10 +153,10 @@ roslaunch realsense2_camera rs_camera.launch align_depth:=true
 export ROS_LOCALHOST_ONLY=1
 export PS1="\${ROS_VERSION:+(ros\$ROS_VERSION) }$PS1"
 alias rosify1="source /opt/ros/noetic/setup.bash && source $HOME/ros1_ws/devel/setup.bash"
-alias rosify2="source /opt/ros/foxy/setup.bash && source $HOME/ros2_ws/install/setup.bash"
+alias rosify2="source /opt/ros/iron/setup.bash && source $HOME/ros2_ws/install/setup.bash"
 ```
 
-## Flash kobuki 
+## Flash kobuki
 
 https://kobuki.readthedocs.io/en/devel/firmware.html#linux
 

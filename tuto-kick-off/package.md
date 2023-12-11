@@ -45,6 +45,7 @@ In the `package.xml` file :
 </package>
 ```
 
+Those lines inform ROS to make the targeted resources availlable at build and execution time.
 For information about `package.xml` you can referer to the official specifications on [www.ros.org](https://www.ros.org/reps/rep-0149.html).
 
 

@@ -38,23 +38,23 @@ The **Libraries** offer an API (Application Programming Interface) to developers
 
 ### Tools
 
-Start with [Beginner CLI-Tools tutorials](https://docs.ros.org/en/foxy/Tutorials/Beginner-CLI-Tools.html) to get familiar with ROS tools.
+Start with [Beginner CLI-Tools tutorials](https://docs.ros.org/en/iron/Tutorials/Beginner-CLI-Tools.html) to get familiar with ROS tools.
 
-Some responses to the questions you could have : 
+Some responses to the questions you could have :
 
 - Yes we are in a classroom so we will work with : `ROS_LOCALHOST_ONLY=1`. You can check your bash configuration by editing the hidden file at the user home directory: `get ~/.bashrc &`
 - `bot` user is sudoer, and the password is `bot`.
 
 ### Libraries
 
-Then follow the [Beginner Client-Libraries tutorials](https://docs.ros.org/en/foxy/Tutorials/Beginner-Client-Libraries.html) by focusing on **Python** language.
+Then follow the [Beginner Client-Libraries tutorials](https://docs.ros.org/en/iron/Tutorials/Beginner-Client-Libraries.html) by focusing on **Python** language.
 
 In a first time, we encourage using **Python** language. The language is less efficient at execution time, but more easily to handle and to debug for fast developments.
 If you have a strong knowledge of **C++** you can use this language.
 Otherwise, you have to always select and process for **Python** commands.
 
 Also, you can work with classical text editor (gedit on Ubuntu), but we encourage you to use `code` (VisualStudio Code) as development environment.
-You can open code by specifiing a workspace from your terminal (and then open as many terminal you need in `code` directly): 
+You can open code by specifiing a workspace from your terminal (and then open as many terminal you need in `code` directly):
 
 ```console
 cd

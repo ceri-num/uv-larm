@@ -20,15 +20,17 @@ dpkg -l | grep gazebo
 You should have at least the following packages:
 
 ```
-ii  gazebo11                                        11.12.0-1~focal                      amd64        Open Source Robotics Simulator
-ii  gazebo11-common                                 11.12.0-1~focal                      all          Open Source Robotics Simulator - Shared files
-ii  gazebo11-plugin-base                            11.12.0-1~focal                      amd64        Open Source Robotics Simulator - base plug-ins
-ii  libgazebo11:amd64                               11.12.0-1~focal                      amd64        Open Source Robotics Simulator - shared library
-ii  ros-foxy-gazebo-dev                             3.5.3-1focal.20220829.174620         amd64        Provides a cmake config for the default version of Gazebo for the ROS distribution.
-ii  ros-foxy-gazebo-msgs                            3.5.3-1focal.20221012.224922         amd64        Message and service data structures for interacting with Gazebo from ROS2.
-ii  ros-foxy-gazebo-plugins                         3.5.3-1focal.20221021.150213         amd64        Robot-independent Gazebo plugins for sensors, motors and dynamic reconfigurable components.
-ii  ros-foxy-gazebo-ros                             3.5.3-1focal.20221013.010602         amd64        Utilities to interface with Gazebo through ROS.
-ii  ros-foxy-gazebo-ros-pkgs                        3.5.3-1focal.20221021.154553         amd64        Interface for using ROS with the Gazebo simulator.
+ii  gazebo                                          11.10.2+dfsg-1                          amd64        Open Source Robotics Simulator - Binaries
+ii  gazebo-common                                   11.10.2+dfsg-1                          all          Open Source Robotics Simulator - Shared files
+ii  gazebo-plugin-base                              11.10.2+dfsg-1                          amd64        Open Source Robotics Simulator - base plug-ins
+ii  libgazebo-dev                                   11.10.2+dfsg-1                          amd64        Open Source Robotics Simulator - Development Files
+ii  libgazebo11:amd64                               11.10.2+dfsg-1                          amd64        Open Source Robotics Simulator - shared library
+ii  ros-iron-gazebo-dev                             3.7.0-3jammy.20230622.191804            amd64        Provides a cmake config for the default version of Gazebo for the ROS distribution.
+ii  ros-iron-gazebo-msgs                            3.7.0-3jammy.20231117.090251            amd64        Message and service data structures for interacting with Gazebo from ROS2.
+ii  ros-iron-gazebo-plugins                         3.7.0-3jammy.20231117.111548            amd64        Robot-independent Gazebo plugins for sensors, motors and dynamic reconfigurable components.
+ii  ros-iron-gazebo-ros                             3.7.0-3jammy.20231117.104944            amd64        Utilities to interface with Gazebo through ROS.
+ii  ros-iron-gazebo-ros-pkgs                        3.7.0-3jammy.20231117.114324            amd64        Interface for using ROS with the Gazebo simulator.
+ii  ros-iron-turtlebot3-gazebo                      2.2.5-4jammy.20231117.114359            amd64        Gazebo simulation package for the TurtleBot3
 ```
 
 Install missing packages using:
@@ -39,24 +41,33 @@ sudo apt install <pakage_name>
 
 ## Launch your first Gazebo Simulation
 
-{% hint style="warning" %}
-Next, we assume that `~/ros2_ws/pkg-tbot` is correctly installed
-{% endhint %}
+If `$ROS_WORKSPACE/pkg-tsim` is *not* installed:
 
-You can launch a preconfigured simulation:
+```console
+cd $ROS_WORKSPACE
+git clone https://bitbucket.org/imt-mobisyst/pkg-tsim
+colcon build
+source ~/.bashrc
+```
+
+Then, you can launch a preconfigured simulation:
 
 ```console
 ros2 launch tbot_sim challenge-1.launch.py
 ```
 
-Look at the content of this launch file [here](https://bitbucket.org/imt-mobisyst/mb6-tbot/src/master/tbot_sim/launch/challenge-1.launch.py).
+Look at the content of this launch file [here](https://bitbucket.org/imt-mobisyst/pkg-tsim/src/master/tbot_sim/launch/challenge-1.launch.py).
 We can see that Gazebo/ROS supports loading a world file describing the simulation environment and spawn elements such as robots.
 This simulation spawns a robot configured like a `tbot` i.e. it is equipped with a laser range finder and a camera (kinect).
 The interaction with the simulation will operate through ROS topics as it would be with a real robot with real equipments.
 
-> Question: Which topics are available i.e published by Gazebo?
+## Quiz on challenge 1
 
-Hint: use `rqt_graph` to see the graph of all ROS nodes and topics ([doc](https://docs.ros.org/en/foxy/Concepts/About-RQt.html)).
+While the challenge 1 simulation is running:
+
+> Question: which topics are available i.e published by Gazebo?
+
+Hint: use `rqt_graph` to see the graph of all ROS nodes and topics ([doc](https://docs.ros.org/en/iron/Concepts/About-RQt.html)).
 
 > Question: In which topic are laser scans published?
 
@@ -93,7 +104,7 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
 Create a new package (python or cmake as you want) `tuto_sim` in your _ROS2_ workspace and create a launch file that starts the apropriate configration: the `challenge-1`, a configured `rviz2` displaying laser scans and the `teleop`.
 
-All the information you need are in the tutorials on [docs.ros.org](https://docs.ros.org/en/foxy/Tutorials/Intermediate/Launch/Launch-Main.html).
+All the information you need are in the tutorials on [docs.ros.org](https://docs.ros.org/en/iron/Tutorials/Intermediate/Launch/Launch-Main.html).
 
 ## Move the simulated robot using your code
 

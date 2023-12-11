@@ -75,7 +75,7 @@ The new list item would look like `'scan_echo = tuto_move.scan_echo:main'`.
 
 Test your `scan_echo` node.
 
-The idea is to connect [sensor_msgs LaserScan](https://docs.ros2.org/foxy/api/sensor_msgs/msg/LaserScan.html).
+The idea is to connect [sensor_msgs LaserScan](https://docs.ros2.org/iron/api/sensor_msgs/msg/LaserScan.html).
 That for, add dependency in the package configuration (`package.xml`)and import the msgs class in your python scrip.
 
 Test your `scan_echo` node.
@@ -140,7 +140,7 @@ sample= [ [ round(p[0], 2), round(p[1], 2) ] for p in  obstacles[10:20] ]
 self.get_logger().info( f" obs({len(obstacles)}) ...{sample}..." )
 ```
 
-Finally, it is possible to publish this result in a [pointCloud](https://docs.ros2.org/foxy/api/sensor_msgs/msg/PointCloud.html) message and to visualize it on rviz2 in a superposition of the LaserScan.
+Finally, it is possible to publish this result in a [pointCloud](https://docs.ros2.org/iron/api/sensor_msgs/msg/PointCloud.html) message and to visualize it on rviz2 in a superposition of the LaserScan.
 
 _PointCloud_ is based on `geometry_msgs.Point32` with float coordinate.
 The creation of _Point32_ will require explicite cast.
