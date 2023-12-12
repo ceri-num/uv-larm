@@ -84,7 +84,7 @@ rviz2
 
 Be carreful, ensure that `Global Option` / `Fixed frame` is correctly set to `base_link`.
 
-> Question: why is this important? (hint: check your `tf` using `ros2 run tf2_tools view_frames.py`)
+> Question: why is this important? (hint: check your `tf` using `ros2 run tf2_tools view_frames`)
 
 You can also display the `tf` in `rviz2` directly.
 
@@ -108,4 +108,5 @@ All the information you need are in the tutorials on [docs.ros.org](https://docs
 
 ## Move the simulated robot using your code
 
-In the previous `tuto_move`, you already work on different nodes (`move_1m.py`, `turn_left_45`, `turn_right_45`, `rear_0.5m`) that makes the real robot moving. Without modify the code of these nodes, use them to move the simulated robot.
+In the previous `tuto_move`, you worked `tuto_move.py` that makes the real robot moving.
+Without modifying this script, launch it to make the simulated robot move.
