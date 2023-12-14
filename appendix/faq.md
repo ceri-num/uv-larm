@@ -145,6 +145,9 @@ roslaunch realsense2_camera rs_camera.launch align_depth:=true
 | `rosrun tf view_frames` | `ros2 run tf2_tools view_frames` |
 | | `colcon build --packages-select my_package` |
 | | `colcon build --symlink-install` |
+| | `colcon build --paths path/to/some/package other/path/to/other/packages/*` |
+| | `colcon build --event-handlers console_direct+ --cmake-args -DCMAKE_VERBOSE_MAKEFILE=ON  --packages-select my_package` |
+
 
 ## `.bashrc` ROS additions
 
@@ -160,3 +163,15 @@ alias rosify2="source /opt/ros/iron/setup.bash && source $HOME/ros2_ws/install/s
 
 https://kobuki.readthedocs.io/en/devel/firmware.html#linux
 
+## ROS2 Package with custom Python Library
+
+- suppose we are in packge `my-package`
+- Inside the package folder `my-package` create a folder for my library. For example `libs/my_lib`
+- Inside `myLib` folder add `__init__.py` file that imports resources from other python files.
+-  Add the `CMakeList.txt`
+```sh
+install( DIRECTORY libs/my_lib DESTINATION lib/${PROJECT_NAME})
+```
+- build the package `colcon build`
+
+More on [ros2 tutorial by readthedocs](https://ros2-tutorial.readthedocs.io/en/latest/create_python_library.html):
