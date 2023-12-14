@@ -50,9 +50,9 @@ Those lines inform ROS to make the targeted resources available at build and exe
 For information about `package.xml` you can refer to the official specifications on [www.ros.org](https://www.ros.org/reps/rep-0149.html).
 
 
-## The CMakeLits.txt 
+## The CMakeList.txt 
 
-The `CMakeLits.txt` provide instructions on how to build libraries and programs.
+The `CMakeList.txt` provide instructions on how to build libraries and programs.
 Generally, the file starts with a project name and the importation of dependencies.
 The dependencies must be installed, reachable on the machine and with the appropriate version number.
 Then its define how to build new resources (typically, libraries and programs/executable).
