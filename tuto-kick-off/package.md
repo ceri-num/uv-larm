@@ -140,7 +140,6 @@ Any modification in your script files would require a new `colcon build` for pro
 
 Add the node developed into the tutorial "_move the robot_" into your package `tuto_kickoff` as a `move_tbot`s node.
 
-
 <!--
 ## Terminate the exercise
 
