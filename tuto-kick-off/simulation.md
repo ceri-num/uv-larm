@@ -102,7 +102,8 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 
 ## tuto_sim
 
-Create a new package (python or cmake as you want) `tuto_sim` in your _ROS2_ workspace and create a launch file that starts the apropriate configration: the `challenge-1`, a configured `rviz2` displaying laser scans and the `teleop`.
+Create a launch file that starts the apropriate configration: the `challenge-1`, a configured `rviz2` displaying laser scans and the `teleop`.
+We will prefer YAML format for launch file. Typically: `tutosim_launch.yaml`
 
 All the information you need are in the tutorials on [docs.ros.org](https://docs.ros.org/en/iron/Tutorials/Intermediate/Launch/Launch-Main.html).
 

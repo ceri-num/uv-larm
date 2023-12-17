@@ -7,18 +7,17 @@
 
 * [Starting with ROS](tuto-kick-off/ros-basics.md)
 * [Move the Robot](tuto-kick-off/move.md)
-* [ROS Package](tuto-kick-off/package.md)
 * [Simulation](tuto-kick-off/simulation.md)
 * [Range Sensor](tuto-kick-off/range-sensor.md)
 * [Camera Driver](tuto-kick-off/camera-driver.md)
 
-
 ## Tuto. 02 - Level-up
 
+* [ROS Package](tuto-level-up/package.md)
+* [Node with Class](tuto-level-up/class.md)
 * [S.L.A.M](tuto-level-up/slam.md)
 * [Move Forward](tuto-level-up/transform.md)
 * [Vision](tuto-level-up/vision.md)
-
 
 ## Tuto. 03 - Mastering
 

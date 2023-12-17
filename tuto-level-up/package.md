@@ -104,7 +104,7 @@ def main():
     rclpy.spin( myNode )
 
     # At the end, destroy the node explicitly.
-    move.destroy_node()
+    myNode.destroy_node()
 
     # and shut the light down.
     rclpy.shutdown()
