@@ -1,13 +1,13 @@
 # Linux and ROS Basics
 
 The goal of this tutorial is to set up a workspace to control robots and to develop robotics programs.
-We choose to work with ROS (the most used open middleware for robotics) on a Linux-Ubuntu computer (which are the best supported configuration).
+We choose to work with ROS (the most used open middleware for robotics) on a Linux-Ubuntu computer (which is the best supported configuration).
 
 This tutorial supposes that you have an Ubuntu-Like 22.04 computers with configured Python and C++ APIs.
-The tutorial relies on [ROS2 Inron](https://docs.ros.org/en/iron).
+The tutorial relies on [ROS2 Iron](https://docs.ros.org/en/iron).
 
 
-## Play with Linux.
+## Play with Linux
 
 Ubuntu is a distribution Linux (Operating System + Window Managment + Tools) derived from Debian distribution.
 
