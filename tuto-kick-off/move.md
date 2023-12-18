@@ -30,10 +30,13 @@ cd ..         # return on your ros workspace (mb6_space)
 colcon build  # build...
 ```
 
+ATTENTION all your command as `colcon build` need to be executed from you ROS workspace.
+The root directory of your ROS project (i.e. `mb6-space` here).
+
 - Update your shell environment variables:
 
 ```console
-source bin/run-command.bash
+source bin/run-commands.bash
 ```
 
 - Connect the tbot base, the laser and launch the control nodes (a ros launch file permits to start a collection of nodes with a desired configuration):
@@ -143,14 +146,14 @@ You have to add the next pieces of codes at the appropriate location in the `tut
 from geometry_msgs.msg import Twist
 
 # Initialize a publisher:
-velocity_publisher = node.create_publisher(Twist, '/multi/cmd_nav', 10)
+velocity_publisher = myNode.create_publisher(Twist, '/multi/cmd_nav', 10)
 
 # publish a msg
 velo = Twist()
 velocity_publisher.publish(velo)
 ```
 
-- To verify that everythong goes right:
+- To verify that everything is right:
 
 ```sh
 # In a 1st shell:
@@ -166,7 +169,7 @@ Basicly it echoes 0 speed vectors.
 To investigate what is a `Twist` you can ask to `ros2 interface` or search at the package location (`/opt/ros/iron/share`) (or search the documentations).
 
 ```sh
-ros2 interface list | Twist
+ros2 interface list | grep Twist
 ros2 interface show geometry_msgs/msg/Twist
 ```
 
@@ -190,4 +193,4 @@ velocity_publisher.publish(velo)
 ```
 
 At this point, your robot should move...
-To notice that you can also test your code on `turtlesim` by changing the name of the velocity topic.
+Notice that you can also test your code on `turtlesim` by changing the name of the velocity topic.
