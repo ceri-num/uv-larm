@@ -36,10 +36,10 @@ ROS driver for hokuyo laser range is embedded in the urg_node package
 ros2 run urg_node urg_node_driver --ros-args -p serial_port:=/dev/ttyACM0
 ```
 
-Spécifyng a specific `serial_port` require to activate arguments with `--ros-args` and to specify a parameter with `-p`. 
-All this is specific to [ROS parameters](https://docs.ros.org/en/iron/Concepts/Basic/About-Parameters.html).
+Specifying the `serial_port` file requires to activate arguments with `--ros-args` and pass a file path using `-p` parameter command line flag. 
+All of this is specific to [ROS parameters](https://docs.ros.org/en/iron/Concepts/Basic/About-Parameters.html).
 
-From that point data are streamed in `\scan` topic.
+From that point data are streamed in `/scan` topic.
 It is possible to check it with `ros2 topic list` and `ros2 topic echo scan`.
 
 Now you can visualize it on _rviz2_ program.
@@ -53,14 +53,15 @@ Stop everything.
 
 Perform the same exercise to visualize simulated LaserScan from Gazebo simulator:
 
+```
 ros2 launch tbot_sim challenge-1.launch.py
+```
 
-Attention the scan topic and/or the laser-scan frame could change.
+Warning: the scan topic and/or the laser-scan frame can have different names.
 
+## A first node logging the scan
 
-## A first node logging the scan.
-
-First we will initialize a node `scan_echo`.
+First, we will initialize a node `scan_echo`.
 
 Edit a new file `scan_echo.py` with a very simple code :
 
@@ -78,11 +79,11 @@ Test your `scan_echo` node:
 python3 scan_echo.py
 ```
 
-In a first version, the idea is to:
+In a first version, you should:
 
 - Initialize the _rosclient_ (rclpy)
 - Connect [sensor_msgs LaserScan](https://docs.ros2.org/iron/api/sensor_msgs/msg/LaserScan.html).
-- Log continusly the received data
+- Log continuously the received data
 
 ```python
 #!python3

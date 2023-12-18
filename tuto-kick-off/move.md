@@ -153,7 +153,7 @@ velo = Twist()
 velocity_publisher.publish(velo)
 ```
 
-- To verify that everythong goes right:
+- To verify that everything is right:
 
 ```sh
 # In a 1st shell:
@@ -169,7 +169,7 @@ Basicly it echoes 0 speed vectors.
 To investigate what is a `Twist` you can ask to `ros2 interface` or search at the package location (`/opt/ros/iron/share`) (or search the documentations).
 
 ```sh
-ros2 interface list | Twist
+ros2 interface list | grep Twist
 ros2 interface show geometry_msgs/msg/Twist
 ```
 
@@ -193,4 +193,4 @@ velocity_publisher.publish(velo)
 ```
 
 At this point, your robot should move...
-To notice that you can also test your code on `turtlesim` by changing the name of the velocity topic.
+Notice that you can also test your code on `turtlesim` by changing the name of the velocity topic.
