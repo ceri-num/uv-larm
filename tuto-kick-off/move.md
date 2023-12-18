@@ -110,7 +110,7 @@ def main():
         print("Running...")
 
     # At the end, destroy the node explicitly.
-    move.destroy_node()
+    myNode.destroy_node()
 
     # and shut the light down.
     rclpy.shutdown()
@@ -146,7 +146,7 @@ You have to add the next pieces of codes at the appropriate location in the `tut
 from geometry_msgs.msg import Twist
 
 # Initialize a publisher:
-velocity_publisher = node.create_publisher(Twist, '/multi/cmd_nav', 10)
+velocity_publisher = myNode.create_publisher(Twist, '/multi/cmd_nav', 10)
 
 # publish a msg
 velo = Twist()

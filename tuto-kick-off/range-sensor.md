@@ -96,12 +96,12 @@ def scan_callback(self, scanMsg):
     global rosNode
     rosNode.get_logger().info( f"scan:\n{scanMsg}" )
 
-rclpy.init(args=args)
+rclpy.init()
 rosNode= Node('scan_interpreter')
 rosNode.create_subscription( LaserScan, 'scan', scan_callback, 10)
 
 while True :
-    rclpy.spin_once( scanInterpret )
+    rclpy.spin_once( rosNode )
 scanInterpret.destroy_node()
 rclpy.shutdown()
 ```
