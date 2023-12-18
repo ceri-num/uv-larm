@@ -30,10 +30,13 @@ cd ..         # return on your ros workspace (mb6_space)
 colcon build  # build...
 ```
 
+ATTENTION all your command as `colcon build` need to be executed from you ROS workspace.
+The root directory of your ROS project (i.e. `mb6-space` here).
+
 - Update your shell environment variables:
 
 ```console
-source bin/run-command.bash
+source bin/run-commands.bash
 ```
 
 - Connect the tbot base, the laser and launch the control nodes (a ros launch file permits to start a collection of nodes with a desired configuration):
