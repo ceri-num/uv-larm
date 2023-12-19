@@ -3,7 +3,7 @@
 The challenge aims at making learners develop a first robotic project.
 In the end, both the execution of the proposed solution and the source code with documentation will be evaluated.
 
-At the end, the main objectives of the project consist of:
+The main objectives of the project consist of:
 
 - Control a robot in a cluttered environment
 - Map a static environment
@@ -11,7 +11,7 @@ At the end, the main objectives of the project consist of:
 - Estimate the position of all the **Nuka-Cola** in the map
 - Optimize the exploration strategy
 
-<https://www.myminifactory.com/object/3d-print-fallout-nuka-cola-15616>
+<!-- <https://www.myminifactory.com/object/3d-print-fallout-nuka-cola-15616> -->
 
 ![](https://cdn.myminifactory.com/assets/object-assets/579fca2a374fc/images/720X720-7a4418213f3ce580bb21f641c36650bd5eb8cdb3.jpg)
 
@@ -22,11 +22,11 @@ but first the students have to structure their works environment...
 ## Create a group
 
 As a first move, you have to constitute a group of 2 developers.
-Record the created group on a shared document: [2022-2023 groups](https://partage.imt.fr/index.php/s/zkQbXMsrWdp2RQd)
+Record the created group on a shared document: [2022-2023 groups](https://partage.imt.fr/index.php/s/CJgSK6W8izdZKDi)
 
 - Create on items in the enumerate list per groups
 - Record the name of the machine you use and the names of each member of the group. 
-- The number of the line matches the number identifying a group starting from $2.$. The group gets a unique number it can use as `ROS_DOMAIN_ID`.
+- The number of the line matches the number identifying a group starting from $1.$. The group gets a unique number it can use as `ROS_DOMAIN_ID`.
 
 
 ## Generate a working environment
@@ -56,10 +56,10 @@ For this lecture, you will use `github` or `gitlab.com`, no other solution would
 
 Your repository has to match a meta **ROS-package** (i.e. a directory composed by other directories each of them matching a ros-package).
 The repository would be cloned aside of the larm packages (`pkg-tbot`).
-So clone your repository in the `ros2_ws` workspace and then create as many packages you want.
+So clone your repository in the ros workspace `mb6-space` and then create as many packages you want inside.
 
 ```console
-cd ~/ros2_ws
+cd ~/mb6-space
 git clone github/uvlarm-machinename.git
 ```
 
@@ -82,7 +82,7 @@ git pull
 git push
 ```
 
-All the other developers can now `pull` the new version.... 
+All the other developers can now `pull` the new version (typically, in the Develter computers).... 
 
 
 ### New package:
@@ -91,7 +91,7 @@ Then you can go inside your repository and create a new ros package:
 
 ```console
 cd larm-machinename
-ros2 pkg create ...
+ros2 pkg create ... # cf. package tutorial
 ```
 
 A new directory `my_amasing_pkg` appears:
@@ -104,9 +104,10 @@ git commit -am "Initializing my_amasing_pkg"
 ```
 
 Strange, nothing changes on my `github` repo.
-The git repo on `github` is a different entity than the one on your computer. You have to manually synchronize then when you want to share your work with the command `pull`  and `push`. Try-it.
+The git repo on `github` is a different entity than the one on your computer.
+You have to manually synchronize then when you want to share your work with the command `pull`  and `push`. Try-it.
 
-Now you can `commit`, `pull`, `push` as often as possible (and `add` if you are some new files...).
+Now you can `commit`, `pull`, `push` as often as possible (and `add` if you have some new files...).
 
 
 ## Build your package
@@ -114,14 +115,16 @@ Now you can `commit`, `pull`, `push` as often as possible (and `add` if you are 
 On a fresh machine, you can clone then build your new ros-package:
 
 ```console
-mkdir mysuper_ws
-cd mysuper_ws
+mkdir mysuper_ros_workspace
+cd mysuper_ros_workspace
 mkdir src
 git clone github/repo.git src/grp-color
 colcon build
 ```
 
-To notice that `claocn build` have to be performed from your workspace directory (`mysuper_ws` in this example, `ros2_ws` to get _tbot_ resources). 
+To notice that `colconn build` have to be performed from your workspace directory (`mysuper_ros_workspace` in this example, `mb6-space` in this courses aside of _tbot_ and _tsim_ packages).
+
+<!--
 To relax this constraint you can add a simple shell script in your working directory...
 
 ```consol
@@ -141,7 +144,8 @@ colcon build
 
 Now a `./build` performed from the root directory of your repository would do the job (you can `add`, `commit`, `pull`, `push`, `build` from the same location).
 
-<!--
+< ! - - 
+
 ## Agile software development
 
 Agile software development aims at breaking with traditional project management by preferring:

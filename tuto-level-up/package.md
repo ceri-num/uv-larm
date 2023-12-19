@@ -135,7 +135,6 @@ ros2 run tuto_kickoff myNode
 The executed `myNode` script is the one in `install/tuto_kickoff/lib`.
 Any modification in your script files would require a new `colcon build` for propagation in ros ecosystem.
 
-
 ## Exercice:
 
 Add the node developed into the tutorial "_move the robot_" into your package `tuto_kickoff` as a `move_tbot`s node.

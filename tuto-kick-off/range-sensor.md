@@ -155,7 +155,7 @@ aPoint.z= (float)(0)
 ## Infinit Safe Move
 
 Create a new node `reactive_move` that will command the robot velocities in a way that the robot will avoid the obstacles.
-Develop your solution based on the simulation (the tbot multiplexer sends command both on robot and simulation topic. So use `tbot_pytool multiplexer` and use `multi/cmd_navi` to publish in).
+The node subscribe to scan data and publish velocities.
 
 1. Determine a rectangle in front of the robot and get the point cloup obstacles in this rectangle.
 2. If an obstacle is present in the right part of the rectangle, turn left.
@@ -164,7 +164,4 @@ Develop your solution based on the simulation (the tbot multiplexer sends comman
 5. Calibrate the rectangle configuration and the speeds to get a coherent and safe control.
 6. Add rules to better control the robot in a dead end scenario
 
-Test your solution on a real robot.
-
-IMPORTANT - For a better security, implement the control function independently from the scan callback and activate your control at a desired frequency by using a timer.
-Stop the robot if no scan was arrived the last second and test it by disconnecting the laser.
+When it is working in simulation, test your solution on a real robot.
