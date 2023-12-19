@@ -44,10 +44,12 @@ sudo apt install <pakage_name>
 If `$ROS_WORKSPACE/pkg-tsim` is *not* installed:
 
 ```console
+export ROS_WORKSPACE=$HOME/ros_ws
+mkdir $ROS_WORKSPACE
 cd $ROS_WORKSPACE
 git clone https://bitbucket.org/imt-mobisyst/pkg-tsim
 colcon build
-source ~/.bashrc
+source $ROS_WORKSPACE/install/setup.bash
 ```
 
 Then, you can launch a preconfigured simulation:
@@ -103,9 +105,31 @@ ros2 run teleop_twist_keyboard teleop_twist_keyboard
 ## tuto_sim
 
 Create a launch file that starts the apropriate configration: the `challenge-1`, a configured `rviz2` displaying laser scans and the `teleop`.
-We will prefer YAML format for launch file. Typically: `tutosim_launch.yaml`
+We will prefer YAML format for launch file. 
 
-All the information you need are in the tutorials on [docs.ros.org](https://docs.ros.org/en/iron/Tutorials/Intermediate/Launch/Launch-Main.html).
+All the information you need are in the tutorials :
+- [Launch file documentation](https://docs.ros.org/en/iron/Tutorials/Intermediate/Launch/Launch-Main.html)
+- [Launch examples](https://docs.ros.org/en/iron/How-To-Guides/Launch-file-different-formats.html) 
+
+Create `$ROS_WORKSPACE/pkg-tsim/tbot_sim/launch/tutosim_launch.yaml`
+Add this code into this file to:
+```yaml
+launch:
+
+- include:
+    file: "$(find-pkg-share tbot_sim)/launch/challenge-1.launch.py"
+
+- node:
+    pkg: "rviz2"
+    exec: "rviz2"
+    name: "rviz2"
+
+- executable:
+    cmd: gnome-terminal --tab -e 'ros2 run  teleop_twist_keyboard teleop_twist_keyboard'
+```
+
+Exercise: modify this launch file so that `rviz` loads a saved configuration file when it starts. This configuration file should add the laser data, ...
+
 
 ## Move the simulated robot using your code
 

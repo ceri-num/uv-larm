@@ -11,7 +11,7 @@ Typically a `tuto_kickoff` package:
 
 ```sh
 ros2 pkg create --build-type ament_cmake tuto_kickoff
-colcon build --event-handlers console_direct+ --cmake-args -DCMAKE_VERBOSE_MAKEFILE=ON --packages-select tuto_kickoff
+colcon build --packages-select tuto_kickoff
 ```
 
 Package creation generate files identifying `tuto_kickoff` directory as a ROS package source.
@@ -82,19 +82,16 @@ the install instructions would look-like:
 
 ```sh
 # Python scripts
-install( DIRECTORY scripts/myPythonPkg DESTINATION lib/${PROJECT_NAME})
 install( PROGRAMS scripts/myNode DESTINATION lib/${PROJECT_NAME})
 ```
 
-Naturally, it supposes that you have a `myPythonPkg` directory with a `__init__.py` file inside
-and a `myNode` script file aside. 
-a minimal `myNode` can look-like : 
+Naturally, it supposes that you have  `myNode` script file aside. 
+A minimal `myNode` can look-like : 
 
 ```python
 #!/usr/bin/python3
 import rclpy                 # core ROS2 client python library
 from rclpy.node import Node  # To manipulate ROS Nodes
-import myPythonPkg
 
 def main():
     rclpy.init()     # Initialize ROS2 client

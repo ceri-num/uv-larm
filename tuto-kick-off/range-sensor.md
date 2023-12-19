@@ -93,7 +93,7 @@ from sensor_msgs.msg import LaserScan
 
 rosNode= None
 
-def scan_callback(self, scanMsg):
+def scan_callback(scanMsg):
     global rosNode
     rosNode.get_logger().info( f"scan:\n{scanMsg}" )
 
