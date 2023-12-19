@@ -44,10 +44,12 @@ sudo apt install <pakage_name>
 If `$ROS_WORKSPACE/pkg-tsim` is *not* installed:
 
 ```console
+export ROS_WORKSPACE=$HOME/ros_ws
+mkdir $ROS_WORKSPACE
 cd $ROS_WORKSPACE
 git clone https://bitbucket.org/imt-mobisyst/pkg-tsim
 colcon build
-source ~/.bashrc
+source $ROS_WORKSPACE/install/setup.bash
 ```
 
 Then, you can launch a preconfigured simulation:
