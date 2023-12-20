@@ -14,7 +14,6 @@
 
 ## Tuto. 02 - Level-up
 
-* [ROS Package](tuto-level-up/package.md)
 * [Node with Class](tuto-level-up/class.md)
 * [S.L.A.M](tuto-level-up/slam.md)
 * [Move Forward](tuto-level-up/transform.md)
