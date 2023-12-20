@@ -63,6 +63,7 @@ We can see that Gazebo/ROS supports loading a world file describing the simulati
 This simulation spawns a robot configured like a `tbot` i.e. it is equipped with a laser range finder and a camera (kinect).
 The interaction with the simulation will operate through ROS topics as it would be with a real robot with real equipments.
 
+
 ## Quiz on challenge 1
 
 While the challenge 1 simulation is running:
@@ -72,6 +73,7 @@ While the challenge 1 simulation is running:
 Hint: use `rqt_graph` to see the graph of all ROS nodes and topics ([doc](https://docs.ros.org/en/iron/Concepts/About-RQt.html)).
 
 > Question: In which topic are laser scans published?
+
 
 ## Visualizing data
 
@@ -94,6 +96,7 @@ You can also display the `tf` in `rviz2` directly.
 
 ![rviz2](../files/SLAM/rviz_laserscan.png)
 
+
 ## Controlling the Simulated Robot
 
 Launch a simple node to control the simulated robot using keyboard:
@@ -113,6 +116,7 @@ All the information you need are in the tutorials :
 
 Create `$ROS_WORKSPACE/pkg-tsim/tbot_sim/launch/tutosim_launch.yaml`
 Add this code into this file to:
+
 ```yaml
 launch:
 
@@ -130,8 +134,3 @@ launch:
 
 Exercise: modify this launch file so that `rviz` loads a saved configuration file when it starts. This configuration file should add the laser data, ...
 
-
-## Move the simulated robot using your code
-
-In the previous `tuto_move`, you worked `tuto_move.py` that makes the real robot moving.
-Without modifying this script, launch it to make the simulated robot move.

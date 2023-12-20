@@ -152,17 +152,3 @@ aPoint.x= (float)(math.cos(angle) * aDistance)
 aPoint.y= (float)(math.sin( angle ) * aDistance)
 aPoint.z= (float)(0)
 ```
-
-## Infinit Safe Move
-
-Create a new node `reactive_move` that will command the robot velocities in a way that the robot will avoid the obstacles.
-The node subscribe to scan data and publish velocities.
-
-1. Determine a rectangle in front of the robot and get the point cloup obstacles in this rectangle.
-2. If an obstacle is present in the right part of the rectangle, turn left.
-3. If an obstacle in present in the left part of the rectangle, turn right.
-4. Otherwise move in straight line.
-5. Calibrate the rectangle configuration and the speeds to get a coherent and safe control.
-6. Add rules to better control the robot in a dead end scenario
-
-When it is working in simulation, test your solution on a real robot.

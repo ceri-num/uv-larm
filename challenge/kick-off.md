@@ -109,7 +109,6 @@ You have to manually synchronize then when you want to share your work with the 
 
 Now you can `commit`, `pull`, `push` as often as possible (and `add` if you have some new files...).
 
-
 ## Build your package
 
 On a fresh machine, you can clone then build your new ros-package:
