@@ -140,7 +140,8 @@ sample= [ [ round(p[0], 2), round(p[1], 2) ] for p in  obstacles[10:20] ]
 self.get_logger().info( f" obs({len(obstacles)}) ...{sample}..." )
 ```
 
-Finally, it is possible to publish this result in a [pointCloud](https://docs.ros2.org/iron/api/sensor_msgs/msg/PointCloud.html) message and to visualize it on _rviz2_ in a superposition of the LaserScan.
+Finally, it is possible to publish this result in a `PointCloud` message and to visualize it on _rviz2_ in a superposition of the LaserScan. [Doc to create a PointCloud](https://docs.ros.org/en/iron/Releases/Release-Galactic-Geochelone.html#python-point-cloud2-utilities-available)
+
 
 _PointCloud_ is based on `geometry_msgs.Point32` with float coordinate.
 The creation of _Point32_ will require explicite cast.
