@@ -51,7 +51,7 @@
 
 ## Appendix
 
-* [FAQ](appendix/faq.md)
+* [F.A.Q](appendix/faq.md)
 * [Robot: Tbot](appendix/tbot.md)
 * [Simulation (ROS1)](appendix/simulation_ros1.md)
 
