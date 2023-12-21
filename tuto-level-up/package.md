@@ -114,6 +114,10 @@ if __name__ == '__main__':
     main()
 ```
 
+**ATTENTION**, The `#!/usr/bin/python3` in the first line is mandatory. 
+It indicate the interpreter processing the script.
+In fact, you have a executable program named `python3` in the location `/usr/bin`.
+
 ## Run your node:
 
 Build your packages, from your workspace directory, and update your shell environment with `source`.
@@ -134,7 +138,7 @@ Any modification in your script files would require a new `colcon build` for pro
 
 ## Exercice:
 
-1. Add the node developed into the tutorial "_move the robot_" into your package `tuto_kickoff` as a `move_tbot`s node. At the end, you will be capable of starting it with command: `ros2 run tuto_kickoff move_tbot`.
+1. Add the node developed into the tutorial "_move the robot_" into your package `tuto_kickoff` as a `move_tbot`s node. At the end, you will be capable of starting it with the command: `ros2 run tuto_kickoff move_tbot`.
 2. Add a launch file starting a gazebo simulation with the `move_tbot` node. At the end, you will be capable of launching gazebo, a robot, your control node with the command: `ros2 launch tuto_kickoff sim_move_launch.yaml`.
 
 
