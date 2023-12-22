@@ -111,7 +111,7 @@ The solution could be, for instance:
 class MSContext():
 
     def listener_callback(self, msg):
-        self.get_logger().info('I heard: "%s"' % msg.data)
+        self._node.get_logger().info('I heard: "%s"' % msg.data)
     
     def process(self)
         rclpy.init(args=args)
