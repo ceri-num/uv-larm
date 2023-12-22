@@ -152,4 +152,6 @@ aPoint.y= (float)(math.sin( angle ) * aDistance)
 aPoint.z= (float)(0)
 ```
 
+<!--
 - [Doc to create PointCloud](https://docs.ros.org/en/iron/Releases/Release-Galactic-Geochelone.html#python-point-cloud2-utilities-available)
+-->

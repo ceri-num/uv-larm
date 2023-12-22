@@ -169,7 +169,7 @@ class MPContext:
         self._node= Node()
         # Create a publisher
         self._publisher= self._node.create_publisher(String, 'topic', 10)
-        # Create a timer at 0.5 hertz, with a callback
+        # Create a timer at 2 hertz, with a callback
         self._timer = self._node.create_timer(0.5, self.timer_callback)
         # Go
         rclpy.spin(self._node)
