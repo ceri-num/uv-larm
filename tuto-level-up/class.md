@@ -108,7 +108,7 @@ one of the solutions, is to define initialize ros client only in the process met
 The solution could be, for instance:
 
 ```python
-class MSContext(Node):
+class MSContext():
 
     def listener_callback(self, msg):
         self.get_logger().info('I heard: "%s"' % msg.data)
