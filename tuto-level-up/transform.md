@@ -1,4 +1,4 @@
-# Move Forward
+# Move To
 
 The idea here is to develop a move strategy to permits a robot to reach positions successively, in a cluttered environment.
 To do that, the node subscribes to a topic `goals` to get a position to reach.
