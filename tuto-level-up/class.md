@@ -165,7 +165,7 @@ class MPContext:
         self.i += 1
 
     def process(self):
-        rclpy.init(args=args)
+        rclpy.init()
         self._node= Node()
         # Create a publisher
         self._publisher= self._node.create_publisher(String, 'topic', 10)
