@@ -2,7 +2,6 @@
 
 * [Introduction](README.md)
 
-
 ## Tuto. 01 - Kick-Off
 
 * [Starting with ROS](tuto-kick-off/ros-basics.md)
@@ -53,8 +52,9 @@
 
 * [F.A.Q](appendix/faq.md)
 * [Robot: Tbot](appendix/tbot.md)
+<!--
 * [Simulation (ROS1)](appendix/simulation_ros1.md)
-
+-->
 
 ## UV Projet
 
@@ -63,9 +63,9 @@
 * [Decision Making](projects/decision.md)
 * [Percive and Model](projects/perception.md)
 
+<!--
 ## Old.Challenge
 
-<!--
 * [treasure: Coke can](challenge/coke-can.md)
 * [Challenge 3](challenge/challenge-3.md)
 * [Agile development](challenge/agile-dev.md)

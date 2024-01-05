@@ -2,7 +2,9 @@
 
 ## To-do:
 
-- Everything in ROS2...
+- (LaserScan) Passer en PointCloud2 - proposer une correction.
+- Beautifull Nodes... Parameters and services...
+
 - Tutorials: Center on relevant tutorials (Node, Topic, Packages...)
 - ROS Tool: Presents extra tools with slides (Services Action...)
 - tbot: Integrate a cleaned version of kobuki_core...

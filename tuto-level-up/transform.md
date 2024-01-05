@@ -1,26 +1,33 @@
 # Move To
 
 The idea here is to develop a move strategy to permits a robot to reach positions successively, in a cluttered environment.
-To do that, the node subscribes to a topic `goals` to get a position to reach.
+To do that, the node subscribes to a topic `goals` to get in a position to reach.
 
+<!--
 This tutorial supposes that you perform the tutorial "[Move the Robot](1.2-move.md)".
 A correction is proposed on [tbot package](https://bitbucket.org/imt-mobisyst/mb6-tbot/src/master/tbot_pytools/tbot_pytools/reactive_move.py).
+-->
 
-The main difficulty here consists in following positioning kwoledge of the goals while the robot is moving.
+The main difficulty here, consists in following positioning kwoledge of the goals while the robot is moving.
+
 
 ## Record a goal position
 
 It supposes that you play with at least 2 frames.
-A local frame is attached to the robot and moving with it.
-A global frame permits to localize the local frame (and so the robot) in the environment.
+A local frame is attached to the robot and is moving with it.
+A global frame permits to localize the goal at a fixed position in the environement and the robot (i.e. the local frame).
 It supposes that your global frame is fixed in the environment.
+
+![](./frames.svg)
 
 Classically, we use the map frame for global referring system, but without map it is possible to use the `odom` (from robot odometer).
 The robot is defined with different frame: `base_link` at the gravity center of the robot. `base_footprint` as a projection of `base_link` on the floor.
 
+
 ### Understand frame and transformations
 
-By starting any sensor as the laser publishing data it its own frame, it would be impossible for _rviz2_ to display the information into `map` frame (_fixed frame_ into _global option_).
+By starting any sensor as the laser, the publishing data is in its own frame.
+It would be impossible for _rviz2_ to display the laser information into `map` frame (_fixed frame_).
 The `map` and `laser` frames are independent.
 
 Start the laser and rviz2:
@@ -33,6 +40,11 @@ rviz2
 ```
 
 In rviz, connect to scan topic, but nothing appears.
+Try by modifying the global frame with the frame of the laser.
+
+
+### Transform tools
+
 The package `tf2_tools` provides with a process that generates a graph of the connection between the frames.
 
 ```console
@@ -54,9 +66,14 @@ ros2 run tf2_ros static_transform_publisher 0 0 0 0 0 0 1 "map" "laser"
 
 You can validate with `view_frame` that the 2 frames ares connected and that laser scan are displayed in _rviz_.
 
-The first 3 numbers fix the translation. It is the potion of the `laser` center into `map`. The next 4 numbers give the rotation.
+The first 3 numbers fix the translation.
+It is the potion of the `laser` center into `map`. The next 4 numbers give the rotation.
+
 In fact, the publisher generates a [TransfromStamped mesage](https://docs.ros.org/en/jade/api/geometry_msgs/html/msg/TransformStamped.html) and the rotation is based on quaternion definition (cf. [wikipedia](https://en.wikipedia.org/wiki/Quaternions_and_spatial_rotation) for details...)
 Display the frames in _rviz2_ (add > axes > set reference frame) and play with different configurations (kill and restart the `static_transform_publisher`).
+
+
+### tbot configuration
 
 For a simple robot, it can be dozens of frames and it grows with robot parts (legs, arms).
 _ROS_ provide a tool (state publisher) to publish transform regarding how the frames are interconnected.
@@ -72,7 +89,8 @@ Connect to tf topic and all the frame axis appear too.
 
 - Oficial documentation about tf2: [docs.ros.org](https://docs.ros.org/en/iron/Tutorials/Intermediate/Tf2/Tf2-Main.html).
 
-Bonus: it is possible to visualize the robot in _rviz2_: add > robot description (select the approprieate topic).
+Bonus: it is possible to visualize the robot in _rviz2_: add > robot description (select the appropriate topic).
+
 
 ### Publish a pose in a specific frame.
 
@@ -85,38 +103,35 @@ More on : [wiki.ros.org](http://wiki.ros.org/tf2/Tutorials/Writing%20a%20tf2%20l
 
 The idea in our context is to develop a node `localGoal` that will remember a pose in a global frame and publish at a given frequence the pose in another local frame.
 
-In our new node class, first in the constructor we have to declare the elements permitting the node to listen and keep the transformation available, a `listerner` and a `buffer`.
+For our new node, we have to declare the elements permitting the node to listen and keep the transformation available, a `listerner` and a `buffer`.
 
 ```python
-class LocalGoal(Node):
-    def __init__(self):
-        super().__init__('goal_keeper')
-        # Transform tool:
-        self.tf_buffer = tf2_ros.Buffer()
-        self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
-        ...
+# Transform tool:
+self.tf_buffer = tf2_ros.Buffer()
+self.tf_listener = tf2_ros.TransformListener(self.tf_buffer, self)
+...
 ```
+
+Do not forget to import `tf2_ros` into your script and to add the reference into the package dependencies (`package.xml`).
 
 The node is also defined with it onw attrituts: for instance a target local frame, a goal pose (position orientation).
 
 ```python
-    def __init__(self):
-        ...
-        # Node Attribute:
-        self.local_frame= 'base_link'
-        self.global_goal= Pose()
-        self.global_goal.position.x= (float)(1)
-        self.global_goal.position.y= (float)(2)
-        ...
+...
+# Node Attribute:
+self.local_frame= 'base_link'
+self.global_goal= Pose()
+self.global_goal.position.x= (float)(1)
+self.global_goal.position.y= (float)(2)
+...
 ```
 
 And finally we require a timer with a callback function to publish continuously the goal pose.
 
 ```python
-    def __init__(self):
-        ...
-        # Local Goal Publisher:
-        self.create_timer(0.1, self.publish_goal)
+...
+node.create_timer(0.1, self.publish_goal)
+...
 ```
 
 We can now address the interesting question: _How to transform a position defined into a frame in another frame ?_
@@ -145,7 +160,7 @@ Finally, inside our `publish_goal` call back, getting a transform will look like
                         'odom',
                         currentTime)
         except (tf2_ros.LookupException, tf2_ros.ConnectivityException, tf2_ros.ExtrapolationException):TransformException as tex:
-            self.get_logger().info( f'Could not transform the goal into {self.local_frame}: {tex}')
+            self._node.get_logger().info( f'Could not transform the goal into {self.local_frame}: {tex}')
             return
         ...
 ```
@@ -170,9 +185,8 @@ sudo apt install python3-tf2-geometry-msgs
         ...
 ```
 
-It remainds to only publish the local goal and integrate it in our ros package.
 
-## Permit autonomous navigation
+## Permit Autonomous Navigation
 
 The goal poses itself is not interesting.
 The objective now is to include this code into the reactive move node in order to permits the robot to reach a decided destination, by avoiding obstacles.
@@ -183,7 +197,7 @@ The objective now is to include this code into the reactive move node in order t
 4. Stop the robot if it is close enough to the position.
 
 
-## Going further - Path following
+## Going Further - Path following
 
 Rather than a unique pose, it could be interesting to define a succession of pose to follow (a path).
 That for the reactive move has to manage a list of pose and switch from a pose to the next one each time it is expected.
