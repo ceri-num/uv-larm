@@ -15,11 +15,12 @@ In other words, the robot will go everywhere (i.e. the probability that the robo
 
 One first approach can be to develop a *ricochet robot* that changes its direction randomly each time an obstacle prevent the robot to move forward.
 
+
 ## consigns
 
 Each group commit the minimal required files in a specific `grp_'machine'` ros2 package inside their git repository.
 
-Release: **To be determined** <!-- **Monday afternoon of week-3** -->
+Release: **Monday afternoon of week-3 (Monday 15-01-2024)**
 
 ### The required files:
 
