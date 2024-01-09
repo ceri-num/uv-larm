@@ -103,7 +103,24 @@ Then, map can be saved using:
 
 Stop all nodes.
 
+1. Load map server
+```
+ros2 run nav2_map_server map_server --ros-args -p yaml_filename:=../map.yaml
+```
 
+2. Map server is a node with lifecycle, so let's activate another state
+
+```
+ros2 run nav2_util lifecycle_bringup map_server
+```
+3. Now, let's call the map loading service and git it the correct path to the map file
+
+```
+ros2 service call /map_server/load_map nav2_msgs/srv/LoadMap "{map_url: map.yaml}"
+```
+
+
+OLD solution:
 1. Re-launch the simulation
 
 2. Load nodes to load the map and localize the robot into this loaded map
@@ -115,6 +132,10 @@ ros2 launch slam_toolbox localization_launch.py map_file:=/home/bot/map.yaml
 ```
 
 3. Teleop the robot to see that it position is correctly updated
+
+
+
+
 
 
 # Bag files (`ros2 bag`)
