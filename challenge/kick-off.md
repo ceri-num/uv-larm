@@ -16,13 +16,13 @@ The main objectives of the project consist of:
 ![](https://cdn.myminifactory.com/assets/object-assets/579fca2a374fc/images/720X720-7a4418213f3ce580bb21f641c36650bd5eb8cdb3.jpg)
 
 Challenges are proposed to increase sequentially the complexity of the expected solution,
-but first the students have to structure their works environment... 
+but first the students have to structure their developping environment... 
 
 
 ## Create a group
 
 As a first move, you have to constitute a group of 2 developers.
-Record the created group on a shared document: [2022-2023 groups](https://partage.imt.fr/index.php/s/CJgSK6W8izdZKDi)
+Record the created group on a shared document: [2023-2024 groups](https://partage.imt.fr/index.php/s/CJgSK6W8izdZKDi).
 
 - Create on items in the enumerate list per groups
 - Record the name of the machine you use and the names of each member of the group. 
@@ -31,7 +31,7 @@ Record the created group on a shared document: [2022-2023 groups](https://partag
 
 ## Generate a working environment
 
-We ask each group to use `git` and share their work with professors through [github](https://github.com/) (because it is the reference) (or [gitlab](https://gitlab.com) at the student request because it is open).
+We ask each group to use `git` and share their work with professors through [github](https://github.com/) (because it is the reference) (or [gitlab](https://gitlab.com) at the student request, because it is open).
 
 Git is a versioning program working in a distributed way.
 "Git is software for tracking changes in any set of files, usually used for coordinating work among programmers collaboratively developing source code during software development." [Wikipedia-2021-12-6](https://en.wikipedia.org/wiki/Git).
@@ -44,12 +44,26 @@ To notice that `gitlab` is both an open solution you can deploy on your own serv
 For this lecture, you will use `github` or `gitlab.com`, no other solution would be accepted.
 
 - (Each of the developers) Create a github account.
-- (Each of the developers) Configure `ssh` access (each of the developers).
-   + https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh
-- (One of the developers) Create a new repository on `github` and invite your teammate. Choose a name referring the group (for instance `uvlarm-machinename`), the ideas is to propose a repository name clear but different from a group to another.
-- (Each of the developers) Clone locally 
+- (One of the developers) Create a new repository on `github` and invite your teammate. Choose a name referring the group (for instance `uvlarm-machinename`), the idea is to propose a repository name clear but different from a group to another.
+- (Each of the developers) Clone locally. In a termal: 
+
+```sh
+cd mb6-space
+git clone https://my.github.url/uvlarm-machinename.git
+```
+
 - (One of the developers) Invite the professor (or set your repository public) - github account: lozenguez LucFabresse bouraqadi SebAmb
-- (One of the developers) Reccord the url in the shared document: [2022-2023 groups](https://partage.imt.fr/index.php/s/zkQbXMsrWdp2RQd)
+- (One of the developers) Reccord the url in the shared document: (2023-2024 groups).
+
+You can then, work with visual studio code.
+By opening a the project `uv-larm-machinename`, _VSCode_ will recognise the git repository (i.e. the presence of hiden `.git` directory).
+_VSCode_ is also capable of managing a secure connection between your machine and github.
+
+```sh
+code uv-larm-machinename
+```
+
+Optionaly, you can configure `ssh` access: https://docs.github.com/en/authentication/connecting-to-github-with-ssh/about-ssh
 
 
 ### Initialize:
@@ -65,7 +79,7 @@ git clone github/uvlarm-machinename.git
 
 (One of the developers) Initialize a `README.md` file in Mardown at least with a simple tittle and refering the developers (cf. [Markdown syntax](https://fr.wikipedia.org/wiki/Markdown)):
 
-```console
+```sh
 echo "# grp-`machinename` repository for the UV-LARM" > README.md
 git add README.md
 ```
