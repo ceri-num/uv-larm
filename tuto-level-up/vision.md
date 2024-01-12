@@ -26,7 +26,7 @@ sudo apt install python3 pip
 Then we can use pip to install modules:
 
 ```bash
-pip3 install numpy tensorflow opencv-python opencv-contrib-python sklearn scipy matplotlib psutil scikit-image
+pip3 install numpy tensorflow opencv-python opencv-contrib-python scikit-learn scipy matplotlib psutil scikit-image
 ```
 
 Now normally you can load the different modules, for instance:
