@@ -40,6 +40,7 @@ Minimal:
 2. The robot behavior is safe (no collision with any obstacles)
 3. rviz2 is started and well configured.
 4. The robot moves everywhere in it environment.
+5. A `String` message is sent in a `detection` topic each time a bottle is front of the robot.
 
 Optional:
 
