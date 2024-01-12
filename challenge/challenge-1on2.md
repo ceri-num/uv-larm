@@ -44,8 +44,8 @@ Minimal:
 
 Optional:
 
-5. An operator can take the control of the robot at any time.
-6. The robot movement is fluid (no stop), fast and the robot moves smoothly even in small areas
+6. An operator can take the control of the robot at any time.
+7. The robot movement is fluid (no stop), fast and the robot moves smoothly even in small areas
 
 ## Evaluation protocol (for evaluators...)
 
