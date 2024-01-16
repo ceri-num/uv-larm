@@ -40,7 +40,7 @@
 
 * [Kick-off](challenge/kick-off.md)
 * [Challenge 1](challenge/challenge-1on2.md)
-* [Challenge 2](challenge/challenge-3on3.md)
+* [Challenge 2](challenge/challenge-2on2.md)
 
 <!--
 * [Challenge 1](challenge/challenge-1.md)
