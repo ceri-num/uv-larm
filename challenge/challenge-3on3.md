@@ -16,7 +16,7 @@ The robot detects _NukaCola_ bottle in the vision flux. A message is sent in a t
 
 Each group commit the minimal required files in a specific `grp_'machine'` ros2 package inside their git repository.
 
-Release: **Thursday morning of week-4**
+Release: **Monday of week-4**
 
 ### The required files:
 
@@ -34,13 +34,7 @@ Minimal:
 1. The group follows the consigns (i.e. the repository is presented as expected)
 2. The robot behavior is safe (no collision with any obstacles)
 3. rviz2 is started and well configured in a second PC and display the built map.
-4. It is possible to visualize a marker for detected bottles at the position of the bottle in the environment.
-
-Optional:
-
-5. The move strategy of the robot is efficient. The goal destination is wisely chosen and the trajectory to it is minimal.
-6. The bottles are identified and the robot is capable of recognizing a bottle on a second passage.
-
+4. It is possible to visualize a marker for detected bottles at the position of the bottle in the environment. The bottles are identified and the robot is capable of recognizing a bottle on a second passage (no duplicates).
 
 ## Evaluation protocol
 
