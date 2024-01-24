@@ -99,44 +99,29 @@ Then, map can be saved using:
 
 ``` -->
 
-# Load a map and Localize
+# Load a map and Localize in it
 
-Stop all nodes.
+To load a map and localize in it, you should:
 
-1. Load map server
-```
-ros2 run nav2_map_server map_server --ros-args -p yaml_filename:=../map.yaml
-```
-
-2. Map server is a node with lifecycle, so let's activate another state
+1. execute:
 
 ```
-ros2 run nav2_util lifecycle_bringup map_server
-```
-3. Now, let's call the map loading service and git it the correct path to the map file
-
-```
-ros2 service call /map_server/load_map nav2_msgs/srv/LoadMap "{map_url: map.yaml}"
+ros2 launch nav2_bringup localization_launch.py map:=~/map.yaml autostart:=True
 ```
 
+2. publish an approximate initial pose into the topic `/initialpose` (using rviz2 for example)
 
-OLD solution:
-1. Re-launch the simulation
+3. move the robot around (teleop or so) to improve the acuracy of the localization
 
-2. Load nodes to load the map and localize the robot into this loaded map
+# Load a map and Localize in it __in simulation__
 
-<!-- ros2 launch nav2_bringup localization_launch.py map:=/home/bot/map.yaml -->
+Same steps as above but the time is simulated:
 
-```console
-ros2 launch slam_toolbox localization_launch.py map_file:=/home/bot/map.yaml
 ```
+ros2 launch nav2_bringup localization_launch.py map:=~/map.yaml autostart:=True use_sim_time:=True
 
-3. Teleop the robot to see that it position is correctly updated
-
-
-
-
-
+rviz2 --ros-args --remap use_sim_time:=True
+```
 
 # Bag files (`ros2 bag`)
 
