@@ -74,7 +74,7 @@ Then, send goal points into `/goal_pose` (use rviz2)
 # Save the Map
 
 ```console
-ros2 run nav2_map_server map_saver_cli -f ~/map
+ros2 run nav2_map_server map_saver_cli -f /home/bot/map
 ```
 
 > Sometimes this command produces a timeout. This is because it listens to the `map` topic no map is received during a certain amount of time and we cannot extend this delay...
@@ -106,7 +106,7 @@ To load a map and localize in it, you should:
 1. execute:
 
 ```
-ros2 launch nav2_bringup localization_launch.py map:=~/map.yaml autostart:=True
+ros2 launch nav2_bringup localization_launch.py map:=/home/bot/map.yaml autostart:=True
 ```
 
 2. publish an approximate initial pose into the topic `/initialpose` (using rviz2 for example)
@@ -118,7 +118,7 @@ ros2 launch nav2_bringup localization_launch.py map:=~/map.yaml autostart:=True
 Same steps as above but the time is simulated:
 
 ```
-ros2 launch nav2_bringup localization_launch.py map:=~/map.yaml autostart:=True use_sim_time:=True
+ros2 launch nav2_bringup localization_launch.py map:=/home/bot/map.yaml autostart:=True use_sim_time:=True
 
 rviz2 --ros-args --remap use_sim_time:=True
 ```
