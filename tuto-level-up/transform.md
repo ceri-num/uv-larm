@@ -176,12 +176,8 @@ sudo apt install python3-tf2-geometry-msgs
 ```python
     def publish_goal(self):
         ...
-        # Compute goal in local coordinates
-        stampedGoal= PoseStamped()
-        stampedGoal.pose= self.global_goal
-        stampedGoal.header.frame_id= 'odom'
-        stampedGoal.header.stamp= currentTime
-        localGoal = tf2_geometry_msgs.do_transform_pose( stampedGoal, stampedTransform )
+        # Compute goal into local coordinates
+        localGoal = tf2_geometry_msgs.do_transform_pose( self.global_goal, stampedTransform )
         ...
 ```
 
